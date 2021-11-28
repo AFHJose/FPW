@@ -51,7 +51,7 @@ if($conexion)
 }
 else
 {
-    echo "error de conexion";
+    echo "Error de conexion";
 }
 
 
