@@ -1,0 +1,298 @@
+CSS LAYOUT
+
+    NORMAL FLOW
+
+        comportamiento por defecto del html, en orden secuencial, arriba primero 
+
+        bloque: un elemento abajo de otro <div></div>, block direction arriba-abajo
+
+        linea: un elemento al lado de otro <span></span>, inline direction izquierda-derecha 
+
+        position permite bloquear un elemento al tope del navegador, ideal para menu de navegacion 
+
+    DISPLAY PROPERTY
+
+        forma en la que organizan los elementos respecto a otros y a la caja que los contiene, todos los elementos 
+        tienen un valor por defecto de block o inline 
+
+        valores mas relevantes: block, inline, grid, flex 
+
+    FLEXBOX 
+
+        flexible box layout css module, util para ordenar cosas en una sola dimension
+
+        comienza con display: flex en el elemento padre o contenedor de los elementos a organizar 
+
+        normalmente se le pone una clase llamada wrapper al elemento padre 
+
+        todo elemento dentro del wrapper se convierte en un flex item con los valores por defecto que esto implica 
+
+        flex = 1 lleva a que todos los elementos se repartan el espacio disponible y se expandan hasta llenar todo el contenedor,
+        esta es una propiedad de un flex item 
+
+        ponerle al wrap display=flex lo establece como flex container y a sus hijos como flex items 
+
+        el elemento flex container actua como un block element respecto al resto de la pagina 
+
+        flexbox afecta a los items al interior del flex container
+
+        flexbox funciona con dos ejes, MAIN AXIS Y CROSS AXIS 
+
+        MAIN: main start, main end , eje principal 
+
+        CROSS: cross start, cross end, eje secundario 
+
+        cada FLEX ITEM tiene un ancho y un alto, dados por MAIN SIZE y CROSS SIZE 
+
+        FLEX-DIRECTION: define la direccion y el sentido del eje principal, por defecto es ROW, es decir 
+            horizontal de izquierda a derecha 
+
+            valores:
+
+                ROW : horizontal
+
+                ROW-REVERSE : horizontal invertido
+
+                COLUMN : vertical
+
+                COLUMN-REVERSE : vertical invertido
+
+        FLEX-WRAP: permite lidiar con el overflow, 
+
+            valores: 
+
+                nowrap: los elementos son forzados a estar todos en la misma fila o columna 
+
+                wrap: los elementos pasan al proxima fila o columna cuando se acaba el espacio 
+
+                wrap-reverse: cambia el orden en el cual se apilan los elementos cuando sobrepasan el espacio disponible 
+
+        FLEX-FLOW: shorthand de flex-direction y flex-wrap 
+
+            flex-flow: row wrap 
+
+        FLEX SIZING 
+
+            la proporcion del espacio disponible que toma cada flex item 
+
+            FLEX: 1; esta propiedad dicta cuanto espacio va a ocupar cada item dentro del MAIN AXIS 
+
+                flex es similar a FR el tamaño que va a ocupar un flex item va a ser su valor de flex dividido por la suma de todos 
+                los valores flex 
+
+                es posible poner un segundo valor de tamaño minimo para un flex item 
+
+                FLEX: 1(proporcion adimensional) 200px(tamaño minimo)
+
+                FLEX es en realidad un shorthand de flex-grow (proporcion adimensional), flex-shink(proporcion adimensional de cuanto de puede
+                    comprimir un objeto para evitar el overflow),flex-basis(tamaño minimo)
+
+        ALIGN-ITEMS: espaciado y posicion en el eje secundario 
+
+        JUSTIFY-CONTENT: espaciado y posicion del eje principal 
+
+CSS CASCADE AND INHERITANCE
+
+    CASCADA: cuando tenemos dos reglas con el mismo nivel de especificidad, la ultima regla sobrescribe a todas las anteriores 
+
+    SPECIFICITY: es una medida de jerarquia sobre reglas a aplicar basada en cuan especifica es la regla 
+
+    HERENCIA: los elementos de css heredan algunos valores de sus elementos padres 
+
+        control sobre la herencia 
+
+        inherit, hace que la propiedad en cuestion adopte el valor de la misma propiedad en el elemento padre 
+
+        all: permite resetar todos los valores, adminte inherit, unset, initial y revert 
+
+    jerarquia de reglas:
+
+        1- Orden de la fuente: a mismo peso, se aplica la ultima regla en la lista 
+
+        2- Especificidad: existe un valor numerico que permiten comparar selectores y determinar cual tiene prioridad, mayor valor gana 
+
+                1- Miles: inline styles, estilos aplicados mediante el atributo style
+                2- Cientos: un punto por cada ID dentro del selector 
+                3- Decenas: un punto por cada clase, pseudo-clase o atributo en el selector 
+                4- Unidades: un punto por cada elemento o pseudo-elemento en el selector 
+
+        3- Importancia: !important en el atributo se saltea todas las reglas de especificidad y cascada 
+
+CSS VALUES AND UNITS:
+
+    VALUE: diferentes maneras soportadas de expresar el valor de un atributo, como por ejemplo; keyword o funcion para color:
+
+        color: black;
+
+        color: rgb(255,0,255);
+
+    tipos de valores:
+
+        interger : enteros 
+
+        number: decimales 
+
+        dimension: numero + unidad 
+
+        porcentaje: numero + %, relativo a otra unidad 
+
+    LONGITUDES:
+
+        ABSOLUTAS:
+
+            cm: centimetro
+
+            mm: milimetro
+
+            Q: cuarto de milimetro
+
+            in: pulgada 
+
+            pc: picas 
+
+            pt: puntos 
+
+            px: pixeles 
+
+            el unico valor relevante para mostrar contenido en pantalla es pixeles, el resto se utilizan para impresiones 
+
+        RELATIVAS:
+
+            em: tamaño de la fuente del padre en el caso de cuestiones tipograficas o 
+                tamaño de la fuente del elemento mismo en todo otro caso, util para contenedores de texto 
+
+            ex: x*altura de la fuente del elemento 
+
+            ch: ancho del 0 en la fuente 
+
+            rem: tamaño de la fuente del elemento raiz 
+
+            lh: line height del elemento 
+
+            vw: 1% del ancho del viewport / pantalla 
+
+            vh: 1% del alto del viewport / pantalla
+
+            vmin: 1% de la minima dimension del viewport / pantalla
+
+            vmax: 1% de la maxima dimension del viewport / pantalla
+
+        PORCENTAJES:
+
+            si ponemos un valor como porcentaje este va tomar el valor del elemento padre con la modificacion apropiada 
+
+            width: 50%; significa que el ancho de este elemento va a ser el 50% del ancho del elemento padre 
+
+
+RESPONSIVE DESIGN
+
+    adaptar el diseño de la pagina a las caracteristicas especificas del dispositivo, es un enfoque de diseño no una tecnologia en 
+    especifico
+
+    utilizar javascript para detectar el dispositivo, metodo de acceso, tamaño del viewport y cargar el css apropiado 
+
+    tres pilares:
+
+    1- Fluid grids: layout adaptable
+
+    2- Fluid images: max-width: 100%, tamaño de imagen adaptable o carga de diferentes imagenes
+
+    3- Media query: permiten obtener informacion del dispositivo desde el CSS sin tener que utilizar JS 
+
+    MEDIA QUERIES:
+
+        son pruebas que resultan en valores de verdadero o falso, respecto a la naturaleza del dispositivo en que 
+        se muestra la pagina 
+
+        breakpoint: punto donde existe una media querie y cambia el layout de la pagina 
+
+        el metodo basico es tener un diseño de una columna para dispositivos moviles y luego mediante media queries agregar mas columnas 
+        segun el dispositivo lo permita, en base al ancho del mismo, a este tipo de diseño se lo llama MOVILE FIRST DESIGN 
+
+        en HTML se pueden poner preguntas en el atributo MEDIA para saber si se debe aplicar algo, un link, elegir una src, un style 
+
+        en JS se utiliza Window.matchMedia() para comprobar una condicion y MediaQueryList.addListener() para detectar un cambio en una 
+        configuracion 
+
+
+    FLEXIBLE GRIDS:
+
+        a partir de los breakpoints se cambia el layout, pero dentro de un rango entre dos breakpoint tambien hay variaciones en los 
+        valores de las grids en base a porcentajes, los breakpoint se eligen en los valores extremos cuando los diseños se ven mal y 
+        hay que agregar o remover elementos
+
+    MODERN LAYOUT TECHNIQUES:
+
+        MULTICOL:
+
+            se utiliza column-count y column-width(minimo) para estructurar la pagina en columnas cuyo tamaño lo determina el navegador 
+
+        FLEXBOX:
+
+            los elementos se reparten el espacio disponible segun las reglas de flexbox y la propiedad flex
+
+        CSS GRID:
+
+            los elementos ajustan su tamaño en base a proporciones del espacio disponible definidas por la unidad fr
+
+        RESPONSIVE IMG:
+
+            utilizar <picture> o srcset y sizes de <img> 
+
+        RESPONSIVE TYPOGRAPHY 
+
+            html {
+            font-size: 1em;
+            }
+
+            h1 {
+            font-size: 2rem;
+            }
+
+            @media (min-width: 1200px) {
+            h1 {
+                font-size: 4rem;
+            }
+            }
+
+            sobre escribir una regla si la pantalla tiene al menos 1200px de ancho 
+
+            NO UTILIZAR VW PARA TEXTO, ESTO ELIMINA LA CAPACIDAD DEL USUARIO DE AGRANDAR LA LETRA HACIENDO ZOOM 
+
+        VIEWPORT META TAG 
+
+            <meta name="viewport" content="width=device-width,initial-scale=1">
+
+            obliga a los navegadores moviles a revelar el tamaño de pantalla real y tener la escala en 100% 
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+            
+
+
+
+
+
+
+
+
+
+

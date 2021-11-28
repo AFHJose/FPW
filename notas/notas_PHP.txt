@@ -1,0 +1,2104 @@
+PHP is a server scripting language, and a powerful tool for making dynamic and interactive Web pages
+
+What is a PHP File?
+
+PHP files can contain text, HTML, CSS, JavaScript, and PHP code
+PHP code is executed on the server, and the result is returned to the browser as plain HTML
+PHP files have extension ".php"
+
+A PHP script is executed on the server, and the plain HTML result is sent back to the browser.
+
+Sintax
+
+<?php
+// PHP code goes here
+?>
+
+
+A PHP file normally contains HTML tags, and some PHP scripting code.
+
+ejemplo
+
+    <!DOCTYPE html>
+    <html>
+    <body>
+
+    <h1>My first PHP page</h1>
+
+    <?php
+    echo "Hello World!";
+    ?>
+
+    </body>
+    </html>
+
+
+PHP statements end with a semicolon (;)
+
+
+In PHP, keywords (e.g. if, else, while, echo, etc.), classes, functions, and user-defined functions are not case-sensitive.
+
+However; all variable names are case-sensitive!
+
+Comentarios 
+
+una linea: // o #
+
+multi linea: /* */
+
+PHP Variables
+
+In PHP, a variable starts with the $ sign, followed by the name of the variable:
+
+<?php
+$txt = "Hello world!";
+$x = 5;
+$y = 10.5;
+?>
+
+
+rules for variables:
+
+A variable starts with the $ sign, followed by the name of the variable
+A variable name must start with a letter or the underscore character
+A variable name cannot start with a number
+A variable name can only contain alpha-numeric characters and underscores (A-z, 0-9, and _ )
+Variable names are case-sensitive ($age and $AGE are two different variables)
+
+<?php
+$txt = "W3Schools.com";
+echo "I love $txt!";
+?>
+
+<?php
+$txt = "W3Schools.com";
+echo "I love " . $txt . "!";
+?>
+
+<?php
+$x = 5;
+$y = 4;
+echo $x + $y;
+?>
+
+PHP Variables Scope
+
+A variable declared outside a function has a GLOBAL SCOPE and can only be accessed outside a function
+
+<?php
+$x = 5; // global scope
+
+function myTest() {
+  // using x inside this function will generate an error
+  echo "<p>Variable x inside function is: $x</p>";
+}
+myTest();
+
+echo "<p>Variable x outside function is: $x</p>";
+?>
+
+A variable declared within a function has a LOCAL SCOPE and can only be accessed within that function:
+
+<?php
+function myTest() {
+  $x = 5; // local scope
+  echo "<p>Variable x inside function is: $x</p>";
+}
+myTest();
+
+// using x outside the function will generate an error
+echo "<p>Variable x outside function is: $x</p>";
+?>
+
+
+The global keyword is used to access a global variable from within a function.
+
+<?php
+$x = 5;
+$y = 10;
+
+function myTest() {
+  global $x, $y;
+  $y = $x + $y;
+}
+
+myTest();
+echo $y; // outputs 15
+?>
+
+PHP also stores all global variables in an array called $GLOBALS[index]. The index holds the name of the variable. 
+This array is also accessible from within functions and can be used to update global variables directly.
+
+<?php
+$x = 5;
+$y = 10;
+
+function myTest() {
+  $GLOBALS['y'] = $GLOBALS['x'] + $GLOBALS['y'];
+}
+
+myTest();
+echo $y; // outputs 15
+?>
+
+Normally, when a function is completed/executed, all of its variables are deleted. 
+However, sometimes we want a local variable NOT to be deleted. We need it for a further job.
+
+To do this, use the static keyword when you first declare the variable
+
+<?php
+function myTest() {
+  static $x = 0;
+  echo $x;
+  $x++;
+}
+
+myTest(); //0
+myTest();//1
+myTest();//2
+?>
+
+The variable is still local to the function.
+
+PHP echo and print
+
+echo and print are more or less the same. They are both used to output data to the screen.
+
+The differences are small: 
+echo has no return value while print has a return value of 1 so it can be used in expressions. 
+echo can take multiple parameters (although such usage is rare) 
+while print can take one argument. echo is marginally faster than print.
+
+The PHP echo Statement
+
+The echo statement can be used with or without parentheses: echo or echo().
+
+<?php
+echo "<h2>PHP is Fun!</h2>";
+echo "Hello world!<br>";
+echo "I'm about to learn PHP!<br>";
+echo "This ", "string ", "was ", "made ", "with multiple parameters.";
+?>
+
+<?php
+$txt1 = "Learn PHP";
+$txt2 = "W3Schools.com";
+$x = 5;
+$y = 4;
+
+echo "<h2>" . $txt1 . "</h2>";
+echo "Study PHP at " . $txt2 . "<br>";
+echo $x + $y;
+?>
+
+The PHP print Statement
+
+The print statement can be used with or without parentheses: print or print().
+
+
+<?php
+print "<h2>PHP is Fun!</h2>";
+print "Hello world!<br>";
+print "I'm about to learn PHP!";
+?>
+
+
+<?php
+$txt1 = "Learn PHP";
+$txt2 = "W3Schools.com";
+$x = 5;
+$y = 4;
+
+print "<h2>" . $txt1 . "</h2>";
+print "Study PHP at " . $txt2 . "<br>";
+print $x + $y;
+?>
+
+
+PHP Data Types
+
+String
+
+    <?php
+    $x = "Hello world!";
+    $y = 'Hello world!';
+
+    echo $x;
+    echo "<br>";
+    echo $y;
+    ?>
+
+Integer
+
+    An integer data type is a non-decimal number between -2,147,483,648 and 2,147,483,647.
+
+    An integer must have at least one digit
+    An integer must not have a decimal point
+    An integer can be either positive or negative
+    Integers can be specified in: decimal (base 10), hexadecimal (base 16), octal (base 8), or binary (base 2) notation
+
+    The PHP var_dump() function returns the data type and value
+
+Float (floating point numbers - also called double)
+
+    A float (floating point number) is a number with a decimal point or a number in exponential form.
+
+Boolean
+
+    A Boolean represents two possible states: TRUE or FALSE
+
+Array
+
+    An array stores multiple values in one single variable.
+
+    <?php
+    $cars = array("Volvo","BMW","Toyota");
+    var_dump($cars);
+    ?>
+
+    array(3) {
+    [0]=>
+    string(5) "Volvo"
+    [1]=>
+    string(3) "BMW"
+    [2]=>
+    string(6) "Toyota"
+    }
+
+Object
+
+    modelo clase objeto
+
+    <?php
+    class Car {
+    public $color;
+    public $model;
+    public function __construct($color, $model) {
+        $this->color = $color;
+        $this->model = $model;
+    }
+    public function message() {
+        return "My car is a " . $this->color . " " . $this->model . "!";
+    }
+    }
+
+    $myCar = new Car("black", "Volvo");
+    echo $myCar -> message();
+    echo "<br>";
+    $myCar = new Car("red", "Toyota");
+    echo $myCar -> message();
+    ?>
+
+NULL
+
+    A variable of data type NULL is a variable that has no value assigned to it.
+
+    <?php
+    $x = "Hello world!";
+    $x = null;
+    var_dump($x);
+    ?>
+
+Resource
+
+    The special resource type is not an actual data type. 
+    It is the storing of a reference to functions and resources external to PHP.
+
+    A common example of using the resource data type is a database call.
+
+PHP String Functions
+
+The PHP strlen() function returns the length of a string.
+
+    <?php
+    echo strlen("Hello world!"); // outputs 12
+    ?>
+
+The PHP str_word_count() function counts the number of words in a string.
+
+    <?php
+    echo str_word_count("Hello world!"); // outputs 2
+    ?>
+
+The PHP strrev() function reverses a string.
+
+    <?php
+    echo strrev("Hello world!"); // outputs !dlrow olleH
+    ?>
+
+The PHP strpos() function searches for a specific text within a string. 
+If a match is found, the function returns the character position of the first match. 
+If no match is found, it will return FALSE.
+
+    <?php
+    echo strpos("Hello world!", "world"); // outputs 6
+    ?>
+
+The first character position in a string is 0 (not 1).
+
+The PHP str_replace() function replaces some characters with some other characters in a string.
+
+    <?php
+    echo str_replace("world", "Dolly", "Hello world!"); // outputs Hello Dolly!
+    ?>
+
+PHP Numbers
+
+One thing to notice about PHP is that it provides automatic data type conversion.
+
+So, if you assign an integer value to a variable, the type of that variable will automatically be an integer. 
+Then, if you assign a string to the same variable, the type will change to a string.
+
+PHP Integers
+
+    Another important thing to know is that even if 4 * 2.5 is 10, 
+    the result is stored as float, because one of the operands is a float (2.5).
+
+    maneras de controlar si un valor es un entero 
+
+    is_int()
+    is_integer() - alias of is_int()
+    is_long() - alias of is_int()
+
+PHP Floats
+
+    maneras de controlar si es un float
+
+    is_float()
+    is_double() - alias of is_float()
+
+PHP Infinity
+
+    A numeric value that is larger than PHP_FLOAT_MAX is considered infinite.
+
+    maneras de controlar si tenemos un infinito
+
+    is_finite()
+    is_infinite()
+
+PHP NaN
+
+    NaN stands for Not a Number.
+
+    se utiliza para operaciones matematicas fallidas
+
+    is_nan() permite saber si la op fallo y tenemos un nan guardado en la var 
+
+PHP Numerical Strings
+
+    The PHP is_numeric() function can be used to find whether a variable is numeric.
+    The function returns true if the variable is a number or a numeric string, false otherwise.
+
+    <?php
+    $x = 5985;
+    var_dump(is_numeric($x)); true
+
+    $x = "5985";
+    var_dump(is_numeric($x)); true
+
+    $x = "59.85" + 100; resulta en un float 159.85
+    var_dump(is_numeric($x)); true
+
+    $x = "Hello";
+    var_dump(is_numeric($x)); false
+    ?>
+
+
+PHP Casting Strings and Floats to Integers
+
+    Sometimes you need to cast a numerical value into another data type.
+
+    The (int), (integer), or intval() function are often used to convert a value to an integer.
+
+    <?php
+    // Cast float to int
+    $x = 23465.768;
+    $int_cast = (int)$x;
+    echo $int_cast;
+
+    echo "<br>";
+
+    // Cast string to int
+    $x = "23465.768";
+    $int_cast = (int)$x;
+    echo $int_cast;
+    ?>
+
+    el efecto de este cast es un truncate 
+
+PHP Math
+
+    The pi() function returns the value of PI
+
+    The min() and max() functions can be used to find the lowest or highest value in a list of arguments:
+
+        <?php
+        echo(min(0, 150, 30, 20, -8, -200));  // returns -200
+        echo(max(0, 150, 30, 20, -8, -200));  // returns 150
+        ?>
+
+    The abs() function returns the absolute (positive) value of a number:
+
+        <?php
+        echo(abs(-6.7));  // returns 6.7
+        ?>
+
+    The sqrt() function returns the square root of a number:
+
+        <?php
+        echo(sqrt(64));  // returns 8
+        ?>
+
+    The round() function rounds a floating-point number to its nearest integer:
+
+        <?php
+        echo(round(0.60));  // returns 1
+        echo(round(0.49));  // returns 0
+        ?>
+
+    The rand() function generates a random number:
+
+        <?php
+        echo(rand());
+        ?>
+
+        <?php
+        echo(rand(10, 100)); podemos darle un rango, incluye los extremos 
+        ?>
+
+PHP Constants
+
+Constants are like variables except that once they are defined they cannot be changed or undefined.
+
+A constant is an identifier (name) for a simple value. The value cannot be changed during the script.
+
+A valid constant name starts with a letter or underscore (no $ sign before the constant name).
+
+To create a constant, use the define() function.
+
+define(name, value, case-insensitive)
+
+name: Specifies the name of the constant
+value: Specifies the value of the constant
+case-insensitive: Specifies whether the constant name should be case-insensitive. Default is false
+
+<?php
+define("GREETING", "Welcome to W3Schools.com!", true); case-insensitive
+echo greeting; 
+?>
+
+<?php
+define("GREETING", "Welcome to W3Schools.com!"); case sensitive
+echo GREETING;
+?>
+
+PHP Constant Arrays
+
+In PHP7, you can create an Array constant using the define() function.
+
+<?php
+define("cars", [
+  "Alfa Romeo",
+  "BMW",
+  "Toyota"
+]);
+echo cars[0];
+?>
+
+Constants are automatically global and can be used across the entire script.
+
+<?php
+define("GREETING", "Welcome to W3Schools.com!");
+
+function myTest() {
+  echo GREETING;
+}
+ 
+myTest();
+?>
+
+PHP Operators
+
+PHP Arithmetic Operators
+
+    +	Addition            	$x + $y	Sum of $x and $y	
+    -	Subtraction         	$x - $y	Difference of $x and $y	
+    *	Multiplication          $x * $y	Product of $x and $y	
+    /	Division            	$x / $y	Quotient of $x and $y	
+    %	Modulus         	    $x % $y	Remainder of $x divided by $y	
+    **	Exponentiation          $x ** $y Result of raising $x to the $y'th power
+
+PHP Assignment Operators
+
+    x = y	x = y	The left operand gets set to the value of the expression on the right	
+    x += y	x = x + y	Addition	
+    x -= y	x = x - y	Subtraction	
+    x *= y	x = x * y	Multiplication	
+    x /= y	x = x / y	Division	
+    x %= y	x = x % y	Modulus
+
+PHP Comparison Operators
+
+    ==	Equal	$x == $y	Returns true if $x is equal to $y	
+    ===	Identical	$x === $y	Returns true if $x is equal to $y, and they are of the same type	
+    !=	Not equal	$x != $y	Returns true if $x is not equal to $y	
+    <>	Not equal	$x <> $y	Returns true if $x is not equal to $y	
+    !==	Not identical	$x !== $y	Returns true if $x is not equal to $y, or they are not of the same type	
+    >	Greater than	$x > $y	Returns true if $x is greater than $y	
+    <	Less than	$x < $y	Returns true if $x is less than $y	
+    >=	Greater than or equal to	$x >= $y	Returns true if $x is greater than or equal to $y	
+    <=	Less than or equal to	$x <= $y	Returns true if $x is less than or equal to $y	
+    <=>	Spaceship	$x <=> $y	Returns an integer less than, equal to, or greater than zero, 
+    depending on if $x is less than, equal to, or greater than $y. Introduced in PHP 7.
+
+PHP Increment / Decrement Operators
+
+    ++$x	Pre-increment	Increments $x by one, then returns $x	
+    $x++	Post-increment	Returns $x, then increments $x by one	
+    --$x	Pre-decrement	Decrements $x by one, then returns $x	
+    $x--	Post-decrement	Returns $x, then decrements $x by one
+
+PHP Logical Operators
+
+    and	    And	    $x and $y	True if both $x and $y are true	
+    or	    Or	    $x or $y	True if either $x or $y is true	
+    xor	    Xor	    $x xor $y	True if either $x or $y is true, but not both	
+    &&	    And	    $x && $y	True if both $x and $y are true	
+    ||	    Or	    $x || $y	True if either $x or $y is true	
+    !	    Not	    !$x	        True if $x is not true
+
+PHP String Operators
+
+    .	Concatenation	$txt1 . $txt2	Concatenation of $txt1 and $txt2	
+    .=	Concatenation assignment	$txt1 .= $txt2	Appends $txt2 to $txt1
+
+PHP Array Operators
+
+    +	    Union	        $x + $y	    Union of $x and $y	
+    ==	    Equality	    $x == $y	Returns true if $x and $y have the same key/value pairs	
+    ===	    Identity	    $x === $y	Returns true if $x and $y have the same key/value pairs in the same order and of the same types	
+    !=	    Inequality	    $x != $y	Returns true if $x is not equal to $y	
+    <>	    Inequality	    $x <> $y	Returns true if $x is not equal to $y	
+    !==	    Non-identity	$x !== $y	Returns true if $x is not identical to $y
+
+PHP Conditional Assignment Operators
+
+    ?:	Ternary	$x = expr1 ? expr2 : expr3  
+    
+        Returns the value of $x. 
+        The value of $x is expr2 if expr1 = TRUE. 
+        The value of $x is expr3 if expr1 = FALSE
+
+    ??	Null coalescing	$x = expr1 ?? expr2
+
+        Returns the value of $x.
+        The value of $x is expr1 if expr1 exists, and is not NULL.
+        If expr1 does not exist, or is NULL, the value of $x is expr2.
+        Introduced in PHP 7
+
+PHP if...else...elseif Statements
+
+    if (condition) {
+    code to be executed if condition is true;
+    }
+
+    if (condition) {
+    code to be executed if condition is true;
+    } else {
+    code to be executed if condition is false;
+    }
+
+    if (condition) {
+    code to be executed if this condition is true;
+    } elseif (condition) {
+    code to be executed if first condition is false and this condition is true;
+    } else {
+    code to be executed if all conditions are false;
+    }
+
+    switch (n) {
+    case label1:
+        code to be executed if n=label1;
+        break;
+    case label2:
+        code to be executed if n=label2;
+        break;
+    case label3:
+        code to be executed if n=label3;
+        break;
+        ...
+    default:
+        code to be executed if n is different from all labels;
+    }
+
+    <?php
+    $favcolor = "red";
+
+    switch ($favcolor) {
+    case "red":
+        echo "Your favorite color is red!";
+        break;
+    case "blue":
+        echo "Your favorite color is blue!";
+        break;
+    case "green":
+        echo "Your favorite color is green!";
+        break;
+    default:
+        echo "Your favorite color is neither red, blue, nor green!";
+    }
+    ?>
+
+PHP Loops
+
+    while (condition is true) {
+    code to be executed;
+    }
+
+    do {
+    code to be executed;
+    } while (condition is true);
+
+    for (init counter; test counter; increment counter) {
+    code to be executed for each iteration;
+    }
+
+    <?php
+    for ($x = 0; $x <= 10; $x++) {
+    echo "The number is: $x <br>";
+    }
+    ?>
+
+    <?php
+    for ($x = 0; $x <= 100; $x+=10) {
+    echo "The number is: $x <br>";
+    }
+    ?>
+
+    The foreach loop - Loops through a block of code for each element in an array.
+
+    foreach ($array as $value) {
+    code to be executed;
+    }
+
+    <?php
+    $colors = array("red", "green", "blue", "yellow");
+
+    foreach ($colors as $value) {
+    echo "$value <br>";
+    }
+    ?>
+
+    <?php
+    $age = array("Peter"=>"35", "Ben"=>"37", "Joe"=>"43");
+
+    foreach($age as $x => $val) {
+    echo "$x = $val<br>";
+    }
+    ?>
+
+    The break statement can also be used to jump out of a loop.
+
+    <?php
+    for ($x = 0; $x < 10; $x++) {
+    if ($x == 4) {
+        break;
+    }
+    echo "The number is: $x <br>";
+    }
+    ?>
+
+    The continue statement breaks one iteration (in the loop), 
+    if a specified condition occurs, and continues with the next iteration in the loop.
+
+    <?php
+    for ($x = 0; $x < 10; $x++) {
+    if ($x == 4) {
+        continue;
+    }
+    echo "The number is: $x <br>";
+    }
+    ?>
+
+PHP Functions
+
+    PHP has more than 1000 built-in functions, and in addition you can create your own custom functions.
+
+    function functionName() {
+    code to be executed;
+    }
+
+    A function name must start with a letter or an underscore. Function names are NOT case-sensitive.
+
+    <?php
+    function familyName($fname) {
+    echo "$fname Refsnes.<br>";
+    }
+
+    familyName("Jani");
+    familyName("Hege");
+    familyName("Stale");
+    familyName("Kai Jim");
+    familyName("Borge");
+    ?>
+
+    <?php
+    function familyName($fname, $year) {
+    echo "$fname Refsnes. Born in $year <br>";
+    }
+
+    familyName("Hege", "1975");
+    familyName("Stale", "1978");
+    familyName("Kai Jim", "1983");
+    ?>
+
+    es posible especificar los tipos de las variables para evitar errores por conversion automatica 
+
+    <?php declare(strict_types=1); // strict requirement
+
+    function addNumbers(int $a, int $b) {
+    return $a + $b;
+    }
+    echo addNumbers(5, "5 days");
+    // since strict is enabled and "5 days" is not an integer, an error will be thrown
+    ?>
+
+    To specify strict we need to set declare(strict_types=1);. This must be on the very first line of the PHP file.
+
+    valores por defecto para un parametro:
+
+    <?php declare(strict_types=1); // strict requirement
+    function setHeight(int $minheight = 50) {
+    echo "The height is : $minheight <br>";
+    }
+
+    setHeight(350);
+    setHeight(); // will use the default value of 50
+    setHeight(135);
+    setHeight(80);
+    ?>
+
+    To let a function return a value, use the return statement:
+
+    <?php declare(strict_types=1); // strict requirement
+    function sum(int $x, int $y) {
+    $z = $x + $y;
+    return $z;
+    }
+
+    echo "5 + 10 = " . sum(5, 10) . "<br>";
+    echo "7 + 13 = " . sum(7, 13) . "<br>";
+    echo "2 + 4 = " . sum(2, 4);
+    ?>
+
+    PHP 7 also supports Type Declarations for the return statement. 
+    Like with the type declaration for function arguments, 
+    by enabling the strict requirement, it will throw a "Fatal Error" on a type mismatch.
+
+    <?php declare(strict_types=1); // strict requirement
+    function addNumbers(float $a, float $b) : float {
+    return $a + $b;
+    }
+    echo addNumbers(1.2, 5.2);
+    ?>
+
+    Passing Arguments by Reference
+
+    In PHP, arguments are usually passed by value, which means that a copy of the value is used
+    in the function and the variable that was passed into the function cannot be changed.
+
+    When a function argument is passed by reference, changes to the argument also 
+    change the variable that was passed in. 
+    To turn a function argument into a reference, the & operator is used:
+
+    <?php
+    function add_five(&$value) {
+    $value += 5;
+    }
+
+    $num = 2;
+    add_five($num);
+    echo $num;
+    ?>
+
+PHP Arrays
+
+    <?php
+    $cars = array("Volvo", "BMW", "Toyota");
+    echo "I like " . $cars[0] . ", " . $cars[1] . " and " . $cars[2] . ".";
+    ?>
+
+    In PHP, the array() function is used to create an array:
+
+    The count() function is used to return the length (the number of elements) of an array:
+
+    PHP Indexed Arrays
+
+        $cars = array("Volvo", "BMW", "Toyota");
+
+        $cars[0] = "Volvo";
+        $cars[1] = "BMW";
+        $cars[2] = "Toyota";
+
+        <?php
+        $cars = array("Volvo", "BMW", "Toyota");
+        echo "I like " . $cars[0] . ", " . $cars[1] . " and " . $cars[2] . ".";
+        ?>
+
+        <?php
+        $cars = array("Volvo", "BMW", "Toyota");
+        $arrlength = count($cars);
+
+        for($x = 0; $x < $arrlength; $x++) {
+        echo $cars[$x];
+        echo "<br>";
+        }
+        ?>
+
+    PHP Associative Arrays
+
+        Associative arrays are arrays that use named keys that you assign to them.
+
+        hay dos maneras de crear un array de este tipo
+
+        $age = array("Peter"=>"35", "Ben"=>"37", "Joe"=>"43");
+
+        $age['Peter'] = "35";
+        $age['Ben'] = "37";
+        $age['Joe'] = "43";
+
+        <?php
+        $age = array("Peter"=>"35", "Ben"=>"37", "Joe"=>"43");
+        echo "Peter is " . $age['Peter'] . " years old.";
+        ?>
+
+        recorrer un array asociativo:
+
+        <?php
+        $age = array("Peter"=>"35", "Ben"=>"37", "Joe"=>"43");
+
+        foreach($age as $x => $x_value) {
+        echo "Key=" . $x . ", Value=" . $x_value;
+        echo "<br>";
+        }
+        ?>
+
+    PHP Multidimensional Arrays
+
+        A multidimensional array is an array containing one or more arrays.
+
+        The dimension of an array indicates the number of indices you need to select an element.
+
+        $cars = array (
+        array("Volvo",22,18),
+        array("BMW",15,13),
+        array("Saab",5,2),
+        array("Land Rover",17,15)
+        );
+
+        <?php
+        echo $cars[0][0].": In stock: ".$cars[0][1].", sold: ".$cars[0][2].".<br>";
+        echo $cars[1][0].": In stock: ".$cars[1][1].", sold: ".$cars[1][2].".<br>";
+        echo $cars[2][0].": In stock: ".$cars[2][1].", sold: ".$cars[2][2].".<br>";
+        echo $cars[3][0].": In stock: ".$cars[3][1].", sold: ".$cars[3][2].".<br>";
+        ?>
+
+        <?php
+        for ($row = 0; $row < 4; $row++) {
+        echo "<p><b>Row number $row</b></p>";
+        echo "<ul>";
+        for ($col = 0; $col < 3; $col++) {
+            echo "<li>".$cars[$row][$col]."</li>";
+        }
+        echo "</ul>";
+        }
+        ?>
+
+    PHP Sorting Arrays
+
+        The elements in an array can be sorted in alphabetical or numerical order, descending or ascending.
+
+        Sort Array in Ascending Order - sort()
+
+            <?php
+            $cars = array("Volvo", "BMW", "Toyota");
+            sort($cars);
+            ?>
+
+            <?php
+            $numbers = array(4, 6, 2, 22, 11);
+            sort($numbers);
+            ?>
+        
+        Sort Array in Descending Order - rsort()
+
+            <?php
+            $cars = array("Volvo", "BMW", "Toyota");
+            rsort($cars);
+            ?>
+
+            <?php
+            $numbers = array(4, 6, 2, 22, 11);
+            rsort($numbers);
+            ?>
+
+        Sort Array (Ascending Order), According to Value - asort()
+
+            ordena por valor, recordar que tenemos KEY=>VALUE pairs como elementos
+
+            <?php
+            $age = array("Peter"=>"35", "Ben"=>"37", "Joe"=>"43");
+            asort($age);
+            ?>
+
+        Sort Array (Ascending Order), According to Key - ksort()
+
+            ordena por clave/llave, recordar que tenemos KEY=>VALUE pairs como elementos
+
+            <?php
+            $age = array("Peter"=>"35", "Ben"=>"37", "Joe"=>"43");
+            ksort($age);
+            ?>
+
+        Sort Array (Descending Order), According to Value - arsort()
+
+            <?php
+            $age = array("Peter"=>"35", "Ben"=>"37", "Joe"=>"43");
+            arsort($age);
+            ?>
+
+        Sort Array (Descending Order), According to Key - krsort()
+
+            <?php
+            $age = array("Peter"=>"35", "Ben"=>"37", "Joe"=>"43");
+            krsort($age);
+            ?>
+
+PHP Global Variables - Superglobals
+
+    variables que estan disponibles todo el tiempo en un programa de PHP
+     
+    PHP stores all global variables in an array called $GLOBALS[index]. The index holds the name of the variable.
+
+        <?php
+        $x = 75;
+        $y = 25;
+        
+        function addition() {
+        $GLOBALS['z'] = $GLOBALS['x'] + $GLOBALS['y'];
+        }
+        
+        addition();
+        echo $z;
+        ?>
+
+    $_SERVER is a PHP super global variable which holds information about headers, paths, and script locations.
+
+        <?php
+        echo $_SERVER['PHP_SELF'];
+        echo "<br>";
+        echo $_SERVER['SERVER_NAME'];
+        echo "<br>";
+        echo $_SERVER['HTTP_HOST'];
+        echo "<br>";
+        echo $_SERVER['HTTP_REFERER'];
+        echo "<br>";
+        echo $_SERVER['HTTP_USER_AGENT'];
+        echo "<br>";
+        echo $_SERVER['SCRIPT_NAME'];
+        ?>
+
+    PHP $_REQUEST is a PHP super global variable which is used to collect data after submitting an HTML form.
+
+        <html>
+        <body>
+
+        <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+        Name: <input type="text" name="fname">
+        <input type="submit">
+        </form>
+
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // collect value of input field
+        $name = $_REQUEST['fname'];
+        if (empty($name)) {
+            echo "Name is empty";
+        } else {
+            echo $name;
+        }
+        }
+        ?>
+
+        </body>
+        </html>
+
+    PHP $_POST is a PHP super global variable which is used to collect form data after 
+    submitting an HTML form with method="post".
+    $_POST is also widely used to pass variables.
+
+        <html>
+        <body>
+
+        <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+        Name: <input type="text" name="fname">
+        <input type="submit">
+        </form>
+
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // collect value of input field
+        $name = $_POST['fname'];
+        if (empty($name)) {
+            echo "Name is empty";
+        } else {
+            echo $name;
+        }
+        }
+        ?>
+
+        </body>
+        </html>
+
+    PHP $_GET is a PHP super global variable which is used to collect form data after submitting an HTML form with method="get".
+
+        $_GET can also collect data sent in the URL.
+
+        <html>
+        <body>
+
+        <a href="test_get.php?subject=PHP&web=W3schools.com">Test $GET</a>
+
+        </body>
+        </html>
+
+        When a user clicks on the link "Test $GET", the parameters "subject" and "web" are sent to "test_get.php", 
+        and you can then access their values in "test_get.php" with $_GET.
+
+        <html>
+        <body>
+
+        <?php
+        echo "Study " . $_GET['subject'] . " at " . $_GET['web'];
+        ?>
+
+        </body>
+        </html>
+
+PHP Regular Expressions
+
+    A regular expression is a sequence of characters that forms a search pattern. 
+    When you search for data in a text, you can use this search pattern to describe what you are searching for.
+
+    In PHP, regular expressions are strings composed of delimiters, a pattern and optional modifiers.
+
+    $exp = "/w3schools/i";
+
+    In the example above, / is the delimiter, w3schools is the pattern that is being searched for, 
+    and i is a modifier that makes the search case-insensitive.
+
+    The delimiter can be any character that is not a letter, number, backslash or space. 
+    The most common delimiter is the forward slash (/), 
+    but when your pattern contains forward slashes it is convenient to choose other delimiters such as # or ~.
+
+    Regular Expression Functions
+
+        preg_match()	Returns 1 if the pattern was found in the string and 0 if not
+
+            <?php
+            $str = "Visit W3Schools";
+            $pattern = "/w3schools/i";
+            echo preg_match($pattern, $str); // Outputs 1
+            ?>
+
+        preg_match_all()	Returns the number of times the pattern was found in the string, which may also be 0
+
+            <?php
+            $str = "The rain in SPAIN falls mainly on the plains.";
+            $pattern = "/ain/i";
+            echo preg_match_all($pattern, $str); // Outputs 4
+            ?>
+
+        preg_replace()	Returns a new string where matched patterns have been replaced with another string
+            
+            <?php
+            $str = "Visit Microsoft!";
+            $pattern = "/microsoft/i";
+            echo preg_replace($pattern, "W3Schools", $str); // Outputs "Visit W3Schools!"
+            ?>
+
+    Regular Expression Modifiers
+
+        i	Performs a case-insensitive search
+        m	Performs a multiline search (patterns that search for the beginning or end of a string will match the beginning or end of each line)
+        u	Enables correct matching of UTF-8 encoded patterns
+
+    Regular Expression Patterns
+
+        [abc]	Find one character from the options between the brackets
+        [^abc]	Find any character NOT between the brackets
+        [0-9]	Find one character from the range 0 to 9
+
+    Metacharacters
+
+        |	Find a match for any one of the patterns separated by | as in: cat|dog|fish
+        .	Find just one instance of any character
+        ^	Finds a match as the beginning of a string as in: ^Hello
+        $	Finds a match at the end of the string as in: World$
+        \d	Find a digit
+        \s	Find a whitespace character
+        \b	Find a match at the beginning of a word like this: \bWORD, or at the end of a word like this: WORD\b
+        \uxxxx	Find the Unicode character specified by the hexadecimal number xxxx
+
+
+    Quantifiers
+
+        n+	Matches any string that contains at least one n
+        n*	Matches any string that contains zero or more occurrences of n
+        n?	Matches any string that contains zero or one occurrences of n
+        n{x}	Matches any string that contains a sequence of X n's
+        n{x,y}	Matches any string that contains a sequence of X to Y n's
+        n{x,}	Matches any string that contains a sequence of at least X n's
+
+    f your expression needs to search for one of the special characters you can use a backslash ( \ ) to escape them.
+    For example, to search for one or more question marks you can use the following expression: $pattern = '/\?+/';
+
+    You can use parentheses ( ) to apply quantifiers to entire patterns. 
+    They also can be used to select parts of the pattern to be used as a match.
+
+    <?php
+    $str = "Apples and bananas.";
+    $pattern = "/ba(na){2}/i";
+    echo preg_match($pattern, $str); // Outputs 1
+    ?>
+
+
+PHP Form Handling
+
+    The PHP superglobals $_GET and $_POST are used to collect form-data.
+
+    <html>
+    <body>
+
+    <form action="welcome.php" method="post">
+    Name: <input type="text" name="name"><br>
+    E-mail: <input type="text" name="email"><br>
+    <input type="submit">
+    </form>
+
+    </body>
+    </html>
+
+    When the user fills out the form above and clicks the submit button, 
+    the form data is sent for processing to a PHP file named "welcome.php". 
+    The form data is sent with the HTTP POST method.
+
+    welcome.php:
+
+    <html>
+    <body>
+
+    Welcome <?php echo $_POST["name"]; ?><br>
+    Your email address is: <?php echo $_POST["email"]; ?>
+
+    </body>
+    </html>
+
+    ejemplo con get:
+
+    <html>
+    <body>
+
+    <form action="welcome_get.php" method="get">
+    Name: <input type="text" name="name"><br>
+    E-mail: <input type="text" name="email"><br>
+    <input type="submit">
+    </form>
+
+    </body>
+    </html>
+
+    <html>
+    <body>
+
+    Welcome <?php echo $_GET["name"]; ?><br>
+    Your email address is: <?php echo $_GET["email"]; ?>
+
+    </body>
+    </html>
+
+    The code above is quite simple. 
+    However, the most important thing is missing. 
+    You need to validate form data to protect your script from malicious code.
+
+    GET vs. POST
+
+        Both GET and POST create an array (e.g. array( key1 => value1, key2 => value2, key3 => value3, ...)). 
+        This array holds key/value pairs, where keys are the names of the form controls and 
+        values are the input data from the user.
+
+        Both GET and POST are treated as $_GET and $_POST. These are superglobals, which means that they are always accessible, 
+        regardless of scope - and you can access them from any function, class or file without having to do anything special.
+
+        $_GET is an array of variables passed to the current script via the URL parameters.
+
+        $_POST is an array of variables passed to the current script via the HTTP POST method.
+
+    When to use GET?
+
+        GET may be used for sending non-sensitive data. the data is visible to everyone 
+
+        GET should NEVER be used for sending passwords or other sensitive information!
+
+        GET also has limits on the amount of information to send. The limitation is about 2000 characters.
+
+    When to use POST?
+
+        Information sent from a form with the POST method is invisible to others 
+        (all names/values are embedded within the body of the HTTP request)
+
+        has no limits on the amount of information to send.
+
+        Developers prefer POST for sending form data.
+
+PHP Form Validation
+
+    $_SERVER["PHP_SELF"] exploits can be avoided by using the htmlspecialchars() function.
+
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+
+    resulta en :
+
+    <form method="post" action="test_form.php/&quot;&gt;&lt;script&gt;alert('hacked')&lt;/script&gt;">
+
+    en vez de:
+
+    <form method="post" action="test_form.php/"><script>alert('hacked')</script>
+
+    We will also do two more things when the user submits the form:
+
+        Strip unnecessary characters (extra space, tab, newline) from the user input data (with the PHP trim() function)
+        Remove backslashes (\) from the user input data (with the PHP stripslashes() function)
+
+    <?php
+    // define variables and set to empty values
+    $name = $email = $gender = $comment = $website = "";
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = test_input($_POST["name"]);
+    $email = test_input($_POST["email"]);
+    $website = test_input($_POST["website"]);
+    $comment = test_input($_POST["comment"]);
+    $gender = test_input($_POST["gender"]);
+    }
+
+    function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+    }
+    ?>
+
+    Notice that at the start of the script, we check whether the form has been submitted 
+    using $_SERVER["REQUEST_METHOD"]. If the REQUEST_METHOD is POST, 
+    then the form has been submitted - and it should be validated. 
+    If it has not been submitted, skip the validation and display a blank form.
+
+PHP - Required Fields
+
+    PHP empty() function controla si una variable no tiene un valor asignado 
+
+    <?php
+    // define variables and set to empty values
+    $nameErr = $emailErr = $genderErr = $websiteErr = "";
+    $name = $email = $gender = $comment = $website = "";
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (empty($_POST["name"])) {
+        $nameErr = "Name is required";
+    } else {
+        $name = test_input($_POST["name"]);
+    }
+
+    if (empty($_POST["email"])) {
+        $emailErr = "Email is required";
+    } else {
+        $email = test_input($_POST["email"]);
+    }
+
+    if (empty($_POST["website"])) {
+        $website = "";
+    } else {
+        $website = test_input($_POST["website"]);
+    }
+
+    if (empty($_POST["comment"])) {
+        $comment = "";
+    } else {
+        $comment = test_input($_POST["comment"]);
+    }
+
+    if (empty($_POST["gender"])) {
+        $genderErr = "Gender is required";
+    } else {
+        $gender = test_input($_POST["gender"]);
+    }
+    }
+    ?>
+
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+
+    Name: <input type="text" name="name">
+    <span class="error">* <?php echo $nameErr;?></span>
+    <br><br>
+    E-mail:
+    <input type="text" name="email">
+    <span class="error">* <?php echo $emailErr;?></span>
+    <br><br>
+    Website:
+    <input type="text" name="website">
+    <span class="error"><?php echo $websiteErr;?></span>
+    <br><br>
+    Comment: <textarea name="comment" rows="5" cols="40"></textarea>
+    <br><br>
+    Gender:
+    <input type="radio" name="gender" value="female">Female
+    <input type="radio" name="gender" value="male">Male
+    <input type="radio" name="gender" value="other">Other
+    <span class="error">* <?php echo $genderErr;?></span>
+    <br><br>
+    <input type="submit" name="submit" value="Submit">
+
+    </form>
+
+    recordar que estos codigos funcionan con el php y el html en la misma pagina 
+
+PHP - Validate Name
+
+    validacion de inputs server side con REGEXP
+
+    $name = test_input($_POST["name"]);
+
+    if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
+    $nameErr = "Only letters and white space allowed";
+    }
+
+PHP - Validate E-mail
+
+    $email = test_input($_POST["email"]);
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $emailErr = "Invalid email format";
+    }
+
+PHP - Validate URL
+
+    $website = test_input($_POST["website"]);
+    if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$website)) {
+    $websiteErr = "Invalid URL";
+    }
+
+PHP and JSON
+
+    JSON stands for JavaScript Object Notation, and is a syntax for storing and exchanging data.
+
+    Since the JSON format is a text-based format, 
+    it can easily be sent to and from a server, 
+    and used as a data format by any programming language.
+
+    PHP has some built-in functions to handle JSON.
+
+    json_encode()
+
+        The json_encode() function is used to encode a value to JSON format.
+
+        <?php
+        $age = array("Peter"=>35, "Ben"=>37, "Joe"=>43);
+
+        echo json_encode($age);
+        ?>
+
+        resulta en: {"Peter":35,"Ben":37,"Joe":43}
+
+        <?php
+        $cars = array("Volvo", "BMW", "Toyota");
+
+        echo json_encode($cars);
+        ?>
+
+        resulta en: ["Volvo","BMW","Toyota"]
+
+    json_decode()
+
+        The json_decode() function is used to decode a JSON object into a PHP object or an associative array.
+
+        <?php
+        $jsonobj = '{"Peter":35,"Ben":37,"Joe":43}';
+
+        var_dump(json_decode($jsonobj));
+        ?>
+
+        resulta en: object(stdClass)#1 (3) { ["Peter"]=> int(35) ["Ben"]=> int(37) ["Joe"]=> int(43) }
+
+        The json_decode() function returns an object by default. 
+        The json_decode() function has a second parameter, and when set to true, 
+        JSON objects are decoded into associative arrays.
+
+        <?php
+        $jsonobj = '{"Peter":35,"Ben":37,"Joe":43}';
+
+        var_dump(json_decode($jsonobj, true));
+        ?>
+
+        resulta en: array(3) { ["Peter"]=> int(35) ["Ben"]=> int(37) ["Joe"]=> int(43) }
+
+    PHP - Accessing the Decoded Values
+
+        <?php
+        $jsonobj = '{"Peter":35,"Ben":37,"Joe":43}';
+
+        $obj = json_decode($jsonobj);
+
+        echo $obj->Peter;
+        echo $obj->Ben;
+        echo $obj->Joe;
+        ?>
+
+        <?php
+        $jsonobj = '{"Peter":35,"Ben":37,"Joe":43}';
+
+        $arr = json_decode($jsonobj, true);
+
+        echo $arr["Peter"];
+        echo $arr["Ben"];
+        echo $arr["Joe"];
+        ?>
+
+    PHP - Looping Through the Values
+
+        <?php
+        $jsonobj = '{"Peter":35,"Ben":37,"Joe":43}';
+
+        $obj = json_decode($jsonobj);
+
+        foreach($obj as $key => $value) {
+        echo $key . " => " . $value . "<br>";
+        }
+        ?>
+
+        <?php
+        $jsonobj = '{"Peter":35,"Ben":37,"Joe":43}';
+
+        $arr = json_decode($jsonobj, true);
+
+        foreach($arr as $key => $value) {
+        echo $key . " => " . $value . "<br>";
+        }
+        ?>
+
+PHP MySQL Database
+
+    With PHP, you can connect to and manipulate databases.
+
+    A query is a question or a request.
+
+    We can query a database for specific information and have a recordset returned.
+
+    PHP 5 and later can work with a MySQL database using:
+
+    MySQLi extension (the "i" stands for improved)
+    PDO (PHP Data Objects)
+
+    Both support Prepared Statements. 
+    Prepared Statements protect from SQL injection,
+    and are very important for web application security.
+
+    PDO will work on 12 different database systems, 
+    whereas MySQLi will only work with MySQL databases.
+
+    tres maneras de trabajar con PHP y MYSQL 
+
+    MySQLi (object-oriented)
+    MySQLi (procedural)
+    PDO
+
+    Open a Connection to MySQL
+
+        Example (MySQLi Object-Oriented)
+
+        <?php
+        $servername = "localhost";
+        $username = "username";
+        $password = "password";
+
+        // Create connection
+        $conn = new mysqli($servername, $username, $password);
+
+        // Check connection
+        if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+        }
+        echo "Connected successfully";
+        ?>
+
+        Example (MySQLi Procedural)
+
+        <?php
+        $servername = "localhost";
+        $username = "username";
+        $password = "password";
+
+        // Create connection
+        $conn = mysqli_connect($servername, $username, $password);
+
+        // Check connection
+        if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+        }
+        echo "Connected successfully";
+        ?>
+
+        Example (PDO)
+
+        <?php
+        $servername = "localhost";
+        $username = "username";
+        $password = "password";
+
+        try {
+        $conn = new PDO("mysql:host=$servername;dbname=myDB", $username, $password);
+        // set the PDO error mode to exception
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        echo "Connected successfully";
+        } catch(PDOException $e) {
+        echo "Connection failed: " . $e->getMessage();
+        }
+        ?>
+
+        The connection will be closed automatically when the script ends. 
+        To close the connection before, use the following:
+
+        MySQLi Object-Oriented:
+
+        $conn->close();
+
+        MySQLi Procedural:
+
+        mysqli_close($conn);
+
+        PDO:
+
+        $conn = null;
+
+    PHP Create a MySQL Database
+
+        // Create database
+        $sql = "CREATE DATABASE myDB";
+        if ($conn->query($sql) === TRUE) {
+        echo "Database created successfully";
+        } else {
+        echo "Error creating database: " . $conn->error;
+        }
+
+    PHP MySQL Create Table
+
+        // sql to create table
+        $sql = "CREATE TABLE MyGuests (
+        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        firstname VARCHAR(30) NOT NULL,
+        lastname VARCHAR(30) NOT NULL,
+        email VARCHAR(50),
+        reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+        )";
+
+        if ($conn->query($sql) === TRUE) {
+        echo "Table MyGuests created successfully";
+        } else {
+        echo "Error creating table: " . $conn->error;
+        }
+
+    PHP MySQL Insert Data
+
+        The SQL query must be quoted in PHP
+        String values inside the SQL query must be quoted
+        Numeric values must not be quoted
+        The word NULL must not be quoted
+
+        $sql = "INSERT INTO MyGuests (firstname, lastname, email)
+        VALUES ('John', 'Doe', 'john@example.com')";
+
+        if ($conn->query($sql) === TRUE) {
+        echo "New record created successfully";
+        } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+
+    PHP MySQL Get Last Inserted ID
+
+        If we perform an INSERT or UPDATE on a table with an AUTO_INCREMENT field, 
+        we can get the ID of the last inserted/updated record immediately.
+
+        $sql = "INSERT INTO MyGuests (firstname, lastname, email)
+        VALUES ('John', 'Doe', 'john@example.com')";
+
+        if ($conn->query($sql) === TRUE) {
+        $last_id = $conn->insert_id;
+        echo "New record created successfully. Last inserted ID is: " . $last_id;
+        } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+
+    PHP MySQL Insert Multiple Records
+
+        Multiple SQL statements must be executed with the mysqli_multi_query() function.
+
+        $sql = "INSERT INTO MyGuests (firstname, lastname, email)
+        VALUES ('John', 'Doe', 'john@example.com');";
+        $sql .= "INSERT INTO MyGuests (firstname, lastname, email)
+        VALUES ('Mary', 'Moe', 'mary@example.com');";
+        $sql .= "INSERT INTO MyGuests (firstname, lastname, email)
+        VALUES ('Julie', 'Dooley', 'julie@example.com')";
+
+        if ($conn->multi_query($sql) === TRUE) {
+        echo "New records created successfully";
+        } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+
+        Note that each SQL statement must be separated by a semicolon.
+
+    PHP MySQL Prepared Statements
+
+        A prepared statement is a feature used to execute the same 
+        (or similar) SQL statements repeatedly with high efficiency.
+
+        protege en contra de los ataques con injenccion de codigo y ademas mejora 
+        la eficiencia de operaciones repetidas
+
+        // prepare and bind
+        $stmt = $conn->prepare("INSERT INTO MyGuests (firstname, lastname, email) VALUES (?, ?, ?)");
+        $stmt->bind_param("sss", $firstname, $lastname, $email);
+
+        // set parameters and execute
+        $firstname = "John";
+        $lastname = "Doe";
+        $email = "john@example.com";
+        $stmt->execute();
+
+        $firstname = "Mary";
+        $lastname = "Moe";
+        $email = "mary@example.com";
+        $stmt->execute();
+
+        $firstname = "Julie";
+        $lastname = "Dooley";
+        $email = "julie@example.com";
+        $stmt->execute();
+
+        echo "New records created successfully";
+
+        $stmt->close();
+
+        $stmt->bind_param("sss", $firstname, $lastname, $email);
+        
+        This function binds the parameters to the SQL query and tells the database what the parameters are. 
+        The "sss" argument lists the types of data that the parameters are. 
+        The s character tells mysql that the parameter is a string.
+
+        The argument may be one of four types:
+
+        i - integer
+        d - double
+        s - string
+        b - BLOB
+
+        We must have one of these for each parameter.
+
+    PHP MySQL Select Data
+
+        $sql = "SELECT id, firstname, lastname FROM MyGuests";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+        }
+        } else {
+        echo "0 results";
+        }
+
+        PHP mysqli fetch_assoc() Function
+
+            Fetch a result row as an associative array:
+
+            $mysqli_result -> fetch_assoc()	
+            
+            Returns an associative array of strings representing the fetched row. NULL if there are no more rows in result-set
+
+            Then, the function num_rows() checks if there are more than zero rows returned.
+
+    PHP MySQL Use The WHERE Clause
+
+        $sql = "SELECT id, firstname, lastname FROM MyGuests WHERE lastname='Doe'";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+        }
+        } else {
+        echo "0 results";
+        }
+
+    PHP MySQL Use The ORDER BY Clause
+
+        $sql = "SELECT id, firstname, lastname FROM MyGuests ORDER BY lastname";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+        }
+        } else {
+        echo "0 results";
+        }
+
+    PHP MySQL Delete Data
+
+        // sql to delete a record
+        $sql = "DELETE FROM MyGuests WHERE id=3";
+
+        if ($conn->query($sql) === TRUE) {
+        echo "Record deleted successfully";
+        } else {
+        echo "Error deleting record: " . $conn->error;
+        }
+
+        Notice the WHERE clause in the DELETE syntax
+
+    PHP MySQL Update Data
+
+        $sql = "UPDATE MyGuests SET lastname='Doe' WHERE id=2";
+
+        if ($conn->query($sql) === TRUE) {
+        echo "Record updated successfully";
+        } else {
+        echo "Error updating record: " . $conn->error;
+        }
+        
+        Notice the WHERE clause in the UPDATE syntax
+
+    PHP MySQL Limit Data Selections
+
+        MySQL provides a LIMIT clause that is used to specify the number of records to return.
+
+        Assume we wish to select all records from 1 - 30 (inclusive) from a table called "Orders". 
+        The SQL query would then look like this:
+
+        $sql = "SELECT * FROM Orders LIMIT 30";
+
+        What if we want to select records 16 - 25 (inclusive)?
+
+        Mysql also provides a way to handle this: by using OFFSET.
+
+        The SQL query below says "return only 10 records, start on record 16 (OFFSET 15)":
+
+        $sql = "SELECT * FROM Orders LIMIT 10 OFFSET 15";
+
+PHP - AJAX
+
+    AJAX is about updating parts of a web page, without reloading the whole page.
+
+    AJAX = Asynchronous JavaScript and XML.
+
+    AJAX is a technique for creating fast and dynamic web pages.
+
+    AJAX is based on internet standards, and uses a combination of:
+
+        XMLHttpRequest object (to exchange data asynchronously with a server)
+        JavaScript/DOM (to display/interact with the information)
+        CSS (to style the data)
+        XML (often used as the format for transferring data)
+
+    un ejemplo del uso de ajax es mandar letra por letra lo que un usuario escribe en un buscador para entregar predicciones 
+    de texto, como un autocompletar 
+
+    JavaScript:
+
+        function showHint(str) {
+        if (str.length == 0) {
+            document.getElementById("txtHint").innerHTML = "";
+            return;
+        } else {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+            }
+            };
+            xmlhttp.open("GET", "gethint.php?q=" + str, true);
+            xmlhttp.send();
+        }
+        }
+
+    HTML:
+
+        <p><b>Start typing a name in the input field below:</b></p>
+        <form action="">
+        <label for="fname">First name:</label>
+        <input type="text" id="fname" name="fname" onkeyup="showHint(this.value)">
+        </form>
+        <p>Suggestions: <span id="txtHint"></span></p>
+
+    se utilizan los eventos del DOM para activar funciones que hacen los pedidos por http al server a un 
+    archivo PHP que busca los datos en la DB 
+
+    pasos en caso de tener datos en el campo:
+
+        Create an XMLHttpRequest object
+        Create the function to be executed when the server response is ready
+        Send the request off to a PHP file (gethint.php) on the server
+        Notice that q parameter is added to the url (gethint.php?q="+str)
+        And the str variable holds the content of the input field
+
+
+    PHP:
+        tengo un array de nombres
+                
+        // get the q parameter from URL
+        $q = $_REQUEST["q"];
+
+        $hint = "";
+
+        // lookup all hints from array if $q is different from ""
+        if ($q !== "") {
+        $q = strtolower($q);
+        $len=strlen($q);
+        foreach($a as $name) {
+            if (stristr($q, substr($name, 0, $len))) {
+            if ($hint === "") {
+                $hint = $name;
+            } else {
+                $hint .= ", $name";
+            }
+            }
+        }
+        }
+
+        // Output "no suggestion" if no hint was found or output correct values
+        echo $hint === "" ? "no suggestion" : $hint;
+
+    AJAX Database Example
+        
+        evento en html dispara 
+        una funcion de JS crea un mensaje http y lo manda al sv donde lo procesa un php
+        PHP opens a connection to a MySQL server
+        The correct person is found
+        An HTML table is created, filled with data, and sent back to the "txtHint" placeholder  
+        luego el JS recibe los datos y los agrega a la pagina mediante el DOM 
+
+JS AJAX
+
+    AJAX just uses a combination of:
+
+    A browser built-in XMLHttpRequest object (to request data from a web server)
+    JavaScript and HTML DOM (to display or use the data)
+
+    1. An event occurs in a web page (the page is loaded, a button is clicked)
+    2. An XMLHttpRequest object is created by JavaScript
+    3. The XMLHttpRequest object sends a request to a web server
+    4. The server processes the request
+    5. The server sends a response back to the web page
+    6. The response is read by JavaScript
+    7. Proper action (like page update) is performed by JavaScript
+
+    AJAX - The XMLHttpRequest Object
+
+        The keystone of AJAX is the XMLHttpRequest object.
+
+        Syntax for creating an XMLHttpRequest object:
+
+            variable = new XMLHttpRequest();
+
+            var xhttp = new XMLHttpRequest();
+
+        Access Across Domains
+
+            For security reasons, modern browsers do not allow access across domains.
+
+            This means that both the web page and the XML file it tries to load, must be located on the same server.
+
+        Modern Browsers (Fetch API)
+
+            Modern Browsers can use Fetch API instead of the XMLHttpRequest Object.
+
+            The Fetch API interface allows web browser to make HTTP requests to web servers.
+
+            If you use the XMLHttpRequest Object, Fetch can do the same in a simpler way.
+
+        XMLHttpRequest Object Methods
+
+            new XMLHttpRequest()	Creates a new XMLHttpRequest object
+
+            abort()	Cancels the current request
+
+            getAllResponseHeaders()	Returns header information
+
+            getResponseHeader()	Returns specific header information
+
+            open(method, url, async, user, psw)             Specifies the request
+
+                                                            method: the request type GET or POST
+                                                            url: the file location
+                                                            async: true (asynchronous) or false (synchronous)
+                                                            user: optional user name
+                                                            psw: optional password
+
+            send()              Sends the request to the server
+                                Used for GET requests
+
+            send(string)     	Sends the request to the server.
+                                Used for POST requests
+
+            setRequestHeader()	Adds a label/value pair to the header to be sent
+
+        XMLHttpRequest Object Properties
+
+            onreadystatechange	Defines a function to be called when the readyState property changes
+
+            readyState          Holds the status of the XMLHttpRequest.
+                                0: request not initialized
+                                1: server connection established
+                                2: request received
+                                3: processing request
+                                4: request finished and response is ready
+
+            responseText	Returns the response data as a string
+
+            responseXML	        Returns the response data as XML data
+
+            status              Returns the status-number of a request
+                                200: "OK"
+                                403: "Forbidden"
+                                404: "Not Found"
+
+            statusText	Returns the status-text (e.g. "OK" or "Not Found")
+
+    AJAX - Send a Request To a Server
+
+        The XMLHttpRequest object is used to exchange data with a server.
+
+        To send a request to a server, we use the open() and send() methods of the XMLHttpRequest object:
+
+            xhttp.open("GET", "ajax_info.txt", true);
+            xhttp.send();
+
+        If you want to send information with the GET method, add the information to the URL:
+
+            xhttp.open("GET", "demo_get2.asp?fname=Henry&lname=Ford", true);
+            xhttp.send();
+
+        To POST data like an HTML form, add an HTTP header with setRequestHeader(). 
+        Specify the data you want to send in the send() method:
+
+            xhttp.open("POST", "ajax_test.asp", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("fname=Henry&lname=Ford");
+
+        The onreadystatechange Property
+
+            With the XMLHttpRequest object you can define a function to be executed when the request receives an answer.
+
+            The function is defined in the onreadystatechange property of the XMLHttpRequest object:
+
+                xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("demo").innerHTML = this.responseText;
+                }
+                };
+                xhttp.open("GET", "ajax_info.txt", true);
+                xhttp.send();
+
+    AJAX - Server Response
+
+        The onreadystatechange Property
+
+            The readyState property holds the status of the XMLHttpRequest.
+
+            The onreadystatechange property defines a function to be executed when the readyState changes.
+
+            The status property and the statusText property holds the status of the XMLHttpRequest object.
+
+            The onreadystatechange event is triggered four times (1-4), one time for each change in the readyState.
+
+            solo tomamos el evento cuando estamos en estado 4/200 respuesta lista y mensaje OK 
+
+
+        Using a Callback Function
+
+            If you have more than one AJAX task in a website,
+            you should create one function for executing the 
+            XMLHttpRequest object, and one callback function for each AJAX task.
+
+            loadDoc("url-1", myFunction1);
+
+            loadDoc("url-2", myFunction2);
+
+            function loadDoc(url, cFunction) {
+            var xhttp;
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                cFunction(this);
+                }
+            };
+            xhttp.open("GET", url, true);
+            xhttp.send();
+            }
+
+            function myFunction1(xhttp) {
+            // action goes here
+            }
+            function myFunction2(xhttp) {
+            // action goes here
+            }
+
+            cuando tenemos mas de una accion a realizar mediante ajax, utilizamos una sola funcion para hacer los pedidos 
+            y le pasamos como parametro una funcion que ejecuta la accion apropiada para el pedido que vamos a realizar 
+
+
+            Server Response Properties
+
+                responseText	get the response data as a string
+                responseXML	    get the response data as XML data
+
+
+            Server Response Methods
+
+                getResponseHeader()	        Returns specific header information from the server resource
+                getAllResponseHeaders()	    Returns all the header information from the server resource
+
+
+            The responseText Property
+
+                The responseText property returns the server response as a JavaScript string, 
+                and you can use it accordingly:
+
+                document.getElementById("demo").innerHTML = xhttp.responseText;
+
+                
+
+                                                                                    
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,12 @@
+CREATE DATABASE mibaDB;
+
+CREATE TABLE mibadb.usuarios
+(
+    id_usuario MEDIUMINT UNSIGNED AUTO_INCREMENT NOT NULL, 
+    usuario varchar(100) UNIQUE NOT NULL,
+    contraseña varchar(100) NOT NULL,
+    correo varchar(100) UNIQUE NOT NULL,
+    activa BOOL DEFAULT 1,
+
+    PRIMARY KEY (id_usuario)
+);

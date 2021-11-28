@@ -1,0 +1,266 @@
+/* esto es un comentario en CSS */
+/* 
+lenguaje en cascada significa que toda regla nueva sobrescribe a una regla anterior, la prioridad es abajo primero
+
+css es un lenguaje modular, los modulos son independientes y avanzan por separado
+
+css 2.1 - 2.2 ultimas versiones monoliticas, es decir un solo css, luego de las cuales comenzo el desarollo modular
+
+4 formas de incluir css en un html
+
+1 - archivo aparte conectado mediante <link rel="stylesheet" type="text/css" href="../css/index.css" />
+
+2 - mediante la etiqueta <style> , dentro de la etiqueta se pone el codigo css, no recomendado porque no es
+  facil de modificar y rehutilizar. En el caso de aplicar css a un correo es la unica opcion.
+
+3 - css en linea, se pone un atributo dentro de una etiqueta llamado style, existe pero no se debe utilizar.
+
+4 - utilizando @import url(path al archivo css) dentro de una etiqueta style, existe pero no se debe utilizar. Es una carga
+asincrona.
+
+sintaxis css: 
+selector(a que aplicamos las modificaciones) {
+  propiedad : valor ; DECLARACION 1
+  propiedad : valor ; DECLARACION 2
+  propiedad : valor ; DECLARACION 3
+  propiedad : valor 
+}(corchetes con propiedades a cambiar y valores que deben adoptar) todo esto selector  + declaraciones se llama REGLA
+
+ctrl + } = comentario
+
+SELECTORES
+
+simples 
+  elementales
+    -universal (*) = aplica a todo
+    -etiqueta (nombre de la etiqueta, ejemplo = body) = aplica a todas las etiquetas de con este nombre 
+  atributo
+    -id (#id{})se pone el id del elemento, esto afecta a una sola etiqueta porque los id deben ser unicos, no recomendado
+    -clase (.class{})se pone el valor asociado al atributo class de los elementos, afecta a todos los que tengan este nombre en su atributo class
+    -otros atributos [atributo], todo elemento que tenga el atributo se ve afectado, tambien se puede hacer esto
+    [atributo="valor"] para afectar a los elementos que tengan ese par de atributo y valor, [atributo^="comienzo texto"] comprueba si el valor comienza con ese texto, [atributo*="incluye texto"]  para elementos donde el valor del atributo
+    incluye al texto, [atributo$="termina texto"]comprueba si el valor termina con ese texto, [atributo|=valor] incluye el valor y el valor- con un guion a su derecha
+
+compuestos (mas de una palabra o simbolo)
+  agrupados
+    se ponen los selectores juntos separados por comas selector1 , selector2 , selector3 {declaraciones}
+  combinadores
+    selector descendiente: selecionar un elemento dentro de otro, selector selector {declaraciones}, con un espacio entre selectores indicamos que el segundo selector debe estar dentro del primer selector, es decir que el elemento 2 es hijo del elemento 1, se puede tener mas bajadas pero 
+    se recomienda bajar un solo nivel
+
+    selector de hermano siguiente: selecciona en misma jerarquia, selector + selector {declaraciones}, esto permite seleccionar el elemento que esta inmediatamente despues
+
+    selector de todos los hermanos siguientes: selector ~ selector {declaraciones}, todos los selectores 2 que este despues del selector 1 en la misma jerarquia
+
+    selector hijo directo: seleccionar dentro pero solo abajo un nivel, selector > selector {declaracion}
+  pseudoclases - pseudoelementos 
+
+para selecionar por id: 
+
+#identificador
+{
+    declaracion,
+    declaracion,
+    declaracion,
+    declaracion
+}
+
+en general poner los id y las clases en minuscula
+
+para seleccionar por clase: 
+
+.clase
+{
+    declaracion,
+    declaracion,
+    declaracion,
+    declaracion
+}
+
+especificidad: que estilo tiene prioridad 
+
+cada regla tiene un valor, el mayor se aplica
+  etiquetas y pseudoelementos 001
+  clases, atributos y pseudoclases 010
+  ids 100
+  estilos en linea 1000
+  !important saltea toda las especificidad (no utilizar)
+
+para evitar problemas de jerarquia es conveniente utilizar siempre clases y que la jeraquia este dada por la posicion
+vertical de la regla
+
+para poder validar un css utilizamos https://jonassebastianohlsson.com/specificity-graph/ un buen codigo css deberia estar
+lo mas plano posible
+
+cascada -> una regla que esta por debajo de otra la sobreescribe solo si ambas reglas tienen la misma especificidad
+
+herencia -> es la capacidad que tienen algunos elementos de heredar propiedades de sus elementos contenedores
+
+se heredan
+  color
+  tamaños de fuente
+
+los enlaces no heredan propiedades de sus elementos contenedores
+
+podemos forzar la herencia con inherit
+
+a {
+  color : inherit
+}
+
+evitar herencia
+
+a{
+  color: initial
+}
+
+F12 saca el panel de desarrollo en los navegadores
+
+existen estilos por defecto, cada navegador tiene sus propios estilos base, estos estilos deben normalizarse para
+tener una pagina uniforme en todos los navegadores
+
+en la pestaña computed se ven los estados actuales y donde estan las reglas que generaron estos estados
+
+el normalize.css se debe importar primero antes que cualquier otro archivo de estilos
+
+Para aplicar propiedades de css nuevas utilizar: https://autoprefixer.github.io/ esta pagina genera prefijos al codig css
+con estos prefijos garantizamos la compatibilidad con todos los navegadores
+
+existen herramientas como prepros que hacer las modificaciones de manera automatica
+
+BOX MODEL: contenido, padding(separacion borde contenido), borde, margen(separacion entre bordes), alto, ancho
+
+los elementos en linea no tienen width y height, sus medidas proviene del contenido
+
+los elementos de bloque si se pueden escalar con width y height
+
+margin: top right bottom left
+
+margin: top left/right bottom
+
+margin: top/bottom left/right
+
+margin: top/bottom/left/right
+
+margin-top
+margin-bottom
+margin-left
+margin-right
+
+los elementos en linea solo tienen margenes horizontales y verticales
+
+los elementos en bloque tienen los 4 margenes
+
+margen automatico, sirve para un elemento de bloque que tiene un ancho declarado y lo que hace es posicionar al elemento
+
+margin-left:auto = pone al elemento a la derecha con un margen a la izquierda calculado por el navegador
+
+con margin-left:auto + margin-right:auto centramos la caja
+
+no utilizar porque obliga a recrear la configuracion de cada elemento
+*
+{
+  margin=0;
+  padding=0
+}
+
+no centrar elementos con margin auto, utilizar margin-left: auto + margin-right:auto 
+
+utilizar margin:0 en body esta bien (presente en el normalize.css)
+
+body por defecto tiene padding:0
+
+padding: top right bottom left
+
+padding: top left/right bottom
+
+padding: top/bottom left/right
+
+padding: top/bottom/left/right
+
+padding-top
+padding-bottom
+padding-left
+padding-right
+
+para el padding es lo mismo elementos de linea que elementos de bloque
+
+padding agranda el elemento, es una medida interna del mismo
+
+padding separa borde del contenido, agranda la caja
+
+margin separa una caja de otra
+
+border-width = ancho
+  border-top-width
+  border-right-width
+  border-bottom-width
+  border-left-width
+border-style= estilo, en general solid
+  border-top-style
+  border-right-style
+  border-bottom-style
+  border-left-style
+border-color = color
+  border-top-color
+  border-right-color
+  border-bottom-color
+  border-left-color
+
+ej
+
+border: 20px solid red
+
+PROIEDAD TAMAÑO
+
+box-sizing: 
+  valores:  
+    content-box: por defecto, toma solo el tamaño del contenido
+    border-box: considera el tamaño del contenido + el tamaño del borde + tamaño del padding
+
+es apropiado utilizar
+
+*{
+  box-sizing: border-box
+}
+
+border radius: bordes redondos,
+
+border-top-left-radius
+border-top-right-radius
+border-bottom-right-radius
+border-bottom-left-radius
+
+es posible utilizar radios para dibujar elipses, para eso utilizamos border-radius: 50px/100px 
+
+border-radius: a b c d / a b c d
+
+BOX OVERFLOW
+
+contenido mayor al tamaño de la caja
+
+overflow: (tiene dos internos eje x y eje y)
+  visible: valor por defecto 
+  hidden: se agrega un scroll en el eje opuesto
+  scroll: se agregan scroll en ambos ejes
+  auto: aparecen scroll en cada eje cuando hay overflow
+
+en general se utiliza overflow auto o overflow hidden
+
+hidden es util cuando el fondo sale de la caja
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/

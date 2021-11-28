@@ -1,0 +1,149 @@
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+main {
+  background-color: white;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.cabecera {
+  display: grid;
+  grid-template-rows: 400px 60px;
+}
+.cabecera-enlace {
+  text-decoration: none;
+  color: black;
+}
+.cabecera-enlace:hover {
+  color: white;
+}
+.portada {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background-color: white;
+  background-image: url("../assets/img/banner1.jpg");
+  background-repeat: no-repeat;
+}
+.portada-enlace {
+  color: white;
+  text-decoration: none;
+}
+.portada-enlace:hover {
+  color: yellow;
+}
+.portada-texto {
+  font-size: 75px;
+  margin: 0;
+}
+.menu-contenedor {
+  background-color: #83c5be;
+
+  font-weight: bold;
+
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+.nav {
+  grid-row: 2/3;
+}
+.menu {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}
+.cuenta {
+  grid-row: 2/3;
+  grid-column: 3/4;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}
+.menu-enlance {
+  font-size: 18px;
+}
+
+.menu-enlance :hover {
+  color: white;
+}
+
+.propuestas {
+  background-color: whitesmoke;
+  width: 90%;
+  max-width: 1728px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px grey;
+  margin-top: 30px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 600px;
+}
+.ultima {
+  margin-bottom: 30px;
+}
+.propuestas-titulo {
+  margin: 0px 0px 20px 0px;
+}
+.propuestas-info {
+  grid-column: 1/2;
+  padding: 30px;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: column nowrap;
+}
+.propuestas-texto {
+  font-size: 20px;
+}
+.propuestas-img {
+  grid-column: 2/3;
+  width: 100%;
+  height: 100%;
+  border-radius: 0px 10px 10px 0px;
+}
+.mas-info {
+  background-color: #83c5be;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px grey;
+  padding: 10px;
+  font-weight: bold;
+}
+.mas-info:hover {
+  color: white;
+}
+footer {
+  background-color: #5c5c5c;
+  display: grid;
+  grid-template-rows: 4fr 1fr;
+  color: white;
+}
+.pie {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  padding: 20px;
+}
+.pie-info {
+  padding-top: 10px;
+}
+.pie-enlace {
+  color: white;
+  text-decoration: none;
+}
+.pie-enlace:hover {
+  color: black;
+}
+.copyright {
+  display: flex;
+  justify-content: center;
+}

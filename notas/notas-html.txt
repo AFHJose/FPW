@@ -1,0 +1,139 @@
+notas html
+
+HEAD
+
+    <title> representa el titulo de todo el html</title>
+    <h1> representa el titulo de todo el CONTENIDO en el html, se deberia utilizar solo una vez</h1>
+    <meta charset="utf-8">
+    <meta name="nombre de la variable" content="contenido de la variable">
+    <meta name="Autor" content="Mario Sutt">
+    <meta name="description" content="The MDN Web Docs Learning Area aims to provide
+    complete beginners to the Web with all they need to know to get
+    started with developing web sites and applications.">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> icono al lado del nombre de la pagina en el navegador
+
+    <link rel="stylesheet" type="text/css" href="../css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="../css/index.css" />
+    <script src="../js/validar.js" defer></script> defer indica al navegador que el js se debe cargar despues del html
+
+    <html lang="en-US"> establecer el lenguaje de la pagina
+
+
+ESTRUCTURAR TEXTO
+
+    <p>Parrafos</p>
+    <h1> titulos y subtitulos con jerarquia 1 a 6</h1>
+
+    los titulos de deben poner en orden jerarquico, idealmente un solo h1 al principio del contenido
+    <span> wrap de contenido para css o js, sin significado semantico</span>
+
+LISTAS
+
+    UNORDERED LISTS: 
+
+        todos los elementos tienen la misma jerarquia
+
+        <ul> envuelve la lista
+        <li></li> envuelve el elemento
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        </ul>
+
+    ORDERED LISTS:
+
+        el orden de los elementos es relevante
+
+        <ol> envuelve la lista
+        <li></li> envuelve el elemento
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        </ol>
+        
+    LISTAS ANIDADAS:
+
+        es posible tener una lista como elemento de otra, para expresar algo como un submenu 
+
+        <ol>
+        <li>Remove the skin from the garlic, and chop coarsely.</li>
+        <li>Remove all the seeds and stalk from the pepper, and chop coarsely.</li>
+        <li>Add all the ingredients into a food processor.</li>
+        <li>Process all the ingredients into a paste.
+            <ul>
+            <li>If you want a coarse "chunky" hummus, process it for a short time.</li>
+            <li>If you want a smooth hummus, process it for a longer time.</li>
+            </ul>
+        </li>
+        </ol>
+
+
+    EMPHASIS AND IMPORTANCE
+
+
+        maneras de resaltar semanticamente el contenido 
+
+        <em> genera letras en italicas, semanticamente significa emphasis</em>
+
+        <strong> resalta palabras y las deja en negrita, semanticamente significa importante</strong>
+
+        <i> italicas, palabras en lenguaje extranjero, en latin, terminos tecnicos</i>
+
+        <b>negrita, nombre de producto, palabras clave, resaltar oracion</b>
+
+        <u>subrayado, nombres propios, errores, en general se reserva esta apariencia para enlances</u>
+
+    HYPERLINK
+
+        <a href="https://www.mozilla.org/en-US/">the Mozilla homepage</a> permite acceder a un archivo solicitandolo al web server
+
+        el atributo title="descripcion" permite agregar a cualquier elemento un tooltip en mouseover
+
+        todo elemento encerrado en un link se convierte un boton de acceso
+
+        <a href="https://www.mozilla.org/en-US/">
+        <img src="mozilla-image.png" alt="mozilla logo that links to the mozilla homepage">
+        </a> por ejemplo una imagen
+
+        es posible poner un link a una parte de un documento html con un atributo id 
+
+        <h2 id="Mailing_address">Mailing address</h2>
+
+        <a href="contacts.html#Mailing_address">mailing address</a> desde otro documento
+
+        <a href="#Mailing_address">company mailing address</a> dentro de un mismo documento 
+
+        es importante que el texto del link diga de que se trata el contenido enlazado, idealmente mediante keywords 
+
+        no poner URLS en el texto del link, el texto deber ser descriptivo, breve y claro 
+
+        aclarar cuando un enlace lleva a contienido que no es html, sino un descarga, aplicacion o demas 
+
+        <p><a href="https://www.example.com/large-report.pdf">
+        Download the sales report (PDF, 10MB)
+        </a></p>
+
+        <p><a href="https://www.example.com/video-stream/" target="_blank">
+        Watch the video (stream opens in separate tab, HD quality)
+        </a></p>
+
+        <p><a href="https://www.example.com/car-game">
+        Play the car game (requires Flash)
+        </a></p>
+
+        <a href="https://download.mozilla.org/?product=firefox-latest-ssl&os=win64&lang=en-US"
+        download="firefox-latest-64bit-installer.exe">
+        Download Latest Firefox for Windows (64-bit) (English, US)
+        </a> el atributo download permite poner un nombre por defecto al archivo que se va a descargar 
+
+        un menu de navegacion suele ser una lista donde los elementos son links 
+
+        
+
+
+
+
+

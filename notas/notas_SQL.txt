@@ -1,0 +1,1002 @@
+SQL structured query language
+
+lenguaje para acceder y manipular bases de datos
+
+RDBMS stands for Relational Database Management System
+
+The data in RDBMS is stored in database objects called tables
+
+A table is a collection of related data entries and it consists of columns and rows
+
+la cabecera de cada columna se denomina campo y define la relacion entre todos los datos de esa columna 
+
+cada fila es una entrada de datos llamada registro
+
+cada tabla tiene un nombre
+
+SQL keywords are NOT case sensitive: select is the same as SELECT
+
+Semicolon is the standard way to separate each SQL statement in database systems that allow 
+more than one SQL statement to be executed in the same call to the server
+
+The SQL SELECT Statement
+
+    SELECT * FROM table_name;
+
+    *: todas las columnas
+
+    SELECT column1, column2, ... FROM table_name;
+
+    tmb podemos espeficicar una lista de columnas en particular
+
+    nota: poner una columna de estado para desactivar cuentas sin tener que borrar entradas lo cual generaria problemas con las relaciones
+    en la base de datos por los registros viejos relacionados 
+
+The SQL SELECT DISTINCT Statement
+
+    esta opcion retorna una tabla resultado con solo los valores distintos 
+
+    SELECT DISTINCT column1, column2, ...
+
+    FROM table_name;
+
+The SQL WHERE Clause 
+
+    permite filtrar registros con un condicional, aplica a select, delete, update 
+
+    SELECT column1, column2, ...
+    FROM table_name
+    WHERE condition;
+
+
+    SELECT * FROM Customers
+    WHERE Country='Mexico';
+
+    SQL requires single quotes around text values (most database systems will also allow double quotes)
+
+    However, numeric fields should not be enclosed in quotes
+
+    SELECT * FROM Customers
+    WHERE CustomerID=1;
+
+    Operators in The WHERE Clause
+
+    =	Equal	
+    >	Greater than	
+    <	Less than	
+    >=	Greater than or equal	
+    <=	Less than or equal	
+    <>	Not equal. Note: In some versions of SQL this operator may be written as !=	
+    BETWEEN	Between a certain range	
+        SELECT * FROM Products
+        WHERE Price BETWEEN 50 AND 60;
+
+    LIKE	Search for a pattern
+        SELECT * FROM Customers
+        WHERE City LIKE 's%'; (arranca con S)
+
+    IN	To specify multiple possible values for a column
+
+        SELECT * FROM Customers
+        WHERE City IN ('Paris','London'); (dentro de la lista de opciones)
+
+The SQL AND, OR and NOT Operators
+
+    es posible usar operadores logicos para combinar las condiciones dentro de un WHERE statement
+
+    AND , OR , NOT 
+
+    podemos utilizar parentesis para dar jerarquia  las operaciones logicas 
+
+    SELECT * FROM Customers
+    WHERE Country='Germany' AND (City='Berlin' OR City='München');
+
+The SQL ORDER BY Keyword
+
+    The ORDER BY keyword is used to sort the result-set in ascending or descending order.
+
+    The ORDER BY keyword sorts the records in ascending order by default. To sort the records in descending order, use the DESC keyword.
+
+    SELECT column1, column2, ...
+    FROM table_name
+    ORDER BY column1, column2, ... ASC|DESC;
+
+    orden en texto es alfabetico
+
+    SELECT * FROM Customers
+    ORDER BY Country DESC; 
+
+    no hace falta aclarar el orden como ASC porque es el valor por defecto de la operacion 
+
+    The following SQL statement selects all customers from the "Customers" table, sorted by the "Country" and the "CustomerName" column. 
+    This means that it orders by Country, but if some rows have the same Country, it orders them by CustomerName:
+
+    SELECT * FROM Customers
+    ORDER BY Country, CustomerName;
+
+    SELECT * FROM Customers
+    ORDER BY Country ASC, CustomerName DESC;
+
+The SQL INSERT INTO Statement
+
+    The INSERT INTO statement is used to insert new records in a table.
+
+    de manera ordenada en las columnas especificadas
+
+    INSERT INTO table_name (column1, column2, column3, ...)
+    VALUES (value1, value2, value3, ...);
+
+    If you are adding values for all the columns of the table, you do not need to specify the column names in the SQL query. 
+    However, make sure the order of the values is in the same order as the columns in the table. 
+    The INSERT INTO syntax would be as follows:
+
+    INSERT INTO table_name
+    VALUES (value1, value2, value3, ...);
+
+
+What is a NULL Value?
+
+    A field with a NULL value is a field with no value.
+
+    It is not possible to test for NULL values with comparison operators, such as =, <, or <>.
+
+    We will have to use the IS NULL and IS NOT NULL operators instead.
+
+    SELECT column_names
+    FROM table_name
+    WHERE column_name IS NULL;
+
+    SELECT column_names
+    FROM table_name
+    WHERE column_name IS NOT NULL;
+
+
+The SQL UPDATE Statement
+
+    The UPDATE statement is used to modify the existing records in a table.
+
+    UPDATE table_name
+    SET column1 = value1, column2 = value2, ...
+    WHERE condition;
+
+    ES IMPORTANTE USAR UN WHERE DE OTRO MODO TODOS LOS REGISTROS DE LA TABLA SE VERAN AFECTADOS POR EL UPDATE 
+
+The SQL DELETE Statement
+
+    DELETE FROM table_name WHERE condition;
+
+    ES IMPORTANTE USAR UN WHERE DE OTRO MODO TODOS LOS REGISTROS DE LA TABLA SE VERAN AFECTADOS POR EL DELETE 
+
+    hay que tener cuidado al borrar registros, no se deben dejar registros que dependen de otros que fueron borrados, 
+    entonces conviene borrar solo registros que estan al final de la cadena de relaciones 
+
+    DELETE FROM table_name; resulta en borrar todos los registros de la tabla, dejando las configuracione intactas 
+
+The SQL SELECT TOP/LIMIT Clause
+
+    The SELECT TOP/LIMIT clause is used to specify the number of records to return.
+
+    SQL:
+        SELECT TOP number|percent column_name(s)
+        FROM table_name
+        WHERE condition;
+
+        SELECT TOP 50 PERCENT * FROM Customers;
+
+        SELECT TOP 10 * FROM Customers;
+
+    MY SQL:
+
+        SELECT column_name(s)
+        FROM table_name
+        WHERE condition
+        LIMIT number;
+
+    
+The SQL MIN() and MAX() Functions
+
+    The MIN() function returns the smallest value of the selected column.
+
+        SELECT MIN(column_name)
+        FROM table_name
+        WHERE condition;
+
+    The MAX() function returns the largest value of the selected column.
+
+        SELECT MAX(column_name) 
+        FROM table_name
+        WHERE condition;
+
+
+The SQL COUNT(), AVG() and SUM() Functions
+
+    The COUNT() function returns the number of rows that matches a specified criterion.
+
+        SELECT COUNT(column_name)
+        FROM table_name
+        WHERE condition;
+
+
+    The AVG() function returns the average value of a numeric column.
+
+        SELECT AVG(column_name)
+        FROM table_name
+        WHERE condition;
+
+    The SUM() function returns the total sum of a numeric column.
+
+        SELECT SUM(column_name)
+        FROM table_name
+        WHERE condition;
+
+The SQL LIKE Operator
+
+    The LIKE operator is used in a WHERE clause to search for a specified pattern in a column.
+
+    There are two wildcards often used in conjunction with the LIKE operator:
+
+    % - The percent sign represents zero, one, or multiple characters
+    _ - The underscore represents a single character
+
+    SELECT column1, column2, ...
+    FROM table_name
+    WHERE columnN LIKE pattern;
+
+    WHERE CustomerName LIKE 'a%'	Finds any values that start with "a"
+    WHERE CustomerName LIKE '%a'	Finds any values that end with "a"
+    WHERE CustomerName LIKE '%or%'	Finds any values that have "or" in any position
+    WHERE CustomerName LIKE '_r%'	Finds any values that have "r" in the second position
+    WHERE CustomerName LIKE 'a_%'	Finds any values that start with "a" and are at least 2 characters in length
+    WHERE CustomerName LIKE 'a__%'	Finds any values that start with "a" and are at least 3 characters in length
+    WHERE ContactName LIKE 'a%o'	Finds any values that start with "a" and ends with "o"
+
+SQL Wildcard Characters
+
+    A wildcard character is used to substitute one or more characters in a string.
+
+    Wildcard characters are used with the SQL LIKE operator. 
+
+    The LIKE operator is used in a WHERE clause to search for a specified pattern in a column.
+
+    *	Represents zero or more characters	bl* finds bl, black, blue, and blob
+    ?	Represents a single character	h?t finds hot, hat, and hit
+    []	Represents any single character within the brackets	h[oa]t finds hot and hat, but not hit
+    !	Represents any character not in the brackets	h[!oa]t finds hit, but not hot and hat
+    -	Represents a range of characters	c[a-b]t finds cat and cbt
+    #	Represents any single numeric character	2#5 finds 205, 215, 225, 235, 245, 255, 265, 275, 285, and 295
+
+    es posible combinar multiples wildcards para representar un patron en un string 
+
+The SQL IN Operator
+
+    The IN operator allows you to specify multiple values in a WHERE clause.
+
+    The IN operator is a shorthand for multiple OR conditions.
+
+    SELECT column_name(s)
+    FROM table_name
+    WHERE column_name IN (value1, value2, ...);
+
+    donde el valor pertenece a una lista de posibles valores 
+
+    SELECT column_name(s)
+    FROM table_name
+    WHERE column_name IN (SELECT STATEMENT);
+
+    donde el valor pertenece a una lista de posibles valores que resultan de un select 
+
+    podemos utilizar el operador NOT para elegir los valores que no pertenecen a la lista 
+
+    SELECT * FROM Customers
+    WHERE Country IN (SELECT Country FROM Suppliers);
+
+The SQL BETWEEN Operator
+
+    The BETWEEN operator selects values within a given range. The values can be numbers, text, or dates.
+
+    The BETWEEN operator is inclusive: begin and end values are included. 
+
+    SELECT column_name(s)
+    FROM table_name
+    WHERE column_name BETWEEN value1 AND value2;
+
+    SELECT * FROM Products
+    WHERE Price BETWEEN 10 AND 20
+    AND CategoryID NOT IN (1,2,3);
+
+    SELECT * FROM Products
+    WHERE ProductName BETWEEN 'Carnarvon Tigers' AND 'Mozzarella di Giovanni'
+    ORDER BY ProductName;
+
+
+    SELECT * FROM Orders
+    WHERE OrderDate BETWEEN #01/07/1996# AND #31/07/1996#;
+
+
+    SELECT * FROM Orders
+    WHERE OrderDate BETWEEN '1996-07-01' AND '1996-07-31';
+
+
+SQL Aliases
+
+    SQL aliases are used to give a table, or a column in a table, a temporary name.
+
+    Aliases are often used to make column names more readable.
+
+    An alias only exists for the duration of the query.
+
+
+    SELECT column_name AS alias_name
+    FROM table_name;
+
+    SELECT column_name(s)
+    FROM table_name AS alias_name;
+
+    SELECT Orders.OrderID, Orders.OrderDate, Customers.CustomerName
+    FROM Customers, Orders
+    WHERE Customers.CustomerName='Around the Horn' AND Customers.CustomerID=Orders.CustomerID;
+
+SQL JOIN
+
+    A JOIN clause is used to combine rows from two or more tables, based on a related column between them.
+
+    Different Types of SQL JOINs
+
+        (INNER) JOIN: Returns records that have matching values in both tables
+        LEFT (OUTER) JOIN: Returns all records from the left table, and the matched records from the right table
+        RIGHT (OUTER) JOIN: Returns all records from the right table, and the matched records from the left table
+        FULL (OUTER) JOIN: Returns all records when there is a match in either left or right table
+
+    SQL INNER JOIN Keyword
+
+        The INNER JOIN keyword selects records that have matching values in both tables.
+
+        SELECT column_name(s)
+        FROM table1
+        INNER JOIN table2
+        ON table1.column_name = table2.column_name;
+
+        es posible unir mas de una tabla 
+
+        SELECT Orders.OrderID, Customers.CustomerName, Shippers.ShipperName
+        FROM ((Orders
+        INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID)
+        INNER JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID);
+
+        se usan parentesis para definir el orden de operacion de los join 
+
+The SQL GROUP BY Statement
+
+    The GROUP BY statement groups rows that have the same values into summary rows, like "find the number of customers in each country".
+
+    The GROUP BY statement is often used with aggregate functions (COUNT, MAX, MIN, SUM, AVG) to group the result-set by one or more columns.
+
+    clientes por pais 
+
+    SELECT COUNT(CustomerID), Country
+    FROM Customers
+    GROUP BY Country;
+
+    SELECT COUNT(CustomerID), Country
+    FROM Customers
+    GROUP BY Country
+    ORDER BY COUNT(CustomerID) DESC;
+
+The SQL HAVING Clause
+
+    The HAVING clause was added to SQL because the WHERE keyword could not be used with aggregate functions.
+
+    permite agregar condicionales a los group by, porque where no se puede usar en estos casos 
+
+    SELECT column_name(s)
+    FROM table_name
+    WHERE condition
+    GROUP BY column_name(s)
+    HAVING condition
+    ORDER BY column_name(s);
+
+    clientes por pais que tenga al menos 5 clientes 
+
+    SELECT COUNT(CustomerID), Country
+    FROM Customers
+    GROUP BY Country
+    HAVING COUNT(CustomerID) > 5;
+
+The SQL EXISTS Operator
+
+    The EXISTS operator is used to test for the existence of any record in a subquery.
+
+    The EXISTS operator returns true if the subquery returns one or more records.
+
+    SELECT column_name(s)
+    FROM table_name
+    WHERE EXISTS
+    (SELECT column_name FROM table_name WHERE condition);
+
+    en el proximo ejemplo el select retorna todos los proveedores que tengan al menos un producto con precio inferior a 20 
+
+    SELECT SupplierName
+    FROM Suppliers
+    WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price < 20);
+
+    siempre que se cumple la condicion se agrega el resultado al retorno 
+
+    proveedores con al menos un producto que valga 22 
+
+    SELECT SupplierName
+    FROM Suppliers
+    WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price = 22);
+
+The SQL ANY and ALL Operators
+
+    The ANY and ALL operators are used with a WHERE or HAVING clause.
+
+    The ANY operator returns true if any of the subquery values meet the condition.
+
+        SELECT column_name(s)
+        FROM table_name
+        WHERE column_name operator ANY
+        (SELECT column_name FROM table_name WHERE condition);
+
+    The ALL operator returns true if all of the subquery values meet the condition.
+
+        SELECT column_name(s)
+        FROM table_name
+        WHERE column_name operator ALL
+        (SELECT column_name FROM table_name WHERE condition);
+
+    The operator must be a standard comparison operator (=, <>, !=, >, >=, <, or <=).
+
+The SQL CASE Statement
+
+    The CASE statement goes through conditions and returns a value when the first condition is met (like an IF-THEN-ELSE statement). So, once a condition is true, it will stop reading and return the result. If no conditions are true, it returns the value in the ELSE clause.
+
+    If there is no ELSE part and no conditions are true, it returns NULL.
+
+    CASE
+        WHEN condition1 THEN result1
+        WHEN condition2 THEN result2
+        WHEN conditionN THEN resultN
+        ELSE result
+    END;
+
+    SELECT OrderID, Quantity,
+    CASE
+        WHEN Quantity > 30 THEN 'The quantity is greater than 30'
+        WHEN Quantity = 30 THEN 'The quantity is 30'
+        ELSE 'The quantity is under 30'
+    END AS QuantityText
+    FROM OrderDetails;
+
+    SELECT CustomerName, City, Country
+    FROM Customers
+    ORDER BY
+    (CASE
+        WHEN City IS NULL THEN Country
+        ELSE City
+    END);
+
+The MySQL IFNULL() function lets you return an alternative value if an expression is NULL:
+
+    SELECT ProductName, UnitPrice * (UnitsInStock + IFNULL(UnitsOnOrder, 0))
+    FROM Products;
+
+What is a Stored Procedure?
+
+    A stored procedure is a prepared SQL code that you can save, so the code can be reused over and over again.
+
+    CREATE PROCEDURE procedure_name
+    AS
+    sql_statement
+    GO;
+
+    EXEC procedure_name;
+
+    CREATE PROCEDURE SelectAllCustomers
+    AS
+    SELECT * FROM Customers
+    GO;
+
+    EXEC SelectAllCustomers;
+
+    CREATE PROCEDURE SelectAllCustomers @City nvarchar(30)
+    AS
+    SELECT * FROM Customers WHERE City = @City
+    GO;
+
+    EXEC SelectAllCustomers @City = 'London';
+
+    CREATE PROCEDURE SelectAllCustomers @City nvarchar(30), @PostalCode nvarchar(10)
+    AS
+    SELECT * FROM Customers WHERE City = @City AND PostalCode = @PostalCode
+    GO;
+
+    EXEC SelectAllCustomers @City = 'London', @PostalCode = 'WA1 1DP';
+
+
+COMENTARIOS
+
+    -- linea simple 
+
+    /* ... */ multi linea 
+
+SQL Operators
+
+    Arithmetic
+        
+        +	Add	
+        -	Subtract	
+        *	Multiply	
+        /	Divide	
+        %	Modulo
+
+    Bitwise
+
+        +=	Add equals
+        -=	Subtract equals
+        *=	Multiply equals
+        /=	Divide equals
+        %=	Modulo equals
+        &=	Bitwise AND equals
+        ^-=	Bitwise exclusive equals
+        |*=	Bitwise OR equals
+
+    Logical 
+
+        ALL	        TRUE if all of the subquery values meet the condition	
+        AND	        TRUE if all the conditions separated by AND is TRUE	
+        ANY	        TRUE if any of the subquery values meet the condition	
+        BETWEEN	    TRUE if the operand is within the range of comparisons	
+        EXISTS	    TRUE if the subquery returns one or more records	
+        IN	        TRUE if the operand is equal to one of a list of expressions	
+        LIKE	    TRUE if the operand matches a pattern	
+        NOT	        Displays a record if the condition(s) is NOT TRUE	
+        OR	        TRUE if any of the conditions separated by OR is TRUE	
+        SOME	    TRUE if any of the subquery values meet the condition	
+
+
+
+The SQL CREATE DATABASE Statement
+
+    The CREATE DATABASE statement is used to create a new SQL database. 
+
+    CREATE DATABASE databasename;
+
+    CREATE DATABASE testDB;
+
+    SHOW DATABASES nos permite ver si la base de datos se creo con exito 
+
+The SQL DROP DATABASE Statement
+
+    The DROP DATABASE statement is used to drop/delete an existing SQL database.
+
+    DROP DATABASE databasename;
+
+The SQL BACKUP DATABASE Statement
+
+    The BACKUP DATABASE statement is used in SQL Server to create a full back up of an existing SQL database.
+
+    BACKUP DATABASE databasename
+    TO DISK = 'filepath';
+
+    A differential back up only backs up the parts of the database that have changed since the last full database backup.
+
+    BACKUP DATABASE databasename
+    TO DISK = 'filepath'
+    WITH DIFFERENTIAL;
+
+    BACKUP DATABASE testDB
+    TO DISK = 'D:\backups\testDB.bak';
+
+    Always back up the database to a different drive than the actual database. 
+    Then, if you get a disk crash, you will not lose your backup file along with the database.
+
+    BACKUP DATABASE testDB
+    TO DISK = 'D:\backups\testDB.bak'
+    WITH DIFFERENTIAL;
+
+    la ventaja del differential backup es que consume menos recursos porque no copia todos los datos 
+
+The SQL CREATE TABLE Statement
+
+    The CREATE TABLE statement is used to create a new table in a database.
+
+    CREATE TABLE table_name (
+    column1 datatype,
+    column2 datatype,
+    column3 datatype,
+    ....
+    );
+
+    CREATE TABLE Persons (
+    PersonID int,
+    LastName varchar(255),
+    FirstName varchar(255),
+    Address varchar(255),
+    City varchar(255)
+    );
+
+SQL Data Types
+
+    In MySQL there are three main data types: string, numeric, and date and time.
+
+    String data types:
+
+        CHAR(size)	A FIXED length string (can contain letters, numbers, and special characters). The size parameter specifies the column length in characters - can be from 0 to 255. Default is 1
+        VARCHAR(size)	A VARIABLE length string (can contain letters, numbers, and special characters). The size parameter specifies the maximum column length in characters - can be from 0 to 65535
+        BINARY(size)	Equal to CHAR(), but stores binary byte strings. The size parameter specifies the column length in bytes. Default is 1
+        VARBINARY(size)	Equal to VARCHAR(), but stores binary byte strings. The size parameter specifies the maximum column length in bytes.
+        TINYBLOB	For BLOBs (Binary Large OBjects). Max length: 255 bytes
+        TINYTEXT	Holds a string with a maximum length of 255 characters
+        TEXT(size)	Holds a string with a maximum length of 65,535 bytes
+        BLOB(size)	For BLOBs (Binary Large OBjects). Holds up to 65,535 bytes of data
+        MEDIUMTEXT	Holds a string with a maximum length of 16,777,215 characters
+        MEDIUMBLOB	For BLOBs (Binary Large OBjects). Holds up to 16,777,215 bytes of data
+        LONGTEXT	Holds a string with a maximum length of 4,294,967,295 characters
+        LONGBLOB	For BLOBs (Binary Large OBjects). Holds up to 4,294,967,295 bytes of data
+        ENUM(val1, val2, val3, ...)	A string object that can have only one value, chosen from a list of possible values. You can list up to 65535 values in an ENUM list. If a value is inserted that is not in the list, a blank value will be inserted. The values are sorted in the order you enter them
+        SET(val1, val2, val3, ...)	A string object that can have 0 or more values, chosen from a list of possible values. You can list up to 64 values in a SET list
+
+    Numeric data types:
+
+        BIT(size)	A bit-value type. The number of bits per value is specified in size. The size parameter can hold a value from 1 to 64. The default value for size is 1.
+        TINYINT(size)	A very small integer. Signed range is from -128 to 127. Unsigned range is from 0 to 255. The size parameter specifies the maximum display width (which is 255)
+        BOOL	Zero is considered as false, nonzero values are considered as true.
+        BOOLEAN	Equal to BOOL
+        SMALLINT(size)	A small integer. Signed range is from -32768 to 32767. Unsigned range is from 0 to 65535. The size parameter specifies the maximum display width (which is 255)
+        MEDIUMINT(size)	A medium integer. Signed range is from -8388608 to 8388607. Unsigned range is from 0 to 16777215. The size parameter specifies the maximum display width (which is 255)
+        INT(size)	A medium integer. Signed range is from -2147483648 to 2147483647. Unsigned range is from 0 to 4294967295. The size parameter specifies the maximum display width (which is 255)
+        INTEGER(size)	Equal to INT(size)
+        BIGINT(size)	A large integer. Signed range is from -9223372036854775808 to 9223372036854775807. Unsigned range is from 0 to 18446744073709551615. The size parameter specifies the maximum display width (which is 255)
+        FLOAT(size, d)	A floating point number. The total number of digits is specified in size. The number of digits after the decimal point is specified in the d parameter. This syntax is deprecated in MySQL 8.0.17, and it will be removed in future MySQL versions
+        FLOAT(p)	A floating point number. MySQL uses the p value to determine whether to use FLOAT or DOUBLE for the resulting data type. If p is from 0 to 24, the data type becomes FLOAT(). If p is from 25 to 53, the data type becomes DOUBLE()
+        DOUBLE(size, d)	A normal-size floating point number. The total number of digits is specified in size. The number of digits after the decimal point is specified in the d parameter
+        DOUBLE PRECISION(size, d)	 
+        DECIMAL(size, d)	An exact fixed-point number. The total number of digits is specified in size. The number of digits after the decimal point is specified in the d parameter. The maximum number for size is 65. The maximum number for d is 30. The default value for size is 10. The default value for d is 0.
+        DEC(size, d)	Equal to DECIMAL(size,d)
+
+    
+    Date and Time data types:
+
+        DATE	A date. Format: YYYY-MM-DD. The supported range is from '1000-01-01' to '9999-12-31'
+        DATETIME(fsp)	A date and time combination. Format: YYYY-MM-DD hh:mm:ss. The supported range is from '1000-01-01 00:00:00' to '9999-12-31 23:59:59'. Adding DEFAULT and ON UPDATE in the column definition to get automatic initialization and updating to the current date and time
+        TIMESTAMP(fsp)	A timestamp. TIMESTAMP values are stored as the number of seconds since the Unix epoch ('1970-01-01 00:00:00' UTC). Format: YYYY-MM-DD hh:mm:ss. The supported range is from '1970-01-01 00:00:01' UTC to '2038-01-09 03:14:07' UTC. Automatic initialization and updating to the current date and time can be specified using DEFAULT CURRENT_TIMESTAMP and ON UPDATE CURRENT_TIMESTAMP in the column definition
+        TIME(fsp)	A time. Format: hh:mm:ss. The supported range is from '-838:59:59' to '838:59:59'
+        YEAR	A year in four-digit format. Values allowed in four-digit format: 1901 to 2155, and 0000.
+        MySQL 8.0 does not support year in two-digit format.
+
+
+The SQL DROP TABLE Statement
+
+    The DROP TABLE statement is used to drop an existing table in a database.
+
+    DROP TABLE table_name;
+
+SQL TRUNCATE TABLE
+
+    The TRUNCATE TABLE statement is used to delete the data inside a table, but not the table itself.
+
+    TRUNCATE TABLE table_name;
+
+SQL ALTER TABLE Statement
+
+    The ALTER TABLE statement is used to add, delete, or modify columns in an existing table.
+
+    The ALTER TABLE statement is also used to add and drop various constraints on an existing table.
+
+    ALTER TABLE table_name
+    ADD column_name datatype;
+
+    ALTER TABLE table_name
+    DROP COLUMN column_name;
+
+    ALTER TABLE table_name
+    MODIFY COLUMN column_name datatype;
+
+SQL Constraints
+
+    Constraints can be specified when the table is created with the CREATE TABLE statement, 
+    or after the table is created with the ALTER TABLE statement.
+
+    CREATE TABLE table_name (
+    column1 datatype constraint,
+    column2 datatype constraint,
+    column3 datatype constraint,
+    ....
+    );
+
+    SQL constraints are used to specify rules for the data in a table.
+
+    Constraints are used to limit the type of data that can go into a table. 
+    This ensures the accuracy and reliability of the data in the table. 
+    If there is any violation between the constraint and the data action, the action is aborted.
+
+    Constraints can be column level or table level. 
+    Column level constraints apply to a column, 
+    and table level constraints apply to the whole table.
+
+    NOT NULL - Ensures that a column cannot have a NULL value
+        
+        CREATE TABLE Persons (
+        ID int NOT NULL,
+        LastName varchar(255) NOT NULL,
+        FirstName varchar(255) NOT NULL,
+        Age int
+        );
+
+        ALTER TABLE Persons
+        MODIFY Age int NOT NULL;
+
+    UNIQUE - Ensures that all values in a column are different \_(°_°)_/
+
+        CREATE TABLE Persons (
+        ID int NOT NULL,
+        LastName varchar(255) NOT NULL,
+        FirstName varchar(255),
+        Age int,
+        UNIQUE (ID)
+        );
+
+        CREATE TABLE Persons (
+        ID int NOT NULL,
+        LastName varchar(255) NOT NULL,
+        FirstName varchar(255),
+        Age int,
+        CONSTRAINT UC_Person UNIQUE (ID,LastName)
+        );
+
+        ALTER TABLE Persons
+        ADD UNIQUE (ID);
+
+        ALTER TABLE Persons
+        ADD CONSTRAINT UC_Person UNIQUE (ID,LastName);
+
+        ALTER TABLE Persons
+        DROP INDEX UC_Person;
+
+
+    PRIMARY KEY - A combination of a NOT NULL and UNIQUE. Uniquely identifies each row in a table
+
+        CREATE TABLE Persons (
+        ID int NOT NULL,
+        LastName varchar(255) NOT NULL,
+        FirstName varchar(255),
+        Age int,
+        PRIMARY KEY (ID)
+        );
+
+        CREATE TABLE Persons (
+        ID int NOT NULL,
+        LastName varchar(255) NOT NULL,
+        FirstName varchar(255),
+        Age int,
+        CONSTRAINT PK_Person PRIMARY KEY (ID,LastName)
+        );
+
+        ALTER TABLE Persons
+        ADD PRIMARY KEY (ID);
+
+        ALTER TABLE Persons
+        ADD CONSTRAINT PK_Person PRIMARY KEY (ID,LastName);
+
+        en el caso de una restriccion doble no se trata de tener 2 PK sino de tener una sola PK compuesta por una combinacion 
+        de los valores de dos columnas, combinacion unica y no nula
+
+        ALTER TABLE Persons
+        DROP PRIMARY KEY;
+
+
+    FOREIGN KEY - Uniquely identifies a row/record in another table
+
+        A FOREIGN KEY is a field (or collection of fields) in one table that refers to the PRIMARY KEY in another table.
+
+        The table containing the foreign key is called the child table, 
+        and the table containing the candidate key is called the referenced or parent table.
+
+        para poder insertar un registro en una columna con FK, el valor que va en esa columna debe existir en otra tabla donde es 
+        una PK
+
+        CREATE TABLE Orders (
+        OrderID int NOT NULL,
+        OrderNumber int NOT NULL,
+        PersonID int,
+        PRIMARY KEY (OrderID),
+        FOREIGN KEY (PersonID) REFERENCES Persons(PersonID)
+        );
+
+        CREATE TABLE Orders (
+        OrderID int NOT NULL,
+        OrderNumber int NOT NULL,
+        PersonID int,
+        PRIMARY KEY (OrderID),
+        CONSTRAINT FK_PersonOrder FOREIGN KEY (PersonID)
+        REFERENCES Persons(PersonID)
+        );
+
+        ALTER TABLE Orders
+        ADD FOREIGN KEY (PersonID) REFERENCES Persons(PersonID);
+
+        ALTER TABLE Orders
+        ADD CONSTRAINT FK_PersonOrder
+        FOREIGN KEY (PersonID) REFERENCES Persons(PersonID);
+
+        ALTER TABLE Orders
+        DROP FOREIGN KEY FK_PersonOrder;
+
+
+    CHECK - Ensures that all values in a column satisfies a specific condition
+
+        If you define a CHECK constraint on a single column it allows only certain values for this column.
+
+        If you define a CHECK constraint on a table it can limit the values in certain columns based on values in other columns in the row.
+
+        CREATE TABLE Persons (
+        ID int NOT NULL,
+        LastName varchar(255) NOT NULL,
+        FirstName varchar(255),
+        Age int,
+        CHECK (Age>=18)
+        );
+
+        CREATE TABLE Persons (
+        ID int NOT NULL,
+        LastName varchar(255) NOT NULL,
+        FirstName varchar(255),
+        Age int,
+        City varchar(255),
+        CONSTRAINT CHK_Person CHECK (Age>=18 AND City='Sandnes')
+        );
+
+        ALTER TABLE Persons
+        ADD CHECK (Age>=18);
+
+        ALTER TABLE Persons
+        ADD CONSTRAINT CHK_PersonAge CHECK (Age>=18 AND City='Sandnes');
+
+        ALTER TABLE Persons
+        DROP CHECK CHK_PersonAge;
+
+    DEFAULT - Sets a default value for a column when no value is specified
+
+        CREATE TABLE Persons (
+        ID int NOT NULL,
+        LastName varchar(255) NOT NULL,
+        FirstName varchar(255),
+        Age int,
+        City varchar(255) DEFAULT 'Sandnes'
+        );
+
+        se puede utilizar para insertar valores del sistema de manera automatica
+        como por ejemplo una fecha
+
+        CREATE TABLE Orders (
+        ID int NOT NULL,
+        OrderNumber int NOT NULL,
+        OrderDate date DEFAULT GETDATE()
+        );
+
+        ALTER TABLE Persons
+        ALTER City SET DEFAULT 'Sandnes';
+
+        ALTER TABLE Persons
+        ALTER City DROP DEFAULT;
+
+    INDEX - Used to create and retrieve data from the database very quickly
+
+        Indexes are used to retrieve data from the database more quickly than otherwise.
+        The users cannot see the indexes, they are just used to speed up searches/queries.
+
+        only create indexes on columns that will be frequently searched against.
+
+        CREATE INDEX index_name
+        ON table_name (column1, column2, ...);  
+
+        el unique index no permite/registra/distingue los valores duplicados en estas columnas
+
+        CREATE UNIQUE INDEX index_name
+        ON table_name (column1, column2, ...);
+
+        CREATE INDEX idx_lastname
+        ON Persons (LastName);
+
+        CREATE INDEX idx_pname
+        ON Persons (LastName, FirstName);
+
+        ALTER TABLE table_name
+        DROP INDEX index_name;
+
+    AUTO INCREMENT Field
+
+        Auto-increment allows a unique number to be generated automatically 
+        when a new record is inserted into a table.
+
+        Often this is the primary key field that we would like to be 
+        created automatically every time a new record is inserted.
+
+        CREATE TABLE Persons (
+        Personid int NOT NULL AUTO_INCREMENT,
+        LastName varchar(255) NOT NULL,
+        FirstName varchar(255),
+        Age int,
+        PRIMARY KEY (Personid)
+        );
+
+        para cambiar el valor donde comienza el auto increment usamos:
+
+        ALTER TABLE Persons AUTO_INCREMENT=100; 
+
+DATES: cuidado con el formateo de las queries respecto al formato de fecha utilizado, se puede utilizar like para ser mas generico
+
+SQL CREATE VIEW Statement
+
+    In SQL, a view is a virtual table based on the result-set of an SQL statement.
+
+    A view contains rows and columns, just like a real table. 
+    The fields in a view are fields from one or more real tables in the database.
+
+    You can add SQL functions, WHERE, and JOIN statements to a view and 
+    present the data as if the data were coming from one single table.
+
+    la info en una view se actualiza cada vez que la solicitamos
+
+    CREATE VIEW [Brazil Customers] AS
+    SELECT CustomerName, ContactName
+    FROM Customers
+    WHERE Country = 'Brazil';
+
+    CREATE VIEW [Products Above Average Price] AS
+    SELECT ProductName, Price
+    FROM Products
+    WHERE Price > (SELECT AVG(Price) FROM Products);
+
+    SELECT * FROM [Products Above Average Price];
+
+    DROP VIEW view_name;
+
+    DROP VIEW [Brazil Customers];
+
+SQL Injection
+
+    SQL injection is a code injection technique that might destroy your database.
+
+    SQL injection is one of the most common web hacking techniques.
+
+    SQL injection is the placement of malicious code in SQL statements, via web page input.
+
+    entrada por user name que tira todos los user: 105 OR 1=1
+
+    SELECT * FROM Users WHERE UserId = 105 OR 1=1; tira todos los users 
+
+    otra opcion es utilizar:  OR ""="" para los lugares donde se pidan cadenas de texto 
+
+    Batched SQL Statements son sentencias separadas por punto y coma, posible entrada malisiosa: 105; DROP TABLE Suppliers;
+
+    SELECT * FROM Users WHERE UserId = 105; DROP TABLE Suppliers;
+
+    SQL parameters como proteccion contra un ataque por injeccion 
+
+    txtUserId = getRequestString("UserId");
+    txtSQL = "SELECT * FROM Users WHERE UserId = @0";
+    db.Execute(txtSQL,txtUserId);
+
+    txtNam = getRequestString("CustomerName");
+    txtAdd = getRequestString("Address");
+    txtCit = getRequestString("City");
+    txtSQL = "INSERT INTO Customers (CustomerName,Address,City) Values(@0,@1,@2)";
+    db.Execute(txtSQL,txtNam,txtAdd,txtCit);
+
+    se utiliza @ para marcar parametros que se cambian en runtime, sql los toma como literales y no 
+    como sentencias ejecutables 
+
+    ejemplo en PHP
+
+    $stmt = $dbh->prepare("INSERT INTO Customers (CustomerName,Address,City)
+    VALUES (:nam, :add, :cit)");
+    $stmt->bindParam(':nam', $txtNam);
+    $stmt->bindParam(':add', $txtAdd);
+    $stmt->bindParam(':cit', $txtCit);
+    $stmt->execute();
+
+    
+
+

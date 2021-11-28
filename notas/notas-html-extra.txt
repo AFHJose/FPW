@@ -1,0 +1,282 @@
+DESCRIPTION LISTS
+
+    marca elementos asociados a un texto, como palabras y definiciones o preguntas y respuestas 
+
+    <dl> envoltura lista
+    <dt>soliloquy</dt> envoltura elemento a definir
+    <dd>In drama, where a character speaks to themselves, representing their inner thoughts or feelings and in the process relaying them to the audience (but not to other characters.)</dd> envoltura descripcion o definicion
+    <dt>monologue</dt>
+    <dd>In drama, where a character speaks their thoughts out loud to share them with the audience and any other characters present.</dd>
+    <dt>aside</dt>
+    <dd>In drama, where a character shares a comment only with the audience for humorous or dramatic effect. This is usually a feeling, thought, or piece of additional background information.</dd>
+    </dl>
+
+    por defecto las descripciones se ponen por debajo e indentadas
+
+    es posible tener multiples <dd></dd> para un solo <dt></dt>
+
+CITAS
+
+    <blockquote></blockquote> WRAP PARA TODO EL TEXTO, EN EL ATRIBUTO CITE HAY QUE PONER LA FUENTE
+
+    <p>Here below is a blockquote...</p>
+    <blockquote cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote">
+    <p>The <strong>HTML <code>&lt;blockquote&gt;</code> Element</strong> (or <em>HTML Block
+    Quotation Element</em>) indicates that the enclosed text is an extended quotation.</p>
+    </blockquote>
+
+    por defecto las blockquote se ponen indentadas 
+
+    <q></q> PERMITE PONER UNA CITA EN LINEA, EN EL ATRIBUTO CITE HAY QUE PONER LA FUENTE
+
+    <p>The quote element — <code>&lt;q&gt;</code> — is <q cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q">intended
+    for short quotations that don't require paragraph breaks.</q></p>
+
+    el elemento <cite>CONTIENE EL TITULO DE LO CITADO</cite> y normalmente se encierra en un <a>SE LO MARCA COMO UN VINCULO AL MATERIAL ORIGINAL</a>
+
+ABREVIACIONES
+
+    <abbr>CONTIENE UN TERMINO ABREVIADO Y EN EL ATRIBUTO TITLE TIENE EL TERMINO EXPANDIDO
+    
+    <p>We use <abbr title="Hypertext Markup Language">HTML</abbr> to structure our web documents.</p></abbr>
+
+INFO CONTACTO
+
+    <address>DIRECCIONES</address>
+
+SUPERSCRIPT AND SUBSCRIPT
+
+    <sub>SUBSCRIPT</sub>
+    <sup>SUPERSCRIPT</sup>
+
+TIEMPO Y FECHAS
+
+    <time>fechas de una manera que las entienda un bot</time>
+
+    <!-- Standard simple date -->
+    <time datetime="2016-01-20">20 January 2016</time>
+    <!-- Just year and month -->
+    <time datetime="2016-01">January 2016</time>
+    <!-- Just month and day -->
+    <time datetime="01-20">20 January</time>
+    <!-- Just time, hours and minutes -->
+    <time datetime="19:30">19:30</time>
+    <!-- You can do seconds and milliseconds too! -->
+    <time datetime="19:30:01.856">19:30:01.856</time>
+    <!-- Date and time -->
+    <time datetime="2016-01-20T19:30">7.30pm, 20 January 2016</time>
+    <!-- Date and time with timezone offset -->
+    <time datetime="2016-01-20T19:30+01:00">7.30pm, 20 January 2016 is 8.30pm in France</time>
+    <!-- Calling out a specific week number -->
+    <time datetime="2016-W04">The fourth week of 2016</time>
+
+
+ESTRUCTURA GENERAL DE UNA PAGINA WEB 
+
+    HEADER: PRESENTACION
+        <header></header>
+
+    NAV BAR: ACCESO A LAS PARTES DE LA PAGINA 
+        <nav></nav>
+
+    MAIN CONTENT: CONTENIDO PRINCIPAL DE LA PAGINA LOS DATOS 
+        <main>
+
+        <article>
+        <h2>TITULO IDENTIFICADOR</h2>
+        <p>CONTENIDO</p>
+        <footer>
+        <p>info de autor
+        <time> fecha de publicacion</time>
+        </p>
+        </footer>
+        </article> PIEZA DE INFORMACION INDEPENDIENTE Y AUTOCONTENIDA, DEBE CONTENER UN HEADER AL PRINCIPIO COMO ID
+
+        <section></section> PARTE INDEPENDIENTE DEL CONTENIDO, QUE NO SE PUEDE EXTRAER POR SI MISMA COMO UN ARTICLE, SE PUEDE UTILIZAR PARA
+            UNA BOTONERA SECUNDARIA SI YA UTILIZAMOS NAV
+        <div></div> WRAP GENERICO
+        </main>
+
+    SIDEBAR: INFORMACION CONTEXTUAL DEL CONTENIDO PRINCIPAL, INFORMACION ADICIONAL, ES COMO UNA NAV BAR PERO DEL CONTENIDO NO 
+        DE TODA LA PAGINA 
+        <aside></aside> INFORMACION TANGENCIAL RELACIONADA AL CONTENIDO PRINCIPAL, normalmente va dentro de <main></main>
+
+
+    FOOTER: INFORMACION DE CONTACTO, LEGALES, COPYRIGHT, INFORMACION GENERAL DE PAGINA 
+        <footer></footer>
+
+    RESUMEN
+
+        <main> is for content unique to this page. Use <main> only once per page, and put it directly inside <body>. Ideally this shouldn't be nested within other elements.
+        
+        <article> encloses a block of related content that makes sense on its own without the rest of the page (e.g., a single blog post).
+        
+        <section> is similar to <article>, but it is more for grouping together a single part of the page that constitutes one single piece of functionality (e.g., a mini map, or a set of article headlines and summaries), or a theme. It's considered best practice to begin each section with a heading; also note that you can break <article>s up into different <section>s, or <section>s up into different 
+        <article>s, depending on the context. PARTE DEL CONTENIDO PRINCIPAL
+        
+        <aside> contains content that is not directly related to the main content but can provide additional information indirectly related to it (glossary entries, author biography, related links, etc.).
+        
+        <header> represents a group of introductory content. If it is a child of <body> it defines the global header of a webpage, but if it's a child of an <article> or <section> it defines a specific header for that section (try not to confuse this with titles and headings).
+        
+        <nav> contains the main navigation functionality for the page. Secondary links, etc., would not go in the navigation.
+        
+        <footer> represents a group of end content for a page.
+
+    GENERICOS SIN SIGNIFICADO SEMANTICO
+
+        <div></div> WRAP GENERICO EN BLOQUE 
+        <span></span> WRAP GENERICO EN LINEA 
+
+        <br> SALTO DE LINEA PARA UN PARRAFO 
+
+        <hr> REGLA HORIZONTAL QUE MARCA UN CAMBIO DE TEMA
+
+    PLANIFICACION
+
+    1- CONTENIDO COMUN A TODAS LAS PAGINAS, HEADER, NAV MENU, FOOTER 
+
+    2- LISTA DE CONTENIDO A INCLUIR 
+
+    3- AGRUPAR EL CONTENIDO RELACIONADO
+
+    4- DESARROLLAR CONEXIONES, VINCULOS ENTRE PAGINAS, LA PAGINA PRINCIPAL DEBERIA SER EL CENTRO DE TODO,
+        PENSAR EN COMO EL USUARIO NAVEGA LA PAGINA, EN QUE ORDEN, QUE COSAS VAN JUNTAS 
+
+DEBUGG EN HTML 
+
+    utilizar https://validator.w3.org/
+
+IMAGENES EN DISEÑO RESPONSIVE
+
+    dos problemas, el crop y la resolucion
+
+    formatos Webp y avif
+
+    DIFFERENT SIZES 
+
+        cargar una imagen diferente segun el tamaño de la pantalla 
+
+        simple:
+
+        <img src="elva-fairy-800w.jpg" alt="Elva dressed as a fairy">
+
+        multiple:
+
+        <img srcset="elva-fairy-480w.jpg 480w,
+                elva-fairy-800w.jpg 800w"
+        sizes="(max-width: 600px) 480px,
+                800px"
+        src="elva-fairy-800w.jpg"
+        alt="Elva dressed as a fairy">
+
+        srcset = "nombre-archivo tamaño, nombre-archivo tamaño,nombre-archivo tamaño, nombre-archivo tamaño"
+
+        sizes= "condicion-de-medio tamaño, (max-width: 600px) 480px, el ultimo valor es el por defecto cuando no se cumple
+            ninguna condicion"
+
+
+        1- el navegador verifica el ancho de la pantalla
+
+        2- el navegador revisa las condiciones en sizes hasta que encuentra el primer caso verdadero
+
+        3- se lleva el tamaño que esta asociado a esa condicion verdadera 
+
+        4- carga la imagen que se encuentra en el srcset que tiene el mismo tamaño o la primer imagen disponible con un tamaño superior 
+
+        <meta name="viewport" content="width=device-width"> ESTO VA EN EL HEADER Y FUERZA AL DISPOSITIVO A UTILIZAR EL TAMAÑO REAL DE LA 
+            PANTALLA AL CARGAR UNA PAGINA 
+
+    RESOLUTION SWITCHING
+
+        cargar la misma imagen en el tamaño apropiado para la pantalla que la solicita 
+
+        <img srcset="elva-fairy-320w.jpg,
+                elva-fairy-480w.jpg 1.5x,
+                elva-fairy-640w.jpg 2x"
+        src="elva-fairy-640w.jpg"
+        alt="Elva dressed as a fairy">
+
+        se utilizan  KX descriptors, donde la relacion de pixeles de css a pixeles de pantalla sea K se carga esa imagen 
+
+    CAMBIO DE IMAGEN: ART DIRECTION 
+
+        <picture>
+        <source media="(max-width: 799px)" srcset="elva-480w-close-portrait.jpg">
+        <source media="(min-width: 800px)" srcset="elva-800w.jpg">
+        <img src="elva-800w.jpg" alt="Chris standing up holding his daughter Elva">
+        </picture>
+
+        la etiqueta source contiene una condicion de medios y una direccion de archivo, la primer condicion que resulte verdadera es elegida 
+
+        la etiqueta img contiene el caso por defecto para presentar si no se cumple ninguna condicion
+
+    IMAGENES EN MODO VECTOR
+
+        uso de SVG mediante etiqueta img
+
+            <img
+            src="equilateral.svg"
+            alt="triangle with all three sides equal"
+            height="87"
+            width="100" />
+
+        height y width son obligatorios porque la imagen en modo vector no tiene tamaño propio y es facilmente escalable 
+
+        esta forma de incluir una .svg es facil pero no permite la edicion mediante JS o CSS 
+
+        mediante background de CSS
+
+            background: url("fallback.png") no-repeat center;
+            background-image: url("image.svg");
+            background-size: contain;
+
+
+        inline svg.
+
+            <svg width="300" height="200">
+            <rect width="100%" height="100%" fill="green" />
+            </svg>
+
+            este modo permite ediccion con CSS y uso como enlace con <a></a>, tiene problemas si es necesario repetir el codigo 
+
+        <svg width="100%" height="100%">
+        <rect width="100%" height="100%" fill="red" />
+        <circle cx="100%" cy="100%" r="150" fill="blue" stroke="black" />
+        <polygon points="120,0 240,225 0,225" fill="green"/>
+        <text x="50" y="100" font-family="Verdana" font-size="55"
+                fill="white" stroke="black" stroke-width="2">
+                Hello!
+        </text>
+        </svg>
+
+CSS LAYOUTS
+
+    organizacion de las cajas con respecto al viewport y a otras cajas 
+
+    NORMAL FLOW 
+
+        orden por defecto impuesto por el HTML 
+
+        elementos el bloque uno abajo del otro, elementos en linea uno al lado del otro
+
+        existen la block direction para ordenar como se colocan los bloques, en ingles es uno abajo del otro 
+        y la inline direction para ordenar como se colocan los elementos de linea, normalmente de izquierda a derecha 
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

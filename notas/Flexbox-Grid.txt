@@ -1,0 +1,144 @@
+CSS: FLEXBOX y GRID 
+
+FLEXBOX
+
+    display flex; permite utilizar las configuraciones de alineamiento de flexbox
+
+    justify-content: value; propiedad de alineacion horizontal del contenido dentro de una caja, afecta el
+        sentido de direccion primario, CONTENEDOR
+
+        valores:
+            flex-start: Alinea elementos al lado izquierdo del contenedor.
+
+            flex-end: Alinea elementos al lado derecho del contenedor.
+
+            center: Alinea elementos en el centro del contenedor.
+
+            space-between: Muestra elementos con la misma distancia entre ellos.
+
+            space-around: Muestra elementos con la misma separación alrededor de ellos.
+
+    align-items: value; propiedad de alineacion horizontal del contenido dentro de una caja, afecta el 
+        sentido de direccion secundario, CONTENEDOR
+
+        valores:
+            flex-start: Alinea elementos a la parte superior del contenedor.
+            
+            flex-end: Alinea elementos a la parte inferior del contenedor.
+            
+            center: Alinea elementos en el centro (verticalmente hablando) del contenedor.
+            
+            baseline: Muestra elementos en la línea base del contenedor
+            
+            stretch: Elementos se estiran para ajustarse al contenedor.
+
+    flex-direction:value; define la direccion de los elementos dentro del contenedor, cambia el origen de coordenadas
+        y la direccion de avance, CONTENEDOR
+
+        valores:
+            row: Elementos son colocados en la misma dirección del texto.
+           
+            row-reverse: Elementos son colocados en la dirección opuesta al texto.
+          
+            column: Elementos se colocan de arriba hacia abajo.
+         
+            column-reverse: Elementos se colocan de abajo hacia arriba.
+
+    order: value; por defecto 0, permite establecer una prioridad en el ordenamiento de los elementos, segun un valor 
+        entero asignado, todos los elementos con el mismo valor se ponen juntos, en orden de menor a major, siguiendo
+        la direccion primaria ascendente, INDIVIDUAL 
+
+    align-self: value; una version de align-items que solo afecta al elemento INDIVIDUAL
+
+    flex-wrap:value; propiedad utilizada para distribuir elementos regulando que sucede con el exceso de los mismos,
+         CONTENEDOR 
+
+        valores:
+            nowrap: Cada elemento se ajusta en una sola línea.
+
+            wrap: los elementos se envuelven alrededor de líneas adicionales.
+
+            wrap-reverse: Los elementos se envuelven alrededor de líneas adicionales en reversa.
+
+    flex-flow:value1DIRECTION value2WRAP;  es una version abreviada de flex-direction y flex-wrap, acepta un valor para cada una separado por un espacio
+
+    align-content: value; establece como multiples lineas de elementos estan alineadas verticalmente, su unidad de organizacion es la linea, para align-items la unidad es el elemento individual, CONTENEDOR 
+
+        valores:
+
+            flex-start: Las líneas se posicionan en la parte superior del contenedor.
+            
+            flex-end: Las líneas se posicionan en la parte inferior del contenedor.
+           
+            center: Las líneas se posicionan en el centro (verticalmente hablando) del contenedor.
+            
+            space-between: Las líneas se muestran con la misma distancia entre ellas.
+           
+            space-around: Las líneas se muestran con la misma separación alrededor de ellas.
+           
+            stretch: Las líneas se estiran para ajustarse al contenedor.
+
+    Esto puede ser confuso, pero align-content determina el espacio entre las líneas, mientras que align-items determina como los elementos en su conjunto están alineados dentro del contenedor. Cuando hay solo una línea, align-content no tiene efecto.
+
+GRID:
+
+    display:grid; permite utilizar las opciones de posicionamiento de elementos en forma de matriz
+
+    grid-column-start: valor numerico entero; en que columna de la grilla debe estar posicionado el inicio del elemento 
+
+    grid-column-end: valor numerico entero; permite establecer el numero de columna donde termina el elemento, lo cual
+        le da un valor de ancho, el elemento terminara donde comienza la columna con el numero indicado 
+
+        es posible utilizar valores negativos para start y end, esto hace que las columnas se cuenten en la dirreccion
+        opuesta 
+
+    grid-column-end: span valor numerico positivo ( permite establecer el ancho de un elemento en termino de columnas )
+
+        ej grid-column-end: span 2; hace que el elemento termine cuando llega a un ancho total de dos columnas 
+
+    grid-column-start: span K; permite establecer el inicio de tal manera que conociendo el final el ancho total sea K 
+
+    grid-column: start / end; es una propiedad abreviada que permite establecer los valores de start y end juntos 
+        separados por una barra inclinada 
+
+    grid-row-start: K; permite establecer la fila donde comienza el elemento, ubica verticalmente 
+
+    grid-row-end:K; permite establecer la fila donde termina el elemento, ubica verticalemente 
+
+    grid-row; start / end; es la propiedad abreviada
+
+    grid-row: start / span K; comienza en start y termina cuando llega a un alto de K
+    
+    grid-row: span K / end; termina en end y comienza donde sea necesario para que el alto total sea k 
+
+    grid-area: row-start / column-start / row-end / column-end; propiedad abreviada de row y column 
+
+    con grid es posible superponer elementos 
+
+    si no hay orden explicito establecido por grid-area , los elementos se ordenan en base al codigo fuente 
+
+    order: K; por defecto 0, establece un orden de prioridad para presentar elementos, de menor a major, aceptando valores 
+        enteros negativos y positivos 
+
+    z-index: valor por defecto 0, establece el orden vertical de los elementos 
+
+    grid-template-rows: alto1 alto2 ... altoN; establece N filas con el alto indicado
+
+    grid-template-columns:ancho1 ancho2 ... anchoN;establece N columnas con el ancho indicado
+
+    grid-template-columns: repeat(cantidad, ancho); permite repetir el valor de ancho la cantidad de veces especificada 
+
+    grid-template: filas / columnas; propiedad abreviada de rows y columns
+
+    fracciones: unidad de medida FR, asigna una porcion del espacio disponible, el espacio ocupado por cada elemento, es 
+        su Nfr, dividido por el Kfr total 
+
+    cuando hay columnas con varias unidades de medida diferentes, los fr se consideran sobre el espacio sobrante
+
+
+nombres de carpetas y archivos en minusculas sin espacios y con guion medio como separador; ejemplo-de-nombre.txt 
+
+
+    
+    
+
