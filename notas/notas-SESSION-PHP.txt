@@ -471,7 +471,10 @@ PHP Form Handling
         
 
 
-
+// 1_ validar y sanitizar las entradas, tanto en html como en sql
+// 2_ ejecutar consulta a la base de datos
+// 3_ establecer estado de loggeado, ¿cookies y session?
+// 4_ generar la respuesta en html
 
 
 
