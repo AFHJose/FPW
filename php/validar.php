@@ -1,8 +1,8 @@
 <?php
-$condiciones['usuario'] = /^\s*\S{6,}\s*$/;
-$condiciones['contraseña'] = /^\s*\S{8,}\s*$/;
+$condiciones = array( 'usuario' => "#^\s*\S{6,}\s*$#i" ,'contraseña'=> "#^\s*\S{8,}\s*$#i");
 
-function testinput($data)
+
+function limpiar($data)
 {
     $data = trim($data);
     $data = stripslashes($data);
@@ -12,6 +12,7 @@ function testinput($data)
 
 function validar($dato,$tipo)
 {
+    global $condiciones;
     if ($dato == null or $dato=="")
     {
         return FALSE;
@@ -26,8 +27,6 @@ function validar($dato,$tipo)
         }
     }
 }
-
-
 
 
 ?>
