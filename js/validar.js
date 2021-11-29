@@ -29,7 +29,3 @@ function validar(elemento) {
     }
   }
 }
-function usuario() {
-  console.log(usuario);
-}
-console.log(usuario);

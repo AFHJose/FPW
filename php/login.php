@@ -32,23 +32,29 @@ if($conexion)
 
     if ($entrada)
     {
+        // crear una cookie con un hash del id del usuario
         $user = hash("sha3-512",$entrada["id_usuario"]);
         setcookie("miba", $user, time()+ 86400, "/");
 
-        echo $entrada["correo"];
-        echo $_COOKIE["miba"];
+        //crear una session con la informacion del usuario
+        session_start();
+        $_SESSION["id_usuario"] = $entrada["id_usuario"];
+        $_SESSION["usuario"] = $entrada["usuario"];
+        $_SESSION["correo"] = $entrada["correo"];
+
+        //agregar el archivo a mostrar
+
+        header("Location: http://localhost/FPW/php/index.php");
 
         /*
-        $sql= "SELECT * FROM info_contacto WHERE contacto_id=".$entrada["contacto_id"];
-        $usuario = ($conexion->query($sql))->fetch_assoc();
         include "../html/main.html";
         */
 
     } 
     else 
     {
-        echo "ERROR";
-        //include "../html/login.html";
+        header("Location: http://localhost/FPW/html/login.html");
+
     }
     
 

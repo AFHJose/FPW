@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!-- Abrir pagina con live server 127.0.0.1:5500/html/index.html -->
 <!DOCTYPE html>
 <html lang="es">
@@ -8,7 +11,6 @@
     <link rel="stylesheet" type="text/css" href="../css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="../css/index.css" />
     <script src="../js/validar.js"></script>
-    <script src="../js/user.js"></script>
   </head>
   <body>
     <header class="cabecera">
@@ -36,14 +38,41 @@
           </ul>
         </nav>
         <ul class="cuenta">
-          <li class="menu-enlance cuenta-ingreso">
-            <a class="cabecera-enlace" href="login.html"
-              ><span>Ingresar </span></a
-            >
-          </li>
-          <li class="menu-enlance cuenta-registro">
-            <a><span>Crear cuenta</span></a>
-          </li>
+          <?php
+            
+            if(!isset($_COOKIE["miba"]))
+            {
+              // borrar variables
+              session_unset();
+              // destruir la session
+              session_destroy();
+            }else if (isset($_SESSION["id_usuario"]) AND hash("sha3-512",$_SESSION["id_usuario"]) == $_COOKIE["miba"])
+            {
+              $usuario = $_SESSION["usuario"];
+              echo <<<HEREDOC
+               <li class="menu-enlace"> <span>$usuario</span></li>
+               HEREDOC;
+            }else
+            {
+              // borrar variables
+              session_unset();
+              // destruir la session
+              session_destroy();
+              echo <<<HEREDOC
+              <li class="menu-enlance cuenta-ingreso">
+                <a class="cabecera-enlace" href="login.html"
+                  ><span>Ingresar </span></a
+                >
+              </li>
+              <li class="menu-enlance cuenta-registro">
+                <a><span>Crear cuenta</span></a>
+              </li>
+              HEREDOC;
+            }
+            
+
+          
+          ?>
         </ul>
       </div>
     </header>

@@ -493,12 +493,84 @@ hash_algos() contiene una lista de algoritmos disponibles para la funcion hash()
 
 utilizar = sha3-512 (64 BYTE / 512 BIT HASH)
 
+header(string $header, bool $replace = true, int $response_code = 0): void SALIR DE UN PHP Y ENTRAR EN UN HTML 
+
+HEREDOC para presentar multiline strings 
+
+    $str = <<<EOD
+    Ejemplo de una cadena
+    expandida en varias líneas
+    empleando la sintaxis heredoc.
+    EOD;
 
 
+Apache mod_rewrite se utiliza para mejorar la apariencia de los URLS 
+
+When a browser requests a web page from a server, cookies belonging to the page are added to the request. This way the server gets the necessary data to "remember" information about users.
+
+COOKIES Y JAVASCRIPT 
+
+document.cookie
+
+document.cookie = "username=John Doe"; CREACION 
+
+document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC"; FECHA DE EXPIRACION 
+
+document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/"; ESTABLECER ORIGEN DE LA COOKIE 
+
+let x = document.cookie; LEER EL VALOR DE LA COOKIE 
+
+document.cookie will return all cookies in one string much like: cookie1=value; cookie2=value; cookie3=value;
+
+MODIFICACION SIMPLEMENTE SE SOBREESCRIBE VOLVIENDOLA A CREAR CON EL MISMO NOMBRE 
+
+document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"; BORRAR: SE ESTABLECE UNA FECHA DE EXPIRACION EN EL PASADO 
+
+    You should define the cookie path to ensure that you delete the right cookie.
+
+    Some browsers will not let you delete a cookie if you don't specify the path.
 
 
+If you want to find the value of one specified cookie, you must write a JavaScript function that searches for the cookie value in the cookie string.
+
+COMPROBAR EL VALOR DE UNA COOKIE
+
+    function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    let expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    function getCookie(cname) {
+    let name = cname + "=";
+    let ca = document.cookie.split(';');
+    for(let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+    }
+
+    function checkCookie() {
+    let user = getCookie("username");
+    if (user != "") {
+        alert("Welcome again " + user);
+    } else {
+        user = prompt("Please enter your name:", "");
+        if (user != "" && user != null) {
+        setCookie("username", user, 365);
+        }
+    }
+    }
 
 
+    
 
 
 
