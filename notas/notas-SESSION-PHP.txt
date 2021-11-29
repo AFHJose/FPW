@@ -477,6 +477,23 @@ PHP Form Handling
 // 4_ generar la respuesta en html
 
 
+HTTP : stateless protocol, no permite mantener informacion de manera permanente entre diferentes peticiones 
+
+las cookies se envían al cliente mediante encabezados HTTP. Como cualquier otro encabezado, las cookies se deben enviar antes que cualquier salida que genere la página
+
+Una SESSION es un mecanismo de programación de las tecnologías de web scripting que permite conservar información sobre un usuario al pasar de una página a otra. A diferencia de una cookie, los datos asociados a una sesión se almacenan en el servidor y nunca en el cliente.
+
+En la mayoría de las tecnologías de web scripting, las sesiones se implementan mediante una cookie que almacena un valor que identifica al usuario en el servidor web cada vez que pasa de una página web a otra. En el servidor web están almacenados todos los datos de la sesión y se accede a ellos cada vez que se pasa de página gracias al identificador almacenado en la cookie.
+
+una SESSION dura hasta que se cierra el navegador 
+
+hash(string $algo, string $data, bool $raw_output = false): string GENERA UN HASH A PARTIR DE UN STRING Y UN ALGORITMO 
+
+hash_algos() contiene una lista de algoritmos disponibles para la funcion hash()
+
+utilizar = sha3-512 (64 BYTE / 512 BIT HASH)
+
+
 
 
 

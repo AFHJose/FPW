@@ -32,7 +32,12 @@ if($conexion)
 
     if ($entrada)
     {
+        $user = hash("sha3-512",$entrada["id_usuario"]);
+        setcookie("miba", $user, time()+ 86400, "/");
+
         echo $entrada["correo"];
+        echo $_COOKIE["miba"];
+
         /*
         $sql= "SELECT * FROM info_contacto WHERE contacto_id=".$entrada["contacto_id"];
         $usuario = ($conexion->query($sql))->fetch_assoc();
