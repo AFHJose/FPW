@@ -3,6 +3,9 @@ ul {
   padding: 0;
   margin: 0;
 }
+a {
+  text-decoration: none;
+}
 html {
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -48,10 +51,8 @@ main {
 .menu-contenedor {
   background-color: #83c5be;
 
-  font-weight: bold;
-
   display: grid;
-  grid-template-columns: 2fr 2fr 1fr;
+  grid-template-columns: 4fr 2fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
 }
 .nav {
@@ -62,19 +63,43 @@ main {
   flex-flow: row nowrap;
   justify-content: space-around;
 }
-.cuenta {
+.cuenta-invitado {
   grid-row: 2/3;
   grid-column: 3/4;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
 }
-.menu-enlance {
-  font-size: 18px;
+.cuenta-registrado {
+  grid-row: 2/3;
+  grid-column: 3/4;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
 }
 
-.menu-enlance :hover {
+.enlace-texto {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0px 0px 0px 3px;
+}
+.enlace-boton {
+  color: black;
+  fill: black;
+  display: flex;
+  align-items: center;
+}
+.enlace-boton:hover {
   color: white;
+  fill: white;
+}
+.icono-cuenta {
+  height: 24px;
+  width: 24px;
+}
+.icono-flecha {
+  height: 16px;
+  width: 18px;
 }
 
 .propuestas {
