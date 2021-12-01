@@ -37,9 +37,20 @@ session_start();
             </li>
           </ul>
         </nav>
+        <div class="cuenta-registrado">
+
+        <a class="enlace-boton"><svg class="icono-cuenta" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 128c39.77 0 72 32.24 72 72S295.8 272 256 272c-39.76 0-72-32.24-72-72S216.2 128 256 128zM256 448c-52.93 0-100.9-21.53-135.7-56.29C136.5 349.9 176.5 320 224 320h64c47.54 0 87.54 29.88 103.7 71.71C356.9 426.5 308.9 448 256 448z"/></svg><span class="enlace-texto">USUARIO</span> <svg  class="icono-flecha" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M310.6 246.6l-127.1 128C176.4 380.9 168.2 384 160 384s-16.38-3.125-22.63-9.375l-127.1-128C.2244 237.5-2.516 223.7 2.438 211.8S19.07 192 32 192h255.1c12.94 0 24.62 7.781 29.58 19.75S319.8 237.5 310.6 246.6z"/></svg></svg></a>
+        <ul class="cuenta-menu">
+          <li><a class="enlace-boton"><span class="enlace-texto">Mi cuenta</span></a></li>
+          <li><a class="enlace-boton"><span class="enlace-texto">Mis propiedades</span></a></li>
+          <li><a class="enlace-boton"><span class="enlace-texto">Mis ofertas</span></a></li>
+          <li><a class="enlace-boton"><span class="enlace-texto">Salir</span></a></li>
+        </ul>
+
+        </div>
 
           <?php
-          
+          /*
             // solo se reconoce al usuario como registrado si existe una cookie con el hash apropiado, existe una session y
             //una variable de la session procesada con hash() coincide con el hash de la cookie
             
@@ -92,7 +103,7 @@ session_start();
               //presentar pagina como invitado
               echo $invitado;
             }
-            
+            */
           ?>
         </ul>
       </div>

@@ -74,8 +74,19 @@ main {
   grid-row: 2/3;
   grid-column: 3/4;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   justify-content: center;
+}
+.cuenta-menu {
+  z-index: 1;
+  margin-top: 5px;
+  margin-left: 25px;
+
+  padding: 10px;
+
+  background-color: whitesmoke;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px grey;
 }
 
 .enlace-texto {
