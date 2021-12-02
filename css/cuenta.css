@@ -1,0 +1,95 @@
+.panel-cuenta
+{
+    width: 80%;
+    height: 800px;
+    padding:50px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+.usuario
+{
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+}
+.correo
+{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(8,1fr);
+    grid-template-rows: 50px;
+}
+.cambiar-correo
+{
+    grid-column: 5/7;
+}
+.colapse
+{
+    display: none;
+}
+.expand
+{
+    display: grid;
+}
+.etiqueta-actualizar-correo
+{
+    grid-column: 1/2;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+.entrada-actualizar-correo
+{
+    grid-column: 2/4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+
+}
+.botones-actualizar-correo
+{
+    grid-column: 4/6;
+    grid-row:1/2;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.error-actualizar-correo
+{
+    grid-column: 6/8;
+    grid-row:1/2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.texto-grande
+{
+    font-size: 20px;
+    font-weight: bold;
+
+}
+.boton
+{
+    background-color: #83c5be;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px grey;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+    color: black;
+    border-width: 0px;
+}
+.boton:hover{
+    color: white;
+}

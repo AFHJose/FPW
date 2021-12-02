@@ -19,6 +19,9 @@ var obligatorio_registro = [
   ["correo", false]
 ];
 
+var obligatorio_actualizar_correo = [
+  ["correo", false]
+];
 function cambiar(id, valor, lista) {
   i = 0;
   while (i < lista.length) {
@@ -42,6 +45,11 @@ function hablitar_boton(lista) {
     document.getElementById("ingresar").classList.replace("off", "on");
   }
 }
+function deshabilitar_boton()
+{
+  document.getElementById("ingresar").disabled = true;
+  document.getElementById("ingresar").classList.replace("on", "off");
+}
 
 function validar(elemento,lista) {
   var mensajeError = document.getElementById(elemento.id + "-error");
@@ -49,6 +57,7 @@ function validar(elemento,lista) {
     mensajeError.innerText = "Campo Obligatorio";
     elemento.classList.replace("valido", "error");
     cambiar(elemento.id, false, lista);
+    deshabilitar_boton();
   } else {
     if (condiciones[elemento.id].test(elemento.value)) {
       mensajeError.innerText = "";
@@ -59,6 +68,7 @@ function validar(elemento,lista) {
       mensajeError.innerText = errores[elemento.id];
       elemento.classList.replace("valido", "error");
       cambiar(elemento.id, false, lista);
+      deshabilitar_boton();
     }
   }
 }
