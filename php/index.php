@@ -53,7 +53,7 @@ session_start();
               >
             </li>
             <li >
-              <a class="enlace-boton"><span class="enlace-texto">Crear cuenta</span></a>
+              <a href="../html/cuenta-nueva.html"class="enlace-boton"><span class="enlace-texto">Crear cuenta</span></a>
             </li>
             </ul>
             HEREDOC;

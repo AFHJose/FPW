@@ -39,7 +39,7 @@
         <h2 class="ingreso-titulo">INGRESO</h2>
         <label class="usuario-etiqueta" for="usuario">Usuario:</label>
         <input
-          onblur="validar(this)"
+          onblur="validar(this,obligatorio_ingreso)"
           placeholder="Ingrese su usuario"
           type="text"
           id="usuario"
@@ -50,7 +50,7 @@
 
         <label class="contraseña-etiqueta" for="contraseña">Contraseña:</label>
         <input
-          onblur="validar(this)"
+          onblur="validar(this,obligatorio_ingreso)"
           placeholder="Ingrese su contraseña"
           type="text"
           id="contraseña"
@@ -66,7 +66,7 @@
             value="Ingresar"
             disabled
           />
-          <a class="ingreso-boton on">Crear cuenta</a>
+          <a href="cuenta-nueva.html" class="ingreso-boton on">Crear cuenta</a>
         </div>
       </form>
     </main>

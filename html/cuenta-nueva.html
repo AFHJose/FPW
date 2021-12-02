@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>INDEX-TEST</title>
+    <link rel="stylesheet" type="text/css" href="../css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="../css/index.css" />
+    <link rel="stylesheet" type="text/css" href="../css/login.css" />
+    <link rel="stylesheet" type="text/css" href="../css/register.css" />
+    <script src="../js/validar.js"></script>
+  </head>
+  <body>
+    <header class="cabecera">
+      <div class="portada">
+        <a class="portada-enlace" href="../php/index.php"
+          ><h1 class="portada-texto">Mercado Inmobiliario Buenos Aires</h1></a
+        >
+      </div>
+      <div class="menu-contenedor">
+        <nav class="nav">
+          <ul class="menu">
+            <li>
+              <a class="enlace-boton"><span class="enlace-texto">Comprar </span></a>
+            </li>
+            <li>
+              <a class="enlace-boton"><span class="enlace-texto">Alquilar </span></a>
+            </li>
+            <li>
+              <a class="enlace-boton"><span class="enlace-texto">Vender </span></a>
+            </li>
+            <li>
+              <a class="enlace-boton"><span class="enlace-texto">Servicios administrativos </span></a>
+            </li>
+          </ul>
+        </nav>
+    </header>
+    <main>
+      <form class="registro-formulario" action="../php/register.php" method="post">
+        <h2 class="ingreso-titulo">Registro</h2>
+        <label class="usuario-etiqueta" for="usuario">Usuario:</label>
+        <input
+          onblur="validar(this,obligatorio_registro)"
+          placeholder="Ingrese su usuario"
+          type="text"
+          id="usuario"
+          class="usuario-entrada valido"
+          name="usuario"
+        />
+        <span class="usuario-error" id="usuario-error"></span>
+
+        <label class="contraseña-etiqueta" for="contraseña">Contraseña:</label>
+        <input
+          onblur="validar(this,obligatorio_registro)"
+          placeholder="Ingrese su contraseña"
+          type="text"
+          id="contraseña"
+          class="contraseña-entrada valido"
+          name="contraseña"
+        />
+        <span class="contraseña-error" id="contraseña-error"></span>
+
+        <label class="correo-etiqueta" for="correo">Correo:</label>
+        <input
+          onblur="validar(this,obligatorio_registro)"
+          placeholder="Ingrese su correo"
+          type="text"
+          id="correo"
+          class="correo-entrada valido"
+          name="correo"
+        />
+        <span class="correo-error" id="correo-error"></span>
+
+        <div class="registro-botones">
+          <input
+            type="submit"
+            id="ingresar"
+            class="ingreso-boton off"
+            value="Crear cuenta"
+            disabled
+          />
+        </div>
+      </form>
+    </main>
+    <footer>
+      <div class="pie">
+        <ul>
+          <li><h3>Contacto:</h3></li>
+          <li class="pie-info">Telefono: 011 1234567</li>
+          <li class="pie-info">Correo: contacto@miba.com</li>
+          <li class="pie-info">
+            Direccion oficinas: Bartolomé Mitre 1500,CABA
+          </li>
+        </ul>
+        <ul>
+          <li><h3>Redes Sociales:</h3></li>
+          <li class="pie-info">
+            <a class="pie-enlace" target="_blank" href="https://twitter.com/"
+              >Twitter</a
+            >
+          </li>
+          <li class="pie-info">
+            <a
+              class="pie-enlace"
+              target="_blank"
+              href="https://www.facebook.com/"
+              >Facebook</a
+            >
+          </li>
+          <li class="pie-info">
+            <a
+              class="pie-enlace"
+              target="_blank"
+              href="https://www.instagram.com/"
+              >Instagram</a
+            >
+          </li>
+          <li class="pie-info">
+            <a
+              class="pie-enlace"
+              target="_blank"
+              href="https://www.linkedin.com/"
+              >Linkedin</a
+            >
+          </li>
+        </ul>
+        <ul>
+          <li><h3>Empresa:</h3></li>
+          <li class="pie-info">
+            <a class="pie-enlace">Politica de privacidad</a>
+          </li>
+          <li class="pie-info"><a class="pie-enlace">Terminos de uso</a></li>
+          <li class="pie-info">
+            <a class="pie-enlace">Preguntas frecuentes</a>
+          </li>
+        </ul>
+      </div>
+      <p class="copyright">Copyright © 2019-2021 MIBA S.R.L.</p>
+    </footer>
+  </body>
+</html>
