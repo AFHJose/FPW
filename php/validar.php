@@ -1,5 +1,6 @@
 <?php
-$condiciones = array( 'usuario' => "#^\s*\S{6,}\s*$#i" ,'contraseña'=> "#^\s*\S{8,}\s*$#i");
+// es necesario escapar los guion medio "\-"
+$condiciones = array( 'usuario' => "#^\s*\S{6,}\s*$#i" ,'contraseña'=> "#^\s*\S{8,}\s*$#i", 'correo' => "#^\s*[\w\-\.]+@([\w\-]+\.)+[\w\-]{2,4}\s*$#i");
 
 
 function limpiar($data)

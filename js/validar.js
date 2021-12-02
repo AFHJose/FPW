@@ -1,7 +1,7 @@
 var condiciones = {
   usuario: /^\s*\S{6,}\s*$/,
   contraseña: /^\s*\S{8,}\s*$/,
-  correo: /^\s*[\w-'.]+@([\w-]+\.)+[\w-]{2,4}\s*$/
+  correo: /^\s*[\w-\.]+@([\w-]+\.)+[\w-]{2,4}\s*$/
 };
 var errores = {
   usuario: "El usuario debe tener al menos 6 caracteres.",

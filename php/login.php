@@ -28,34 +28,36 @@ if($conexion)
         $stmt->execute();
         $resultado = $stmt->get_result();
         $entrada = $resultado->fetch_assoc();
+
+        
+        if ($entrada)
+        {
+            // crear una cookie con un hash del id del usuario
+            $user = hash("sha3-512",$entrada["id_usuario"]);
+            setcookie("miba", $user, time()+ 86400, "/");
+    
+            //crear una session con la informacion del usuario
+            session_start();
+            $_SESSION["id_usuario"] = $entrada["id_usuario"];
+            $_SESSION["usuario"] = $entrada["usuario"];
+            $_SESSION["correo"] = $entrada["correo"];
+    
+            //agregar el archivo a mostrar
+    
+            header("Location: http://localhost/FPW/php/index.php");
+    
+            /*
+            include "../html/main.html";
+            */
+    
+        } 
+        else 
+        {
+            header("Location: http://localhost/FPW/html/login.html");
+    
+        }
     }
 
-    if ($entrada)
-    {
-        // crear una cookie con un hash del id del usuario
-        $user = hash("sha3-512",$entrada["id_usuario"]);
-        setcookie("miba", $user, time()+ 86400, "/");
-
-        //crear una session con la informacion del usuario
-        session_start();
-        $_SESSION["id_usuario"] = $entrada["id_usuario"];
-        $_SESSION["usuario"] = $entrada["usuario"];
-        $_SESSION["correo"] = $entrada["correo"];
-
-        //agregar el archivo a mostrar
-
-        header("Location: http://localhost/FPW/php/index.php");
-
-        /*
-        include "../html/main.html";
-        */
-
-    } 
-    else 
-    {
-        header("Location: http://localhost/FPW/html/login.html");
-
-    }
     
 
     $conexion->close();
