@@ -19,29 +19,20 @@
       <div class="menu-contenedor">
         <nav class="nav">
           <ul class="menu">
-            <li class="menu-enlance">
-              <a><span>Comprar </span></a>
+            <li>
+              <a class="enlace-boton"><span class="enlace-texto">Comprar </span></a>
             </li>
-            <li class="menu-enlance">
-              <a><span>Alquilar </span></a>
+            <li>
+              <a class="enlace-boton"><span class="enlace-texto">Alquilar </span></a>
             </li>
-            <li class="menu-enlance">
-              <a><span>Vender </span></a>
+            <li>
+              <a class="enlace-boton"><span class="enlace-texto">Vender </span></a>
             </li>
-            <li class="menu-enlance">
-              <a><span>Servicios administrativos </span></a>
+            <li>
+              <a class="enlace-boton"><span class="enlace-texto">Servicios administrativos </span></a>
             </li>
           </ul>
         </nav>
-        <ul class="cuenta">
-          <li class="menu-enlance cuenta-ingreso">
-            <a><span>Ingresar </span></a>
-          </li>
-          <li class="menu-enlance cuenta-registro">
-            <a><span>Crear cuenta</span></a>
-          </li>
-        </ul>
-      </div>
     </header>
     <main>
       <form class="ingreso-formulario" action="../php/login.php" method="post">
@@ -49,7 +40,6 @@
         <label class="usuario-etiqueta" for="usuario">Usuario:</label>
         <input
           onblur="validar(this)"
-          onchange="validar(this)"
           placeholder="Ingrese su usuario"
           type="text"
           id="usuario"
@@ -61,7 +51,6 @@
         <label class="contraseña-etiqueta" for="contraseña">Contraseña:</label>
         <input
           onblur="validar(this)"
-          onchange="validar(this)"
           placeholder="Ingrese su contraseña"
           type="text"
           id="contraseña"

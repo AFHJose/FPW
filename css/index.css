@@ -50,13 +50,14 @@ main {
 }
 .menu-contenedor {
   background-color: #83c5be;
+  padding-top: 20px;
 
   display: grid;
   grid-template-columns: 4fr 2fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  /*grid-template-rows: 1fr 1fr 1fr;*/
 }
 .nav {
-  grid-row: 2/3;
+  /*grid-row: 2/3;*/
 }
 .menu {
   display: flex;
@@ -64,14 +65,14 @@ main {
   justify-content: space-around;
 }
 .cuenta-invitado {
-  grid-row: 2/3;
+  /*grid-row: 2/3;*/
   grid-column: 3/4;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
 }
 .cuenta-registrado {
-  grid-row: 2/3;
+  /*grid-row: 2/3;*/
   grid-column: 3/4;
   display: flex;
   flex-flow: row wrap;
@@ -80,7 +81,7 @@ main {
 .cuenta-menu {
   z-index: 1;
   margin-top: 5px;
-  margin-left: 25px;
+  margin-left: 15px;
 
   padding: 10px;
 
@@ -88,7 +89,15 @@ main {
   border-radius: 5px;
   box-shadow: 3px 3px 5px grey;
 }
-
+.cuenta-menu-item {
+  margin: 5px 0px 5px 0px;
+}
+.hide {
+  visibility: hidden;
+}
+.show {
+  visibility: visible;
+}
 .enlace-texto {
   font-size: 20px;
   font-weight: bold;
