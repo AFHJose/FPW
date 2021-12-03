@@ -22,6 +22,11 @@ var obligatorio_registro = [
 var obligatorio_actualizar_correo = [
   ["correo", false]
 ];
+
+var obligatorio_actualizar_contraseña = [
+  ["contraseña", false],
+  ["contraseña-actual",false]
+];
 function cambiar(id, valor, lista) {
   i = 0;
   while (i < lista.length) {

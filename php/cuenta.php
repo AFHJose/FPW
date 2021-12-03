@@ -131,6 +131,42 @@ session_start()
             />
             <span class="error-actualizar-correo" id="correo-error"></span>
             <div class="botones-actualizar-correo">
+              <input
+                  type="submit"
+                  id="ingresar"
+                  class="ingreso-boton off"
+                  value="Actualizar"
+                  disabled
+              />
+              <a href="javascript:correo_formulario();"><span class="boton" >Cancelar</span></a>
+            </div>
+        </form>
+        
+        <div class="contraseña colapse"><a><span class="boton">Cambiar contraseña</span></a></div>
+        <form class="contraseña expand">
+          <label class="texto-grande etiqueta-contraseña-actual" for="contraseña-actual">Contraseña actual:</label>
+          <input
+          onblur="validar(this,obligatorio_actualizar_contraseña)"
+          placeholder="Ingrese su contraseña actual"
+          type="password"
+          id="contraseña-actual"
+          class="entrada-contraseña-actual valido"
+          name="contraseña-actual"
+          />
+          <span class="error-contraseña-actual" id="contraseña-actual-error"></span>
+
+
+          <label class="texto-grande etiqueta-actualizar-correo" for="correo">Nueva contraseña:</label>
+          <input
+          onblur="validar(this,obligatorio_actualizar_contraseña)"
+          placeholder="Ingrese su correo"
+          type="text"
+          id="correo"
+          class="entrada-actualizar-correo valido"
+          name="correo"
+          />
+          <span class="error-actualizar-correo" id="correo-error"></span>
+          <div class="botones-actualizar-correo">
             <input
                 type="submit"
                 id="ingresar"
@@ -139,12 +175,11 @@ session_start()
                 disabled
             />
             <a href="javascript:test();"><span class="boton" >Cancelar</span></a>
-            </div>
-            </form>
-        <div class="contraseña"><a><span>Cambiar contraseña</span></a></div>
+          </div>
+        </form>
+        <div class="eliminar"><a><span>Eliminar Cuenta</span></a></div>
         <a><span>Mis Propiedades</span></a>
         <a><span>Mis Ofertas</span></a>
-        <div class="eliminar"><a><span>Eliminar Cuenta</span></a></div>
 
 
 
