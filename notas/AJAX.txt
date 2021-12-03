@@ -1,0 +1,200 @@
+AJAX = Asynchronous JavaScript And XML.UTILIZA:
+
+    A browser built-in XMLHttpRequest object (to request data from a web server)
+    JavaScript and HTML DOM (to display or use the data)
+
+
+AJAX PERMITE
+
+    Read data from a web server - after the page has loaded
+    Update a web page without reloading the page
+    Send data to a web server - in the background
+
+
+utilizar <button></button> para llamar una funcion en onclick="funcion()" y ejecutar el pedido al server 
+
+EJ: 
+
+    function loadDoc() {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+        document.getElementById("demo").innerHTML = this.responseText;
+        }
+    xhttp.open("GET", "ajax_info.txt", true);
+    xhttp.send();
+    }
+
+datos enviados en texto simple, XML o JSON 
+
+SECUENCIA 
+
+    1. An event occurs in a web page (the page is loaded, a button is clicked)
+    2. An XMLHttpRequest object is created by JavaScript
+    3. The XMLHttpRequest object sends a request to a web server
+    4. The server processes the request
+    5. The server sends a response back to the web page
+    6. The response is read by JavaScript
+    7. Proper action (like page update) is performed by JavaScript
+
+FETCH API (FORMA MAS MODERNA DE REALIZAR PEDIDOS POR HTTP)
+
+    Modern Browsers can use Fetch API instead of the XMLHttpRequest Object.
+
+    The Fetch API interface allows web browser to make HTTP requests to web servers.
+
+    If you use the XMLHttpRequest Object, Fetch can do the same in a simpler way.
+
+AJAX - The XMLHttpRequest Object
+
+    Create an XMLHttpRequest object
+    Define a callback function
+    Open the XMLHttpRequest object
+    Send a Request to a server
+
+CREACION
+    variable = new XMLHttpRequest();
+
+CALLBACK 
+
+    xhttp.onload = function() {
+    // What to do when the response is ready
+    }
+
+PEDIDO 
+
+    xhttp.open("GET", "ajax_info.txt");
+    xhttp.send();
+
+SEGURIDAD
+
+For security reasons, modern browsers do not allow access across domains.
+
+This means that both the web page and the XML file it tries to load, must be located on the same server.
+
+METODOS
+
+    new XMLHttpRequest()	Creates a new XMLHttpRequest object
+    abort()	Cancels the current request
+    getAllResponseHeaders()	Returns header information
+    getResponseHeader()	Returns specific header information
+    open(method, url, async, user, psw)	Specifies the request
+
+    method: the request type GET or POST
+    url: the file location
+    async: true (asynchronous) or false (synchronous)
+    user: optional user name
+    psw: optional password
+    send()	Sends the request to the server
+    Used for GET requests
+    send(string)	Sends the request to the server.
+    Used for POST requests
+    setRequestHeader()	Adds a label/value pair to the header to be sent
+
+
+PROPIEDADES
+
+    onload	Defines a function to be called when the request is recived (loaded)
+    onreadystatechange	Defines a function to be called when the readyState property changes
+    readyState	Holds the status of the XMLHttpRequest.
+    0: request not initialized
+    1: server connection established
+    2: request received
+    3: processing request
+    4: request finished and response is ready
+    responseText	Returns the response data as a string
+    responseXML	Returns the response data as XML data
+    status	Returns the status-number of a request
+    200: "OK"
+    403: "Forbidden"
+    404: "Not Found"
+    For a complete list go to the Http Messages Reference
+    statusText	Returns the status-text (e.g. "OK" or "Not Found")
+
+
+Multiple Callback Functions
+
+    en caso de tener mas un pedido AJAX en una pagina hay que tener una funcion para procesar el resultado de cada pedido 
+
+    EJ
+
+        loadDoc("url-1", myFunction1);
+
+        loadDoc("url-2", myFunction2);
+
+        function loadDoc(url, cFunction) {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {cFunction(this);}
+        xhttp.open("GET", url);
+        xhttp.send();
+        }
+
+        function myFunction1(xhttp) {
+        // action goes here
+        }
+        function myFunction2(xhttp) {
+        // action goes here
+        }
+
+STATE OF Request
+
+    the onreadystatechange function is called every time the readyState changes.
+
+    When readyState is 4 and status is 200, the response is ready:
+
+
+Send a Request To a Server
+
+    The XMLHttpRequest object is used to request data from a server.
+
+    xhttp.open("GET", "ajax_info.txt", true);
+    xhttp.send(); GET
+    xhttp.send(string); POST 
+
+
+    The url parameter of the open() method, is an address to a file on a server:
+
+    Server requests should be sent asynchronously.
+
+    The async parameter of the open() method should be set to true:
+
+
+    The default value for the async parameter is async = true.
+
+    GET VS POST 
+
+    GET is simpler and faster than POST, and can be used in most cases.
+
+    GET
+
+        xhttp.open("GET", "demo_get2.asp?fname=Henry&lname=Ford");
+        xhttp.send();
+
+    POST 
+
+        To POST data like an HTML form, add an HTTP header with setRequestHeader(). 
+        Specify the data you want to send in the send() method:
+
+        xhttp.open("POST", "ajax_test.asp");
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("fname=Henry&lname=Ford");
+
+
+        setRequestHeader(header, value)	Adds HTTP headers to the request
+
+                                        header: specifies the header name
+                                        value: specifies the header value
+
+
+AJAX - Server Response
+
+    responseText	get the response data as a string
+    responseXML	    get the response data as XML data
+
+    document.getElementById("demo").innerHTML = xhttp.responseText;
+
+    getResponseHeader()	        Returns specific header information from the server resource
+    getAllResponseHeaders()	    Returns all the header information from the server resource
+
+
+UTILIZAR JSON PARA ENVIAR Y RECIBIR LA INFORMACION 
+
