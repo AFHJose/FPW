@@ -110,16 +110,16 @@ session_start()
     </header>
     <main>
      <div class="panel-cuenta">
-        <h2 class="usuario">Usuario: <?php echo ($_SESSION["usuario"]); ?></h2>
+        <h2 id="usuario" class="usuario">Usuario: <?php echo ($_SESSION["usuario"]); ?></h2>
 
         
         <div class="correo expand" id="correo-show">
             <span class="texto-grande etiqueta-actualizar-correo">Correo:</span>
-            <span class="texto-grande entrada-actualizar-correo "><?php echo ($_SESSION["correo"]); ?></span>
-            <div class="botones-actualizar-correo"><a href="javascript:actualizar_correo();"><span class="boton">Cambiar Correo</span></a></div>      
+            <span id="correo-texto" class="texto-grande entrada-actualizar-correo "><?php echo ($_SESSION["correo"]); ?></span>
+            <div class="botones-actualizar-correo"><a href="javascript:correo_formulario();"><span class="boton">Cambiar Correo</span></a></div>      
         </div>
 
-        <form class="correo colapse" id="correo-form" action="../php/update.php" method="post">
+        <form class="correo colapse" id="correo-form" action="javascript:correo_actualizar();" method="post">
             <label class="texto-grande etiqueta-actualizar-correo" for="correo">Correo:</label>
             <input
             onblur="validar(this,obligatorio_actualizar_correo)"
@@ -138,7 +138,7 @@ session_start()
                 value="Actualizar"
                 disabled
             />
-            <a href="javascript:actualizar_correo();"><span class="boton" >Cancelar</span></a>
+            <a href="javascript:test();"><span class="boton" >Cancelar</span></a>
             </div>
             </form>
         <div class="contraseña"><a><span>Cambiar contraseña</span></a></div>

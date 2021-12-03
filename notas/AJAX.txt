@@ -198,3 +198,109 @@ AJAX - Server Response
 
 UTILIZAR JSON PARA ENVIAR Y RECIBIR LA INFORMACION 
 
+If you do not set header Cache-Control: no-cache the browser will cache the response and never re-submit the request, making debugging challenging. You can also add an always-different GET parameter, like a timestamp or random number (see bypassing the cache)
+
+
+If the httpRequest variable is used globally, competing functions calling makeRequest() can overwrite each other, causing a race condition. Declaring the httpRequest variable local to a closure containing the AJAX functions avoids this.
+
+<button id="ajaxButton" type="button">Make a request</button>
+
+<script>
+(function() {
+  var httpRequest;
+  document.getElementById("ajaxButton").addEventListener('click', makeRequest);
+
+  function makeRequest() {
+    httpRequest = new XMLHttpRequest();
+
+    if (!httpRequest) {
+      alert('Giving up :( Cannot create an XMLHTTP instance');
+      return false;
+    }
+    httpRequest.onreadystatechange = alertContents;
+    httpRequest.open('GET', 'test.html');
+    httpRequest.send();
+  }
+
+  function alertContents() {
+    if (httpRequest.readyState === XMLHttpRequest.DONE) {
+      if (httpRequest.status === 200) {
+        alert(httpRequest.responseText);
+      } else {
+        alert('There was a problem with the request.');
+      }
+    }
+  }
+})();
+</script>
+
+MANEJO DE ERRORES Y EXCEPCIONES
+
+    function alertContents() {
+    try {
+        if (httpRequest.readyState === XMLHttpRequest.DONE) {
+        if (httpRequest.status === 200) {
+            alert(httpRequest.responseText);
+        } else {
+            alert('There was a problem with the request.');
+        }
+        }
+    }
+    catch( e ) {
+        alert('Caught Exception: ' + e.description);
+    }
+    }
+
+
+JSON PARSE Y ENCODE 
+
+DECODE ASSOSIATIVE ARRAY CON JSON.parse
+
+    function alertContents() {
+    if (httpRequest.readyState === XMLHttpRequest.DONE) {
+        if (httpRequest.status === 200) {
+        var response = JSON.parse(httpRequest.responseText);
+        alert(response.computedString);
+        } else {
+        alert('There was a problem with the request.');
+        }
+    }
+    }
+ENCODE ASSOSIATIVE ARRAY CON json_encode($array)
+
+    $name = (isset($_POST['userName'])) ? $_POST['userName'] : 'no name';
+    $computedString = "Hi, " . $name . "!";
+    $array = ['userName' => $name, 'computedString' => $computedString];
+    echo json_encode($array);
+
+
+EJECUTAR FUNCION EN INTERVALOS: setInterval()
+
+FORMDATA API 
+
+Bypassing the cache
+
+    var oReq = new XMLHttpRequest();
+
+    oReq.open("GET", url + ((/\?/).test(url) ? "&" : "?") + (new Date()).getTime());
+    oReq.send(null);
+
+FETCH API ***
+
+    The Fetch API interface allows web browser to make HTTP requests to web servers.
+
+JavaScript Promises
+
+    Promises simplify deferred and asynchronous computations. A promise represents an operation that hasn't completed yet.
+
+    una promesa tiene dos funciones una en caso de exito y una en caso de error que se llaman al resolver la misma 
+
+
+JSON.stringify()
+
+    The JSON.stringify() method converts a JavaScript object or value to a JSON string, optionally replacing values if a replacer function is specified or optionally including only the specified properties if a replacer array is specified.
+
+
+
+
+

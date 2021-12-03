@@ -6,7 +6,7 @@ function menu() {
     menu.classList.replace("hide", "show");
   }
 }
-function actualizar_correo()
+function correo_formulario()
 {
   var form = document.getElementById("correo-form");
   var show = document.getElementById("correo-show");
@@ -19,3 +19,24 @@ function actualizar_correo()
   }
 
 }
+function correo_actualizar()
+{
+  var req = new XMLHttpRequest();
+  data = document.getElementById("correo").value;
+  req.onload = function()
+  {
+    correo_formulario();
+    respuesta = JSON.parse(this.responseText);
+    if(respuesta.estado)
+    {
+      document.getElementById("correo-texto").innerHTML=respuesta.correo;
+    }else{
+      console.log("error en update correo");
+    }
+
+  }
+  req.open("POST","update.php");
+  req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  req.send("correo="+data);
+}
+

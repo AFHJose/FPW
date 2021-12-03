@@ -39,7 +39,6 @@ function hablitar_boton(lista) {
   while (j < lista.length && lista[j][1]) {
     j++;
   }
-  console.log(j);
   if (j == lista.length) {
     document.getElementById("ingresar").disabled = false;
     document.getElementById("ingresar").classList.replace("off", "on");
