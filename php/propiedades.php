@@ -28,7 +28,7 @@ session_start()
         <nav class="nav">
           <ul class="menu">
             <li>
-              <a href="propiedades.php" class="enlace-boton"><span class="enlace-texto">Comprar </span></a>
+              <a class="enlace-boton"><span class="enlace-texto">Comprar </span></a>
             </li>
             <li>
               <a class="enlace-boton"><span class="enlace-texto">Alquilar </span></a>
@@ -109,86 +109,7 @@ session_start()
       </div>
     </header>
     <main>
-     <div class="panel-cuenta">
-        <h2 id="usuario" class="usuario">Usuario: <?php echo ($_SESSION["usuario"]); ?></h2>
-
-        <hr>
-        <div class="correo expand" id="correo-show">
-            <span class="texto-grande etiqueta-actualizar-correo">Correo:</span>
-            <span id="correo-texto" class="texto-grande entrada-actualizar-correo "><?php echo ($_SESSION["correo"]); ?></span>
-            <div class="botones-actualizar-correo"><a href="javascript:mostrar_formulario('correo-show','correo-form');"><span class="boton">Cambiar Correo</span></a></div>      
-        </div>
-
-        <form class="correo colapse" id="correo-form" action="javascript:correo_actualizar();" method="post">
-            <label class="texto-grande etiqueta-actualizar-correo" for="correo">Correo:</label>
-            <input
-            onblur="validar(this,obligatorio_actualizar_correo)"
-            placeholder="Ingrese su correo"
-            type="text"
-            id="correo"
-            class="entrada-actualizar-correo valido"
-            name="correo"
-            />
-            <span class="error-actualizar-correo" id="correo-error"></span>
-            <div class="botones-actualizar-correo">
-              <input
-                  type="submit"
-                  id="Icorreo"
-                  class="ingreso-boton off"
-                  value="Actualizar"
-                  disabled
-              />
-              <a href="javascript:mostrar_formulario('correo-show','correo-form');"><span class="boton" >Cancelar</span></a>
-            </div>
-        </form>
-
-        <hr>
-        
-        <div class="contra-show expand" id="contra-show"><a class="contra-boton" href="javascript:mostrar_formulario('contra-show','contra-form');"><span class="boton">Cambiar contraseña</span></a></div>
-        <form class="contra-form colapse" id="contra-form" action="javascript:contra_actualizar();">
-          <label class="texto-grande etiqueta-contraseña-actual" for="contraseña-actual">Contraseña actual:</label>
-          <input
-          onblur="validar(this,obligatorio_actualizar_contraseña)"
-          placeholder="Ingrese su contraseña actual"
-          type="password"
-          id="Cactual"
-          class="entrada-contraseña-actual valido"
-          name="contraseña-actual"
-          />
-          <span class="error-contraseña-actual" id="Cactual-error"></span>
-
-
-          <label class="texto-grande etiqueta-contraseña-nueva" for="contraseña-nueva">Nueva contraseña:</label>
-          <input
-          onblur="validar(this,obligatorio_actualizar_contraseña)"
-          placeholder="Ingrese su nueva contraseña"
-          type="password"
-          id="Cnueva"
-          class="entrada-contraseña-nueva valido"
-          name="contraseña-nueva"
-          />
-          <span class="error-contraseña-nueva" id="Cnueva-error"></span>
-          <div class="botones-actualizar-contraseña">
-            <input
-                type="submit"
-                id="contra"
-                class="ingreso-boton off"
-                value="Actualizar"
-                disabled
-            />
-            <a href="javascript:mostrar_formulario('contra-show','contra-form');"><span class="boton" >Cancelar</span></a>
-          </div>
-        </form>
-
-        <hr>
-
-        <div id="eliminar-show" class="eliminar-show expand"><button onclick="mostrar_formulario('eliminar-show','eliminar-form')" type="button" class="boton">Eliminar Cuenta</button></div>
-        <div id="eliminar-form" class="eliminar-confirm colapse">
-          <h3 class="eliminar-texto">La cuenta sera eliminada de forma permanente. ¿Esta seguro de quere continuar?</h3>
-          <div class="contenedor-botones"><button onclick="eliminar()" class="boton" type="button" >Eliminar mi cuenta</button><button onclick="mostrar_formulario('eliminar-show','eliminar-form')" type="button" class="boton">Cancelar</button></div>
-        </div>
             
-     </div>
     </main>
     <footer>
       <div class="pie">

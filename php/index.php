@@ -26,7 +26,7 @@ session_start();
         <nav class="nav">
           <ul class="menu">
             <li>
-              <a class="enlace-boton"><span class="enlace-texto">Comprar </span></a>
+              <a href="propiedades.php" class="enlace-boton"><span class="enlace-texto">Comprar </span></a>
             </li>
             <li>
               <a class="enlace-boton"><span class="enlace-texto">Alquilar </span></a>
