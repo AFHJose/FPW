@@ -112,11 +112,11 @@ session_start()
      <div class="panel-cuenta">
         <h2 id="usuario" class="usuario">Usuario: <?php echo ($_SESSION["usuario"]); ?></h2>
 
-        
+        <hr>
         <div class="correo expand" id="correo-show">
             <span class="texto-grande etiqueta-actualizar-correo">Correo:</span>
             <span id="correo-texto" class="texto-grande entrada-actualizar-correo "><?php echo ($_SESSION["correo"]); ?></span>
-            <div class="botones-actualizar-correo"><a href="javascript:correo_formulario();"><span class="boton">Cambiar Correo</span></a></div>      
+            <div class="botones-actualizar-correo"><a href="javascript:mostrar_formulario('correo-show','correo-form');"><span class="boton">Cambiar Correo</span></a></div>      
         </div>
 
         <form class="correo colapse" id="correo-form" action="javascript:correo_actualizar();" method="post">
@@ -138,11 +138,13 @@ session_start()
                   value="Actualizar"
                   disabled
               />
-              <a href="javascript:correo_formulario();"><span class="boton" >Cancelar</span></a>
+              <a href="javascript:mostrar_formulario('correo-show','correo-form');"><span class="boton" >Cancelar</span></a>
             </div>
         </form>
+
+        <hr>
         
-        <div class="contra-show expand" id="contra-show"><a class="contra-boton" href="javascript:contra_formulario();"><span class="boton">Cambiar contraseña</span></a></div>
+        <div class="contra-show expand" id="contra-show"><a class="contra-boton" href="javascript:mostrar_formulario('contra-show','contra-form');"><span class="boton">Cambiar contraseña</span></a></div>
         <form class="contra-form colapse" id="contra-form" action="javascript:contra_actualizar();">
           <label class="texto-grande etiqueta-contraseña-actual" for="contraseña-actual">Contraseña actual:</label>
           <input
@@ -174,15 +176,18 @@ session_start()
                 value="Actualizar"
                 disabled
             />
-            <a href="javascript:contra_formulario();"><span class="boton" >Cancelar</span></a>
+            <a href="javascript:mostrar_formulario('contra-show','contra-form');"><span class="boton" >Cancelar</span></a>
           </div>
         </form>
-        <div class="eliminar"><a><span>Eliminar Cuenta</span></a></div>
-        <a><span>Mis Propiedades</span></a>
-        <a><span>Mis Ofertas</span></a>
 
+        <hr>
 
-
+        <div id="eliminar-show" class="eliminar-show expand"><button onclick="mostrar_formulario('eliminar-show','eliminar-form')" type="button" class="boton">Eliminar Cuenta</button></div>
+        <div id="eliminar-form" class="eliminar-confirm colapse">
+          <h3 class="eliminar-texto">La cuenta sera eliminada de forma permanente. ¿Esta seguro de quere continuar?</h3>
+          <div class="contenedor-botones"><button onclick="eliminar()" class="boton" type="button" >Eliminar mi cuenta</button><button onclick="mostrar_formulario('eliminar-show','eliminar-form')" type="button" class="boton">Cancelar</button></div>
+        </div>
+            
      </div>
     </main>
     <footer>
