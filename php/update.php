@@ -6,38 +6,83 @@ $conexion = OpenCon();
 
 if($conexion)
 {
-    //limpiar variables escapando char de html, eliminando espacio y char especiales y \ extras
-    $correo = limpiar($_POST['correo']);
-    //comprobar que las variables tengan la forma correcta con un regex
-    if (!validar($correo,"correo"))
+    if(isset($_POST['correo']))
     {
-        $correo=null;
-    }
-    //comprobar que las entradas pasen las pruebas
-    if($correo)
-    {
-        
-        // utilizar prepare como manera de filtrar posible codigo sql malicioso
-        // actualizar el correo
-        $sql = "UPDATE mibadb.usuarios SET correo=? WHERE id_usuario=?";
-        $stmt= $conexion->prepare($sql);
-        $stmt->bind_param("ss",$correo, $_SESSION["id_usuario"]);
-        $status = $stmt->execute();
 
-        if($status == false)
-        {   
+        //limpiar variables escapando char de html, eliminando espacio y char especiales y \ extras
+        $correo = limpiar($_POST['correo']);
+        //comprobar que las variables tengan la forma correcta con un regex
+        if (!validar($correo,"correo"))
+        {
+            $correo=null;
+        }
+        //comprobar que las entradas pasen las pruebas
+        if($correo)
+        {
+            
+            // utilizar prepare como manera de filtrar posible codigo sql malicioso
+            // actualizar el correo
+            $sql = "UPDATE mibadb.usuarios SET correo=? WHERE id_usuario=?";
+            $stmt= $conexion->prepare($sql);
+            $stmt->bind_param("ss",$correo, $_SESSION["id_usuario"]);
+            $status = $stmt->execute();
+    
+            if($status == false)
+            {   
+                $resultado = array( 'estado' => false ,'correo'=>$correo );
+                echo json_encode($resultado);
+            }else
+            {
+                $_SESSION["correo"]=$correo;
+                $resultado = array( 'estado' => true ,'correo'=>$correo );
+                echo json_encode($resultado);
+            }
+    
+    
+        }else{
             $resultado = array( 'estado' => false ,'correo'=>$correo );
             echo json_encode($resultado);
-        }else
+        }
+    }else if(isset($_POST['actual']) AND isset($_POST['nueva']))
+    {
+        //limpiar variables escapando char de html, eliminando espacio y char especiales y \ extras
+        $actual = limpiar($_POST['actual']);
+        $nueva = limpiar($_POST['nueva']);
+        //comprobar que las variables tengan la forma correcta con un regex
+        if (!validar($actual,"contraseña"))
         {
-            $_SESSION["correo"]=$correo;
-            $resultado = array( 'estado' => true ,'correo'=>$correo );
-            echo json_encode($resultado);
+            $correo=null;
+
+        }else if(!validar($nueva,"contraseña"))
+        {
+            $nueva=null;
         }
 
+        if($actual AND $nueva)
+        {
+            if($_SESSION["contraseña"] == $actual)
+            {
 
-    }else{
-        echo "Error de formato";
+            // utilizar prepare como manera de filtrar posible codigo sql malicioso
+            // actualizar la contraseña
+            $sql = "UPDATE mibadb.usuarios SET contraseña=? WHERE id_usuario=?";
+            $stmt= $conexion->prepare($sql);
+            $stmt->bind_param("ss",$nueva, $_SESSION["id_usuario"]);
+            $status = $stmt->execute();
+            $resultado = array( 'estado' => $status);
+
+            if($status)
+            {
+                $_SESSION["contraseña"]=$nueva;
+            }
+            echo json_encode($resultado);
+
+            }else
+            {
+                $resultado = array( 'estado' => false);
+                echo json_encode($resultado);
+            }
+        }
     }
 
     
@@ -46,7 +91,8 @@ if($conexion)
 }
 else
 {
-    echo "Error de conexion";
+    $resultado = array( 'estado' => false);
+    echo json_encode($resultado);
 }
 
 

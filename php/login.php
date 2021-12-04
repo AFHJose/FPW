@@ -40,6 +40,7 @@ if($conexion)
             session_start();
             $_SESSION["id_usuario"] = $entrada["id_usuario"];
             $_SESSION["usuario"] = $entrada["usuario"];
+            $_SESSION["contraseña"] = $entrada["contraseña"];
             $_SESSION["correo"] = $entrada["correo"];
     
             //agregar el archivo a mostrar

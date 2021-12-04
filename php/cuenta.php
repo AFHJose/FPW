@@ -133,7 +133,7 @@ session_start()
             <div class="botones-actualizar-correo">
               <input
                   type="submit"
-                  id="ingresar"
+                  id="Icorreo"
                   class="ingreso-boton off"
                   value="Actualizar"
                   disabled
@@ -142,39 +142,39 @@ session_start()
             </div>
         </form>
         
-        <div class="contraseña colapse"><a><span class="boton">Cambiar contraseña</span></a></div>
-        <form class="contraseña expand">
+        <div class="contra-show expand" id="contra-show"><a class="contra-boton" href="javascript:contra_formulario();"><span class="boton">Cambiar contraseña</span></a></div>
+        <form class="contra-form colapse" id="contra-form" action="javascript:contra_actualizar();">
           <label class="texto-grande etiqueta-contraseña-actual" for="contraseña-actual">Contraseña actual:</label>
           <input
           onblur="validar(this,obligatorio_actualizar_contraseña)"
           placeholder="Ingrese su contraseña actual"
           type="password"
-          id="contraseña-actual"
+          id="Cactual"
           class="entrada-contraseña-actual valido"
           name="contraseña-actual"
           />
-          <span class="error-contraseña-actual" id="contraseña-actual-error"></span>
+          <span class="error-contraseña-actual" id="Cactual-error"></span>
 
 
-          <label class="texto-grande etiqueta-actualizar-correo" for="correo">Nueva contraseña:</label>
+          <label class="texto-grande etiqueta-contraseña-nueva" for="contraseña-nueva">Nueva contraseña:</label>
           <input
           onblur="validar(this,obligatorio_actualizar_contraseña)"
-          placeholder="Ingrese su correo"
-          type="text"
-          id="correo"
-          class="entrada-actualizar-correo valido"
-          name="correo"
+          placeholder="Ingrese su nueva contraseña"
+          type="password"
+          id="Cnueva"
+          class="entrada-contraseña-nueva valido"
+          name="contraseña-nueva"
           />
-          <span class="error-actualizar-correo" id="correo-error"></span>
-          <div class="botones-actualizar-correo">
+          <span class="error-contraseña-nueva" id="Cnueva-error"></span>
+          <div class="botones-actualizar-contraseña">
             <input
                 type="submit"
-                id="ingresar"
+                id="contra"
                 class="ingreso-boton off"
                 value="Actualizar"
                 disabled
             />
-            <a href="javascript:test();"><span class="boton" >Cancelar</span></a>
+            <a href="javascript:contra_formulario();"><span class="boton" >Cancelar</span></a>
           </div>
         </form>
         <div class="eliminar"><a><span>Eliminar Cuenta</span></a></div>
