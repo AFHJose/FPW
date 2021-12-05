@@ -1,8 +1,37 @@
-.test
+.prop-mostrar
 {
     width: 90%;
-    height: 500px;
+    height:1000px;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 50px 1fr;
+}
+.buscar
+{
+    grid-column: 2/6;
+    grid-row:1/2;
+
+    
     display: flex;
-    justify-content: center;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+.categorias-contenedor
+{
+    grid-column: 1/2;
+    grid-row:2/3;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.prop-contenedor
+{
+    grid-column: 2/6;
+    grid-row:2/3;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
     align-items: center;
 }

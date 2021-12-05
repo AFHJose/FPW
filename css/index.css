@@ -9,7 +9,7 @@ a {
 html {
   font-family: Arial, Helvetica, sans-serif;
 }
-main {
+.main-index {
   background-color: white;
 
   display: flex;

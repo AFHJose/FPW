@@ -108,7 +108,7 @@ session_start()
         </ul>
       </div>
     </header>
-    <main>
+    <main class="main-index">
      <div class="panel-cuenta">
         <h2 id="usuario" class="usuario">Usuario: <?php echo ($_SESSION["usuario"]); ?></h2>
 

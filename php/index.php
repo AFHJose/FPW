@@ -106,7 +106,7 @@ session_start();
         </ul>
       </div>
     </header>
-    <main>
+    <main class="main-index">
       <section class="propuestas">
         <div class="propuestas-info">
           <h2 class="propuestas-titulo">¿Cuanto queres pagar?</h2>

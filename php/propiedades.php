@@ -109,13 +109,90 @@ session_start()
         </ul>
       </div>
     </header>
-    <main>
+    <main class="prop-mostrar">
+            <form class="buscar">
+              <h2>Buscar:</h2>
+              <input type="text">
+              <input type="submit">
+            </form>
+            <aside class="categorias-contenedor">
+              <ul class="categorias">
+                <li>
+                  <h2>Subcategoria</h2>
+                  <ul class="subcategorias">
+                    <li><buton>item 1</buton></li>
+                    <li><buton>item 1</buton></li>
+                    <li><buton>item 1</buton></li>
+                    <li><buton>item 1</buton></li>
+                    <li><buton>item 1</buton></li>
+                  </ul>
+                </li>
+                <li>
+                <h2>Subcategoria</h2>
+                  <ul class="subcategorias">
+                    <li><buton>item 1</buton></li>
+                    <li><buton>item 1</buton></li>
+                    <li><buton>item 1</buton></li>
+                    <li><buton>item 1</buton></li>
+                    <li><buton>item 1</buton></li>
+                  </ul>
+                </li>
+                <li>
+                <h2>Subcategoria</h2>
+                  <ul class="subcategorias">
+                    <li><buton>item 1</buton></li>
+                    <li><buton>item 1</buton></li>
+                    <li><buton>item 1</buton></li>
+                    <li><buton>item 1</buton></li>
+                    <li><buton>item 1</buton></li>
+                  </ul>
+                </li>
+                <li>
+                <h2>Subcategoria</h2>
+                  <ul class="subcategorias">
+                    <li><buton>item 1</buton></li>
+                    <li><buton>item 1</buton></li>
+                    <li><buton>item 1</buton></li>
+                    <li><buton>item 1</buton></li>
+                    <li><buton>item 1</buton></li>
+                  </ul>
+                </li>
+              </ul>
+          </aside>
+            <section class="prop-contenedor">
+              <ol>
+                <li class="prop"> 
+                  <img></img>
+                  <div>
+                    <span>Precio</span>
+                    <span>Tamaño</span>
+                    <span>Direccion</span>
+                    <span>EN VENTA / ALQUILER</span>
+                  </div>
+                </li>
+              </ol>
+              
+
+            </section>
+
+
+
+
+
+
+
+
+
+
+    <!--
+
       <div class="test">
 
         <form action="crear_prop.php" method="post" enctype="multipart/form-data">
           <input type="file" name="img">
           <input type="submit" name="prop" value="nueva_prop">
         </form>
+    -->
 
 
       </div>
