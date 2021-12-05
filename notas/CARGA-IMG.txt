@@ -348,6 +348,13 @@ PHP FILESISTEM DIRECTORIES
 
     Creating Directories in PHP
 
+        mkdir(
+        string $directory,
+        int $permissions = 0777,
+        bool $recursive = false,
+        resource $context = ?
+        ): bool
+
         <?php
         $result = mkdir ("/path/to/directory", "0777");
         ?>
@@ -508,4 +515,37 @@ A PHP script can be used with a HTML form to allow users to upload files to the 
 
     As usual when writing files it is necessary for both temporary and final locations to have permissions set that enable file writing. If either is set to be read-only then process will fail.
 
-    
+
+
+CONFIGURACIONES PHP 
+
+    ; Whether to allow HTTP file uploads.
+    file_uploads = On
+
+     Temporary directory for HTTP uploaded files.
+    ; Will use system default if not set.
+    ;upload_tmp_dir = 
+
+    ; Maximum allowed size for uploaded files.
+    upload_max_filesize = 16M
+
+    ; Maximum number of files that can be uploaded via a single request
+    max_file_uploads = 20
+
+    ; Maximum size of POST data that PHP will accept.
+    post_max_size = 20M
+
+    max_input_time = 60
+    memory_limit = 128M
+    max_execution_time = 30
+
+
+PROCESAMIENTO DE ARCHIVO CON PHP SV SIDE 
+
+    is_uploaded_file(string $filename): bool INDICA SI EL ARCHIVO PROVIENE DE UN PEDIDO MEDIANTE HTTP POST 
+
+    in_array(mixed $needle, array $haystack, bool $strict = false): bool INDICA SI UN VALOR ESTA PRESENTE EN EL ARRAY
+
+    is_dir(string $filename): bool SABER IS UN ARCHIVO ES UN DIRECTORIO 
+    Returns true if the filename exists and is a directory, false otherwise.
+

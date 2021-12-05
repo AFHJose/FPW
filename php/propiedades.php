@@ -12,6 +12,7 @@ session_start()
     <link rel="stylesheet" type="text/css" href="../css/index.css" />
     <link rel="stylesheet" type="text/css" href="../css/cuenta.css" />
     <link rel="stylesheet" type="text/css" href="../css/login.css" />
+    <link rel="stylesheet" type="text/css" href="../css/prop.css" />
     <script src="../js/validar.js"></script>
     <script src="../js/dinamico.js"></script>
     <script src="../js/usuario.js"></script>
@@ -109,7 +110,15 @@ session_start()
       </div>
     </header>
     <main>
-            
+      <div class="test">
+
+        <form action="crear_prop.php" method="post" enctype="multipart/form-data">
+          <input type="file" name="img">
+          <input type="submit" name="prop" value="nueva_prop">
+        </form>
+
+
+      </div>
     </main>
     <footer>
       <div class="pie">
