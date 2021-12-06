@@ -1,11 +1,12 @@
 .prop-mostrar
 {   
-    margin: 30px 5% 30px 5%;
+    padding: 30px 5% 30px 5%;
     width: 90%;
-    height:1000px;
+    
     display: grid;
     grid-template-columns: 300px 1fr;
-    
+    column-gap: 20px;
+    background-color: whitesmoke;;
 }
 /*
 .buscar
@@ -55,12 +56,13 @@
 */
 .buscar-contenedor
 {
+    height: 1400px;
     grid-column: 1/2;
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
     align-items: center;
-    background-color: whitesmoke;
+    background-color: white;
     border-radius: 5px;
     box-shadow: 3px 3px 5px grey;
 }
@@ -124,12 +126,72 @@
 {
     color: white;
 }
+.buscar-barrio
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    padding:3px;
+
+}
 
 .prop-contenedor
 {
     grid-column: 2/6;
+    display: grid;
+    grid-template-rows: repeat(3,1fr);
+    row-gap: 20px;
+
+}
+.prop-fila
+{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.prop
+{
+    background-color: white;
+    color:black;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px grey;
+
+
+    display:grid;
+    grid-template-rows: 300px 200px;
+    grid-template-columns: 350px;
+}
+.prop-img
+{
+    grid-row:1/2;
+    
+    height: 100%;
+    width: 100%;
+    border-radius: 10px 10px 0px 0px;
+}
+.prop-info
+{
+    grid-row: 2/3;
+    padding:20px;
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
+}
+
+.prop-txt-precio
+{
+    font-weight:bold;
+    font-size: 24px;
+}
+.prop-txt
+{
+    
+    font-size: 16px;
+}
+ol{
+    list-style: none;
+    padding:0px;
+    margin:0px;
 }

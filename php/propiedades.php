@@ -124,6 +124,26 @@ session_start()
               <h2>Buscador</h2>
               <ul >
                 <li>
+                <h3 class="buscar-titulo">Autor:</h3>
+                <ul>
+                  <li class="buscar-opcion">
+                    <svg class="checkbox-show" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0-beta3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2021 Fonticons, Inc. --><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464z"/></svg>
+                    <svg class="checkbox-hide" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0-beta3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2021 Fonticons, Inc. --><path d="M335 175L224 286.1L176.1 239c-9.375-9.375-24.56-9.375-33.94 0s-9.375 24.56 0 33.94l64 64C211.7 341.7 217.8 344 224 344s12.28-2.344 16.97-7.031l128-128c9.375-9.375 9.375-24.56 0-33.94S344.4 165.7 335 175zM256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464z"/></svg>
+                    <buton  class="buscar-opcion-boton">Mis publicaciones</buton>
+                  </li>
+                  <li class="buscar-opcion">
+                    <svg class="checkbox-show" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0-beta3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2021 Fonticons, Inc. --><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464z"/></svg>
+                    <svg class="checkbox-hide" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0-beta3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2021 Fonticons, Inc. --><path d="M335 175L224 286.1L176.1 239c-9.375-9.375-24.56-9.375-33.94 0s-9.375 24.56 0 33.94l64 64C211.7 341.7 217.8 344 224 344s12.28-2.344 16.97-7.031l128-128c9.375-9.375 9.375-24.56 0-33.94S344.4 165.7 335 175zM256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464z"/></svg>
+                    <buton  class="buscar-opcion-boton">Propietario</buton>
+                  </li>
+                  <li class="buscar-opcion">
+                    <svg class="checkbox-show" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0-beta3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2021 Fonticons, Inc. --><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464z"/></svg>
+                    <svg class="checkbox-hide" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0-beta3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2021 Fonticons, Inc. --><path d="M335 175L224 286.1L176.1 239c-9.375-9.375-24.56-9.375-33.94 0s-9.375 24.56 0 33.94l64 64C211.7 341.7 217.8 344 224 344s12.28-2.344 16.97-7.031l128-128c9.375-9.375 9.375-24.56 0-33.94S344.4 165.7 335 175zM256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464z"/></svg>
+                    <buton  class="buscar-opcion-boton">Inmobiliaria</buton>
+                  </li>
+                </ul>
+                </li>
+                <li>
                   <h3 class="buscar-titulo">Tipo de publicacion:</h3>
                   <ul>
                     <li class="buscar-opcion">
@@ -198,9 +218,9 @@ session_start()
                 </li>
 
                 <li>
+                  <h3 class="buscar-titulo">Barrio:</h3>
                   <form>
-                    <label>Barrio:</label>
-                    <select>
+                    <select class="buscar-barrio">
                     <option>Agronomía</option>
                     <option>Almagro</option>
                     <option>Balvanera</option>
@@ -347,17 +367,142 @@ session_start()
               </ul>
           </aside>
             <section class="prop-contenedor">
-              <ol>
-                <li class="prop"> 
-                  <img></img>
-                  <div>
-                    <span>Precio</span>
-                    <span>Tamaño</span>
-                    <span>Direccion</span>
-                    <span>EN VENTA / ALQUILER</span>
-                  </div>
+              <ol class="prop-fila">
+                <li> 
+                  <a href="#" class="prop">
+
+                    <img class="prop-img" alt="propiedad" src="../assets/usuarios/admin1/prop1/depto.jpg"/>
+                    <div class="prop-info">
+                      <span class="prop-txt-precio ">USD 100k</span>
+                      <span class="prop-txt ">Departamento en venta</span>
+                      <span class="prop-txt ">2 ambientes, 1 baño</span>
+                      <span class="prop-txt ">Av. Santa Fe 3500, Palermo, Capital Federal</span>
+                      
+                      
+                    </div>
+                  </a>
                 </li>
+                <li> 
+                  <a href="#" class="prop">
+
+                    <img class="prop-img" alt="propiedad" src="../assets/usuarios/admin1/prop1/depto.jpg"/>
+                    <div class="prop-info">
+                      <span class="prop-txt-precio ">USD 100k</span>
+                      <span class="prop-txt ">Departamento en venta</span>
+                      <span class="prop-txt ">2 ambientes, 1 baño</span>
+                      <span class="prop-txt ">Av. Santa Fe 3500, Palermo, Capital Federal</span>
+                      
+                      
+                    </div>
+                  </a>
+                </li>
+                <li> 
+                  <a href="#" class="prop">
+
+                    <img class="prop-img" alt="propiedad" src="../assets/usuarios/admin1/prop1/depto.jpg"/>
+                    <div class="prop-info">
+                      <span class="prop-txt-precio ">USD 100k</span>
+                      <span class="prop-txt ">Departamento en venta</span>
+                      <span class="prop-txt ">2 ambientes, 1 baño</span>
+                      <span class="prop-txt ">Av. Santa Fe 3500, Palermo, Capital Federal</span>
+                      
+                      
+                    </div>
+                  </a>
+                </li>
+
               </ol>
+              <ol class="prop-fila">
+                <li> 
+                  <a href="#" class="prop">
+
+                    <img class="prop-img" alt="propiedad" src="../assets/usuarios/admin1/prop1/depto.jpg"/>
+                    <div class="prop-info">
+                      <span class="prop-txt-precio ">USD 100k</span>
+                      <span class="prop-txt ">Departamento en venta</span>
+                      <span class="prop-txt ">2 ambientes, 1 baño</span>
+                      <span class="prop-txt ">Av. Santa Fe 3500, Palermo, Capital Federal</span>
+                      
+                      
+                    </div>
+                  </a>
+                </li>
+                <li> 
+                  <a href="#" class="prop">
+
+                    <img class="prop-img" alt="propiedad" src="../assets/usuarios/admin1/prop1/depto.jpg"/>
+                    <div class="prop-info">
+                      <span class="prop-txt-precio ">USD 100k</span>
+                      <span class="prop-txt ">Departamento en venta</span>
+                      <span class="prop-txt ">2 ambientes, 1 baño</span>
+                      <span class="prop-txt ">Av. Santa Fe 3500, Palermo, Capital Federal</span>
+                      
+                      
+                    </div>
+                  </a>
+                </li>
+                <li> 
+                  <a href="#" class="prop">
+
+                    <img class="prop-img" alt="propiedad" src="../assets/usuarios/admin1/prop1/depto.jpg"/>
+                    <div class="prop-info">
+                      <span class="prop-txt-precio ">USD 100k</span>
+                      <span class="prop-txt ">Departamento en venta</span>
+                      <span class="prop-txt ">2 ambientes, 1 baño</span>
+                      <span class="prop-txt ">Av. Santa Fe 3500, Palermo, Capital Federal</span>
+                      
+                      
+                    </div>
+                  </a>
+                </li>
+
+              </ol>
+              <ol class="prop-fila">
+                <li> 
+                  <a href="#" class="prop">
+
+                    <img class="prop-img" alt="propiedad" src="../assets/usuarios/admin1/prop1/depto.jpg"/>
+                    <div class="prop-info">
+                      <span class="prop-txt-precio ">USD 100k</span>
+                      <span class="prop-txt ">Departamento en venta</span>
+                      <span class="prop-txt ">2 ambientes, 1 baño</span>
+                      <span class="prop-txt ">Av. Santa Fe 3500, Palermo, Capital Federal</span>
+                      
+                      
+                    </div>
+                  </a>
+                </li>
+                <li> 
+                  <a href="#" class="prop">
+
+                    <img class="prop-img" alt="propiedad" src="../assets/usuarios/admin1/prop1/depto.jpg"/>
+                    <div class="prop-info">
+                      <span class="prop-txt-precio ">USD 100k</span>
+                      <span class="prop-txt ">Departamento en venta</span>
+                      <span class="prop-txt ">2 ambientes, 1 baño</span>
+                      <span class="prop-txt ">Av. Santa Fe 3500, Palermo, Capital Federal</span>
+                      
+                      
+                    </div>
+                  </a>
+                </li>
+                <li> 
+                  <a href="#" class="prop">
+
+                    <img class="prop-img" alt="propiedad" src="../assets/usuarios/admin1/prop1/depto.jpg"/>
+                    <div class="prop-info">
+                      <span class="prop-txt-precio ">USD 100k</span>
+                      <span class="prop-txt ">Departamento en venta</span>
+                      <span class="prop-txt ">2 ambientes, 1 baño</span>
+                      <span class="prop-txt ">Av. Santa Fe 3500, Palermo, Capital Federal</span>
+                      
+                      
+                    </div>
+                  </a>
+                </li>
+
+              </ol>
+
               
 
             </section>
