@@ -1,22 +1,57 @@
 .prop-mostrar
-{
+{   
+    margin: 30px 5% 30px 5%;
     width: 90%;
     height:1000px;
     display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: 50px 1fr;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 75px 1fr;
 }
+
 .buscar
 {
-    grid-column: 2/6;
+    grid-column: 1/4;
     grid-row:1/2;
 
+    width: 100%;
+    background-color: #83c5be;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px grey;
+    padding: 10px;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
     
+}
+.buscar-entrada
+{
+
+}
+.boton-contenedor
+{
+    grid-column: 2/3;
+    padding-left: 20px;
     display: flex;
-    flex-flow: row nowrap;
     justify-content: flex-start;
     align-items: center;
 }
+.buscar-boton
+{
+    background-color: #ffd166;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px grey;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+    color: black;
+    border-width: 0px;
+}
+.buscar-boton:hover
+{
+    color:white;
+}
+
 .categorias-contenedor
 {
     grid-column: 1/2;

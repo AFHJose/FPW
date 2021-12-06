@@ -111,9 +111,11 @@ session_start()
     </header>
     <main class="prop-mostrar">
             <form class="buscar">
-              <h2>Buscar:</h2>
-              <input type="text">
-              <input type="submit">
+              <input class="buscar-entrada"type="text">
+              <div class="boton-contenedor">
+                
+                <input class="buscar-boton"type="submit">
+              </div>
             </form>
             <aside class="categorias-contenedor">
               <ul class="categorias">
