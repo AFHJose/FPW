@@ -16,6 +16,7 @@ session_start()
     <script src="../js/validar.js"></script>
     <script src="../js/dinamico.js"></script>
     <script src="../js/usuario.js"></script>
+    <script src="../js/propiedades.js"></script>
   </head>
   <body>
     <header class="cabecera">

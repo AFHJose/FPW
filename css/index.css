@@ -75,8 +75,8 @@ html {
   /*grid-row: 2/3;*/
   grid-column: 3/4;
   display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
+  flex-flow: column nowrap;
+  align-items: center;
 }
 .cuenta-menu {
   z-index: 1;
