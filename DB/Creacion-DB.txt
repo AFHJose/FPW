@@ -10,3 +10,29 @@ CREATE TABLE mibadb.usuarios
 
     PRIMARY KEY (id_usuario)
 );
+
+CREATE TABLE mibadb.propiedades
+(
+    id_prop MEDIUMINT UNSIGNED AUTO_INCREMENT NOT NULL, 
+    id_usuario MEDIUMINT UNSIGNED NOT NULL, 
+    img_path varchar(255) NOT NULL, 
+    dir varchar(100) NOT NULL, 
+    barrio varchar(100) NOT NULL,
+    tipo varchar(100) NOT NULL,
+    ambientes TINYINT UNSIGNED,
+    baños TINYINT UNSIGNED,
+    venta MEDIUMINT UNSIGNED,
+    alquiler MEDIUMINT UNSIGNED,
+    dolar BOOL DEFAULT 0,
+    aire BOOL DEFAULT 0,
+    balcon BOOL DEFAULT 0,
+    pileta BOOL DEFAULT 0,
+    jardin BOOL DEFAULT 0,
+    gym BOOL DEFAULT 0,
+    estacionamiento BOOL DEFAULT 0,
+    activa BOOL DEFAULT 1,
+
+    PRIMARY KEY (id_prop),
+    FOREIGN KEY (id_usuario) REFERENCES mibadb.usuarios(id_usuario)
+
+);
