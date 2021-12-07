@@ -16,7 +16,7 @@ session_start()
     <script src="../js/validar.js"></script>
     <script src="../js/dinamico.js"></script>
     <script src="../js/usuario.js"></script>
-    <script src="../js/propiedades.js"></script>
+    <script  defer src="../js/propiedades.js"></script>
   </head>
   <body>
     <header class="cabecera">
@@ -372,12 +372,12 @@ session_start()
                 <li> 
                   <a href="#" class="prop">
 
-                    <img class="prop-img" alt="propiedad" src="../assets/usuarios/admin1/prop1/depto.jpg"/>
+                    <img id="0-img" class="prop-img" alt="propiedad" src="..\assets\usuarios\7\96\1.jpg"/>
                     <div class="prop-info">
-                      <span class="prop-txt-precio ">USD 100k</span>
-                      <span class="prop-txt ">Departamento en venta</span>
-                      <span class="prop-txt ">2 ambientes, 1 baño</span>
-                      <span class="prop-txt ">Av. Santa Fe 3500, Palermo, Capital Federal</span>
+                      <span id="0-precio" class="prop-txt-precio ">USD 100k</span>
+                      <span id="0-estado" class="prop-txt ">Departamento en venta</span>
+                      <span id="0-tamaño" class="prop-txt ">2 ambientes, 1 baño</span>
+                      <span id="0-dir" class="prop-txt ">Av. Santa Fe 3500, Palermo, Capital Federal</span>
                       
                       
                     </div>
