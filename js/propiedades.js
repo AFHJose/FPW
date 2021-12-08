@@ -26,6 +26,18 @@ var categorias=
     "inmueble":[["casa",false],["departamento",false],["oficina",false],["cochera",false],["terreno",false]],
     "moneda":[["pesos",false],["dolares",false]],
     "ambientes":[["uno",false],["dos",false],["tres",false],["cuatro",false]],
+    "baños":[["uno",false],["dos",false],["tres",false]],
+}
+
+function ocultar(id)
+{
+    let prop = document.getElementById(String(id)+"-a");
+    prop.classList.replace("show","hide");
+}
+function mostrar(id)
+{
+    let prop = document.getElementById(String(id)+"-a");
+    prop.classList.replace("hide","show");
 }
 
 
@@ -143,7 +155,19 @@ function prop_consulta(id)
     
         for(let x=0;x<respuesta.length;x++)
         {
+            mostrar(x);
             asignar(x,respuesta[x]);
+        }
+        for(let x=respuesta.length;x<9;x++)
+        {
+            //falta mensaje no se encotraron resultados en el html
+            ocultar(x);
+        }
+    }else 
+    {
+        for(let x=8;x>=0;x--)
+        {
+            ocultar(x);
         }
     }
 
