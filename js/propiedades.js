@@ -24,6 +24,8 @@ var categorias=
 {
     "tipo":[["compra",false],["alquiler",false]],
     "inmueble":[["casa",false],["departamento",false],["oficina",false],["cochera",false],["terreno",false]],
+    "moneda":[["pesos",false],["dolares",false]],
+    "ambientes":[["uno",false],["dos",false],["tres",false],["cuatro",false]],
 }
 
 
@@ -31,7 +33,7 @@ function asignar(id,propiedad)
 {
 
     document.getElementById(String(id)+"-img").src=propiedad["img_path"];
-    if(propiedad["dolar"]=="0")
+    if(propiedad["dolar"]=="1")
     {
         var moneda= "USD ";
     }else
@@ -134,12 +136,15 @@ function prop_consulta(id)
     req.onload = function()
     {
     
-    respuesta = JSON.parse(this.responseText);
-    
-
-    for(let x=0;x<9;x++)
+    if(this.responseText!="vacio")
     {
-        asignar(x,respuesta[x]);
+        respuesta = JSON.parse(this.responseText);
+        
+    
+        for(let x=0;x<respuesta.length;x++)
+        {
+            asignar(x,respuesta[x]);
+        }
     }
 
     }

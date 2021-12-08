@@ -5,6 +5,8 @@ include "validar.php";
 $conexion = OpenCon();
 $modos["tipo"]=array("compra"=>'venta!=0',"alquiler"=>'alquiler!=0');
 $modos["inmueble"]=array("casa"=>'tipo=\'Casa\'',"departamento"=>'tipo=\'Departamento\'',"oficina"=>'tipo=\'Oficina\'',"cochera"=>'tipo=\'Cochera\'',"terreno"=>'tipo=\'Terreno\'');
+$modos["moneda"]=array("pesos"=>'dolar=0',"dolares"=>'dolar=1');
+$modos["ambientes"]=array("uno"=>'ambientes=1',"dos"=>'ambientes=2',"tres"=>'ambientes=3',"cuatro"=>'ambientes=4');
 $modos["azar"]="SELECT * FROM propiedades WHERE activa=1 ORDER BY RAND() LIMIT 9";
 
 if($conexion)
@@ -61,8 +63,13 @@ if($conexion)
         $entradas[$i]=$entrada;
         $i++;
     }
-
-    $out = json_encode($entradas);
+    if($i==0)
+    {
+        $out = "vacio";
+    }else 
+    {
+        $out = json_encode($entradas);
+    }
 
     echo $out;
 
