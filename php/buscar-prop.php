@@ -5,6 +5,7 @@ include "validar.php";
 $conexion = OpenCon();
 $modos["compra-azar"]="SELECT * FROM propiedades WHERE venta!=0 AND activa=1 ORDER BY RAND() LIMIT 9";
 $modos["alquiler-azar"]="SELECT * FROM propiedades WHERE alquiler!=0 AND activa=1 ORDER BY RAND() LIMIT 9";
+$modos["azar"]="SELECT * FROM propiedades WHERE activa=1 ORDER BY RAND() LIMIT 9";
 
 if($conexion)
 {

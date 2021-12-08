@@ -22,7 +22,7 @@ var propiedad = {
 */
 var categorias=
 {
-    "tipo":[["compra-azar",false],["alquiler-azar",false]],
+    "tipo":[["compra-azar",true],["alquiler-azar",false]],
 }
 
 
@@ -69,31 +69,83 @@ function asignar(id,propiedad)
 
 
 
-function prop_consulta(modo)
+function prop_consulta(id)
 {
-  var req = new XMLHttpRequest();
-  
-  req.onload = function()
-  {
-    
-    respuesta = JSON.parse(this.responseText);
     
     
-    for(let x=0;x<9;x++)
+    var cat="";
+    var modo="";
+    var i =0;
+    var flag=true;
+    while (i<id.length)
     {
-        asignar(x,respuesta[x]);
+        if(id[i]=="-" && flag)
+        {
+            i++;
+            flag=false;
+        }
+        if(flag)
+        {
+
+            cat+=id[i];
+        }else 
+        {
+            modo+=id[i];
+        }
+        
+
+        i++;
+        
     }
     
-  }
-  req.open("GET","buscar-prop.php?mode="+modo);
-  req.send();
+    checkbox(id);
+    for(let x=0;x<categorias[cat].length;x++)
+    {
+
+        if(categorias[cat][x][0]==modo)
+        {
+            if(categorias[cat][x][1])
+            {
+
+                radio(categorias[cat],modo,false);
+                
+                var sql = "buscar-prop.php?mode=azar";
+                
+            }else
+            {
+                radio(categorias[cat],modo,true);
+                
+                var sql = "buscar-prop.php?mode="+modo;
+
+
+            }
+            
+            var req = new XMLHttpRequest();
+            
+            req.onload = function()
+            {
+        
+            respuesta = JSON.parse(this.responseText);
+        
+        
+            for(let x=0;x<9;x++)
+            {
+                asignar(x,respuesta[x]);
+            }
+        
+            }
+            req.open("GET",sql);
+            req.send();
+        }
+    }
+    
 }
 
 
-function checkbox(elem)
+function checkbox(id)
 {
-    let on = document.getElementById(elem.id+"-on");
-    let off = document.getElementById(elem.id+"-off");
+    let on = document.getElementById(id+"-on");
+    let off = document.getElementById(id+"-off");
     if (on.classList.contains("checkbox-show")) {
         on.classList.replace("checkbox-show","checkbox-hide");
         off.classList.replace("checkbox-hide","checkbox-show");
@@ -104,18 +156,18 @@ function checkbox(elem)
 }
 
 
-function radio(categoria,id)
+function radio(categoria,id,set)
 {
     for(let x =0;x<categoria.length;x++)
     {
         if(categoria[x][0]==id)
         {
-            categoria[x][1]=true;
+            categoria[x][1]=set;
         }else
         {
-            categoria[x][1]=false;
+            categoria[x][1]=!set;
         }
     }
 }
 
-prop_consulta("compra-azar")
+prop_consulta("tipo-compra-azar");
