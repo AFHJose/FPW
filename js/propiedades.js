@@ -22,7 +22,7 @@ var propiedad = {
 */
 var categorias=
 {
-    "tipo":[["compra-azar",true],["alquiler-azar",false]],
+    "tipo":[["compra",false],["alquiler",false]],
 }
 
 
@@ -72,7 +72,20 @@ function asignar(id,propiedad)
 function prop_consulta(id)
 {
     
-    
+    var autor="azar";
+    var tipo="azar";
+    var inmueble="azar";
+    var moneda="azar";
+    var precio="azar";
+    var barrio="azar";
+    var ambientes="azar";
+    var baños="azar";
+    var aire="azar";
+    var balcon="azar";
+    var pileta="azar";
+    var jardin ="azar";
+    var gim = "azar";
+    var estacionamiento="azar";
     var cat="";
     var modo="";
     var i =0;
@@ -107,37 +120,47 @@ function prop_consulta(id)
             if(categorias[cat][x][1])
             {
 
-                radio(categorias[cat],modo,false);
+                categorias[cat][x][1]=false;
                 
-                var sql = "buscar-prop.php?mode=azar";
+                
                 
             }else
             {
-                radio(categorias[cat],modo,true);
-                
-                var sql = "buscar-prop.php?mode="+modo;
+                categorias[cat][x][1]=true;
 
 
             }
             
-            var req = new XMLHttpRequest();
+        }else 
+        {
+            if(categorias[cat][x][1])
+            {
+                categorias[cat][x][1]=false;
+                checkbox(cat+"-"+categorias[cat][x][0]);
+            }
             
-            req.onload = function()
-            {
-        
-            respuesta = JSON.parse(this.responseText);
-        
-        
-            for(let x=0;x<9;x++)
-            {
-                asignar(x,respuesta[x]);
-            }
-        
-            }
-            req.open("GET",sql);
-            req.send();
         }
+        
     }
+
+    
+    var sql = "buscar-prop.php?autor="+autor+"&tipo="+tipo+"&inmueble="+inmueble+"&moneda="+moneda+"&precio="+precio+"&barrio="+barrio+"&ambientes="+ambientes+"&baños="+baños+"&aire="+aire+"&balcon="+balcon+"&pileta="+pileta+"&jardin="+jardin+"&gim="+gim+"&estacionamiento="+estacionamiento;
+    var req = new XMLHttpRequest();
+            
+    req.onload = function()
+    {
+
+    respuesta = JSON.parse(this.responseText);
+
+
+    for(let x=0;x<9;x++)
+    {
+        asignar(x,respuesta[x]);
+    }
+
+    }
+    req.open("GET",sql);
+    req.send();
     
 }
 
