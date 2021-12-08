@@ -19,45 +19,13 @@ var propiedad = {
     "estacionamiento":"0",
  
   };
-
-document.getElementById(String(0)+"-img").src=propiedad["img_path"];
-if(propiedad["dolar"])
-{
-    var moneda= "USD ";
-}else
-{
-    var moneda = "ARS";
-}
-if(propiedad["venta"]=="0")
-{
-    var estado = "en alquiler";
-    var precio = propiedad["alquiler"];
-}else
-{
-    var estado = "en venta";
-    var precio = propiedad["venta"];
-}
-document.getElementById(String(0)+"-precio").textContent= moneda + precio;
-document.getElementById(String(0)+"-estado").innerHTML=propiedad["tipo"]+" "+estado;
-
-if(propiedad["ambientes"]=="1")
-{
-    var ambientes = "1 ambiente";
-}else
-{
-    var ambientes = propiedad["ambientes"]+" ambientes";
-}
-if(propiedad["baños"]=="1")
-{
-    var baños = "1 baño";
-}else
-{
-    var baños = propiedad["ambientes"]+" baños";
-}
-document.getElementById(String(0)+"-tamaño").innerHTML=ambientes+", "+baños;
-
-document.getElementById(String(0)+"-dir").innerHTML=propiedad["dir"]+", "+propiedad["barrio"]+", Capital Federal";
 */
+var categorias=
+{
+    "tipo":[["compra-azar",false],["alquiler-azar",false]],
+}
+
+
 function asignar(id,propiedad)
 {
     document.getElementById(String(id)+"-img").src=propiedad["img_path"];
@@ -101,7 +69,7 @@ function asignar(id,propiedad)
 
 
 
-function prop_random()
+function prop_consulta(modo)
 {
   var req = new XMLHttpRequest();
   
@@ -117,8 +85,37 @@ function prop_random()
     }
     
   }
-  req.open("GET","buscar-prop.php?mode=random");
+  req.open("GET","buscar-prop.php?mode="+modo);
   req.send();
 }
 
-prop_random()
+
+function checkbox(elem)
+{
+    let on = document.getElementById(elem.id+"-on");
+    let off = document.getElementById(elem.id+"-off");
+    if (on.classList.contains("checkbox-show")) {
+        on.classList.replace("checkbox-show","checkbox-hide");
+        off.classList.replace("checkbox-hide","checkbox-show");
+      } else {
+        off.classList.replace("checkbox-show","checkbox-hide");
+        on.classList.replace("checkbox-hide","checkbox-show");
+      }
+}
+
+
+function radio(categoria,id)
+{
+    for(let x =0;x<categoria.length;x++)
+    {
+        if(categoria[x][0]==id)
+        {
+            categoria[x][1]=true;
+        }else
+        {
+            categoria[x][1]=false;
+        }
+    }
+}
+
+prop_consulta("compra-azar")

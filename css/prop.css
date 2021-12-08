@@ -160,7 +160,7 @@
 
     display:grid;
     grid-template-rows: 300px 200px;
-    grid-template-columns: 350px;
+    grid-template-columns: 400px;
 }
 .prop-img
 {
