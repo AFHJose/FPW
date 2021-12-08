@@ -383,15 +383,16 @@ session_start()
                     </div>
                   </a>
                 </li>
+
                 <li> 
                   <a href="#" class="prop">
 
-                    <img class="prop-img" alt="propiedad" src="../assets/usuarios/admin1/prop1/depto.jpg"/>
+                    <img id="1-img" class="prop-img" alt="propiedad" src="..\assets\usuarios\7\96\1.jpg"/>
                     <div class="prop-info">
-                      <span class="prop-txt-precio ">USD 100k</span>
-                      <span class="prop-txt ">Departamento en venta</span>
-                      <span class="prop-txt ">2 ambientes, 1 baño</span>
-                      <span class="prop-txt ">Av. Santa Fe 3500, Palermo, Capital Federal</span>
+                      <span id="1-precio" class="prop-txt-precio ">USD 100k</span>
+                      <span id="1-estado" class="prop-txt ">Departamento en venta</span>
+                      <span id="1-tamaño" class="prop-txt ">2 ambientes, 1 baño</span>
+                      <span id="1-dir" class="prop-txt ">Av. Santa Fe 3500, Palermo, Capital Federal</span>
                       
                       
                     </div>
@@ -400,57 +401,12 @@ session_start()
                 <li> 
                   <a href="#" class="prop">
 
-                    <img class="prop-img" alt="propiedad" src="../assets/usuarios/admin1/prop1/depto.jpg"/>
+                    <img id="2-img" class="prop-img" alt="propiedad" src="..\assets\usuarios\7\96\1.jpg"/>
                     <div class="prop-info">
-                      <span class="prop-txt-precio ">USD 100k</span>
-                      <span class="prop-txt ">Departamento en venta</span>
-                      <span class="prop-txt ">2 ambientes, 1 baño</span>
-                      <span class="prop-txt ">Av. Santa Fe 3500, Palermo, Capital Federal</span>
-                      
-                      
-                    </div>
-                  </a>
-                </li>
-
-              </ol>
-              <ol class="prop-fila">
-                <li> 
-                  <a href="#" class="prop">
-
-                    <img class="prop-img" alt="propiedad" src="../assets/usuarios/admin1/prop1/depto.jpg"/>
-                    <div class="prop-info">
-                      <span class="prop-txt-precio ">USD 100k</span>
-                      <span class="prop-txt ">Departamento en venta</span>
-                      <span class="prop-txt ">2 ambientes, 1 baño</span>
-                      <span class="prop-txt ">Av. Santa Fe 3500, Palermo, Capital Federal</span>
-                      
-                      
-                    </div>
-                  </a>
-                </li>
-                <li> 
-                  <a href="#" class="prop">
-
-                    <img class="prop-img" alt="propiedad" src="../assets/usuarios/admin1/prop1/depto.jpg"/>
-                    <div class="prop-info">
-                      <span class="prop-txt-precio ">USD 100k</span>
-                      <span class="prop-txt ">Departamento en venta</span>
-                      <span class="prop-txt ">2 ambientes, 1 baño</span>
-                      <span class="prop-txt ">Av. Santa Fe 3500, Palermo, Capital Federal</span>
-                      
-                      
-                    </div>
-                  </a>
-                </li>
-                <li> 
-                  <a href="#" class="prop">
-
-                    <img class="prop-img" alt="propiedad" src="../assets/usuarios/admin1/prop1/depto.jpg"/>
-                    <div class="prop-info">
-                      <span class="prop-txt-precio ">USD 100k</span>
-                      <span class="prop-txt ">Departamento en venta</span>
-                      <span class="prop-txt ">2 ambientes, 1 baño</span>
-                      <span class="prop-txt ">Av. Santa Fe 3500, Palermo, Capital Federal</span>
+                      <span id="2-precio" class="prop-txt-precio ">USD 100k</span>
+                      <span id="2-estado" class="prop-txt ">Departamento en venta</span>
+                      <span id="2-tamaño" class="prop-txt ">2 ambientes, 1 baño</span>
+                      <span id="2-dir" class="prop-txt ">Av. Santa Fe 3500, Palermo, Capital Federal</span>
                       
                       
                     </div>
@@ -462,12 +418,27 @@ session_start()
                 <li> 
                   <a href="#" class="prop">
 
-                    <img class="prop-img" alt="propiedad" src="../assets/usuarios/admin1/prop1/depto.jpg"/>
+                    <img id="3-img" class="prop-img" alt="propiedad" src="..\assets\usuarios\7\96\1.jpg"/>
                     <div class="prop-info">
-                      <span class="prop-txt-precio ">USD 100k</span>
-                      <span class="prop-txt ">Departamento en venta</span>
-                      <span class="prop-txt ">2 ambientes, 1 baño</span>
-                      <span class="prop-txt ">Av. Santa Fe 3500, Palermo, Capital Federal</span>
+                      <span id="3-precio" class="prop-txt-precio ">USD 100k</span>
+                      <span id="3-estado" class="prop-txt ">Departamento en venta</span>
+                      <span id="3-tamaño" class="prop-txt ">2 ambientes, 1 baño</span>
+                      <span id="3-dir" class="prop-txt ">Av. Santa Fe 3500, Palermo, Capital Federal</span>
+                      
+                      
+                    </div>
+                  </a>
+                </li>
+
+                <li> 
+                  <a href="#" class="prop">
+
+                    <img id="4-img" class="prop-img" alt="propiedad" src="..\assets\usuarios\7\96\1.jpg"/>
+                    <div class="prop-info">
+                      <span id="4-precio" class="prop-txt-precio ">USD 100k</span>
+                      <span id="4-estado" class="prop-txt ">Departamento en venta</span>
+                      <span id="4-tamaño" class="prop-txt ">2 ambientes, 1 baño</span>
+                      <span id="4-dir" class="prop-txt ">Av. Santa Fe 3500, Palermo, Capital Federal</span>
                       
                       
                     </div>
@@ -476,26 +447,12 @@ session_start()
                 <li> 
                   <a href="#" class="prop">
 
-                    <img class="prop-img" alt="propiedad" src="../assets/usuarios/admin1/prop1/depto.jpg"/>
+                    <img id="5-img" class="prop-img" alt="propiedad" src="..\assets\usuarios\7\96\1.jpg"/>
                     <div class="prop-info">
-                      <span class="prop-txt-precio ">USD 100k</span>
-                      <span class="prop-txt ">Departamento en venta</span>
-                      <span class="prop-txt ">2 ambientes, 1 baño</span>
-                      <span class="prop-txt ">Av. Santa Fe 3500, Palermo, Capital Federal</span>
-                      
-                      
-                    </div>
-                  </a>
-                </li>
-                <li> 
-                  <a href="#" class="prop">
-
-                    <img class="prop-img" alt="propiedad" src="../assets/usuarios/admin1/prop1/depto.jpg"/>
-                    <div class="prop-info">
-                      <span class="prop-txt-precio ">USD 100k</span>
-                      <span class="prop-txt ">Departamento en venta</span>
-                      <span class="prop-txt ">2 ambientes, 1 baño</span>
-                      <span class="prop-txt ">Av. Santa Fe 3500, Palermo, Capital Federal</span>
+                      <span id="5-precio" class="prop-txt-precio ">USD 100k</span>
+                      <span id="5-estado" class="prop-txt ">Departamento en venta</span>
+                      <span id="5-tamaño" class="prop-txt ">2 ambientes, 1 baño</span>
+                      <span id="5-dir" class="prop-txt ">Av. Santa Fe 3500, Palermo, Capital Federal</span>
                       
                       
                     </div>
@@ -503,6 +460,53 @@ session_start()
                 </li>
 
               </ol>
+              <ol class="prop-fila">
+                <li> 
+                  <a href="#" class="prop">
+
+                    <img id="6-img" class="prop-img" alt="propiedad" src="..\assets\usuarios\7\96\1.jpg"/>
+                    <div class="prop-info">
+                      <span id="6-precio" class="prop-txt-precio ">USD 100k</span>
+                      <span id="6-estado" class="prop-txt ">Departamento en venta</span>
+                      <span id="6-tamaño" class="prop-txt ">2 ambientes, 1 baño</span>
+                      <span id="6-dir" class="prop-txt ">Av. Santa Fe 3500, Palermo, Capital Federal</span>
+                      
+                      
+                    </div>
+                  </a>
+                </li>
+
+                <li> 
+                  <a href="#" class="prop">
+
+                    <img id="7-img" class="prop-img" alt="propiedad" src="..\assets\usuarios\7\96\1.jpg"/>
+                    <div class="prop-info">
+                      <span id="7-precio" class="prop-txt-precio ">USD 100k</span>
+                      <span id="7-estado" class="prop-txt ">Departamento en venta</span>
+                      <span id="7-tamaño" class="prop-txt ">2 ambientes, 1 baño</span>
+                      <span id="7-dir" class="prop-txt ">Av. Santa Fe 3500, Palermo, Capital Federal</span>
+                      
+                      
+                    </div>
+                  </a>
+                </li>
+                <li> 
+                  <a href="#" class="prop">
+
+                    <img id="8-img" class="prop-img" alt="propiedad" src="..\assets\usuarios\7\96\1.jpg"/>
+                    <div class="prop-info">
+                      <span id="8-precio" class="prop-txt-precio ">USD 100k</span>
+                      <span id="8-estado" class="prop-txt ">Departamento en venta</span>
+                      <span id="8-tamaño" class="prop-txt ">2 ambientes, 1 baño</span>
+                      <span id="8-dir" class="prop-txt ">Av. Santa Fe 3500, Palermo, Capital Federal</span>
+                      
+                      
+                    </div>
+                  </a>
+                </li>
+
+              </ol>
+              
 
               
 
