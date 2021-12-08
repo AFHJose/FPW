@@ -3,27 +3,68 @@ include "conexion.php";
 include "validar.php";
 
 $conexion = OpenCon();
-$modos["compra-azar"]="SELECT * FROM propiedades WHERE venta!=0 AND activa=1 ORDER BY RAND() LIMIT 9";
-$modos["alquiler-azar"]="SELECT * FROM propiedades WHERE alquiler!=0 AND activa=1 ORDER BY RAND() LIMIT 9";
+$modos["tipo"]=array("compra"=>'venta!=0',"alquiler"=>'alquiler!=0');
+$modos["inmueble"]=array("casa"=>'tipo=\'Casa\'',"departamento"=>'tipo=\'Departamento\'',"oficina"=>'tipo=\'Oficina\'',"cochera"=>'tipo=\'Cochera\'',"terreno"=>'tipo=\'Terreno\'');
 $modos["azar"]="SELECT * FROM propiedades WHERE activa=1 ORDER BY RAND() LIMIT 9";
 
 if($conexion)
 {
-    if(isset($_GET["mode"]))
+    if(isset($_GET["azar"]))
     {
-
-        $resultado = $conexion->query($modos[$_GET["mode"]]);
+        $resultado = $conexion->query($modos["azar"]);
+    }else 
+    {
+        $opciones="";
         $i=0;
-        while($entrada = $resultado->fetch_assoc())
+        while(isset($_GET["opcion-".strval($i)]))
         {
-            $entradas[$i]=$entrada;
+            $txt=$_GET["opcion-".strval($i)];
+            $cat="";
+            $key="";
+            $flag=TRUE;
+            for($j=0;$j<strlen($txt);$j++)
+            {
+                if($txt[$j]=="-")
+                {
+                    $flag=FALSE;
+                    $j++;
+                }
+                if($flag)
+                {
+                    $cat.=$txt[$j];
+                }else 
+                {
+                    $key.=$txt[$j];
+                }
+            }
+            if($opciones=="")
+            {
+
+                $opciones.=$modos[$cat][$key];
+            }else
+            {
+                $opciones.=" AND ".$modos[$cat][$key];
+            }
+
             $i++;
         }
-    
-        $out = json_encode($entradas);
-    
-        echo $out;
+
+        $resultado = $conexion->query("SELECT * FROM propiedades WHERE ".$opciones." AND activa=1 ORDER BY RAND() LIMIT 9");
+        
+        
     }
+
+
+    $i=0;
+    while($entrada = $resultado->fetch_assoc())
+    {
+        $entradas[$i]=$entrada;
+        $i++;
+    }
+
+    $out = json_encode($entradas);
+
+    echo $out;
 
     $conexion->close();
 }

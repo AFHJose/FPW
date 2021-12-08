@@ -23,11 +23,13 @@ var propiedad = {
 var categorias=
 {
     "tipo":[["compra",false],["alquiler",false]],
+    "inmueble":[["casa",false],["departamento",false],["oficina",false],["cochera",false],["terreno",false]],
 }
 
 
 function asignar(id,propiedad)
 {
+
     document.getElementById(String(id)+"-img").src=propiedad["img_path"];
     if(propiedad["dolar"]=="0")
     {
@@ -72,20 +74,6 @@ function asignar(id,propiedad)
 function prop_consulta(id)
 {
     
-    var autor="azar";
-    var tipo="azar";
-    var inmueble="azar";
-    var moneda="azar";
-    var precio="azar";
-    var barrio="azar";
-    var ambientes="azar";
-    var baños="azar";
-    var aire="azar";
-    var balcon="azar";
-    var pileta="azar";
-    var jardin ="azar";
-    var gim = "azar";
-    var estacionamiento="azar";
     var cat="";
     var modo="";
     var i =0;
@@ -122,12 +110,9 @@ function prop_consulta(id)
 
                 categorias[cat][x][1]=false;
                 
-                
-                
             }else
             {
                 categorias[cat][x][1]=true;
-
 
             }
             
@@ -143,15 +128,14 @@ function prop_consulta(id)
         
     }
 
-    
-    var sql = "buscar-prop.php?autor="+autor+"&tipo="+tipo+"&inmueble="+inmueble+"&moneda="+moneda+"&precio="+precio+"&barrio="+barrio+"&ambientes="+ambientes+"&baños="+baños+"&aire="+aire+"&balcon="+balcon+"&pileta="+pileta+"&jardin="+jardin+"&gim="+gim+"&estacionamiento="+estacionamiento;
+  
     var req = new XMLHttpRequest();
             
     req.onload = function()
     {
-
+    
     respuesta = JSON.parse(this.responseText);
-
+    
 
     for(let x=0;x<9;x++)
     {
@@ -159,7 +143,37 @@ function prop_consulta(id)
     }
 
     }
-    req.open("GET",sql);
+
+    var get="";
+
+    let k=0;
+    for(let opcion in categorias)
+    {
+        for(let x=0;x<categorias[opcion].length;x++)
+        {
+            if(categorias[opcion][x][1])
+            {
+                
+                if(get=="")
+                {
+                    get+="opcion-"+String(k)+"="+opcion+"-"+categorias[opcion][x][0];
+                }else
+                {
+                    get+="&opcion-"+String(k)+"="+opcion+"-"+categorias[opcion][x][0];
+                }
+                k++;
+            }
+        }
+        
+        
+    }
+    if(get=="")
+    {
+        get="azar";
+    }
+
+    
+    req.open("GET","buscar-prop.php?"+get);
     req.send();
     
 }
@@ -193,4 +207,4 @@ function radio(categoria,id,set)
     }
 }
 
-prop_consulta("tipo-compra-azar");
+prop_consulta("tipo-compra");
