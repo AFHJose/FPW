@@ -27,6 +27,13 @@ var categorias=
     "moneda":[["pesos",false],["dolares",false]],
     "ambientes":[["uno",false],["dos",false],["tres",false],["cuatro",false]],
     "baños":[["uno",false],["dos",false],["tres",false]],
+    "aire":[["tiene",false]],
+    "balcon":[["tiene",false]],
+    "pileta":[["tiene",false]],
+    "jardin":[["tiene",false]],
+    "gym":[["tiene",false]],
+    "estacionamiento":[["tiene",false]]
+
 }
 
 function ocultar(id)

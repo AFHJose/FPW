@@ -8,6 +8,12 @@ $modos["inmueble"]=array("casa"=>'tipo=\'Casa\'',"departamento"=>'tipo=\'Departa
 $modos["moneda"]=array("pesos"=>'dolar=0',"dolares"=>'dolar=1');
 $modos["ambientes"]=array("uno"=>'ambientes=1',"dos"=>'ambientes=2',"tres"=>'ambientes=3',"cuatro"=>'ambientes=4');
 $modos["baños"]=array("uno"=>'baños=1',"dos"=>'baños=2',"tres"=>'baños=3');
+$modos["aire"]=array("tiene"=>'aire=1');
+$modos["balcon"]=array("tiene"=>'balcon=1');
+$modos["pileta"]=array("tiene"=>'pileta=1');
+$modos["jardin"]=array("tiene"=>'jardin=1');
+$modos["gym"]=array("tiene"=>'gym=1');
+$modos["estacionamiento"]=array("tiene"=>'estacionamiento=1');
 $modos["azar"]="SELECT * FROM propiedades WHERE activa=1 ORDER BY RAND() LIMIT 9";
 
 if($conexion)
