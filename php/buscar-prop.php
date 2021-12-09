@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include "conexion.php";
 include "validar.php";
 
@@ -151,6 +152,27 @@ if($conexion)
                     $opciones.=" AND ".$out;
                 }
                 
+            }else if($cat=="autor")
+            {
+                
+
+
+
+
+                $out="";
+
+                if($opciones=="")
+                {
+    
+                    $opciones.=" ".$out." ";
+                }else
+                {
+                    $opciones.=" AND ".$out;
+                }
+
+
+
+
             }else
             {
 

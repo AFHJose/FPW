@@ -83,7 +83,8 @@ var categorias=
     ["Villa del Parque",false],
     ["Vélez Sarsfield",false],
     ],
-    "precio":[["rango",false]]
+    "precio":[["rango",false]],
+    "autor":[["usuario",false],["propietario",false],["inmobiliaria",false]]
 
 }
 
