@@ -83,7 +83,7 @@ var categorias=
     ["Villa del Parque",false],
     ["Vélez Sarsfield",false],
     ],
-    "precio":["rango",false]
+    "precio":[["rango",false]]
 
 }
 
@@ -147,22 +147,25 @@ function barrios(elemento)
     //console.log(id);
     prop_consulta(id);
 }
+function validar_precio(elemento)
+{
+    
+    let valor = document.getElementById(elemento.id).value;
+
+    if(valor=="" || valor==null || /^\s*(\d*\D+\d*)+\s*$/.test(valor))
+    {
+        document.getElementById(elemento.id).value=null;
+    }
+
+}
 function rango_precio(elemento)
 {
     
     let min = document.getElementById(elemento.id+"-min").value;
     let max = document.getElementById(elemento.id+"-max").value;
-
-    if(min=="" || min==null || /^\s*\D+\s*$/.test(min))
-    {
-        min="0";
-    }
-    if(max=="" || max==null || /^\s*\D+\s*$/.test(max))
-    {
-        max="0";
-    }
     
     let datos ="precio-"+min+"-"+max;
+    prop_consulta(datos);
 }
 
 function prop_consulta(id)
@@ -170,6 +173,8 @@ function prop_consulta(id)
     
     var cat="";
     var modo="";
+
+
     var i =0;
     var flag=true;
     while (i<id.length)
@@ -199,6 +204,7 @@ function prop_consulta(id)
     if(cat=="precio")
     {
         categorias[cat][0][1]=true;
+        categorias[cat][0][0]=modo;
 
     }else
     {
@@ -224,7 +230,7 @@ function prop_consulta(id)
                 if(categorias[cat][x][1])
                 {
                     categorias[cat][x][1]=false;
-                    if(cat!="barrio" && cat!="precio")
+                    if(cat!="barrio")
                     {
                         checkbox(cat+"-"+categorias[cat][x][0]);
                     }
@@ -275,8 +281,8 @@ function prop_consulta(id)
     {
         for(let x=0;x<categorias[opcion].length;x++)
         {
-            if(categorias[opcion][x][1] && opcion!="precio")
-            {
+            if(categorias[opcion][x][1])
+            {  
                 
                 if(get=="")
                 {
@@ -286,9 +292,6 @@ function prop_consulta(id)
                     get+="&opcion-"+String(k)+"="+opcion+"-"+categorias[opcion][x][0];
                 }
                 k++;
-            }else if(categorias[opcion][x][1] && opcion=="precio")
-            {
-
             }
         }
         
@@ -299,7 +302,7 @@ function prop_consulta(id)
         get="azar";
     }
 
-    //console.log(get);
+    console.log(get);
     req.open("GET","buscar-prop.php?"+get);
     req.send();
     

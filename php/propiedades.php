@@ -212,8 +212,8 @@ session_start()
                 <li>
                   <h3 class="buscar-titulo">Precio:</h3>
                   <form class="buscar-precio">  
-                    <input class="buscar-precio-entrada" placeholder="Minimo" type="text" name="min" id="precio-min">
-                    <input class="buscar-precio-entrada" placeholder="Maximo" type="text" name="max" id="precio-max">
+                    <input onblur="validar_precio(this)" class="buscar-precio-entrada" placeholder="Minimo" type="text" name="min" id="precio-min">
+                    <input onblur="validar_precio(this)" class="buscar-precio-entrada" placeholder="Maximo" type="text" name="max" id="precio-max">
                     <buton onclick="rango_precio(this)" id="precio" class="buscar-precio-boton">Buscar</buton>
                   </form>
                 </li>
