@@ -83,6 +83,7 @@ var categorias=
     ["Villa del Parque",false],
     ["Vélez Sarsfield",false],
     ],
+    "precio":["rango",false]
 
 }
 
@@ -146,6 +147,23 @@ function barrios(elemento)
     //console.log(id);
     prop_consulta(id);
 }
+function rango_precio(elemento)
+{
+    
+    let min = document.getElementById(elemento.id+"-min").value;
+    let max = document.getElementById(elemento.id+"-max").value;
+
+    if(min=="" || min==null || /^\s*\D+\s*$/.test(min))
+    {
+        min="0";
+    }
+    if(max=="" || max==null || /^\s*\D+\s*$/.test(max))
+    {
+        max="0";
+    }
+    
+    let datos ="precio-"+min+"-"+max;
+}
 
 function prop_consulta(id)
 {
@@ -174,41 +192,48 @@ function prop_consulta(id)
         i++;
         
     }
-    if(cat!="barrio")
+    if(cat!="barrio" && cat!="precio")
     {
         checkbox(id);
-
     }
-    for(let x=0;x<categorias[cat].length;x++)
+    if(cat=="precio")
+    {
+        categorias[cat][0][1]=true;
+
+    }else
     {
 
-        if(categorias[cat][x][0]==modo)
+        for(let x=0;x<categorias[cat].length;x++)
         {
-            if(categorias[cat][x][1])
-            {
 
-                categorias[cat][x][1]=false;
-                
-            }else
+            if(categorias[cat][x][0]==modo)
             {
-                categorias[cat][x][1]=true;
-
-            }
-            
-        }else 
-        {
-            if(categorias[cat][x][1])
-            {
-                categorias[cat][x][1]=false;
-                if(cat!="barrio")
+                if(categorias[cat][x][1])
                 {
-            
-                    checkbox(cat+"-"+categorias[cat][x][0]);
+
+                    categorias[cat][x][1]=false;
+                    
+                }else
+                {
+                    categorias[cat][x][1]=true;
+
                 }
+                
+            }else 
+            {
+                if(categorias[cat][x][1])
+                {
+                    categorias[cat][x][1]=false;
+                    if(cat!="barrio" && cat!="precio")
+                    {
+                        checkbox(cat+"-"+categorias[cat][x][0]);
+                    }
+                    
+                }
+                
             }
-            
         }
-        
+
     }
 
   
@@ -250,7 +275,7 @@ function prop_consulta(id)
     {
         for(let x=0;x<categorias[opcion].length;x++)
         {
-            if(categorias[opcion][x][1])
+            if(categorias[opcion][x][1] && opcion!="precio")
             {
                 
                 if(get=="")
@@ -261,6 +286,9 @@ function prop_consulta(id)
                     get+="&opcion-"+String(k)+"="+opcion+"-"+categorias[opcion][x][0];
                 }
                 k++;
+            }else if(categorias[opcion][x][1] && opcion=="precio")
+            {
+
             }
         }
         
