@@ -32,7 +32,57 @@ var categorias=
     "pileta":[["tiene",false]],
     "jardin":[["tiene",false]],
     "gym":[["tiene",false]],
-    "estacionamiento":[["tiene",false]]
+    "estacionamiento":[["tiene",false]],
+    "barrio":[
+    ["Agronomía",false],
+    ["Almagro",false],
+    ["Balvanera",false],
+    ["Barracas",false],
+    ["Belgrano",false],
+    ["Boedo",false],
+    ["Caballito",false],
+    ["Chacarita",false],
+    ["Coghlan",false],
+    ["Colegiales",false],
+    ["Constitución",false],
+    ["Flores",false],
+    ["Floresta",false],
+    ["La Boca",false],
+    ["La Paternal",false],
+    ["Liniers",false],
+    ["Mataderos",false],
+    ["Monte Castro",false],
+    ["Montserrat",false],
+    ["Nueva Pompeya",false],
+    ["Nuñez",false],
+    ["Palermo",false],
+    ["Parque Avellaneda",false],
+    ["Parque Chacabuco",false],
+    ["Parque Chas",false],
+    ["Parque Patricios",false],
+    ["Puerto Madero",false],
+    ["Recoleta",false],
+    ["Retiro",false],
+    ["Saavedra",false],
+    ["San Cristóbal",false],
+    ["San Nicolás",false],
+    ["San Telmo",false],
+    ["Versalles",false],
+    ["Villa Crespo",false],
+    ["Villa Devoto",false],
+    ["Villa General Mitre",false],
+    ["Villa Lugano",false],
+    ["Villa Luro",false],
+    ["Villa Ortúzar",false],
+    ["Villa Pueyrredón",false],
+    ["Villa Real",false],
+    ["Villa Riachuelo",false],
+    ["Villa Santa Rita",false],
+    ["Villa Soldati",false],
+    ["Villa Urquiza",false],
+    ["Villa del Parque",false],
+    ["Vélez Sarsfield",false],
+    ],
 
 }
 
@@ -90,7 +140,12 @@ function asignar(id,propiedad)
     document.getElementById(String(id)+"-dir").innerHTML=propiedad["dir"]+", "+propiedad["barrio"]+", Capital Federal";
 }
 
-
+function barrios(elemento)
+{
+    let id =elemento.id+"-"+elemento.options[elemento.selectedIndex].value;
+    //console.log(id);
+    prop_consulta(id);
+}
 
 function prop_consulta(id)
 {
@@ -119,8 +174,11 @@ function prop_consulta(id)
         i++;
         
     }
-    
-    checkbox(id);
+    if(cat!="barrio")
+    {
+        checkbox(id);
+
+    }
     for(let x=0;x<categorias[cat].length;x++)
     {
 
@@ -142,7 +200,11 @@ function prop_consulta(id)
             if(categorias[cat][x][1])
             {
                 categorias[cat][x][1]=false;
-                checkbox(cat+"-"+categorias[cat][x][0]);
+                if(cat!="barrio")
+                {
+            
+                    checkbox(cat+"-"+categorias[cat][x][0]);
+                }
             }
             
         }
@@ -157,6 +219,7 @@ function prop_consulta(id)
     
     if(this.responseText!="vacio")
     {
+        //console.log(this.responseText);
         respuesta = JSON.parse(this.responseText);
         
     
@@ -208,7 +271,7 @@ function prop_consulta(id)
         get="azar";
     }
 
-    
+    //console.log(get);
     req.open("GET","buscar-prop.php?"+get);
     req.send();
     

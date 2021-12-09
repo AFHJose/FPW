@@ -221,55 +221,57 @@ session_start()
                 <li>
                   <h3 class="buscar-titulo">Barrio:</h3>
                   <form>
-                    <select class="buscar-barrio">
-                    <option>Agronomía</option>
-                    <option>Almagro</option>
-                    <option>Balvanera</option>
-                    <option>Barracas</option>
-                    <option>Belgrano</option>
-                    <option>Boedo</option>
-                    <option>Caballito</option>
-                    <option>Chacarita</option>
-                    <option>Coghlan</option>
-                    <option>Colegiales</option>
-                    <option>Constitución</option>
-                    <option>Flores</option>
-                    <option>Floresta</option>
-                    <option>La Boca</option>
-                    <option>La Paternal</option>
-                    <option>Liniers</option>
-                    <option>Mataderos</option>
-                    <option>Monte Castro</option>
-                    <option>Montserrat</option>
-                    <option>Nueva Pompeya</option>
-                    <option>Nuñez</option>
-                    <option>Palermo</option>
-                    <option>Parque Avellaneda</option>
-                    <option>Parque Chacabuco</option>
-                    <option>Parque Chas</option>
-                    <option>Parque Patricios</option>
-                    <option>Puerto Madero</option>
-                    <option>Recoleta</option>
-                    <option>Retiro</option>
-                    <option>Saavedra</option>
-                    <option>San Cristóbal</option>
-                    <option>San Nicolás</option>
-                    <option>San Telmo</option>
-                    <option>Versalles</option>
-                    <option>Villa Crespo</option>
-                    <option>Villa Devoto</option>
-                    <option>Villa General Mitre</option>
-                    <option>Villa Lugano</option>
-                    <option>Villa Luro</option>
-                    <option>Villa Ortúzar</option>
-                    <option>Villa Pueyrredón</option>
-                    <option>Villa Real</option>
-                    <option>Villa Riachuelo</option>
-                    <option>Villa Santa Rita</option>
-                    <option>Villa Soldati</option>
-                    <option>Villa Urquiza</option>
-                    <option>Villa del Parque</option>
-                    <option>Vélez Sarsfield</option>
+                    <select id="barrio" onchange="barrios(this)" name="barrio" class="buscar-barrio">
+                    <option value="ninguno">Ninguno</option>
+                    <option value="Agronomía">Agronomía</option>
+                    <option value="Almagro">Almagro</option>
+                    <option value="Balvanera">Balvanera</option>
+                    <option value="Barracas">Barracas</option>
+                    <option value="Belgrano">Belgrano</option>
+                    <option value="Boedo">Boedo</option>
+                    <option value="Caballito">Caballito</option>
+                    <option value="Chacarita">Chacarita</option>
+                    <option value="Coghlan">Coghlan</option>
+                    <option value="Colegiales">Colegiales</option>
+                    <option value="Constitución">Constitución</option>
+                    <option value="Flores">Flores</option>
+                    <option value="Floresta">Floresta</option>
+                    <option value="La Boca">La Boca</option>
+                    <option value="La Paternal">La Paternal</option>
+                    <option value="Liniers">Liniers</option>
+                    <option value="Mataderos">Mataderos</option>
+                    <option value="Monte Castro">Monte Castro</option>
+                    <option value="Montserrat">Montserrat</option>
+                    <option value="Nueva Pompeya">Nueva Pompeya</option>
+                    <option value="Nuñez">Nuñez</option>
+                    <option value="Palermo">Palermo</option>
+                    <option value="Parque Avellaneda">Parque Avellaneda</option>
+                    <option value="Parque Chacabuco">Parque Chacabuco</option>
+                    <option value="Parque Chas">Parque Chas</option>
+                    <option value="Parque Patricios">Parque Patricios</option>
+                    <option value="Puerto Madero">Puerto Madero</option>
+                    <option value="Recoleta">Recoleta</option>
+                    <option value="Retiro">Retiro</option>
+                    <option value="Saavedra">Saavedra</option>
+                    <option value="San Cristóbal">San Cristóbal</option>
+                    <option value="San Nicolás">San Nicolás</option>
+                    <option value="San Telmo">San Telmo</option>
+                    <option value="Versalles">Versalles</option>
+                    <option value="Villa Crespo">Villa Crespo</option>
+                    <option value="Villa Devoto">Villa Devoto</option>
+                    <option value="Villa General Mitre">Villa General Mitre</option>
+                    <option value="Villa Lugano">Villa Lugano</option>
+                    <option value="Villa Luro">Villa Luro</option>
+                    <option value="Villa Ortúzar">Villa Ortúzar</option>
+                    <option value="Villa Pueyrredón">Villa Pueyrredón</option>
+                    <option value="Villa Real">Villa Real</option>
+                    <option value="Villa Riachuelo">Villa Riachuelo</option>
+                    <option value="Villa Santa Rita">Villa Santa Rita</option>
+                    <option value="Villa Soldati">Villa Soldati</option>
+                    <option value="Villa Urquiza">Villa Urquiza</option>
+                    <option value="Villa del Parque">Villa del Parque</option>
+                    <option value="Vélez Sarsfield">Vélez Sarsfield</option>
+
                     </select>
                   </form>
                 </li>
