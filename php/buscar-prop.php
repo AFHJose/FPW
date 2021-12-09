@@ -82,10 +82,10 @@ if($conexion)
             $flag=TRUE;
             for($j=0;$j<strlen($txt);$j++)
             {
-                if($txt[$j]=="-")
+                if($txt[$j]=="-" AND $flag)
                 {
                     $flag=FALSE;
-                    $j++;
+                    continue;
                 }
                 if($flag)
                 {
@@ -95,18 +95,78 @@ if($conexion)
                     $key.=$txt[$j];
                 }
             }
-            if($opciones=="")
+            
+            if($cat=="precio")
             {
 
-                $opciones.=$modos[$cat][$key];
+                $min="";
+                $max="";
+                $flag=TRUE;
+                for($j=0;$j<strlen($key);$j++)
+                {
+                    
+                    if($key[$j]=="-" AND $flag)
+                    {
+                        $flag=FALSE;
+                        continue;
+                    }
+                    if($flag)
+                    {
+                        $min.=$key[$j];
+                    }else 
+                    {
+                        $max.=$key[$j];
+                    }
+                }
+                
+                if(validar($min,'precio'))
+                {
+                    $min="";
+                }else if (validar($max,'precio'))
+                {
+                    $max="";
+                }
+                if($min=="" AND $max=="")
+                {
+                    $out="";
+                }
+                else if($min=="")
+                {
+                    $out="venta <=".$max;
+                }else if($max=="")
+                {
+                    $out="venta >=".$min;
+                }else
+                {
+                    $out="((venta BETWEEN ".$min." AND ".$max.") AND alquiler=0) OR ((alquiler BETWEEN ".$min." AND ".$max.") AND venta=0)";
+                }
+                
+
+                if($opciones=="")
+                {
+    
+                    $opciones.=" ".$out." ";
+                }else
+                {
+                    $opciones.=" AND ".$out;
+                }
+                
             }else
             {
-                $opciones.=" AND ".$modos[$cat][$key];
+
+                if($opciones=="")
+                {
+    
+                    $opciones.=" ".$modos[$cat][$key]." ";
+                }else
+                {
+                    $opciones.=" AND ".$modos[$cat][$key];
+                }
             }
 
             $i++;
         }
-
+        
         $resultado = $conexion->query("SELECT * FROM propiedades WHERE ".$opciones." AND activa=1 ORDER BY RAND() LIMIT 9");
         
         

@@ -160,12 +160,28 @@ function validar_precio(elemento)
 }
 function rango_precio(elemento)
 {
-    
+    validar_precio(document.getElementById(elemento.id+"-min"));
+    validar_precio(document.getElementById(elemento.id+"-max"));
     let min = document.getElementById(elemento.id+"-min").value;
     let max = document.getElementById(elemento.id+"-max").value;
     
-    let datos ="precio-"+min+"-"+max;
-    prop_consulta(datos);
+    let filtro = document.getElementById(elemento.id+"-filtro");
+    console.log(min);
+    console.log(max);
+    if(min!=null && min!="" && max!=null && max!="")
+    {
+        filtro.innerText="Desde "+min+" y Hasta "+max;
+    }else if(min!=null && min!="")
+    {
+        filtro.innerText="Desde "+min;
+    }else if(max!=null && max!="")
+    {
+        filtro.innerText="Hasta "+max;
+    }else if((max==null || max=="") && (min==null || min==""))
+    {
+        filtro.innerText="";
+    }
+    prop_consulta("precio-"+min+"-"+max);
 }
 
 function prop_consulta(id)
@@ -197,16 +213,21 @@ function prop_consulta(id)
         i++;
         
     }
+
     if(cat!="barrio" && cat!="precio")
     {
         checkbox(id);
     }
-    if(cat=="precio")
+    if(cat=="precio" && modo!="-")
     {
         categorias[cat][0][1]=true;
         categorias[cat][0][0]=modo;
 
-    }else
+    }else if(cat=="precio" && modo=="-")
+    {
+        categorias[cat][0][1]=false;
+    }
+    else
     {
 
         for(let x=0;x<categorias[cat].length;x++)
