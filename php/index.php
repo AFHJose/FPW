@@ -26,13 +26,13 @@ session_start();
         <nav class="nav">
           <ul class="menu">
             <li>
-              <a href="propiedades.php" class="enlace-boton"><span class="enlace-texto">Comprar </span></a>
+              <a href="propiedades.php?modo=compra" class="enlace-boton"><span class="enlace-texto">Comprar </span></a>
             </li>
             <li>
-              <a class="enlace-boton"><span class="enlace-texto">Alquilar </span></a>
+              <a href="propiedades.php?modo=alquiler" class="enlace-boton"><span class="enlace-texto">Alquilar </span></a>
             </li>
             <li>
-              <a class="enlace-boton"><span class="enlace-texto">Vender </span></a>
+              <a class="enlace-boton"><span class="enlace-texto">Publicar </span></a>
             </li>
             <li>
               <a class="enlace-boton"><span class="enlace-texto">Servicios administrativos </span></a>

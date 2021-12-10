@@ -413,4 +413,5 @@ function radio(categoria,id,set)
     }
 }
 */
-prop_consulta("tipo-compra");
+
+prop_consulta(document.getElementById("load").getAttribute("content"));
