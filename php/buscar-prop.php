@@ -4,6 +4,7 @@ include "conexion.php";
 include "validar.php";
 
 $conexion = OpenCon();
+$modos["autor"]=array("usuario"=>'id_usuario='.$_SESSION["id_usuario"],"inmobiliaria"=>'id_usuario=1',"propietario"=>'id_usuario!=1 AND id_usuario!='.$_SESSION["id_usuario"]);
 $modos["tipo"]=array("compra"=>'venta!=0',"alquiler"=>'alquiler!=0');
 $modos["inmueble"]=array("casa"=>'tipo=\'Casa\'',"departamento"=>'tipo=\'Departamento\'',"oficina"=>'tipo=\'Oficina\'',"cochera"=>'tipo=\'Cochera\'',"terreno"=>'tipo=\'Terreno\'');
 $modos["moneda"]=array("pesos"=>'dolar=0',"dolares"=>'dolar=1');
@@ -152,27 +153,6 @@ if($conexion)
                     $opciones.=" AND ".$out;
                 }
                 
-            }else if($cat=="autor")
-            {
-                
-
-
-
-
-                $out="";
-
-                if($opciones=="")
-                {
-    
-                    $opciones.=" ".$out." ";
-                }else
-                {
-                    $opciones.=" AND ".$out;
-                }
-
-
-
-
             }else
             {
 
