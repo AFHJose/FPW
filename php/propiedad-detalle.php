@@ -115,65 +115,113 @@ session_start()
     </header>
     <main class="main-prop-d">
 
-        <section class="prop-d-contenedor">
+        <div class="prop-d-contenedor">
           <h2 class="prop-d-titulo">CASA EN VENTA</h2>
           <img class="prop-d-img" src="..\assets\usuarios\7\96\1.jpg">
-          <div class="prop-d-texto" >
-              <h3>Caracteristicas:</h3>
+          <section class="prop-d-texto" >
+              <h3 class="caracteristicas">Caracteristicas:</h3>
               <div class="prop-d-dato">
-                <span class="prop-d-etiqueta top-left">Direccion:</span>
-                <span class="prop-d-valor top-right">Av. Santa Fe 3500, Palermo, Capital Federal</span>
+                <span class="prop-d-etiqueta top-left border">Direccion:</span>
+                <span class="prop-d-valor top-right border">Av. Santa Fe 3500, Palermo, Capital Federal</span>
               </div>
               <div class="prop-d-dato">
-                <span class="prop-d-etiqueta center-left">Ambientes:</span>
-                <span class="prop-d-valor center-right">Uno</span>
+                <span class="prop-d-etiqueta center-left border">Ambientes:</span>
+                <span class="prop-d-valor center-right border">Uno</span>
               </div>
               <div class="prop-d-dato">
-                <span class="prop-d-etiqueta center-left">Baños:</span>
-                <span class="prop-d-valor center-right">Uno</span>
+                <span class="prop-d-etiqueta center-left border">Baños:</span>
+                <span class="prop-d-valor center-right border">Uno</span>
               </div>
               <div class="prop-d-dato">
-                <span class="prop-d-etiqueta center-left">Aire acondicionado:</span>
-                <span class="prop-d-valor center-right">Tiene</span>
+                <span class="prop-d-etiqueta center-left border">Aire acondicionado:</span>
+                <span class="prop-d-valor center-right border">Tiene</span>
               </div>
               <div class="prop-d-dato">
-                <span class="prop-d-etiqueta center-left">Balcon:</span>
-                <span class="prop-d-valor center-right">NO Tiene</span>
+                <span class="prop-d-etiqueta center-left border">Balcon:</span>
+                <span class="prop-d-valor center-right border">NO Tiene</span>
               </div>
               <div class="prop-d-dato">
-                <span class="prop-d-etiqueta center-left">Pileta:</span>
-                <span class="prop-d-valor center-right">Tiene</span>
+                <span class="prop-d-etiqueta center-left border">Pileta:</span>
+                <span class="prop-d-valor center-right border">Tiene</span>
               </div>
               <div class="prop-d-dato">
-                <span class="prop-d-etiqueta center-left">Jardin:</span>
-                <span class="prop-d-valor center-right">NO Tiene</span>
+                <span class="prop-d-etiqueta center-left border">Jardin:</span>
+                <span class="prop-d-valor center-right border">NO Tiene</span>
               </div>
               <div class="prop-d-dato">
-                <span class="prop-d-etiqueta center-left">Gimnasio:</span>
-                <span class="prop-d-valor center-right">Tiene</span>
+                <span class="prop-d-etiqueta center-left border">Gimnasio:</span>
+                <span class="prop-d-valor center-right border">Tiene</span>
               </div>
               <div class="prop-d-dato">
-                <span class="prop-d-etiqueta bot-left">Estacionamiento:</span>
-                <span class="prop-d-valor bot-right">Tiene</span>
+                <span class="prop-d-etiqueta bot-left border">Estacionamiento:</span>
+                <span class="prop-d-valor bot-right border">Tiene</span>
               </div>
 
-          </div>
-          <div class="prop-d-precio">
-            <h2 class="prop-d-admin">Administra: Abisha</h2>
-            <span class="prop-d-precio-titulo">PRECIO: USD 100k</span>
-            <h3>OFERTAS:</h3>
+          </section>
+          <section class="prop-d-precio">
+            <div class="prop-d-dato">
+              <span class="admin">Administrador:</span>
+              <span class="admin-dato">Abisha</span>
+            </div>
+            <div class="prop-d-dato">
+              <span class="precio">Precio:</span>
+              <span class="precio-dato">100K USD</span>
+            </div>
+              
+            <div class="centrar-boton"><button class="boton contacto">Contactar Administrador</button></div>
+            
+
+
+            <h3 class="ofertas">Ofertas:</h3>
             <div class="prop-d-ofertas-contenedor">
               <div class="prop-d-oferta">
+                <span class="prop-d-oferta-titulo">Creacion:</span>
+                <span class="prop-d-oferta-titulo">Valor:</span>
+                <span class="prop-d-oferta-titulo">Vencimiento:</span>
+                <span class="prop-d-oferta-titulo">Estado:</span>
+              </div>
+              <a href="#" class="prop-d-oferta efecto-hover">
                 <span>11/12/2021</span>
-                <span>COMPRA</span>
-                <span>USD 50K</span>
-                <span>VENCE EL 30/12/2021</span>
-                <span>ESTADO: VIGENTE</span>
+                <span>50K USD 3 Propiedades</span>
+                <span>30/12/2021</span>
+                <span>VIGENTE</span>
+              </a>
+              <div class="prop-d-oferta-detalle">
+                <div class="prop-d-dato">
+                  <span class="oferta-detalles-titulo center border">Detalles de la oferta:</span>
+                </div>
+                <div class="prop-d-dato">
+                  <span class="prop-d-etiqueta center-left border">Autor:</span>
+                  <span class="prop-d-valor center-right border">Omar</span>
+                </div>
+                <div class="prop-d-dato">
+                  <span class="prop-d-etiqueta center-left border">Dinero:</span>
+                  <span class="prop-d-valor center-right border">50K USD</span>
+                </div>
+                <div class="prop-d-dato">
+                  <span class="prop-d-etiqueta center-left border">Dinero:</span>
+                  <span class="prop-d-valor center-right border">5M ARS</span>
+                </div>
+                <div class="prop-d-dato">
+                  <span class="prop-d-etiqueta center-left border">Propiedad:</span>
+                  <a><span class="prop-d-valor center-right border">Casa 100m2 en mitre 1500, belgrano, caba</span></a>
+                </div>
+                <div class="prop-d-dato">
+                  <span class="prop-d-etiqueta center-left border">Propiedad:</span>
+                  <a><span class="prop-d-valor center-right border">Depto 60m2 en mitre 1500, belgrano, caba</span></a>
+                </div>
+                <div class="prop-d-dato">
+                  <span class="prop-d-etiqueta bot-left border">Propiedad:</span>
+                  <a><span class="prop-d-valor bot-right border">Terreno 40m2 en mitre 1500, belgrano, caba</span></a>
+                </div>
+                </div>
+                  <div class="centrar-boton"><button class="boton contacto">Contactar Oferente</button></div>
               </div>
             </div>
-          </div>
+           
+          </section>  
 
-        </section>
+        </div>
           
 
     <!--

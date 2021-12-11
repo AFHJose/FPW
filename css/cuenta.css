@@ -204,6 +204,7 @@ hr{
     font-size: 18px;
     color: black;
     border-width: 0px;
+    width: max-content;
 }
 .boton:hover{
     color: white;
