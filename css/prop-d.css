@@ -2,27 +2,120 @@
 {
     display: flex;
     justify-content: center;
+    background-color: whitesmoke;
 }
 
 .prop-d-contenedor
 {
-    width: 70%;
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: space-around;
-    align-items: center;
+    width: 80%;
+    display: grid;
+    grid-template-columns: 600px 1fr;
+    grid-template-rows: 100px 400px 800px;
 
+}
+.prop-d-titulo
+{
+    grid-row:1/2;
+    grid-column: 1/2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .prop-d-img
 {
+    grid-column: 1/2;
+    grid-row:2/3;
     width: 600px;
     height: 400px;
     border-radius: 5px;
 }
 .prop-d-texto
 {
+    grid-row: 3/4;
+    grid-column: 1/2;
     display: flex;
     flex-flow: column wrap;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: flex-start;
+}
+.prop-d-dato
+{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.prop-d-etiqueta
+{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 18px;
+    font-weight: bold; 
+    background-color: rgb(230, 230, 230);
+    padding:10px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+}
+.prop-d-valor
+{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 16px;
+    background-color: white;
+    padding:10px;
+    border-style: solid;
+    border-color: black;
+}
+.top-left
+{
+    border-width: 2px 0px 0px 2px;
+    border-radius: 5px 0px 0px 0px;
+}
+.top-right
+{
+    border-width: 2px 2px 0px 0px;
+    border-radius: 0px 5px 0px 0px;
+}
+.center-left
+{
+    border-width: 2px 0px 0px 2px;
+}
+.center-right
+{
+    border-width: 2px 2px 0px 0px;
+}
+.bot-left
+{
+    border-width: 2px 0px 2px 2px;
+    border-radius: 0px 0px 0px 5px;
+}
+.bot-right
+{
+    border-width: 2px 2px 2px 0px;
+    border-radius: 0px 0px 5px 0px;
+}
+.prop-d-precio
+{
+    grid-row: 2/3;
+    grid-column: 2/3;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding:20px 0px 0px 30px;
+    background-color: white;
+}
+.prop-d-precio-titulo
+{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0px 10px 0px;
+}
+.prop-d-admin
+{
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0px;
 }

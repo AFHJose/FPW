@@ -116,27 +116,63 @@ session_start()
     <main class="main-prop-d">
 
         <section class="prop-d-contenedor">
-          <h2>CASA EN VENTA</h2>
-        <img class="prop-d-img" src="..\assets\usuarios\7\96\1.jpg">
-        <div class="prop-d-texto" >
-            <h3>Caracteristicas:</h3>
-            <span>Precio: USD 100k </span>
-            <span>Direccion: Av. Santa Fe 3500, Palermo, Capital Federal</span>
-            <span>Ambientes: 1</span>
-            <span>Baños: 1</span>
-            <span>Aire acondicionado: SI</span>
-            <span>Balcon:NO</span>
-            <span>Pileta:SI</span>
-            <span>Jardin:NO</span>
-            <span>Gimnasion: SI</span>
-            <span>Estacionamiento: NO </span>
-            <span>Administra: propietario </span>
-        </div>
+          <h2 class="prop-d-titulo">CASA EN VENTA</h2>
+          <img class="prop-d-img" src="..\assets\usuarios\7\96\1.jpg">
+          <div class="prop-d-texto" >
+              <h3>Caracteristicas:</h3>
+              <div class="prop-d-dato">
+                <span class="prop-d-etiqueta top-left">Direccion:</span>
+                <span class="prop-d-valor top-right">Av. Santa Fe 3500, Palermo, Capital Federal</span>
+              </div>
+              <div class="prop-d-dato">
+                <span class="prop-d-etiqueta center-left">Ambientes:</span>
+                <span class="prop-d-valor center-right">Uno</span>
+              </div>
+              <div class="prop-d-dato">
+                <span class="prop-d-etiqueta center-left">Baños:</span>
+                <span class="prop-d-valor center-right">Uno</span>
+              </div>
+              <div class="prop-d-dato">
+                <span class="prop-d-etiqueta center-left">Aire acondicionado:</span>
+                <span class="prop-d-valor center-right">Tiene</span>
+              </div>
+              <div class="prop-d-dato">
+                <span class="prop-d-etiqueta center-left">Balcon:</span>
+                <span class="prop-d-valor center-right">NO Tiene</span>
+              </div>
+              <div class="prop-d-dato">
+                <span class="prop-d-etiqueta center-left">Pileta:</span>
+                <span class="prop-d-valor center-right">Tiene</span>
+              </div>
+              <div class="prop-d-dato">
+                <span class="prop-d-etiqueta center-left">Jardin:</span>
+                <span class="prop-d-valor center-right">NO Tiene</span>
+              </div>
+              <div class="prop-d-dato">
+                <span class="prop-d-etiqueta center-left">Gimnasio:</span>
+                <span class="prop-d-valor center-right">Tiene</span>
+              </div>
+              <div class="prop-d-dato">
+                <span class="prop-d-etiqueta bot-left">Estacionamiento:</span>
+                <span class="prop-d-valor bot-right">Tiene</span>
+              </div>
 
+          </div>
+          <div class="prop-d-precio">
+            <h2 class="prop-d-admin">Administra: Abisha</h2>
+            <span class="prop-d-precio-titulo">PRECIO: USD 100k</span>
+            <h3>OFERTAS:</h3>
+            <div class="prop-d-ofertas-contenedor">
+              <div class="prop-d-oferta">
+                <span>11/12/2021</span>
+                <span>COMPRA</span>
+                <span>USD 50K</span>
+                <span>VENCE EL 30/12/2021</span>
+                <span>ESTADO: VIGENTE</span>
+              </div>
+            </div>
+          </div>
 
-
-
-        
         </section>
           
 
