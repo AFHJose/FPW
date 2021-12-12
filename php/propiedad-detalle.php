@@ -117,8 +117,8 @@ session_start()
 
         <div class="prop-d-contenedor">
 
-          <img class="prop-d-img" src="..\assets\usuarios\7\96\1.jpg">
-          <section class="prop-d-texto" >
+          <img class="img-section" src="..\assets\usuarios\7\96\1.jpg">
+          <section class="caracteristicas-section fondo-blanco-borde-gris" >
               <h3 class="caracteristicas">Caracteristicas:</h3>
               <div class="prop-d-dato">
                 <span class="prop-d-etiqueta top-left border">Direccion:</span>
@@ -158,24 +158,42 @@ session_start()
               </div>
 
           </section>
-          <section class="prop-d-precio">
-            <h2 class="prop-d-titulo texto-30">CASA EN VENTA</h2>
+          <section class="precio-section fondo-blanco-borde-gris">
+            <h2 class="precio-txt alinear-texto-izq texto-30">CASA EN VENTA</h2>
             <div class="prop-d-dato">
-              <span class="texto-izq texto-24">Administrador:</span>
-              <span class="texto-der texto-24">Abisha</span>
+              <span class="texto-izq texto-40 top-left border">Precio:</span>
+              <span class="texto-der texto-40 top-right border">100.000 USD</span>
             </div>
             <div class="prop-d-dato">
-              <span class="texto-izq texto-20">Precio:</span>
-              <span class="texto-der texto-20">100K USD</span>
+              <span class="texto-izq texto-20 center-left border">Superficie:</span>
+              <span class="texto-der texto-20 center-right border">60 m<sup>2</sup></span>
             </div>
             <div class="prop-d-dato">
-              <span class="texto-izq texto-20">Certificacion MIBA:</span>
-              <span class="texto-der texto-20">No Tiene</span>
+              <span class="texto-izq texto-20 center-left border">Direccion:</span>
+              <span class="texto-der texto-20 center-right border">Av. Santa Fe 3500</span>
+            </div>
+            <div class="prop-d-dato">
+              <span class="texto-izq texto-20 center-left border">Barrio:</span>
+              <span class="texto-der texto-20 center-right border">Palermo</span>
+            </div>
+            <div class="prop-d-dato">
+              <span class="texto-izq texto-20 center-left border">Publica:</span>
+              <span class="texto-der texto-20 center-right border">Abisha</span>
+            </div>
+            <div class="prop-d-dato">
+              <span class="texto-izq texto-20 center-left border">Condicion:</span>
+              <span class="texto-der texto-20 center-right border">Propietario</span>
+            </div>
+
+            <div class="prop-d-dato">
+              <span class="texto-izq texto-20 bot-left border">Certificacion MIBA:</span>
+              <span class="texto-der texto-20 bot-right border">No Tiene</span>
             </div>
               
-            <div class="centrar-boton"><button class="boton contacto">Contactar Administrador</button></div>
+            <div class="centrar-boton"><button class="boton contacto">Contactar Abisha</button></div>
+            
           </section>
-          <section class="ofertas-section">
+          <section class="ofertas-section fondo-blanco-borde-gris">
             <div class="ofertas-filtros">
               <h3 class="ofertas">Ofertas:</h3>
               <button class="boton">Vigentes</button>
