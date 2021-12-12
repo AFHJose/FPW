@@ -7,52 +7,7 @@
   column-gap: 20px;
   background-color: whitesmoke;
 }
-/*
-.buscar
-{
-    grid-column: 1/4;
-    grid-row:1/2;
 
-    width: 100%;
-    background-color: #83c5be;
-    border-radius: 5px;
-    box-shadow: 3px 3px 5px grey;
-    padding: 10px;
-
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    
-}
-.buscar-entrada
-{
-    border-radius: 5px;
-    padding:5px;
-}
-.boton-contenedor
-{
-    grid-column: 2/3;
-    padding-left: 20px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-.buscar-boton
-{
-    background-color: #fdb305;
-    border-radius: 5px;
-    box-shadow: 3px 3px 5px grey;
-    padding: 10px;
-    font-weight: bold;
-    text-align: center;
-    font-size: 18px;
-    color: black;
-    border-width: 0px;
-}
-.buscar-boton:hover
-{
-    color:white;
-}
-*/
 .buscar-contenedor {
   grid-column: 1/2;
   height: max-content;

@@ -4,11 +4,12 @@ include "conexion.php";
 include "validar.php";
 
 $conexion = OpenCon();
-$modos["autor"]=array("inmobiliaria"=>'id_usuario=1',"propietario"=>'id_usuario!=1');
+$modos["autor"]=array("inmobiliaria"=>'autor=\'inmobiliaria\'',"propietario"=>'autor=\'propietario\'',"miba"=>'autor=\'miba\'');
 if(isset($_SESSION["id_usuario"]))
 {
     $modos["autor"]["usuario"]='id_usuario='.$_SESSION["id_usuario"];
 }
+$modos["certificacion"]=array("miba"=>'certificada=1');
 $modos["tipo"]=array("compra"=>'venta!=0',"alquiler"=>'alquiler!=0');
 $modos["inmueble"]=array("casa"=>'tipo=\'Casa\'',"departamento"=>'tipo=\'Departamento\'',"oficina"=>'tipo=\'Oficina\'',"cochera"=>'tipo=\'Cochera\'',"terreno"=>'tipo=\'Terreno\'');
 $modos["moneda"]=array("pesos"=>'dolar=0',"dolares"=>'dolar=1');

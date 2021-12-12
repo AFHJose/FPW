@@ -87,6 +87,15 @@ var categorias = {
     ["usuario", false],
     ["propietario", false],
     ["inmobiliaria", false],
+    ["miba", false],
+  ],
+  certificacion: [["miba", false]],
+  antiguedad: [
+    ["10", false],
+    ["50", false],
+    ["100", false],
+    ["150", false],
+    ["150+", false],
   ],
 };
 
