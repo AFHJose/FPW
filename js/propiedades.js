@@ -83,6 +83,8 @@ var categorias = {
     ["Vélez Sarsfield", false],
   ],
   precio: [["rango", false]],
+  superficie: [["rango", false]],
+  supCubierta: [["rango", false]],
   autor: [
     ["usuario", false],
     ["propietario", false],
@@ -95,7 +97,7 @@ var categorias = {
     ["50", false],
     ["100", false],
     ["150", false],
-    ["150+", false],
+    ["200", false],
   ],
 };
 
@@ -223,13 +225,24 @@ function prop_consulta(id) {
       i++;
     }
 
-    if (cat != "barrio" && cat != "precio") {
+    if (
+      cat != "barrio" &&
+      cat != "precio" &&
+      cat != "superficie" &&
+      cat != "supCubierta"
+    ) {
       checkbox(id);
     }
-    if (cat == "precio" && modo != "-") {
+    if (
+      (cat == "precio" || cat == "superficie" || cat == "supCubierta") &&
+      modo != "-"
+    ) {
       categorias[cat][0][1] = true;
       categorias[cat][0][0] = modo;
-    } else if (cat == "precio" && modo == "-") {
+    } else if (
+      (cat == "precio" || cat == "superficie" || cat == "supCubierta") &&
+      modo == "-"
+    ) {
       categorias[cat][0][1] = false;
     } else {
       for (let x = 0; x < categorias[cat].length; x++) {

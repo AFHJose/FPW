@@ -9,6 +9,7 @@ if(isset($_SESSION["id_usuario"]))
 {
     $modos["autor"]["usuario"]='id_usuario='.$_SESSION["id_usuario"];
 }
+$modos["antiguedad"]=array("10"=>'antiguedad<=10',"50"=>'antiguedad<=50',"100"=>'antiguedad<=100',"150"=>'antiguedad<=150',"200"=>'antiguedad>=150');
 $modos["certificacion"]=array("miba"=>'certificada=1');
 $modos["tipo"]=array("compra"=>'venta!=0',"alquiler"=>'alquiler!=0');
 $modos["inmueble"]=array("casa"=>'tipo=\'Casa\'',"departamento"=>'tipo=\'Departamento\'',"oficina"=>'tipo=\'Oficina\'',"cochera"=>'tipo=\'Cochera\'',"terreno"=>'tipo=\'Terreno\'');
@@ -103,7 +104,7 @@ if($conexion)
                 }
             }
             
-            if($cat=="precio")
+            if($cat=="precio" OR $cat=="superficie" OR $cat=="supCubierta")
             {
 
                 $min="";
@@ -136,16 +137,43 @@ if($conexion)
                 if($min=="" AND $max=="")
                 {
                     $out="";
-                }
-                else if($min=="")
+                }else if($cat=="precio")
                 {
-                    $out="venta <=".$max;
-                }else if($max=="")
+
+                    if($min=="")
+                    {
+                        $out="venta <=".$max;
+                    }else if($max=="")
+                    {
+                        $out="venta >=".$min;
+                    }else
+                    {
+                        $out="((venta BETWEEN ".$min." AND ".$max.") AND alquiler=0) OR ((alquiler BETWEEN ".$min." AND ".$max.") AND venta=0)";
+                    }
+                }else if($cat=="superficie")
                 {
-                    $out="venta >=".$min;
-                }else
+                    if($min=="")
+                    {
+                        $out="superficie <=".$max;
+                    }else if($max=="")
+                    {
+                        $out="superficie >=".$min;
+                    }else
+                    {
+                        $out="superficie BETWEEN ".$min." AND ".$max."";
+                    }
+                }else if($cat=="supCubierta")
                 {
-                    $out="((venta BETWEEN ".$min." AND ".$max.") AND alquiler=0) OR ((alquiler BETWEEN ".$min." AND ".$max.") AND venta=0)";
+                    if($min=="")
+                    {
+                        $out="superficie_cubierta <=".$max;
+                    }else if($max=="")
+                    {
+                        $out="superficie_cubierta >=".$min;
+                    }else
+                    {
+                        $out="superficie_cubierta BETWEEN ".$min." AND ".$max."";
+                    }
                 }
                 
 
