@@ -1,239 +1,224 @@
-.main-prop-d
-{
-    display: flex;
-    justify-content: center;
-    background-color: whitesmoke;
+.main-prop-d {
+  display: flex;
+  justify-content: center;
+  background-color: whitesmoke;
 }
 
-.prop-d-contenedor
-{
-    width: 80%;
-    display: grid;
-    grid-template-columns: 700px 1fr;
-    grid-template-rows: 100px 500px 800px;
-
+.prop-d-contenedor {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 700px 1fr;
+  grid-template-rows: 100px 500px minmax(800px, 1fr);
 }
-.prop-d-titulo
-{
-    grid-row:1/2;
-    grid-column: 1/2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.prop-d-titulo {
+  grid-row: 1/2;
+  grid-column: 1/2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.prop-d-img
-{
-    grid-column: 1/2;
-    grid-row:2/3;
-    width: 700px;
-    height: 500px;
-    border-radius: 5px;
+.prop-d-img {
+  grid-column: 1/2;
+  grid-row: 2/3;
+  width: 700px;
+  height: 500px;
+  border-radius: 5px;
 }
-.prop-d-texto
-{
-    grid-row: 3/4;
-    grid-column: 1/2;
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: flex-start;
-    align-items: flex-start;
+.prop-d-texto {
+  grid-row: 3/4;
+  grid-column: 1/2;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
-.caracteristicas
-{
-    font-size: 24px;
+.caracteristicas {
+  font-size: 24px;
 }
-.prop-d-dato
-{
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+.prop-d-dato {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
-.prop-d-etiqueta
-{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    font-size: 18px;
-    font-weight: bold; 
-    background-color: rgb(230, 230, 230);
-    padding:10px;
-
+.prop-d-etiqueta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: rgb(230, 230, 230);
+  padding: 10px;
 }
-.prop-d-valor
-{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    font-size: 16px;
-    background-color: white;
-    padding:10px;
-
+.prop-d-valor {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 16px;
+  background-color: white;
+  padding: 10px;
 }
-.border
-{
-    border-style: solid;
-    border-color: black;
-    border-width: 2px;
+.border {
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
 }
-.top-left
-{
-    border-width: 2px 0px 0px 2px;
-    border-radius: 5px 0px 0px 0px;
+.top-left {
+  border-width: 2px 0px 0px 2px;
+  border-radius: 5px 0px 0px 0px;
 }
-.top-right
-{
-    border-width: 2px 2px 0px 0px;
-    border-radius: 0px 5px 0px 0px;
+.top-right {
+  border-width: 2px 2px 0px 0px;
+  border-radius: 0px 5px 0px 0px;
 }
-.center-left
-{
-    border-width: 2px 0px 0px 2px;
+.center-left {
+  border-width: 2px 0px 0px 2px;
 }
-.center-right
-{
-    border-width: 2px 2px 0px 0px;
+.center-right {
+  border-width: 2px 2px 0px 0px;
 }
-.center
-{
-    border-width: 2px 2px 0px 2px;
-    border-radius: 5px 5px 0px 0px;
+.center {
+  border-width: 2px 2px 0px 2px;
+  border-radius: 5px 5px 0px 0px;
 }
-.bot-left
-{
-    border-width: 2px 0px 2px 2px;
-    border-radius: 0px 0px 0px 5px;
+.bot-left {
+  border-width: 2px 0px 2px 2px;
+  border-radius: 0px 0px 0px 5px;
 }
-.bot-right
-{
-    border-width: 2px 2px 2px 0px;
-    border-radius: 0px 0px 5px 0px;
+.bot-right {
+  border-width: 2px 2px 2px 0px;
+  border-radius: 0px 0px 5px 0px;
 }
-.prop-d-precio
-{
-    grid-row: 2/4;
-    grid-column: 2/3;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 0px 20px 0px 20px;
-    
+.prop-d-precio {
+  grid-row: 2/3;
+  grid-column: 2/3;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0px 20px 0px 20px;
+}
+.ofertas-section {
+  grid-row: 3/4;
+  grid-column: 2/3;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0px 20px 100px 20px;
+}
+.ofertas-filtros {
+  width: 100%;
+  display: grid;
 }
 
-.ofertas
-{
-    margin:10px 0px 10px 0px;
-    padding-left: 10px;
+.ofertas {
+  margin: 10px 0px 10px 0px;
+  padding-left: 10px;
 }
-.prop-d-oferta
-{
-    width: 100%;
-    display:grid;
-    grid-template-columns: 1fr 2fr 1fr 1fr;
-    padding: 10px;
-    border-style: solid;
-    border-width: 1px 0px 0px 0px;
-    text-decoration: none;
-    color: black;
-    
+.prop-d-oferta {
+  background-color: whitesmoke;
+  text-align: left;
+  width: 100%;
+
+  grid-template-columns: 1fr 2fr 1fr 1fr;
+  padding: 10px;
+  border-style: solid;
+  border-width: 1px 0px 0px 0px;
+  text-decoration: none;
+  color: black;
 }
-.efecto-hover:hover{
-    background-color: white;
-    font-weight: bold;
+.efecto-hover:hover {
+  background-color: white;
+  font-weight: bold;
 }
 
-.prop-d-oferta-detalle
-{
-    text-decoration: none;
-    color: black;
-    padding: 10px;
-    width:100%;
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: flex-start;
-    align-items: flex-start;
+.prop-d-oferta-detalle {
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+  width: 100%;
+
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
-.admin
-{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    font-size: 24px;
-    font-weight: bold; 
-    padding:10px;
+.flex {
+  display: flex;
 }
-.admin-dato
-{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    font-size: 24px;
-    
-    padding:10px;
+.grid {
+  display: grid;
 }
-.precio 
-{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    font-size: 22px;
-    font-weight: bold; 
-    padding:10px;
+.colapse {
+  display: none;
 }
-.precio-dato
-{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    font-size: 20px;
-    padding:10px;
+.admin {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 10px;
+}
+.admin-dato {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 24px;
+
+  padding: 10px;
+}
+.precio {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 22px;
+  font-weight: bold;
+  padding: 10px;
+}
+.precio-dato {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 20px;
+  padding: 10px;
 }
 
-.prop-d-ofertas-contenedor
-{
-    overflow:hidden;
-    width: 100%;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    justify-content: flex-start;
-    margin-left: 10px;
-    background-color: whitesmoke;
-
-    
+.prop-d-ofertas-contenedor {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 10px;
+  background-color: whitesmoke;
 }
-.prop-d-oferta-titulo
-{
-    font-size: 16px;
-    font-weight: bold;
+.prop-d-oferta-titulo {
+  font-size: 16px;
+  font-weight: bold;
 }
-.contacto
-{
-    margin: 10px 0px 10px 0px;
+.contacto {
+  margin: 10px 0px 10px 0px;
 }
-.centrar-boton
-{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.centrar-boton {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.detalles-oferta
-{
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: flex-start;
-    align-items: center;
+.detalles-oferta {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
 }
-.oferta-detalles-titulo
-{
-    grid-column: 1/3;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    font-size: 18px;
-    font-weight: bold;
-    background-color: white;
-    padding:10px;
+.oferta-detalles-titulo {
+  grid-column: 1/3;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: white;
+  padding: 10px;
 }
-

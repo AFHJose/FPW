@@ -117,6 +117,7 @@ session_start()
 
         <div class="prop-d-contenedor">
           <h2 class="prop-d-titulo">CASA EN VENTA</h2>
+          
           <img class="prop-d-img" src="..\assets\usuarios\7\96\1.jpg">
           <section class="prop-d-texto" >
               <h3 class="caracteristicas">Caracteristicas:</h3>
@@ -169,24 +170,38 @@ session_start()
             </div>
               
             <div class="centrar-boton"><button class="boton contacto">Contactar Administrador</button></div>
-            
-
-
-            <h3 class="ofertas">Ofertas:</h3>
-            <div class="prop-d-ofertas-contenedor">
-              <div class="prop-d-oferta">
+          </section>
+          <section class="ofertas-section">
+            <div class="ofertas-filtros">
+              <h3 class="ofertas">Ofertas:</h3>
+              <button class="boton">Vigentes</button>
+              <button class="boton">Vencidas</button>
+              <button class="boton">Rechazadas</button>
+              <form>
+                <label>Ordenar por:</label>
+                <select>
+                  <option>Creacion </option>
+                  <option>Dolares</option>
+                  <option>Pesos</option>
+                  <option>Propiedades</option>
+                  <option>Vencimiento</option>
+                </select>
+              </form>
+            </div>
+            <secti class="prop-d-ofertas-contenedor">
+              <div class="prop-d-oferta grid">
                 <span class="prop-d-oferta-titulo">Creacion:</span>
                 <span class="prop-d-oferta-titulo">Valor:</span>
                 <span class="prop-d-oferta-titulo">Vencimiento:</span>
                 <span class="prop-d-oferta-titulo">Estado:</span>
               </div>
-              <a href="#" class="prop-d-oferta efecto-hover">
+              <button id="o-1" onclick="mostrar_ocultar('o-1-d','flex')" class="prop-d-oferta efecto-hover grid ">
                 <span>11/12/2021</span>
                 <span>50K USD 3 Propiedades</span>
                 <span>30/12/2021</span>
                 <span>VIGENTE</span>
-              </a>
-              <div class="prop-d-oferta-detalle">
+              </button>
+              <div id="o-1-d" class="prop-d-oferta-detalle colapse">
                 <div class="prop-d-dato">
                   <span class="oferta-detalles-titulo center border">Detalles de la oferta:</span>
                 </div>
@@ -214,12 +229,91 @@ session_start()
                   <span class="prop-d-etiqueta bot-left border">Propiedad:</span>
                   <a><span class="prop-d-valor bot-right border">Terreno 40m2 en mitre 1500, belgrano, caba</span></a>
                 </div>
-                </div>
-                  <div class="centrar-boton"><button class="boton contacto">Contactar Oferente</button></div>
+                <div class="centrar-boton"><button class="boton contacto">Contactar Oferente</button></div>
+                
               </div>
+
+
+              <button id="o-1" onclick="mostrar_ocultar('o-2-d','flex')" class="prop-d-oferta efecto-hover grid ">
+                <span>11/12/2021</span>
+                <span>50K USD 3 Propiedades</span>
+                <span>30/12/2021</span>
+                <span>VIGENTE</span>
+              </button>
+              <div id="o-2-d" class="prop-d-oferta-detalle colapse">
+                <div class="prop-d-dato">
+                  <span class="oferta-detalles-titulo center border">Detalles de la oferta:</span>
+                </div>
+                <div class="prop-d-dato">
+                  <span class="prop-d-etiqueta center-left border">Autor:</span>
+                  <span class="prop-d-valor center-right border">Omar</span>
+                </div>
+                <div class="prop-d-dato">
+                  <span class="prop-d-etiqueta center-left border">Dinero:</span>
+                  <span class="prop-d-valor center-right border">50K USD</span>
+                </div>
+                <div class="prop-d-dato">
+                  <span class="prop-d-etiqueta center-left border">Dinero:</span>
+                  <span class="prop-d-valor center-right border">5M ARS</span>
+                </div>
+                <div class="prop-d-dato">
+                  <span class="prop-d-etiqueta center-left border">Propiedad:</span>
+                  <a><span class="prop-d-valor center-right border">Casa 100m2 en mitre 1500, belgrano, caba</span></a>
+                </div>
+                <div class="prop-d-dato">
+                  <span class="prop-d-etiqueta center-left border">Propiedad:</span>
+                  <a><span class="prop-d-valor center-right border">Depto 60m2 en mitre 1500, belgrano, caba</span></a>
+                </div>
+                <div class="prop-d-dato">
+                  <span class="prop-d-etiqueta bot-left border">Propiedad:</span>
+                  <a><span class="prop-d-valor bot-right border">Terreno 40m2 en mitre 1500, belgrano, caba</span></a>
+                </div>
+                <div class="centrar-boton"><button class="boton contacto">Contactar Oferente</button></div>
+                
+              </div>
+
+
+              <button id="o-1" onclick="mostrar_ocultar('o-3-d','flex')" class="prop-d-oferta efecto-hover grid ">
+                <span>11/12/2021</span>
+                <span>50K USD 3 Propiedades</span>
+                <span>30/12/2021</span>
+                <span>VIGENTE</span>
+              </button>
+              <div id="o-3-d" class="prop-d-oferta-detalle colapse">
+                <div class="prop-d-dato">
+                  <span class="oferta-detalles-titulo center border">Detalles de la oferta:</span>
+                </div>
+                <div class="prop-d-dato">
+                  <span class="prop-d-etiqueta center-left border">Autor:</span>
+                  <span class="prop-d-valor center-right border">Omar</span>
+                </div>
+                <div class="prop-d-dato">
+                  <span class="prop-d-etiqueta center-left border">Dinero:</span>
+                  <span class="prop-d-valor center-right border">50K USD</span>
+                </div>
+                <div class="prop-d-dato">
+                  <span class="prop-d-etiqueta center-left border">Dinero:</span>
+                  <span class="prop-d-valor center-right border">5M ARS</span>
+                </div>
+                <div class="prop-d-dato">
+                  <span class="prop-d-etiqueta center-left border">Propiedad:</span>
+                  <a><span class="prop-d-valor center-right border">Casa 100m2 en mitre 1500, belgrano, caba</span></a>
+                </div>
+                <div class="prop-d-dato">
+                  <span class="prop-d-etiqueta center-left border">Propiedad:</span>
+                  <a><span class="prop-d-valor center-right border">Depto 60m2 en mitre 1500, belgrano, caba</span></a>
+                </div>
+                <div class="prop-d-dato">
+                  <span class="prop-d-etiqueta bot-left border">Propiedad:</span>
+                  <a><span class="prop-d-valor bot-right border">Terreno 40m2 en mitre 1500, belgrano, caba</span></a>
+                </div>
+                <div class="centrar-boton"><button class="boton contacto">Contactar Oferente</button></div>
+                
+              </div>
+            
+          </section>  
             </div>
            
-          </section>  
 
         </div>
           

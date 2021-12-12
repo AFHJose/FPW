@@ -20,6 +20,19 @@ function mostrar_formulario(id_texto,id_formulario)
   }
 
 }
+function mostrar_ocultar(id,clase)
+{
+  
+  var hide = document.getElementById(id);
+  if (hide.classList.contains("colapse")) {
+    hide.classList.replace("colapse",clase);
+    
+  } else {
+    hide.classList.replace(clase,"colapse");
+    
+  }
+
+}
 function correo_actualizar()
 {
   var req = new XMLHttpRequest();
