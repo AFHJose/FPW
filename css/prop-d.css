@@ -7,9 +7,9 @@
 .prop-d-contenedor {
   width: 80%;
   display: grid;
-  grid-template-columns: 700px 1fr;
+  grid-template-columns: 700px minmax(600px, 1fr);
   column-gap: 20px;
-  grid-template-rows: 50px 500px minmax(800px, 1fr);
+  grid-template-rows: 50px 500px 1fr;
   row-gap: 20px;
 }
 .img-section {
@@ -42,7 +42,8 @@
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: flex-start;
-  padding: 0px 20px 100px 20px;
+  padding: 0px 20px 40px 20px;
+  margin-bottom: 100px;
 }
 .caracteristicas-section {
   grid-row: 3/4;
@@ -51,6 +52,8 @@
   flex-flow: column wrap;
   justify-content: flex-start;
   align-items: flex-start;
+  padding: 0px 20px 20px 20px;
+  margin-bottom: 100px;
 }
 
 .precio-txt {
@@ -62,9 +65,7 @@
   justify-content: flex-start;
   align-items: center;
 }
-.caracteristicas {
-  font-size: 24px;
-}
+
 .prop-d-dato {
   width: 100%;
   display: grid;
@@ -145,10 +146,36 @@
 .texto-20 {
   font-size: 20px;
 }
+.texto-18 {
+  font-size: 18px;
+}
+.texto-16 {
+  font-size: 16px;
+}
 
 .ofertas-filtros {
   width: 100%;
-  display: grid;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px 0px 20px 0px;
+}
+.ofertas-ordenar {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px 0px 20px 0px;
+}
+.ofertas-ordenar-etiqueta {
+  font-weight: bold;
+  padding: 5px;
+}
+.ofertas-ordenar-categoria {
+  padding: 5px;
+  border-radius: 5px;
 }
 
 .ofertas {

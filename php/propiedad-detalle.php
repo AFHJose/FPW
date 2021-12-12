@@ -119,10 +119,10 @@ session_start()
 
           <img class="img-section" src="..\assets\usuarios\7\96\1.jpg">
           <section class="caracteristicas-section fondo-blanco-borde-gris" >
-              <h3 class="caracteristicas">Caracteristicas:</h3>
+              <h3 class="texto-24">Caracteristicas:</h3>
               <div class="prop-d-dato">
-                <span class="prop-d-etiqueta top-left border">Direccion:</span>
-                <span class="prop-d-valor top-right border">Av. Santa Fe 3500, Palermo, Capital Federal</span>
+                <span class="prop-d-etiqueta top-left border">Superficie Cubierta:</span>
+                <span class="prop-d-valor top-right border">40 m<sup>2</sup></span>
               </div>
               <div class="prop-d-dato">
                 <span class="prop-d-etiqueta center-left border">Ambientes:</span>
@@ -194,22 +194,28 @@ session_start()
             
           </section>
           <section class="ofertas-section fondo-blanco-borde-gris">
+            <h3 class="texto-24">Propuestas:</h3>
             <div class="ofertas-filtros">
-              <h3 class="ofertas">Ofertas:</h3>
               <button class="boton">Vigentes</button>
               <button class="boton">Vencidas</button>
               <button class="boton">Rechazadas</button>
-              <form>
-                <label>Ordenar por:</label>
-                <select>
-                  <option>Creacion </option>
-                  <option>Dolares</option>
-                  <option>Pesos</option>
-                  <option>Propiedades</option>
-                  <option>Vencimiento</option>
+            </div>
+              <form class="ofertas-ordenar">
+                <label class="ofertas-ordenar-etiqueta texto-20" for="ordenar">Ordenar por:</label>
+                <select class="ofertas-ordenar-categoria texto-16" id="ordenar-cat" name="ordenar-cat">
+                  <option>Fecha de creacion </option>
+                  <option>Monto en dolares</option>
+                  <option>Monto en pesos</option>
+                  <option>Cantidad de propiedades</option>
+                  <option>Fecha de vencimiento</option>
+                </select>
+                
+                <select class="ofertas-ordenar-categoria texto-16" id="ordenar-modo" name="ordenar-modo">
+                  <option>Ascendiente</option>
+                  <option>Descendiente</option>
+   
                 </select>
               </form>
-            </div>
             <secti class="prop-d-ofertas-contenedor">
               <div class="prop-d-oferta grid">
                 <span class="prop-d-oferta-titulo">Creacion:</span>
