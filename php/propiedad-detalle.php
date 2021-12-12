@@ -116,8 +116,7 @@ session_start()
     <main class="main-prop-d">
 
         <div class="prop-d-contenedor">
-          <h2 class="prop-d-titulo">CASA EN VENTA</h2>
-          
+
           <img class="prop-d-img" src="..\assets\usuarios\7\96\1.jpg">
           <section class="prop-d-texto" >
               <h3 class="caracteristicas">Caracteristicas:</h3>
@@ -160,13 +159,18 @@ session_start()
 
           </section>
           <section class="prop-d-precio">
+            <h2 class="prop-d-titulo texto-30">CASA EN VENTA</h2>
             <div class="prop-d-dato">
-              <span class="admin">Administrador:</span>
-              <span class="admin-dato">Abisha</span>
+              <span class="texto-izq texto-24">Administrador:</span>
+              <span class="texto-der texto-24">Abisha</span>
             </div>
             <div class="prop-d-dato">
-              <span class="precio">Precio:</span>
-              <span class="precio-dato">100K USD</span>
+              <span class="texto-izq texto-20">Precio:</span>
+              <span class="texto-der texto-20">100K USD</span>
+            </div>
+            <div class="prop-d-dato">
+              <span class="texto-izq texto-20">Certificacion MIBA:</span>
+              <span class="texto-der texto-20">No Tiene</span>
             </div>
               
             <div class="centrar-boton"><button class="boton contacto">Contactar Administrador</button></div>
