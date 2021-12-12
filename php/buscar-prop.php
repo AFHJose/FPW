@@ -173,7 +173,7 @@ if($conexion)
             $i++;
         }
         
-        $resultado = $conexion->query("SELECT * FROM propiedades WHERE ".$opciones." AND activa=1 ORDER BY RAND() LIMIT 9");
+        $resultado = $conexion->query("SELECT * FROM propiedades WHERE ".$opciones." AND activa=1 ORDER BY RAND() LIMIT 12");
         
         
     }

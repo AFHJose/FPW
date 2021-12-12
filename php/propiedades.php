@@ -124,16 +124,6 @@ session_start()
       </div>
     </header>
     <main class="prop-mostrar">
-      <!--
-
-        <form class="buscar">
-          <input class="buscar-entrada" placeholder="Ingrese " type="text">
-          <div class="boton-contenedor">
-            
-            <input class="buscar-boton"type="submit">
-          </div>
-        </form>
-      -->
           <aside class="buscar-contenedor">
               <h2>Buscador</h2>
               <ul >
@@ -165,7 +155,24 @@ session_start()
                     <svg id="autor-inmobiliaria-on" class="checkbox-hide" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0-beta3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2021 Fonticons, Inc. --><path d="M335 175L224 286.1L176.1 239c-9.375-9.375-24.56-9.375-33.94 0s-9.375 24.56 0 33.94l64 64C211.7 341.7 217.8 344 224 344s12.28-2.344 16.97-7.031l128-128c9.375-9.375 9.375-24.56 0-33.94S344.4 165.7 335 175zM256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464z"/></svg>
                     <buton onclick="prop_consulta(this.id)" id="autor-inmobiliaria" class="buscar-opcion-boton">Inmobiliaria</buton>
                   </li>
+                  <li class="buscar-opcion">
+                    <svg id="autor-miba-off" class="checkbox-show" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0-beta3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2021 Fonticons, Inc. --><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464z"/></svg>
+                    <svg id="autor-miba-on" class="checkbox-hide" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0-beta3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2021 Fonticons, Inc. --><path d="M335 175L224 286.1L176.1 239c-9.375-9.375-24.56-9.375-33.94 0s-9.375 24.56 0 33.94l64 64C211.7 341.7 217.8 344 224 344s12.28-2.344 16.97-7.031l128-128c9.375-9.375 9.375-24.56 0-33.94S344.4 165.7 335 175zM256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464z"/></svg>
+                    <buton onclick="prop_consulta(this.id)" id="autor-miba" class="buscar-opcion-boton">MIBA</buton>
+                  </li>
                 </ul>
+                </li>
+                <li>
+                  <h3 class="buscar-titulo">Certificacion:</h3>
+                  <ul>
+                    <li class="buscar-opcion">
+                      <svg id="certificacion-miba-off" class="checkbox-show" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0-beta3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2021 Fonticons, Inc. --><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464z"/></svg>
+                      <svg id="certificacion-miba-on" class="checkbox-hide" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0-beta3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2021 Fonticons, Inc. --><path d="M335 175L224 286.1L176.1 239c-9.375-9.375-24.56-9.375-33.94 0s-9.375 24.56 0 33.94l64 64C211.7 341.7 217.8 344 224 344s12.28-2.344 16.97-7.031l128-128c9.375-9.375 9.375-24.56 0-33.94S344.4 165.7 335 175zM256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464z"/></svg>
+                      <buton id="certificacion-miba" onclick="prop_consulta(this.id)"  class="buscar-opcion-boton">MIBA</buton>
+                    </li>
+                    
+                  
+                  </ul>
                 </li>
                 <li>
                   <h3 class="buscar-titulo">Tipo de publicacion:</h3>
@@ -214,6 +221,37 @@ session_start()
                   
                   </ul>
                 </li>
+                <li>
+                  <h3 class="buscar-titulo">Antiguedad:</h3>
+                  <ul>
+                    <li class="buscar-opcion">
+                      <svg id="antiguedad-10-off" class="checkbox-show" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0-beta3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2021 Fonticons, Inc. --><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464z"/></svg>
+                      <svg id="antiguedad-10-on" class="checkbox-hide" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0-beta3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2021 Fonticons, Inc. --><path d="M335 175L224 286.1L176.1 239c-9.375-9.375-24.56-9.375-33.94 0s-9.375 24.56 0 33.94l64 64C211.7 341.7 217.8 344 224 344s12.28-2.344 16.97-7.031l128-128c9.375-9.375 9.375-24.56 0-33.94S344.4 165.7 335 175zM256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464z"/></svg>
+                      <buton onclick="prop_consulta(this.id)" id="antiguedad-10" class="buscar-opcion-boton">Ultimos 10 años</buton>
+                    </li>
+                    <li class="buscar-opcion">
+                      <svg  id="antiguedad-50-off" class="checkbox-show" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0-beta3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2021 Fonticons, Inc. --><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464z"/></svg>
+                      <svg   id="antiguedad-50-on" class="checkbox-hide" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0-beta3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2021 Fonticons, Inc. --><path d="M335 175L224 286.1L176.1 239c-9.375-9.375-24.56-9.375-33.94 0s-9.375 24.56 0 33.94l64 64C211.7 341.7 217.8 344 224 344s12.28-2.344 16.97-7.031l128-128c9.375-9.375 9.375-24.56 0-33.94S344.4 165.7 335 175zM256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464z"/></svg>
+                      <buton onclick="prop_consulta(this.id)" id="antiguedad-50-casa" class="buscar-opcion-boton">Ultimos 50 años</buton>
+                    </li>
+                    <li class="buscar-opcion">
+                      <svg id="antiguedad-100-off" class="checkbox-show" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0-beta3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2021 Fonticons, Inc. --><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464z"/></svg>
+                      <svg id="antiguedad-100-on" class="checkbox-hide" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0-beta3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2021 Fonticons, Inc. --><path d="M335 175L224 286.1L176.1 239c-9.375-9.375-24.56-9.375-33.94 0s-9.375 24.56 0 33.94l64 64C211.7 341.7 217.8 344 224 344s12.28-2.344 16.97-7.031l128-128c9.375-9.375 9.375-24.56 0-33.94S344.4 165.7 335 175zM256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464z"/></svg>
+                      <buton onclick="prop_consulta(this.id)" id="antiguedad-100"  class="buscar-opcion-boton">Ultimos 100 años</buton>
+                    </li>
+                    <li class="buscar-opcion">
+                      <svg id="antiguedad-150-off" class="checkbox-show" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0-beta3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2021 Fonticons, Inc. --><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464z"/></svg>
+                      <svg id="antiguedad-150-on" class="checkbox-hide" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0-beta3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2021 Fonticons, Inc. --><path d="M335 175L224 286.1L176.1 239c-9.375-9.375-24.56-9.375-33.94 0s-9.375 24.56 0 33.94l64 64C211.7 341.7 217.8 344 224 344s12.28-2.344 16.97-7.031l128-128c9.375-9.375 9.375-24.56 0-33.94S344.4 165.7 335 175zM256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464z"/></svg>
+                      <buton onclick="prop_consulta(this.id)" id="antiguedad-150"  class="buscar-opcion-boton">Ultimos 150 años</buton>
+                    </li>
+                    <li class="buscar-opcion">
+                      <svg id="antiguedad-150+-off" class="checkbox-show" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0-beta3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2021 Fonticons, Inc. --><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464z"/></svg>
+                      <svg id="antiguedad-150+-on" class="checkbox-hide" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0-beta3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2021 Fonticons, Inc. --><path d="M335 175L224 286.1L176.1 239c-9.375-9.375-24.56-9.375-33.94 0s-9.375 24.56 0 33.94l64 64C211.7 341.7 217.8 344 224 344s12.28-2.344 16.97-7.031l128-128c9.375-9.375 9.375-24.56 0-33.94S344.4 165.7 335 175zM256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464z"/></svg>
+                      <buton onclick="prop_consulta(this.id)" id="antiguedad-150+" class="buscar-opcion-boton">Mas de 150 años</buton>
+                    </li>
+                  
+                  </ul>
+                </li>
 
 
                 <li>
@@ -241,7 +279,24 @@ session_start()
                     <buton onclick="rango_precio(this)" id="precio" class="buscar-precio-boton">Buscar</buton>
                   </form>
                 </li>
-
+                <li>
+                  <h3 class="buscar-titulo">Superficie:</h3>
+                  <form class="buscar-precio">  
+                    <span class="superficie-filtro" id="precio-filtro"></span>
+                    <input onblur="validar_precio(this)" class="buscar-precio-entrada" placeholder="Minimo" type="text" name="min" id="superficie-min">
+                    <input onblur="validar_precio(this)" class="buscar-precio-entrada" placeholder="Maximo" type="text" name="max" id="superficie-max">
+                    <buton onclick="rango_precio(this)" id="superficie" class="buscar-precio-boton">Buscar</buton>
+                  </form>
+                </li>
+                <li>
+                  <h3 class="buscar-titulo">Superficie Cubierta:</h3>
+                  <form class="buscar-precio">  
+                    <span class="superficie-cubierta-filtro" id="precio-filtro"></span>
+                    <input onblur="validar_precio(this)" class="buscar-precio-entrada" placeholder="Minimo" type="text" name="min" id="superficie-cubierta-min">
+                    <input onblur="validar_precio(this)" class="buscar-precio-entrada" placeholder="Maximo" type="text" name="max" id="superficie-cubierta-max">
+                    <buton onclick="rango_precio(this)" id="superficie-cubierta" class="buscar-precio-boton">Buscar</buton>
+                  </form>
+                </li>
                 <li>
                   <h3 class="buscar-titulo">Barrio:</h3>
                   <form>
@@ -299,7 +354,6 @@ session_start()
                     </select>
                   </form>
                 </li>
-                
                 <li>
                   <h3 class="buscar-titulo">Ambientes:</h3>
                   <ul>
@@ -326,6 +380,9 @@ session_start()
                   
                   </ul>
                 </li>
+                
+
+                
                 <li>
                   <h3 class="buscar-titulo">Baños:</h3>
                   <ul>
@@ -532,6 +589,52 @@ session_start()
                     <span id="8-estado" class="prop-txt ">Departamento en venta</span>
                     <span id="8-tamaño" class="prop-txt ">2 ambientes, 1 baño</span>
                     <span id="8-dir" class="prop-txt ">Av. Santa Fe 3500, Palermo, Capital Federal</span>
+                    
+                    
+                  </div>
+                </a>
+              </li>
+
+            </ol>
+            <ol  class="prop-fila ">
+              <li> 
+                <a id="9-a" href="#" class="prop show">
+
+                  <img id="9-img" class="prop-img" alt="propiedad" src="..\assets\usuarios\7\96\1.jpg"/>
+                  <div class="prop-info">
+                    <span id="9-precio" class="prop-txt-precio ">USD 100k</span>
+                    <span id="9-estado" class="prop-txt ">Departamento en venta</span>
+                    <span id="9-tamaño" class="prop-txt ">2 ambientes, 1 baño</span>
+                    <span id="9-dir" class="prop-txt ">Av. Santa Fe 3500, Palermo, Capital Federal</span>
+                    
+                    
+                  </div>
+                </a>
+              </li>
+
+              <li> 
+                <a id="10-a" href="#" class="prop show">
+
+                  <img id="10-img" class="prop-img" alt="propiedad" src="..\assets\usuarios\7\96\1.jpg"/>
+                  <div class="prop-info">
+                    <span id="10-precio" class="prop-txt-precio ">USD 100k</span>
+                    <span id="10-estado" class="prop-txt ">Departamento en venta</span>
+                    <span id="10-tamaño" class="prop-txt ">2 ambientes, 1 baño</span>
+                    <span id="10-dir" class="prop-txt ">Av. Santa Fe 3500, Palermo, Capital Federal</span>
+                    
+                    
+                  </div>
+                </a>
+              </li>
+              <li> 
+                <a id="11-a" href="#" class="prop show">
+
+                  <img id="11-img" class="prop-img" alt="propiedad" src="..\assets\usuarios\7\96\1.jpg"/>
+                  <div class="prop-info">
+                    <span id="11-precio" class="prop-txt-precio ">USD 100k</span>
+                    <span id="11-estado" class="prop-txt ">Departamento en venta</span>
+                    <span id="11-tamaño" class="prop-txt ">2 ambientes, 1 baño</span>
+                    <span id="11-dir" class="prop-txt ">Av. Santa Fe 3500, Palermo, Capital Federal</span>
                     
                     
                   </div>
