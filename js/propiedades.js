@@ -335,19 +335,13 @@ function checkbox(id) {
 }
 
 /*
-function radio(categoria,id,set)
-{
-    for(let x =0;x<categoria.length;x++)
-    {
-        if(categoria[x][0]==id)
-        {
-            categoria[x][1]=set;
-        }else
-        {
-            categoria[x][1]=!set;
-        }
-    }
-}
+En pagina 1 desaparece el boton anterior
+En la ultima pagina desaparece el boton siguiente
+VAR CANTIDAD DE PAGINAS 
+VAR PAGINA ACTUAL
+BOTONES CON (ACTUAL+1)*12 O(ACTUAL-1)*12
+UTILIZAR ORDER BY PROP ID, LIMIT 12 y OFFSET ACTUAL*12 EN SQL PARA FILTRAR LOS RESULTADOS
+ENVIAR LA QUERY COMPLETA CADA VEZ QUE SE APRIETA EL BOTON, LA PAGINA ES UNA OPCION MAS
 */
 
 prop_consulta(document.getElementById("load").getAttribute("content"));
