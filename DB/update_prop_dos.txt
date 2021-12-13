@@ -1,4 +1,4 @@
 UPDATE mibadb.propiedades SET ambientes=NULL, baños=NULL, aire=0,balcon=0,pileta=0,jardin=0,gym=0,estacionamiento=0 WHERE mibadb.propiedades.tipo='Cochera';
 
-UPDATE mibadb.propiedades SET ambientes=NULL, baños=NULL, aire=0,balcon=0,pileta=0,jardin=0,gym=0,estacionamiento=0, antiguedad=200,superficie_cubierta=0 WHERE mibadb.propiedades.tipo='Terreno';
+UPDATE mibadb.propiedades SET ambientes=NULL, baños=NULL, aire=0,balcon=0,pileta=0,jardin=0,gym=0,estacionamiento=0, antiguedad=200,superficie_cubierta=NULL WHERE mibadb.propiedades.tipo='Terreno';
 

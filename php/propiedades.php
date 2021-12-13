@@ -459,7 +459,7 @@ session_start()
 
             <ol  class="prop-fila ">
               <li> 
-                <a id="0-a" href="propiedad-detalle.php" class="prop show">
+                <a id="0-a" href="propiedad-detalle.php" class="prop hide">
 
                   <img id="0-img" class="prop-img" alt="propiedad" src="..\assets\usuarios\7\96\1.jpg"/>
                   <div class="prop-info">
@@ -474,7 +474,7 @@ session_start()
               </li>
 
               <li> 
-                <a id="1-a" href="#" class="prop show">
+                <a id="1-a" href="#" class="prop hide">
 
                   <img id="1-img" class="prop-img" alt="propiedad" src="..\assets\usuarios\7\96\1.jpg"/>
                   <div class="prop-info">
@@ -488,7 +488,7 @@ session_start()
                 </a>
               </li>
               <li> 
-                <a id="2-a" href="#" class="prop show">
+                <a id="2-a" href="#" class="prop hide">
 
                   <img id="2-img" class="prop-img" alt="propiedad" src="..\assets\usuarios\7\96\1.jpg"/>
                   <div class="prop-info">
@@ -505,7 +505,7 @@ session_start()
             </ol>
             <ol  class="prop-fila ">
               <li> 
-                <a id="3-a" href="#" class="prop show">
+                <a id="3-a" href="#" class="prop hide">
 
                   <img id="3-img" class="prop-img" alt="propiedad" src="..\assets\usuarios\7\96\1.jpg"/>
                   <div class="prop-info">
@@ -520,7 +520,7 @@ session_start()
               </li>
 
               <li> 
-                <a id="4-a" href="#" class="prop show">
+                <a id="4-a" href="#" class="prop hide">
 
                   <img id="4-img" class="prop-img" alt="propiedad" src="..\assets\usuarios\7\96\1.jpg"/>
                   <div class="prop-info">
@@ -534,7 +534,7 @@ session_start()
                 </a>
               </li>
               <li> 
-                <a id="5-a" href="#" class="prop show">
+                <a id="5-a" href="#" class="prop hide">
 
                   <img id="5-img" class="prop-img" alt="propiedad" src="..\assets\usuarios\7\96\1.jpg"/>
                   <div class="prop-info">
@@ -551,7 +551,7 @@ session_start()
             </ol>
             <ol  class="prop-fila ">
               <li> 
-                <a id="6-a" href="#" class="prop show">
+                <a id="6-a" href="#" class="prop hide">
 
                   <img id="6-img" class="prop-img" alt="propiedad" src="..\assets\usuarios\7\96\1.jpg"/>
                   <div class="prop-info">
@@ -566,7 +566,7 @@ session_start()
               </li>
 
               <li> 
-                <a id="7-a" href="#" class="prop show">
+                <a id="7-a" href="#" class="prop hide">
 
                   <img id="7-img" class="prop-img" alt="propiedad" src="..\assets\usuarios\7\96\1.jpg"/>
                   <div class="prop-info">
@@ -580,7 +580,7 @@ session_start()
                 </a>
               </li>
               <li> 
-                <a id="8-a" href="#" class="prop show">
+                <a id="8-a" href="#" class="prop hide">
 
                   <img id="8-img" class="prop-img" alt="propiedad" src="..\assets\usuarios\7\96\1.jpg"/>
                   <div class="prop-info">
@@ -597,7 +597,7 @@ session_start()
             </ol>
             <ol  class="prop-fila ">
               <li> 
-                <a id="9-a" href="#" class="prop show">
+                <a id="9-a" href="#" class="prop hide">
 
                   <img id="9-img" class="prop-img" alt="propiedad" src="..\assets\usuarios\7\96\1.jpg"/>
                   <div class="prop-info">
@@ -612,7 +612,7 @@ session_start()
               </li>
 
               <li> 
-                <a id="10-a" href="#" class="prop show">
+                <a id="10-a" href="#" class="prop hide">
 
                   <img id="10-img" class="prop-img" alt="propiedad" src="..\assets\usuarios\7\96\1.jpg"/>
                   <div class="prop-info">
@@ -626,7 +626,7 @@ session_start()
                 </a>
               </li>
               <li> 
-                <a id="11-a" href="#" class="prop show">
+                <a id="11-a" href="#" class="prop hide">
 
                   <img id="11-img" class="prop-img" alt="propiedad" src="..\assets\usuarios\7\96\1.jpg"/>
                   <div class="prop-info">

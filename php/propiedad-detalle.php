@@ -1,5 +1,13 @@
 <?php
-session_start()
+session_start();
+include "conexion.php";
+$conexion = OpenCon();
+if($conexion)
+{
+  $sql="SELECT * FROM propiedades INNER JOIN usuarios ON propiedades.id_usuario = usuarios.id_usuario WHERE id_prop=".$_GET["id_prop"];
+  $resultado=$conexion->query($sql)->fetch_assoc();
+}
+
 ?>
 <!-- Abrir pagina con live server 127.0.0.1:5500/html/index.html -->
 <!DOCTYPE html>
@@ -117,80 +125,99 @@ session_start()
 
         <div class="prop-d-contenedor">
 
-          <img class="img-section" src="..\assets\usuarios\7\96\1.jpg">
+          <img class="img-section" src=<?php echo "\"". $resultado["img_path"]."\""; ?> >
           <section class="caracteristicas-section fondo-blanco-borde-gris" >
               <h3 class="texto-24">Caracteristicas:</h3>
               <div class="prop-d-dato">
                 <span class="prop-d-etiqueta top-left border">Superficie Cubierta:</span>
-                <span class="prop-d-valor top-right border">40 m<sup>2</sup></span>
+                <span class="prop-d-valor top-right border"><?php if($resultado["superficie_cubierta"]!=NULL){echo $resultado["superficie_cubierta"];}else{echo "-";} ?> m<sup>2</sup></span>
               </div>
               <div class="prop-d-dato">
                 <span class="prop-d-etiqueta center-left border">Ambientes:</span>
-                <span class="prop-d-valor center-right border">Uno</span>
+                <span class="prop-d-valor center-right border"><?php if($resultado["ambientes"]!=NULL){echo $resultado["ambientes"];}else{echo "-";} ?></span>
               </div>
               <div class="prop-d-dato">
                 <span class="prop-d-etiqueta center-left border">Baños:</span>
-                <span class="prop-d-valor center-right border">Uno</span>
+                <span class="prop-d-valor center-right border"><?php if($resultado["baños"]!=NULL){echo $resultado["baños"];}else{echo "-";} ?></span>
+              </div>
+              <div class="prop-d-dato">
+                <span class="prop-d-etiqueta center-left border">Antiguedad:</span>
+                <span class="prop-d-valor center-right border"><?php echo $resultado["antiguedad"]." años"; ?></span>
               </div>
               <div class="prop-d-dato">
                 <span class="prop-d-etiqueta center-left border">Aire acondicionado:</span>
-                <span class="prop-d-valor center-right border">Tiene</span>
+                <span class="prop-d-valor center-right border"><?php if($resultado["aire"]==1){echo "Tiene";}else{echo "No tiene";}?></span>
               </div>
               <div class="prop-d-dato">
                 <span class="prop-d-etiqueta center-left border">Balcon:</span>
-                <span class="prop-d-valor center-right border">NO Tiene</span>
+                <span class="prop-d-valor center-right border"><?php if($resultado["balcon"]==1){echo "Tiene";}else{echo "No tiene";}?></span>
               </div>
               <div class="prop-d-dato">
                 <span class="prop-d-etiqueta center-left border">Pileta:</span>
-                <span class="prop-d-valor center-right border">Tiene</span>
+                <span class="prop-d-valor center-right border"><?php if($resultado["pileta"]==1){echo "Tiene";}else{echo "No tiene";}?></span>
               </div>
               <div class="prop-d-dato">
                 <span class="prop-d-etiqueta center-left border">Jardin:</span>
-                <span class="prop-d-valor center-right border">NO Tiene</span>
+                <span class="prop-d-valor center-right border"><?php if($resultado["jardin"]==1){echo "Tiene";}else{echo "No tiene";}?></span>
               </div>
               <div class="prop-d-dato">
                 <span class="prop-d-etiqueta center-left border">Gimnasio:</span>
-                <span class="prop-d-valor center-right border">Tiene</span>
+                <span class="prop-d-valor center-right border"><?php if($resultado["gym"]==1){echo "Tiene";}else{echo "No tiene";}?></span>
               </div>
               <div class="prop-d-dato">
                 <span class="prop-d-etiqueta bot-left border">Estacionamiento:</span>
-                <span class="prop-d-valor bot-right border">Tiene</span>
+                <span class="prop-d-valor bot-right border"><?php if($resultado["estacionamiento"]==1){echo "Tiene";}else{echo "No tiene";}?></span>
               </div>
 
           </section>
           <section class="precio-section fondo-blanco-borde-gris">
-            <h2 class="precio-txt alinear-texto-izq texto-30">CASA EN VENTA</h2>
+            <h2 class="precio-txt alinear-texto-izq texto-30"><?php if($resultado["venta"]!=0){echo strtoupper($resultado["tipo"])." EN VENTA";}else{echo strtoupper($resultado["tipo"])." EN ALQUILER";}?></h2>
             <div class="prop-d-dato">
-              <span class="texto-izq texto-40 top-left border">Precio:</span>
-              <span class="texto-der texto-40 top-right border">100.000 USD</span>
+              <span class="texto-izq texto-36 top-left border">Precio:</span>
+              <span class="texto-der texto-36 top-right border"> 
+                <?php 
+              if($resultado["dolar"]==1){
+                $moneda=" USD";
+
+              }else{
+                $moneda=" ARS";
+              }
+              if($resultado["venta"]!=0)
+              {
+                echo $resultado["venta"].$moneda;
+              }else{
+                echo $resultado["alquiler"].$moneda;
+              }
+              ?>
+              </span>
             </div>
             <div class="prop-d-dato">
               <span class="texto-izq texto-20 center-left border">Superficie:</span>
-              <span class="texto-der texto-20 center-right border">60 m<sup>2</sup></span>
+              <span class="texto-der texto-20 center-right border"><?php echo $resultado["superficie"]; ?> m<sup>2</sup></span>
             </div>
             <div class="prop-d-dato">
               <span class="texto-izq texto-20 center-left border">Direccion:</span>
-              <span class="texto-der texto-20 center-right border">Av. Santa Fe 3500</span>
+              <span class="texto-der texto-20 center-right border"><?php echo $resultado["dir"]; ?></span>
             </div>
             <div class="prop-d-dato">
               <span class="texto-izq texto-20 center-left border">Barrio:</span>
-              <span class="texto-der texto-20 center-right border">Palermo</span>
+              <span class="texto-der texto-20 center-right border"><?php echo $resultado["barrio"]; ?></span>
             </div>
             <div class="prop-d-dato">
               <span class="texto-izq texto-20 center-left border">Publica:</span>
-              <span class="texto-der texto-20 center-right border">Abisha</span>
+              <span class="texto-der texto-20 center-right border"><?php echo $resultado["usuario"]; ?></span>
             </div>
             <div class="prop-d-dato">
               <span class="texto-izq texto-20 center-left border">Condicion:</span>
-              <span class="texto-der texto-20 center-right border">Propietario</span>
+              <span class="texto-der texto-20 center-right border"><?php echo $resultado["autor"]; ?></span>
             </div>
 
             <div class="prop-d-dato">
               <span class="texto-izq texto-20 bot-left border">Certificacion MIBA:</span>
-              <span class="texto-der texto-20 bot-right border">No Tiene</span>
+              <span class="texto-der texto-20 bot-right border"><?php if($resultado["certificada"]==1){echo "Tiene";}else{echo "No tiene";}?></span>
             </div>
               
-            <div class="centrar-boton"><button class="boton contacto">Contactar Abisha</button></div>
+            <div class="centrar-boton"><button class="boton contacto">Contactar <?php echo $resultado["usuario"]; ?></button></div>
             
           </section>
           <section class="ofertas-section fondo-blanco-borde-gris">

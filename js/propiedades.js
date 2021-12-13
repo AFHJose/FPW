@@ -101,20 +101,6 @@ var categorias = {
     ["200", false],
   ],
 };
-/*
-En pagina 1 desaparece el boton anterior
-En la ultima pagina desaparece el boton siguiente
-VAR CANTIDAD DE PAGINAS 
-VAR PAGINA ACTUAL
-BOTONES CON (ACTUAL+1)*12 O(ACTUAL-1)*12
-UTILIZAR ORDER BY PROP ID, LIMIT 12 y OFFSET ACTUAL*12 EN SQL PARA FILTRAR LOS RESULTADOS
-ENVIAR LA QUERY COMPLETA CADA VEZ QUE SE APRIETA EL BOTON, LA PAGINA ES UNA OPCION MAS
-ACTUALIZACION DE VARIABLE PAGINA ACTUAL 
-ACTUALIZACION DE VARIABLE TOTAL DE RESULTADOS
-CASO ESPECIAL SIN RESULTADOS
-resetear CANTIDAD y ACTUAL cuando cambia la QUERY
-
-*/
 
 function actualizar_pag(modo) {
   let show = document.getElementById("resultados-cantidad");
@@ -239,6 +225,8 @@ function mostrar_todo() {
 }
 
 function asignar(id, propiedad) {
+  document.getElementById(String(id) + "-a").href =
+    "propiedad-detalle.php?id_prop=" + propiedad["id_prop"];
   document.getElementById(String(id) + "-img").src = propiedad["img_path"];
   if (propiedad["dolar"] == "1") {
     var moneda = "USD ";
