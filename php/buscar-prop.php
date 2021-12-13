@@ -22,7 +22,7 @@ $modos["pileta"]=array("tiene"=>'pileta=1');
 $modos["jardin"]=array("tiene"=>'jardin=1');
 $modos["gym"]=array("tiene"=>'gym=1');
 $modos["estacionamiento"]=array("tiene"=>'estacionamiento=1');
-$modos["azar"]="SELECT * FROM propiedades WHERE activa=1 ORDER BY RAND() LIMIT 9";
+$modos["azar"]="SELECT * FROM propiedades WHERE activa=1 ORDER BY RAND() LIMIT 12";
 $modos["barrio"]=array("ninguno"=>"TRUE",
 "Agronomía"=>'barrio=\'Agronomía\'',
 "Almagro"=>'barrio=\'Almagro\'',
@@ -79,7 +79,7 @@ if($conexion)
     {
         $resultado = $conexion->query($modos["azar"]);
     }else 
-    {
+    {   $offset=0;
         $opciones="";
         $i=0;
         while(isset($_GET["opcion-".strval($i)]))
@@ -186,6 +186,9 @@ if($conexion)
                     $opciones.=" AND ".$out;
                 }
                 
+            }else if($cat=="pagina")
+            {
+                $offset=strval(12*(intval($key)-1));                
             }else
             {
 
@@ -201,12 +204,13 @@ if($conexion)
 
             $i++;
         }
-        
-        $resultado = $conexion->query("SELECT * FROM propiedades WHERE ".$opciones." AND activa=1 ORDER BY RAND() LIMIT 12");
+
+        $resultado = $conexion->query("SELECT * FROM propiedades WHERE ".$opciones." AND activa=1 ORDER BY RAND() LIMIT 12 OFFSET ".$offset);
         
         
     }
 
+    
 
     $i=0;
     while($entrada = $resultado->fetch_assoc())

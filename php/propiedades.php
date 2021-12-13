@@ -641,25 +641,12 @@ session_start()
 
             </ol>
             <div class="nav-resultados">
-              <button id="resultados-anterior" class="boton">< ANTERIOR</button>
+              <button onclick="actualizar_pag(false)" id="resultados-anterior" class="boton">< ANTERIOR</button>
               <span id="resultados-cantidad" class="resultados-cantidad">1 DE 30</span>
-              <button id="resultados-siguiente" class="boton">Siguiente ></button>
+              <button onclick="actualizar_pag(true)" id="resultados-siguiente" class="boton">Siguiente ></button>
             </div>
           </section>
                 
-            
-
-              
-
-
-
-
-
-
-
-
-
-
 
     <!--
 

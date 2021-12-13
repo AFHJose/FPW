@@ -1,4 +1,5 @@
 var categorias = {
+  pagina: [["1", true]],
   tipo: [
     ["compra", false],
     ["alquiler", false],
@@ -100,7 +101,70 @@ var categorias = {
     ["200", false],
   ],
 };
+/*
+En pagina 1 desaparece el boton anterior
+En la ultima pagina desaparece el boton siguiente
+VAR CANTIDAD DE PAGINAS 
+VAR PAGINA ACTUAL
+BOTONES CON (ACTUAL+1)*12 O(ACTUAL-1)*12
+UTILIZAR ORDER BY PROP ID, LIMIT 12 y OFFSET ACTUAL*12 EN SQL PARA FILTRAR LOS RESULTADOS
+ENVIAR LA QUERY COMPLETA CADA VEZ QUE SE APRIETA EL BOTON, LA PAGINA ES UNA OPCION MAS
+ACTUALIZACION DE VARIABLE PAGINA ACTUAL 
+ACTUALIZACION DE VARIABLE TOTAL DE RESULTADOS
+CASO ESPECIAL SIN RESULTADOS
+resetear CANTIDAD y ACTUAL cuando cambia la QUERY
 
+*/
+
+function actualizar_pag(modo) {
+  let show = document.getElementById("resultados-cantidad");
+  if (modo) {
+    categorias["pagina"][0][0] = String(
+      parseInt(categorias["pagina"][0][0]) + 1
+    );
+  } else {
+    categorias["pagina"][0][0] = String(
+      parseInt(categorias["pagina"][0][0]) - 1
+    );
+  }
+  show.innerText = categorias["pagina"][0][0] + " DE 30";
+}
+
+function constructor_get(id) {
+  var get = "";
+
+  if (id != "azar") {
+    let k = 0;
+    for (let opcion in categorias) {
+      for (let x = 0; x < categorias[opcion].length; x++) {
+        if (categorias[opcion][x][1]) {
+          if (get == "") {
+            get +=
+              "opcion-" +
+              String(k) +
+              "=" +
+              opcion +
+              "-" +
+              categorias[opcion][x][0];
+          } else {
+            get +=
+              "&opcion-" +
+              String(k) +
+              "=" +
+              opcion +
+              "-" +
+              categorias[opcion][x][0];
+          }
+          k++;
+        }
+      }
+    }
+  }
+  if (get == "") {
+    get = "azar";
+  }
+  return get;
+}
 function ocultar(id) {
   let prop = document.getElementById(String(id) + "-a");
   prop.classList.replace("show", "hide");
@@ -127,8 +191,13 @@ function vacio(modo) {
 function mostrar_todo() {
   for (let cat in categorias) {
     for (let i = 0; i < categorias[cat].length; i++) {
-      if (categorias[cat][i][1] && cat != "barrio" && cat != "precio") {
-        console.log(cat + "-" + categorias[cat][i][0]);
+      if (
+        categorias[cat][i][1] &&
+        cat != "barrio" &&
+        cat != "precio" &&
+        cat != "superficie" &&
+        cat != "supCubierta"
+      ) {
         checkbox(cat + "-" + categorias[cat][i][0]);
         categorias[cat][i][1] = false;
       } else if (categorias[cat][i][1] && cat == "barrio") {
@@ -137,7 +206,17 @@ function mostrar_todo() {
         categorias[cat][i][1] = false;
         document.getElementById("precio-min").value = null;
         document.getElementById("precio-max").value = null;
-        document.getElementById(elemento.id + "-filtro").innerText = "";
+        document.getElementById("precio-filtro").innerText = "";
+      } else if (categorias[cat][i][1] && cat == "superficie") {
+        categorias[cat][i][1] = false;
+        document.getElementById("superficie-min").value = null;
+        document.getElementById("superficie-max").value = null;
+        document.getElementById("superficie-filtro").innerText = "";
+      } else if (categorias[cat][i][1] && cat == "supCubierta") {
+        categorias[cat][i][1] = false;
+        document.getElementById("supCubierta-min").value = null;
+        document.getElementById("supCubierta-max").value = null;
+        document.getElementById("supCubierta-filtro").innerText = "";
       }
     }
   }
@@ -224,7 +303,6 @@ function prop_consulta(id) {
 
       i++;
     }
-
     if (
       cat != "barrio" &&
       cat != "precio" &&
@@ -268,7 +346,7 @@ function prop_consulta(id) {
 
   req.onload = function () {
     if (this.responseText != "vacio") {
-      //console.log(this.responseText);
+      console.log(this.responseText);
       respuesta = JSON.parse(this.responseText);
       vacio(false);
 
@@ -283,7 +361,8 @@ function prop_consulta(id) {
       vacio(true);
     }
   };
-
+  var get = constructor_get(id);
+  /*
   var get = "";
 
   if (id != "azar") {
@@ -316,8 +395,8 @@ function prop_consulta(id) {
   if (get == "") {
     get = "azar";
   }
-
-  //console.log(get);
+*/
+  console.log(get);
   req.open("GET", "buscar-prop.php?" + get);
   req.send();
 }
@@ -333,15 +412,5 @@ function checkbox(id) {
     on.classList.replace("checkbox-hide", "checkbox-show");
   }
 }
-
-/*
-En pagina 1 desaparece el boton anterior
-En la ultima pagina desaparece el boton siguiente
-VAR CANTIDAD DE PAGINAS 
-VAR PAGINA ACTUAL
-BOTONES CON (ACTUAL+1)*12 O(ACTUAL-1)*12
-UTILIZAR ORDER BY PROP ID, LIMIT 12 y OFFSET ACTUAL*12 EN SQL PARA FILTRAR LOS RESULTADOS
-ENVIAR LA QUERY COMPLETA CADA VEZ QUE SE APRIETA EL BOTON, LA PAGINA ES UNA OPCION MAS
-*/
 
 prop_consulta(document.getElementById("load").getAttribute("content"));
