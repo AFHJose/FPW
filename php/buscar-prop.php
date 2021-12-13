@@ -106,7 +106,7 @@ if($conexion)
             
             if($cat=="precio" OR $cat=="superficie" OR $cat=="supCubierta")
             {
-
+                
                 $min="";
                 $max="";
                 $flag=TRUE;
@@ -188,7 +188,9 @@ if($conexion)
                 
             }else if($cat=="pagina")
             {
-                $offset=strval(12*(intval($key)-1));                
+                
+                $offset=strval(12*(intval($key)-1));      
+                         
             }else
             {
 
@@ -204,10 +206,16 @@ if($conexion)
 
             $i++;
         }
+        
 
-        $resultado = $conexion->query("SELECT * FROM propiedades WHERE ".$opciones." AND activa=1 ORDER BY RAND() LIMIT 12 OFFSET ".$offset);
-        
-        
+        if($opciones=="")
+        {
+            $resultado = $conexion->query("SELECT * FROM propiedades WHERE activa=1 ORDER BY id_prop LIMIT 12 OFFSET ".$offset);
+        }else{
+
+            $resultado = $conexion->query("SELECT * FROM propiedades WHERE ".$opciones." AND activa=1 ORDER BY id_prop LIMIT 12 OFFSET ".$offset);
+        }
+
     }
 
     

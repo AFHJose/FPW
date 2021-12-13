@@ -218,6 +218,9 @@
 .colapse {
   display: none;
 }
+.block {
+  display: block;
+}
 
 .prop-d-ofertas-contenedor {
   overflow: hidden;

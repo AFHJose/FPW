@@ -122,11 +122,24 @@ function actualizar_pag(modo) {
     categorias["pagina"][0][0] = String(
       parseInt(categorias["pagina"][0][0]) + 1
     );
+    if (parseInt(categorias["pagina"][0][0]) == 2) {
+      mostrar_ocultar("resultados-anterior", "block");
+    }
   } else {
     categorias["pagina"][0][0] = String(
       parseInt(categorias["pagina"][0][0]) - 1
     );
+    if (parseInt(categorias["pagina"][0][0]) == 1) {
+      mostrar_ocultar("resultados-anterior", "block");
+    }
   }
+  show.innerText = "Pagina " + categorias["pagina"][0][0];
+  prop_consulta("pagina");
+}
+function restablecer_pag() {
+  let show = document.getElementById("resultados-cantidad");
+  categorias["pagina"][0][0] = "1";
+  mostrar_ocultar("resultados-anterior", "block");
   show.innerText = categorias["pagina"][0][0] + " DE 30";
 }
 
@@ -189,6 +202,7 @@ function vacio(modo) {
   }
 }
 function mostrar_todo() {
+  restablecer_pag();
   for (let cat in categorias) {
     for (let i = 0; i < categorias[cat].length; i++) {
       if (
@@ -196,7 +210,8 @@ function mostrar_todo() {
         cat != "barrio" &&
         cat != "precio" &&
         cat != "superficie" &&
-        cat != "supCubierta"
+        cat != "supCubierta" &&
+        cat != "pagina"
       ) {
         checkbox(cat + "-" + categorias[cat][i][0]);
         categorias[cat][i][1] = false;
@@ -284,7 +299,7 @@ function rango_precio(elemento) {
 }
 
 function prop_consulta(id) {
-  if (id != "azar") {
+  if (id != "azar" && id != "pagina") {
     var cat = "";
     var modo = "";
 
@@ -346,7 +361,7 @@ function prop_consulta(id) {
 
   req.onload = function () {
     if (this.responseText != "vacio") {
-      console.log(this.responseText);
+      //console.log(this.responseText);
       respuesta = JSON.parse(this.responseText);
       vacio(false);
 
@@ -396,7 +411,7 @@ function prop_consulta(id) {
     get = "azar";
   }
 */
-  console.log(get);
+  //console.log(get);
   req.open("GET", "buscar-prop.php?" + get);
   req.send();
 }

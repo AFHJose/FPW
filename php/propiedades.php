@@ -26,6 +26,7 @@ session_start()
     <link rel="stylesheet" type="text/css" href="../css/cuenta.css" />
     <link rel="stylesheet" type="text/css" href="../css/login.css" />
     <link rel="stylesheet" type="text/css" href="../css/prop.css" />
+    <link rel="stylesheet" type="text/css" href="../css/prop-d.css" />
     <script src="../js/validar.js"></script>
     <script src="../js/dinamico.js"></script>
     <script src="../js/usuario.js"></script>
@@ -641,9 +642,9 @@ session_start()
 
             </ol>
             <div class="nav-resultados">
-              <button onclick="actualizar_pag(false)" id="resultados-anterior" class="boton">< ANTERIOR</button>
-              <span id="resultados-cantidad" class="resultados-cantidad">1 DE 30</span>
-              <button onclick="actualizar_pag(true)" id="resultados-siguiente" class="boton">Siguiente ></button>
+              <button onclick="actualizar_pag(false)" id="resultados-anterior" class="boton colapse">< ANTERIOR</button>
+              <span id="resultados-cantidad" class="resultados-cantidad">Pagina 1</span>
+              <button onclick="actualizar_pag(true)" id="resultados-siguiente" class="boton block">Siguiente ></button>
             </div>
           </section>
                 
