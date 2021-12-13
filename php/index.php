@@ -32,10 +32,10 @@ session_start();
               <a href="propiedades.php?modo=alquiler" class="enlace-boton"><span class="enlace-texto">Alquilar </span></a>
             </li>
             <li>
-              <a class="enlace-boton"><span class="enlace-texto">Publicar </span></a>
+              <a class="enlace-boton"><span class="enlace-texto">Servicios administrativos </span></a>
             </li>
             <li>
-              <a class="enlace-boton"><span class="enlace-texto">Servicios administrativos </span></a>
+              <a href="crear_prop.php"class="enlace-boton"><span class="enlace-texto">Publicar </span></a>
             </li>
           </ul>
         </nav>

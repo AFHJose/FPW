@@ -1,0 +1,11 @@
+.prop-formulario {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 200px 100px 1fr;
+  row-gap: 20px;
+}
+.formulario-etiqueta {
+  font-weight: bold;
+  padding: 5px;
+}
