@@ -1,0 +1,1 @@
+BACKUP DATABASE mibadb TO DISK = "E:\xampp\htdocs\FPW\DB\mibadb.bak";
