@@ -110,19 +110,19 @@ session_start()
     </header>
     <main class="main-index">
       <form class="prop-formulario" action="../php/crear_prop_db.php" method="post">
-        <h2 class="ingreso-titulo">Publicar una propiedad</h2>
-        <div class="formulario-entrada">
-            <label  for="tipo">Tipo de propiedad:</label>
-            <select name="tipo" id="tipo">
-                <option value="Casa">Casa</option>
-                <option value="Departamento">Departamento</option>
-                <option value="Oficina">Oficina</option>
-                <option value="Cochera">Cochera</option>
-                <option value="Terreno">Terreno</option>
-            </select>
-        </div>
+        <h2 class="formulario-titulo texto-30">Publicar una propiedad</h2>
 
-        <div class="prop-formulario">
+        <label class="formulario-etiqueta texto-18" for="tipo">Tipo de propiedad:</label>
+        <select class="formulario-entrada texto-18" name="tipo" id="tipo">
+            <option value="Casa">Casa</option>
+            <option value="Departamento">Departamento</option>
+            <option value="Oficina">Oficina</option>
+            <option value="Cochera">Cochera</option>
+            <option value="Terreno">Terreno</option>
+        </select>
+
+
+        <div class="prop-formulario-sub">
         <div class="formulario-entrada">
 
             <label class="formulario-etiqueta texto-18" for="dir">Direccion:</label>
