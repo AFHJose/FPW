@@ -15,6 +15,7 @@ session_start()
     <link rel="stylesheet" type="text/css" href="../css/prop-d.css" />
     <link rel="stylesheet" type="text/css" href="../css/crear-prop.css" />
     <script src="../js/validar.js"></script>
+    <script src="../js/dinamico.js"></script>
   </head>
   <body>
   <header class="cabecera">
@@ -107,13 +108,13 @@ session_start()
         ?>
         </ul>
       </div>
-    </header>
+  </header>
     <main class="main-index">
-      <form class="prop-formulario" action="../php/crear_prop_db.php" method="post">
+      <form class="prop-formulario" action="../php/crear_prop_db.php" method="post" enctype="multipart/form-data">
         <h2 class="formulario-titulo texto-30">Publicar una propiedad</h2>
 
-        <label class="formulario-etiqueta texto-18" for="tipo">Tipo de propiedad:</label>
-        <select class="formulario-entrada texto-18" name="tipo" id="tipo">
+        <label class="formulario-etiqueta texto-20" for="tipo">Tipo de propiedad:</label>
+        <select class="formulario-entrada texto-20" name="tipo" id="tipo">
             <option value="Casa">Casa</option>
             <option value="Departamento">Departamento</option>
             <option value="Oficina">Oficina</option>
@@ -123,22 +124,208 @@ session_start()
 
 
         <div class="prop-formulario-sub">
-        <div class="formulario-entrada">
+      
 
-            <label class="formulario-etiqueta texto-18" for="dir">Direccion:</label>
-            <input
-              onblur="validar(this,obligatorio_registro)"
-              placeholder="Ingrese la direccion"
-              type="text"
-              id="dir"
-              class="contraseña-entrada valido"
-              name="dir"
-            />
+        <label class="formulario-etiqueta texto-20" for="dir">Direccion:</label>
+        <input
+          onblur="validar(this,obligatorio_registro)"
+          placeholder="Ingrese la direccion"
+          type="text"
+          id="dir"
+          class="formulario-entrada texto-20 valido"
+          name="dir"
+        />
+        <span class="formulario-error texto-18" id="dir-error">ERROR</span>
+
+        <label class="formulario-etiqueta texto-20" for="barrio">Barrio:</label>
+        <select id="barrio" name="barrio" class="formulario-entrada texto-20">         
+          <option value="Agronomía">Agronomía</option>
+          <option value="Almagro">Almagro</option>
+          <option value="Balvanera">Balvanera</option>
+          <option value="Barracas">Barracas</option>
+          <option value="Belgrano">Belgrano</option>
+          <option value="Boedo">Boedo</option>
+          <option value="Caballito">Caballito</option>
+          <option value="Chacarita">Chacarita</option>
+          <option value="Coghlan">Coghlan</option>
+          <option value="Colegiales">Colegiales</option>
+          <option value="Constitución">Constitución</option>
+          <option value="Flores">Flores</option>
+          <option value="Floresta">Floresta</option>
+          <option value="La Boca">La Boca</option>
+          <option value="La Paternal">La Paternal</option>
+          <option value="Liniers">Liniers</option>
+          <option value="Mataderos">Mataderos</option>
+          <option value="Monte Castro">Monte Castro</option>
+          <option value="Montserrat">Montserrat</option>
+          <option value="Nueva Pompeya">Nueva Pompeya</option>
+          <option value="Nuñez">Nuñez</option>
+          <option value="Palermo">Palermo</option>
+          <option value="Parque Avellaneda">Parque Avellaneda</option>
+          <option value="Parque Chacabuco">Parque Chacabuco</option>
+          <option value="Parque Chas">Parque Chas</option>
+          <option value="Parque Patricios">Parque Patricios</option>
+          <option value="Puerto Madero">Puerto Madero</option>
+          <option value="Recoleta">Recoleta</option>
+          <option value="Retiro">Retiro</option>
+          <option value="Saavedra">Saavedra</option>
+          <option value="San Cristóbal">San Cristóbal</option>
+          <option value="San Nicolás">San Nicolás</option>
+          <option value="San Telmo">San Telmo</option>
+          <option value="Versalles">Versalles</option>
+          <option value="Villa Crespo">Villa Crespo</option>
+          <option value="Villa Devoto">Villa Devoto</option>
+          <option value="Villa General Mitre">Villa General Mitre</option>
+          <option value="Villa Lugano">Villa Lugano</option>
+          <option value="Villa Luro">Villa Luro</option>
+          <option value="Villa Ortúzar">Villa Ortúzar</option>
+          <option value="Villa Pueyrredón">Villa Pueyrredón</option>
+          <option value="Villa Real">Villa Real</option>
+          <option value="Villa Riachuelo">Villa Riachuelo</option>
+          <option value="Villa Santa Rita">Villa Santa Rita</option>
+          <option value="Villa Soldati">Villa Soldati</option>
+          <option value="Villa Urquiza">Villa Urquiza</option>
+          <option value="Villa del Parque">Villa del Parque</option>
+          <option value="Vélez Sarsfield">Vélez Sarsfield</option>
+
+        </select>
+
+        <label class="formulario-etiqueta texto-20" for="superficie">Superficie:</label>
+        <input
+          onblur="validar(this,obligatorio_registro)"
+          placeholder="Ingrese la superficie total"
+          type="text"
+          id="superficie"
+          class="formulario-entrada texto-20 valido"
+          name="superficie"
+        />
+        <span class="formulario-error texto-18" id="superficie-error">ERROR</span>
+
+        <label class="formulario-etiqueta texto-20" for="supCubierta">Superficie cubierta:</label>
+        <input
+          onblur="validar(this,obligatorio_registro)"
+          placeholder="Ingrese la superficie cubierta"
+          type="text"
+          id="supCubierta"
+          class="formulario-entrada texto-20 valido"
+          name="supCubierta"
+        />
+        <span class="formulario-error texto-18" id="supCubierta-error">ERROR</span>
+
+        <label class="formulario-etiqueta texto-20" for="antiguedad">Antiguedad:</label>
+        <input
+          onblur="validar(this,obligatorio_registro)"
+          placeholder="Ingrese la fecha de construcción"
+          type="text"
+          id="antiguedad"
+          class="formulario-entrada texto-20 valido"
+          name="antiguedad"
+        />
+        <span class="formulario-error texto-18" id="antiguedad-error">ERROR</span>
+
+
+        <label class="formulario-etiqueta texto-20" for="ambientes">Ambientes:</label>
+        <select id="ambientes" name="ambientes" class="formulario-entrada texto-20">
+          <option value="1">Uno</option>
+          <option value="2">Dos</option>
+          <option value="3">Tres</option>
+          <option value="4">Cuatro o más</option>
+        </select>
+
+        <label class="formulario-etiqueta texto-20" for="baños">Baños:</label>
+        <select id="baños" name="baños" class="formulario-entrada texto-20">
+          <option value="1">Uno</option>
+          <option value="2">Dos</option>
+          <option value="3">Tres o más</option>
+        </select>
+
+        <label class="formulario-etiqueta texto-20"> Moneda:</label>
+        <div class="formulario-radio-contenedor" >
+          <div class="formulario-radio-contenedor-par">
+            <input class="formulario-radio-boton" name="moneda" value="peso" type="radio" id="peso" checked>
+            <label class="texto-20" for="peso">Peso</label>
+          </div>
+          <div class="formulario-radio-contenedor-par">
+            <input class="formulario-radio-boton" name="moneda" value="dolar" type="radio" id="dolar" checked>
+            <label class="texto-20" for="dolar">Dolar</label>
+          </div>
         </div>
-        <span class="contraseña-error" id="dir-error">ERROR</span>
+
+        <label class="formulario-etiqueta texto-20"> Tipo de publicacion:</label>
+        <div class="formulario-radio-contenedor" >
+          <div class="formulario-radio-contenedor-par">
+            <input class="formulario-radio-boton" name="tipoPublicacion" value="venta" type="radio" id="venta" checked>
+            <label class="texto-20" for="venta">Venta</label>
+          </div>
+          <div class="formulario-radio-contenedor-par">
+            <input class="formulario-radio-boton" name="tipoPublicacion" value="alquiler" type="radio" id="alquiler" checked>
+            <label class="texto-20" for="alquiler">Alquiler</label>
+          </div>
+        </div>
+
+        <label class="formulario-etiqueta texto-20" for="precio">Precio:</label>
+        <input
+          onblur="validar(this,obligatorio_registro)"
+          placeholder="Ingrese el precio"
+          type="text"
+          id="precio"
+          class="formulario-entrada texto-20 valido"
+          name="precio"
+        />
+        <span class="formulario-error texto-18" id="precio-error">ERROR</span>
+
+        <label class="formulario-etiqueta texto-20"> Comodidades:</label>
+        <div class="formulario-radio-contenedor" >
+          <div class="formulario-radio-contenedor-par">
+            <input class="formulario-radio-boton" name="aire" value="tiene" type="checkbox" id="aire" >
+            <label class="texto-18" for="aire">Aire acondicionado</label>
+          </div>
+          <div class="formulario-radio-contenedor-par">
+            <input class="formulario-radio-boton" name="balcon" value="tiene" type="checkbox" id="balcon" >
+            <label class="texto-20" for="balcon">Balcon</label>
+          </div>
+        </div>
+        <div class="formulario-radio-contenedor" >
+          <div class="formulario-radio-contenedor-par">
+            <input class="formulario-radio-boton" name="pileta" value="tiene" type="checkbox" id="pileta" >
+            <label class="texto-20" for="pileta">Pileta</label>
+          </div>
+          <div class="formulario-radio-contenedor-par">
+            <input class="formulario-radio-boton" name="Jardin" value="tiene" type="checkbox" id="Jardin" >
+            <label class="texto-20" for="Jardin">Jardin</label>
+          </div>
+        </div>
+        <div class="formulario-radio-contenedor" >
+          <div class="formulario-radio-contenedor-par">
+            <input class="formulario-radio-boton" name="gym" value="tiene" type="checkbox" id="gym" >
+            <label class="texto-20" for="gym">Gimnasio</label>
+          </div>
+          <div class="formulario-radio-contenedor-par">
+            <input class="formulario-radio-boton" name="estacionamiento" value="tiene" type="checkbox" id="estacionamiento" >
+            <label class="texto-20" for="estacionamiento">Estacionamiento</label>
+          </div>
+        </div>
+
+        <div class="formulario-carga-img" >
+          
+          <label class="formulario-etiqueta texto-20" for="img">Imagen:</label>
+          <input class="texto-20" type="file" name="img" id="img" accept="image/*">
+          
         </div>
         
-        <div class="registro-botones">
+
+    <!--
+
+      <div class="test">
+
+        <form action="crear_prop.php" method="post" enctype="multipart/form-data">
+          <input type="file" name="img">
+          <input type="submit" name="prop" value="nueva_prop">
+        </form>
+    -->
+        </div>
+        
+        <div class="formulario-botones">
           <input
             type="submit"
             id="ingresar"

@@ -649,17 +649,6 @@ session_start()
           </section>
                 
 
-    <!--
-
-      <div class="test">
-
-        <form action="crear_prop.php" method="post" enctype="multipart/form-data">
-          <input type="file" name="img">
-          <input type="submit" name="prop" value="nueva_prop">
-        </form>
-    -->
-
-
       </div>
     </main>
     <footer>
