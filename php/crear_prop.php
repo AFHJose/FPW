@@ -128,14 +128,14 @@ session_start()
 
         <label class="formulario-etiqueta texto-20" for="dir">Direccion:</label>
         <input
-          onblur="validar(this,obligatorio_registro)"
+          onblur="validar(this,obligatorio_prop)"
           placeholder="Ingrese la direccion"
           type="text"
           id="dir"
           class="formulario-entrada texto-20 valido"
           name="dir"
         />
-        <span class="formulario-error texto-18" id="dir-error">ERROR</span>
+        <span class="formulario-error texto-18 colapse" id="dir-error"></span>
 
         <label class="formulario-etiqueta texto-20" for="barrio">Barrio:</label>
         <select id="barrio" name="barrio" class="formulario-entrada texto-20">         
@@ -192,25 +192,25 @@ session_start()
 
         <label class="formulario-etiqueta texto-20" for="superficie">Superficie:</label>
         <input
-          onblur="validar(this,obligatorio_registro)"
+          onblur="validar(this,obligatorio_prop)"
           placeholder="Ingrese la superficie total"
           type="text"
           id="superficie"
           class="formulario-entrada texto-20 valido"
           name="superficie"
         />
-        <span class="formulario-error texto-18" id="superficie-error">ERROR</span>
+        <span class="formulario-error texto-18" id="superficie-error"></span>
 
         <label class="formulario-etiqueta texto-20" for="supCubierta">Superficie cubierta:</label>
         <input
-          onblur="validar(this,obligatorio_registro)"
+          onblur="validar_supC(this,obligatorio_prop)"
           placeholder="Ingrese la superficie cubierta"
           type="text"
           id="supCubierta"
           class="formulario-entrada texto-20 valido"
           name="supCubierta"
         />
-        <span class="formulario-error texto-18" id="supCubierta-error">ERROR</span>
+        <span class="formulario-error texto-18" id="supCubierta-error"></span>
 
         <label class="formulario-etiqueta texto-20" for="antiguedad">Antiguedad:</label>
         <input
