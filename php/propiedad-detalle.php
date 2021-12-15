@@ -130,43 +130,43 @@ if($conexion)
               <h3 class="texto-24">Caracteristicas:</h3>
               <div class="prop-d-dato">
                 <span class="prop-d-etiqueta top-left border">Superficie Cubierta:</span>
-                <span class="prop-d-valor top-right border"><?php if($resultado["superficie_cubierta"]!=NULL){echo $resultado["superficie_cubierta"]."m<sup>2</sup>";}else{echo "-";} ?> </span>
+                <span class="prop-d-valor top-right border"><?php if($resultado["tipo"]!="Terreno"){echo $resultado["superficie_cubierta"]." m<sup>2</sup>";}else{echo "-";} ?> </span>
               </div>
               <div class="prop-d-dato">
                 <span class="prop-d-etiqueta center-left border">Ambientes:</span>
-                <span class="prop-d-valor center-right border"><?php if($resultado["ambientes"]!=NULL){echo $resultado["ambientes"];}else{echo "-";} ?></span>
+                <span class="prop-d-valor center-right border"><?php if($resultado["tipo"]!="Terreno" AND $resultado["tipo"]!="Cochera"){echo $resultado["ambientes"];}else{echo "-";} ?></span>
               </div>
               <div class="prop-d-dato">
                 <span class="prop-d-etiqueta center-left border">Baños:</span>
-                <span class="prop-d-valor center-right border"><?php if($resultado["baños"]!=NULL){echo $resultado["baños"];}else{echo "-";} ?></span>
+                <span class="prop-d-valor center-right border"><?php if($resultado["tipo"]!="Terreno" AND $resultado["tipo"]!="Cochera"){echo $resultado["baños"];}else{echo "-";} ?></span>
               </div>
               <div class="prop-d-dato">
                 <span class="prop-d-etiqueta center-left border">Antiguedad:</span>
-                <span class="prop-d-valor center-right border"><?php if($resultado["antiguedad"]!=NULL){echo $resultado["antiguedad"]." años";}else{echo"-";} ?></span>
+                <span class="prop-d-valor center-right border"><?php if($resultado["tipo"]!="Terreno"){echo $resultado["antiguedad"]." años";}else{echo"-";} ?></span>
               </div>
               <div class="prop-d-dato">
                 <span class="prop-d-etiqueta center-left border">Aire acondicionado:</span>
-                <span class="prop-d-valor center-right border"><?php if($resultado["aire"]==1){echo "Tiene";}else{echo "No tiene";}?></span>
+                <span class="prop-d-valor center-right border"><?php if($resultado["aire"]==1 AND $resultado["tipo"]!="Terreno" AND $resultado["tipo"]!="Cochera"){echo "Tiene";}else{echo "No tiene";}?></span>
               </div>
               <div class="prop-d-dato">
                 <span class="prop-d-etiqueta center-left border">Balcon:</span>
-                <span class="prop-d-valor center-right border"><?php if($resultado["balcon"]==1){echo "Tiene";}else{echo "No tiene";}?></span>
+                <span class="prop-d-valor center-right border"><?php if($resultado["balcon"]==1 AND $resultado["tipo"]!="Terreno" AND $resultado["tipo"]!="Cochera"){echo "Tiene";}else{echo "No tiene";}?></span>
               </div>
               <div class="prop-d-dato">
                 <span class="prop-d-etiqueta center-left border">Pileta:</span>
-                <span class="prop-d-valor center-right border"><?php if($resultado["pileta"]==1){echo "Tiene";}else{echo "No tiene";}?></span>
+                <span class="prop-d-valor center-right border"><?php if($resultado["pileta"]==1 AND $resultado["tipo"]!="Terreno" AND $resultado["tipo"]!="Cochera"){echo "Tiene";}else{echo "No tiene";}?></span>
               </div>
               <div class="prop-d-dato">
                 <span class="prop-d-etiqueta center-left border">Jardin:</span>
-                <span class="prop-d-valor center-right border"><?php if($resultado["jardin"]==1){echo "Tiene";}else{echo "No tiene";}?></span>
+                <span class="prop-d-valor center-right border"><?php if($resultado["jardin"]==1 AND $resultado["tipo"]!="Terreno" AND $resultado["tipo"]!="Cochera"){echo "Tiene";}else{echo "No tiene";}?></span>
               </div>
               <div class="prop-d-dato">
                 <span class="prop-d-etiqueta center-left border">Gimnasio:</span>
-                <span class="prop-d-valor center-right border"><?php if($resultado["gym"]==1){echo "Tiene";}else{echo "No tiene";}?></span>
+                <span class="prop-d-valor center-right border"><?php if($resultado["gym"]==1 AND $resultado["tipo"]!="Terreno" AND $resultado["tipo"]!="Cochera"){echo "Tiene";}else{echo "No tiene";}?></span>
               </div>
               <div class="prop-d-dato">
                 <span class="prop-d-etiqueta bot-left border">Estacionamiento:</span>
-                <span class="prop-d-valor bot-right border"><?php if($resultado["estacionamiento"]==1){echo "Tiene";}else{echo "No tiene";}?></span>
+                <span class="prop-d-valor bot-right border"><?php if($resultado["estacionamiento"]==1 AND $resultado["tipo"]!="Terreno" AND $resultado["tipo"]!="Cochera"){echo "Tiene";}else{echo "No tiene";}?></span>
               </div>
 
           </section>

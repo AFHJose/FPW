@@ -4,6 +4,7 @@ session_start();
 include "conexion.php";
 include "validar.php";
 
+echo json_encode($_POST);
 
 $conexion = OpenCon();
 if($conexion)
@@ -12,6 +13,8 @@ if($conexion)
 
     $superficie= limpiar_validar($_POST["superficie"], "superficie");
 
+    $tipo=limpiar_validar($_POST["tipo"], "texto");
+
     $supCubierta= limpiar_validar($_POST["supCubierta"], "supCubierta");
 
     $antiguedad= limpiar_validar($_POST["antiguedad"], "antiguedad");
@@ -19,8 +22,6 @@ if($conexion)
     $precio=intval(limpiar_validar($_POST["precio"], "precio"));
 
     $autor=limpiar_validar($_POST["autor"], "texto");
-
-    $tipo=limpiar_validar($_POST["tipo"], "texto");
 
     $barrio=limpiar_validar($_POST["barrio"], "texto");
 
@@ -170,9 +171,6 @@ if($conexion)
         echo "Error carga archivo";
     }
     
-
-
-
 
 }else{
     echo "Error conexion DB";

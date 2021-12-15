@@ -92,10 +92,10 @@ function validar_supC(elemento, lista) {
     }
     mensajeError.innerText = "Campo Obligatorio";
     elemento.classList.replace("valido", "error");
-    cambiar(elemento.id, false, lista);
+    cambiar("supCubierta", false, lista);
     deshabilitar_boton(lista[0][0]);
   } else if (
-    condiciones[elemento.id].test(elemento.value) &&
+    condiciones["supCubierta"].test(elemento.value) &&
     parseInt(elemento.value) <= parseInt(sup.value)
   ) {
     if (mensajeError.classList.contains("flex")) {
@@ -103,15 +103,15 @@ function validar_supC(elemento, lista) {
     }
     mensajeError.innerText = "";
     elemento.classList.replace("error", "valido");
-    cambiar(elemento.id, true, lista);
+    cambiar("supCubierta", true, lista);
     hablitar_boton(lista[0][0], lista);
-  } else if (!condiciones[elemento.id].test(elemento.value)) {
+  } else if (!condiciones["supCubierta"].test(elemento.value)) {
     if (mensajeError.classList.contains("colapse")) {
       mensajeError.classList.replace("colapse", "flex");
     }
-    mensajeError.innerText = errores[elemento.id];
+    mensajeError.innerText = errores["supCubierta"];
     elemento.classList.replace("valido", "error");
-    cambiar(elemento.id, false, lista);
+    cambiar("supCubierta", false, lista);
     deshabilitar_boton(lista[0][0]);
   } else {
     if (mensajeError.classList.contains("colapse")) {
@@ -120,7 +120,7 @@ function validar_supC(elemento, lista) {
     mensajeError.innerText =
       "La superficie cubierta debe ser menor o igual a la superficie total.";
     elemento.classList.replace("valido", "error");
-    cambiar(elemento.id, false, lista);
+    cambiar("supCubierta", false, lista);
     deshabilitar_boton(lista[0][0]);
   }
 }
@@ -151,10 +151,10 @@ function validar_antiguedad(elemento, lista) {
     }
     mensajeError.innerText = "Campo Obligatorio";
     elemento.classList.replace("valido", "error");
-    cambiar(elemento.id, false, lista);
+    cambiar("antiguedad", false, lista);
     deshabilitar_boton(lista[0][0]);
   } else if (
-    condiciones[elemento.id].test(elemento.value) &&
+    condiciones["antiguedad"].test(elemento.value) &&
     parseInt(elemento.value) <= 200
   ) {
     if (mensajeError.classList.contains("flex")) {
@@ -162,15 +162,15 @@ function validar_antiguedad(elemento, lista) {
     }
     mensajeError.innerText = "";
     elemento.classList.replace("error", "valido");
-    cambiar(elemento.id, true, lista);
+    cambiar("antiguedad", true, lista);
     hablitar_boton(lista[0][0], lista);
   } else {
     if (mensajeError.classList.contains("colapse")) {
       mensajeError.classList.replace("colapse", "flex");
     }
-    mensajeError.innerText = errores[elemento.id];
+    mensajeError.innerText = errores["antiguedad"];
     elemento.classList.replace("valido", "error");
-    cambiar(elemento.id, false, lista);
+    cambiar("antiguedad", false, lista);
     deshabilitar_boton(lista[0][0]);
   }
 }
@@ -223,5 +223,48 @@ function validar(elemento, lista) {
     elemento.classList.replace("valido", "error");
     cambiar(elemento.id, false, lista);
     deshabilitar_boton(lista[0][0]);
+  }
+}
+
+function tipo_propiedad(elemento) {
+  let general = document.getElementById("general");
+  let cochera = document.getElementById("cochera");
+  
+  if (elemento.value == "Cochera") 
+  {
+
+    if (general.classList.contains("grid")) {
+      general.classList.replace("grid", "colapse");
+    } 
+    if (cochera.classList.contains("colapse")) {
+      cochera.classList.replace("colapse", "grid");
+    } 
+
+  } else if (elemento.value == "Terreno") 
+  {
+    for(let i=0; i<obligatorio_prop.length;i++)
+    {
+      if(obligatorio_prop[i][0]=="supCubierta" || obligatorio_prop[i][0]=="antiguedad")
+      {
+        obligatorio_prop[i][1]=true;
+      }
+    }
+
+    if (general.classList.contains("grid")) {
+      general.classList.replace("grid", "colapse");
+    } 
+    if (cochera.classList.contains("grid")) {
+      cochera.classList.replace("grid", "colapse");
+    } 
+
+  } else 
+  {
+    
+    if (cochera.classList.contains("grid")) {
+      cochera.classList.replace("grid", "colapse");
+    } 
+    if (general.classList.contains("colapse")) {
+      general.classList.replace("colapse", "grid");
+    } 
   }
 }
