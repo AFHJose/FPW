@@ -113,6 +113,12 @@ session_start()
       <form class="prop-formulario" action="../php/crear_prop_db.php" method="post" enctype="multipart/form-data">
         <h2 class="formulario-titulo texto-30">Publicar una propiedad</h2>
 
+        <label class="formulario-etiqueta texto-20" for="autor">Publica:</label>
+        <select id="autor" name="autor" class="formulario-entrada texto-20">         
+          <option value="propietario">Propietario</option>
+          <option value="inmobiliaria">Inmobiliaria</option>
+        </select>
+
         <label class="formulario-etiqueta texto-20" for="tipo">Tipo de propiedad:</label>
         <select class="formulario-entrada texto-20" name="tipo" id="tipo">
             <option value="Casa">Casa</option>
@@ -122,13 +128,11 @@ session_start()
             <option value="Terreno">Terreno</option>
         </select>
 
-
         <div class="prop-formulario-sub">
       
-
         <label class="formulario-etiqueta texto-20" for="dir">Direccion:</label>
         <input
-          onblur="validar(this,obligatorio_prop)"
+          onblur="validar_colapse(this,obligatorio_prop)"
           placeholder="Ingrese la direccion"
           type="text"
           id="dir"
@@ -192,14 +196,14 @@ session_start()
 
         <label class="formulario-etiqueta texto-20" for="superficie">Superficie:</label>
         <input
-          onblur="validar(this,obligatorio_prop)"
+          onblur="validar_colapse(this,obligatorio_prop)"
           placeholder="Ingrese la superficie total"
           type="text"
           id="superficie"
           class="formulario-entrada texto-20 valido"
           name="superficie"
         />
-        <span class="formulario-error texto-18" id="superficie-error"></span>
+        <span class="formulario-error texto-18 colapse" id="superficie-error"></span>
 
         <label class="formulario-etiqueta texto-20" for="supCubierta">Superficie cubierta:</label>
         <input
@@ -210,18 +214,18 @@ session_start()
           class="formulario-entrada texto-20 valido"
           name="supCubierta"
         />
-        <span class="formulario-error texto-18" id="supCubierta-error"></span>
+        <span class="formulario-error texto-18 colapse" id="supCubierta-error"></span>
 
         <label class="formulario-etiqueta texto-20" for="antiguedad">Antiguedad:</label>
         <input
-          onblur="validar(this,obligatorio_registro)"
+          onblur="validar_antiguedad(this,obligatorio_prop)"
           placeholder="Ingrese la fecha de construcción"
           type="text"
           id="antiguedad"
           class="formulario-entrada texto-20 valido"
           name="antiguedad"
         />
-        <span class="formulario-error texto-18" id="antiguedad-error">ERROR</span>
+        <span class="formulario-error texto-18 colapse" id="antiguedad-error"></span>
 
 
         <label class="formulario-etiqueta texto-20" for="ambientes">Ambientes:</label>
@@ -265,14 +269,14 @@ session_start()
 
         <label class="formulario-etiqueta texto-20" for="precio">Precio:</label>
         <input
-          onblur="validar(this,obligatorio_registro)"
+          onblur="validar_colapse(this,obligatorio_prop)"
           placeholder="Ingrese el precio"
           type="text"
           id="precio"
           class="formulario-entrada texto-20 valido"
           name="precio"
         />
-        <span class="formulario-error texto-18" id="precio-error">ERROR</span>
+        <span class="formulario-error texto-18 colapse" id="precio-error"></span>
 
         <label class="formulario-etiqueta texto-20"> Comodidades:</label>
         <div class="formulario-radio-contenedor" >
@@ -291,7 +295,7 @@ session_start()
             <label class="texto-20" for="pileta">Pileta</label>
           </div>
           <div class="formulario-radio-contenedor-par">
-            <input class="formulario-radio-boton" name="Jardin" value="tiene" type="checkbox" id="Jardin" >
+            <input class="formulario-radio-boton" name="jardin" value="tiene" type="checkbox" id="Jardin" >
             <label class="texto-20" for="Jardin">Jardin</label>
           </div>
         </div>
@@ -309,7 +313,7 @@ session_start()
         <div class="formulario-carga-img" >
           
           <label class="formulario-etiqueta texto-20" for="img">Imagen:</label>
-          <input class="texto-20" type="file" name="img" id="img" accept="image/*">
+          <input onchange="archivo_cargado(obligatorio_prop)" class="formulario-entrada texto-20" type="file" name="img" id="img" accept="image/*">
           
         </div>
         
@@ -330,7 +334,7 @@ session_start()
             type="submit"
             id="ingresar"
             class="ingreso-boton off"
-            value="Crear cuenta"
+            value="Crear publicacion"
             disabled
           />
         </div>

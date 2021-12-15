@@ -6,7 +6,7 @@ $conexion = OpenCon();
 
 if($conexion)
 {
-    //limpiar variables escapando char de html, eliminando espacio y char especiales y \ extras
+    //limpiar variables eliminando espacios, comillas, simbolos html
     $usuario = limpiar($_POST['usuario']);
     //comprobar que las variables tengan la forma correcta con un regex
     if (!validar($usuario,"usuario"))

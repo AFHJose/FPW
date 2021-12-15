@@ -7,7 +7,8 @@ var condiciones = {
   dir: /^(\s*[A-Za-z]+\s*)+(\s*\d{1,4}\s*){1}$/,
   superficie: /^\s*\d+\s*$/,
   supCubierta: /^\s*\d+\s*$/,
-  antiguedad: /^\s*(\d{1,2})|(1\d{1,2})|(200)\s*$/,
+  antiguedad: /^\s*(\d{1,3})\s*$/,
+  precio: /^\s*(\d{1,})\s*$/,
 };
 var errores = {
   usuario: "El usuario debe tener al menos 6 caracteres.",
@@ -20,7 +21,8 @@ var errores = {
   superficie: "Ingrese un numero entero positivo.",
   supCubierta:
     "Ingrese un numero entero positivo, menor o igual a la superficie",
-  antiguedad: "Ingrese un numero entero positivo.",
+  antiguedad: "Ingrese un numero entero positivo igual o menor a 200.",
+  precio: "Ingrese un numero entero positivo",
 };
 var obligatorio_ingreso = [
   ["ingresar", true],
@@ -50,6 +52,8 @@ var obligatorio_prop = [
   ["superficie", false],
   ["supCubierta", false],
   ["antiguedad", false],
+  ["precio", false],
+  ["archivo", false],
 ];
 
 function cambiar(id, valor, lista) {
@@ -83,31 +87,121 @@ function validar_supC(elemento, lista) {
   let sup = document.getElementById("superficie");
 
   if (elemento.value == null || elemento.value == "") {
+    if (mensajeError.classList.contains("colapse")) {
+      mensajeError.classList.replace("colapse", "flex");
+    }
     mensajeError.innerText = "Campo Obligatorio";
     elemento.classList.replace("valido", "error");
     cambiar(elemento.id, false, lista);
     deshabilitar_boton(lista[0][0]);
-  } else {
-    if (
-      condiciones[elemento.id].test(elemento.value) &&
-      parseInt(elemento.value) <= parseInt(sup.value)
-    ) {
-      mensajeError.innerText = "";
-      elemento.classList.replace("error", "valido");
-      cambiar(elemento.id, true, lista);
-      hablitar_boton(lista[0][0], lista);
-    } else if (!condiciones[elemento.id].test(elemento.value)) {
-      mensajeError.innerText = errores[elemento.id];
-      elemento.classList.replace("valido", "error");
-      cambiar(elemento.id, false, lista);
-      deshabilitar_boton(lista[0][0]);
-    } else {
-      mensajeError.innerText =
-        "La superficie cubierta debe ser menor o igual a la superficie total.";
-      elemento.classList.replace("valido", "error");
-      cambiar(elemento.id, false, lista);
-      deshabilitar_boton(lista[0][0]);
+  } else if (
+    condiciones[elemento.id].test(elemento.value) &&
+    parseInt(elemento.value) <= parseInt(sup.value)
+  ) {
+    if (mensajeError.classList.contains("flex")) {
+      mensajeError.classList.replace("flex", "colapse");
     }
+    mensajeError.innerText = "";
+    elemento.classList.replace("error", "valido");
+    cambiar(elemento.id, true, lista);
+    hablitar_boton(lista[0][0], lista);
+  } else if (!condiciones[elemento.id].test(elemento.value)) {
+    if (mensajeError.classList.contains("colapse")) {
+      mensajeError.classList.replace("colapse", "flex");
+    }
+    mensajeError.innerText = errores[elemento.id];
+    elemento.classList.replace("valido", "error");
+    cambiar(elemento.id, false, lista);
+    deshabilitar_boton(lista[0][0]);
+  } else {
+    if (mensajeError.classList.contains("colapse")) {
+      mensajeError.classList.replace("colapse", "flex");
+    }
+    mensajeError.innerText =
+      "La superficie cubierta debe ser menor o igual a la superficie total.";
+    elemento.classList.replace("valido", "error");
+    cambiar(elemento.id, false, lista);
+    deshabilitar_boton(lista[0][0]);
+  }
+}
+function archivo_cargado(lista) {
+  let entrada = document.getElementById("img");
+  let cargado = false;
+  if (entrada.value != "" && entrada.value != null) {
+    cargado = true;
+  }
+
+  for (let i = 0; i < lista.length; i++) {
+    if (lista[i][0] == "archivo") {
+      lista[i][1] = cargado;
+    }
+  }
+  if (cargado) {
+    hablitar_boton(lista[0][0], lista);
+  } else {
+    deshabilitar_boton(lista[0][0]);
+  }
+}
+function validar_antiguedad(elemento, lista) {
+  let mensajeError = document.getElementById(elemento.id + "-error");
+
+  if (elemento.value == null || elemento.value == "") {
+    if (mensajeError.classList.contains("colapse")) {
+      mensajeError.classList.replace("colapse", "flex");
+    }
+    mensajeError.innerText = "Campo Obligatorio";
+    elemento.classList.replace("valido", "error");
+    cambiar(elemento.id, false, lista);
+    deshabilitar_boton(lista[0][0]);
+  } else if (
+    condiciones[elemento.id].test(elemento.value) &&
+    parseInt(elemento.value) <= 200
+  ) {
+    if (mensajeError.classList.contains("flex")) {
+      mensajeError.classList.replace("flex", "colapse");
+    }
+    mensajeError.innerText = "";
+    elemento.classList.replace("error", "valido");
+    cambiar(elemento.id, true, lista);
+    hablitar_boton(lista[0][0], lista);
+  } else {
+    if (mensajeError.classList.contains("colapse")) {
+      mensajeError.classList.replace("colapse", "flex");
+    }
+    mensajeError.innerText = errores[elemento.id];
+    elemento.classList.replace("valido", "error");
+    cambiar(elemento.id, false, lista);
+    deshabilitar_boton(lista[0][0]);
+  }
+}
+
+function validar_colapse(elemento, lista) {
+  let mensajeError = document.getElementById(elemento.id + "-error");
+
+  if (elemento.value == null || elemento.value == "") {
+    if (mensajeError.classList.contains("colapse")) {
+      mensajeError.classList.replace("colapse", "flex");
+    }
+    mensajeError.innerText = "Campo Obligatorio";
+    elemento.classList.replace("valido", "error");
+    cambiar(elemento.id, false, lista);
+    deshabilitar_boton(lista[0][0]);
+  } else if (condiciones[elemento.id].test(elemento.value)) {
+    if (mensajeError.classList.contains("flex")) {
+      mensajeError.classList.replace("flex", "colapse");
+    }
+    mensajeError.innerText = "";
+    elemento.classList.replace("error", "valido");
+    cambiar(elemento.id, true, lista);
+    hablitar_boton(lista[0][0], lista);
+  } else {
+    if (mensajeError.classList.contains("colapse")) {
+      mensajeError.classList.replace("colapse", "flex");
+    }
+    mensajeError.innerText = errores[elemento.id];
+    elemento.classList.replace("valido", "error");
+    cambiar(elemento.id, false, lista);
+    deshabilitar_boton(lista[0][0]);
   }
 }
 
@@ -119,17 +213,15 @@ function validar(elemento, lista) {
     elemento.classList.replace("valido", "error");
     cambiar(elemento.id, false, lista);
     deshabilitar_boton(lista[0][0]);
+  } else if (condiciones[elemento.id].test(elemento.value)) {
+    mensajeError.innerText = "";
+    elemento.classList.replace("error", "valido");
+    cambiar(elemento.id, true, lista);
+    hablitar_boton(lista[0][0], lista);
   } else {
-    if (condiciones[elemento.id].test(elemento.value)) {
-      mensajeError.innerText = "";
-      elemento.classList.replace("error", "valido");
-      cambiar(elemento.id, true, lista);
-      hablitar_boton(lista[0][0], lista);
-    } else {
-      mensajeError.innerText = errores[elemento.id];
-      elemento.classList.replace("valido", "error");
-      cambiar(elemento.id, false, lista);
-      deshabilitar_boton(lista[0][0]);
-    }
+    mensajeError.innerText = errores[elemento.id];
+    elemento.classList.replace("valido", "error");
+    cambiar(elemento.id, false, lista);
+    deshabilitar_boton(lista[0][0]);
   }
 }

@@ -130,7 +130,7 @@ if($conexion)
               <h3 class="texto-24">Caracteristicas:</h3>
               <div class="prop-d-dato">
                 <span class="prop-d-etiqueta top-left border">Superficie Cubierta:</span>
-                <span class="prop-d-valor top-right border"><?php if($resultado["superficie_cubierta"]!=NULL){echo $resultado["superficie_cubierta"];}else{echo "-";} ?> m<sup>2</sup></span>
+                <span class="prop-d-valor top-right border"><?php if($resultado["superficie_cubierta"]!=NULL){echo $resultado["superficie_cubierta"]."m<sup>2</sup>";}else{echo "-";} ?> </span>
               </div>
               <div class="prop-d-dato">
                 <span class="prop-d-etiqueta center-left border">Ambientes:</span>
@@ -142,7 +142,7 @@ if($conexion)
               </div>
               <div class="prop-d-dato">
                 <span class="prop-d-etiqueta center-left border">Antiguedad:</span>
-                <span class="prop-d-valor center-right border"><?php echo $resultado["antiguedad"]." años"; ?></span>
+                <span class="prop-d-valor center-right border"><?php if($resultado["antiguedad"]!=NULL){echo $resultado["antiguedad"]." años";}else{echo"-";} ?></span>
               </div>
               <div class="prop-d-dato">
                 <span class="prop-d-etiqueta center-left border">Aire acondicionado:</span>

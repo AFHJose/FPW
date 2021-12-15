@@ -1,6 +1,6 @@
 <?php
 
-//include 'db_connection.php'; en otros script de php para acceder a estas funciones siempre y cuando esten en la misma carpeta
+//include 'conexion.php'; en otros script de php para acceder a estas funciones siempre y cuando esten en la misma carpeta
 
     function OpenCon()
     {

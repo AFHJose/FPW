@@ -2,7 +2,7 @@
   width: 700px;
   display: grid;
   grid-template-columns: 2fr 3fr;
-  grid-template-rows: 100px 50px 1fr 100px;
+  grid-template-rows: 100px 50px 50px 1fr 100px;
   row-gap: 20px;
   background-color: whitesmoke;
   border-radius: 10px;
@@ -46,7 +46,9 @@
 }
 .formulario-error {
   grid-column: 2/3;
+  /*
   display: flex;
+  */
   justify-content: center;
   align-items: center;
   color: red;
@@ -74,7 +76,7 @@
 }
 .formulario-botones {
   grid-column: 1/3;
-  grid-row: -1 / -2;
+  grid-row: 5/6;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -86,7 +88,6 @@
   border-radius: 5px;
   background-color: whitesmoke;
 
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
 }

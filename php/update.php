@@ -9,7 +9,7 @@ if($conexion)
     if(isset($_POST['correo']))
     {
 
-        //limpiar variables escapando char de html, eliminando espacio y char especiales y \ extras
+        //limpiar variables eliminando espacios, comillas, simbolos html
         $correo = limpiar($_POST['correo']);
         //comprobar que las variables tengan la forma correcta con un regex
         if (!validar($correo,"correo"))
@@ -45,7 +45,7 @@ if($conexion)
         }
     }else if(isset($_POST['actual']) AND isset($_POST['nueva']))
     {
-        //limpiar variables escapando char de html, eliminando espacio y char especiales y \ extras
+        //limpiar variables eliminando espacios, comillas, simbolos html
         $actual = limpiar($_POST['actual']);
         $nueva = limpiar($_POST['nueva']);
         //comprobar que las variables tengan la forma correcta con un regex
