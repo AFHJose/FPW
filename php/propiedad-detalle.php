@@ -208,7 +208,7 @@ if($conexion)
               <span class="texto-der texto-20 center-right border"><?php echo $resultado["usuario"]; ?></span>
             </div>
             <div class="prop-d-dato">
-              <span class="texto-izq texto-20 center-left border">Condicion:</span>
+              <span class="texto-izq texto-20 center-left border">Autor:</span>
               <span class="texto-der texto-20 center-right border"><?php echo $resultado["autor"]; ?></span>
             </div>
 
