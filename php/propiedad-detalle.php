@@ -223,7 +223,7 @@ if($conexion)
                 echo <<<HEREDOC
                 <div class="botones-usuario">
                 <a href="prop-mod.php?id_prop=$_GET[id_prop]" class="boton">Modificar Publicacion</a>
-                <button class="boton">Eliminar Publicacion</button>
+                <a href="borrar_prop.php?id_prop=$_GET[id_prop]" class="boton">Eliminar Publicacion</a>
                 </div>
 
                 HEREDOC;
