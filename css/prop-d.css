@@ -245,6 +245,15 @@
   justify-content: center;
   align-items: center;
 }
+.botones-usuario
+{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin:20px 0px 20px 0px;
+}
+
 .detalles-oferta {
   display: flex;
   flex-flow: column nowrap;

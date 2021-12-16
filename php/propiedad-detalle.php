@@ -28,6 +28,7 @@ if($conexion)
     <script src="../js/dinamico.js"></script>
     <script src="../js/usuario.js"></script>
     
+    
   </head>
   <body>
     <header class="cabecera">
@@ -216,8 +217,25 @@ if($conexion)
               <span class="texto-izq texto-20 bot-left border">Certificacion MIBA:</span>
               <span class="texto-der texto-20 bot-right border"><?php if($resultado["certificada"]==1){echo "Tiene";}else{echo "No tiene";}?></span>
             </div>
-              
-            <div class="centrar-boton"><button class="boton contacto">Contactar <?php echo $resultado["usuario"]; ?></button></div>
+            <?php
+              if($resultado["id_usuario"]==$_SESSION["id_usuario"])
+              {
+                echo <<<HEREDOC
+                <div class="botones-usuario">
+                <a href="prop-mod.php?id_prop=$_GET[id_prop]" class="boton">Modificar Publicacion</a>
+                <button class="boton">Eliminar Publicacion</button>
+                </div>
+
+                HEREDOC;
+              }else
+              {
+                echo <<<HEREDOC
+                <div class="centrar-boton"><button class="boton contacto">Contactar <?php echo $resultado[usuario]; ?></button></div>
+                HEREDOC;
+              }
+
+
+            ?>
             
           </section>
           <section class="ofertas-section fondo-blanco-borde-gris">
@@ -371,17 +389,6 @@ if($conexion)
            
 
         </div>
-          
-
-    <!--
-
-      <div class="test">
-
-        <form action="crear_prop.php" method="post" enctype="multipart/form-data">
-          <input type="file" name="img">
-          <input type="submit" name="prop" value="nueva_prop">
-        </form>
-    -->
 
 
     </main>

@@ -78,4 +78,17 @@ function eliminar() {
   req.send();
 }
 
+function modificar_dato(elemento)
+{
+  var ids = elemento.id.split("-");
+  var id=ids[0]+"-"+ids[1];
+  mostrar_ocultar(id+"-mostrar", "grid");
+  mostrar_ocultar(id+"-cambiar", "grid");
+  if(document.getElementById(id+"-cambiar").classList.contains("colapse"))
+  {
+    document.getElementById(ids[0]).disabled=true;
+  }else{
+    document.getElementById(ids[0]).disabled=false;
+  }
 
+}

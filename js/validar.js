@@ -205,6 +205,32 @@ function validar_colapse(elemento, lista) {
   }
 }
 
+function validar_colapse_mod(elemento) {
+  let mensajeError = document.getElementById(elemento.id + "-error");
+
+  if (elemento.value == null || elemento.value == "") {
+    if (mensajeError.classList.contains("colapse")) {
+      mensajeError.classList.replace("colapse", "flex");
+    }
+    mensajeError.innerText = "Campo Obligatorio";
+    elemento.classList.replace("valido", "error");
+
+  } else if (condiciones[elemento.id].test(elemento.value)) {
+    if (mensajeError.classList.contains("flex")) {
+      mensajeError.classList.replace("flex", "colapse");
+    }
+    mensajeError.innerText = "";
+    elemento.classList.replace("error", "valido");
+
+  } else {
+    if (mensajeError.classList.contains("colapse")) {
+      mensajeError.classList.replace("colapse", "flex");
+    }
+    mensajeError.innerText = errores[elemento.id];
+    elemento.classList.replace("valido", "error");
+
+  }
+}
 function validar(elemento, lista) {
   let mensajeError = document.getElementById(elemento.id + "-error");
 
