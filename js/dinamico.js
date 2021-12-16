@@ -77,7 +77,35 @@ function eliminar() {
 
   req.send();
 }
+function modificar_checkbox(elemento)
+{
+  if(elemento.innerText=="Modificar")
+  {
+    elemento.innerText="Cancelar";
+    document.getElementById("comodidades-1").classList.replace("colapse","grid");
+    document.getElementById("comodidades-2").classList.replace("colapse","grid");
+    document.getElementById("comodidades-3").classList.replace("colapse","grid");
+    document.getElementById("aire").disabled=false;
+    document.getElementById("balcon").disabled=false;
+    document.getElementById("pileta").disabled=false;
+    document.getElementById("jardin").disabled=false;
+    document.getElementById("gym").disabled=false;
+    document.getElementById("estacionamiento").disabled=false;
 
+  }else 
+  {
+    elemento.innerText="Modificar";
+    document.getElementById("comodidades-1").classList.replace("grid","colapse");
+    document.getElementById("comodidades-2").classList.replace("grid","colapse");
+    document.getElementById("comodidades-3").classList.replace("grid","colapse");
+    document.getElementById("aire").disabled=true;
+    document.getElementById("balcon").disabled=true;
+    document.getElementById("pileta").disabled=true;
+    document.getElementById("jardin").disabled=true;
+    document.getElementById("gym").disabled=true;
+    document.getElementById("estacionamiento").disabled=true;
+  }
+}
 function modificar_dato(elemento)
 {
   var ids = elemento.id.split("-");
@@ -92,6 +120,7 @@ function modificar_dato(elemento)
   }
   mostrar_ocultar(id+"-mostrar", "grid");
   mostrar_ocultar(id+"-cambiar", "grid");
+  
   if(document.getElementById(id+"-cambiar").classList.contains("colapse"))
   {
     if(ids[1]=="radioBin")

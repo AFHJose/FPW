@@ -211,7 +211,7 @@ session_start()
               <label class="texto-20" for="peso">Peso</label>
             </div>
             <div class="formulario-radio-contenedor-par">
-              <input class="formulario-radio-boton" name="moneda" value="dolar" type="radio" id="dolar" checked>
+              <input class="formulario-radio-boton" name="moneda" value="dolar" type="radio" id="dolar">
               <label class="texto-20" for="dolar">Dolar</label>
             </div>
           </div>
@@ -223,7 +223,7 @@ session_start()
               <label class="texto-20" for="venta">Venta</label>
             </div>
             <div class="formulario-radio-contenedor-par">
-              <input class="formulario-radio-boton" name="tipoPublicacion" value="alquiler" type="radio" id="alquiler" checked>
+              <input class="formulario-radio-boton" name="tipoPublicacion" value="alquiler" type="radio" id="alquiler" >
               <label class="texto-20" for="alquiler">Alquiler</label>
             </div>
           </div>
