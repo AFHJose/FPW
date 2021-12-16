@@ -126,7 +126,7 @@ if($conexion)
           <span class="formulario-etiqueta texto-20">Publica:</span>
           <div id="autor-mod-mostrar" class="formulario-mod texto-20 grid"><span class="centrar-boton texto-20"><?php echo $resultado["autor"]; ?></span><div class="centrar-boton"><a onclick="modificar_dato(this)"  id="autor-mod" class="boton ">Modificar</a></div></div>
           <div id="autor-mod-cambiar" class="formulario-mod texto-20 colapse">
-          <select onchange="tipo_propiedad(this)" class="mod-select texto-20" name="autor" id="autor">
+          <select class="mod-select texto-20" name="autor" id="autor">
               <option value="propietario">Propietario</option>
               <option value="inmobiliaria">Inmobiliaria</option>
           </select>
@@ -137,7 +137,7 @@ if($conexion)
           <span class="formulario-etiqueta texto-20">Tipo de propiedad:</span>
           <div id="tipo-mod-mostrar" class="formulario-mod texto-20 grid"><span class="centrar-boton texto-20"><?php echo $resultado["tipo"]; ?></span><div class="centrar-boton"><a onclick="modificar_dato(this)"  id="tipo-mod" class="boton ">Modificar</a></div></div>
           <div id="tipo-mod-cambiar" class="formulario-mod texto-20 colapse">
-            <select onchange="tipo_propiedad(this)" class="mod-select texto-20" name="tipo" id="tipo">
+            <select class="mod-select texto-20" name="tipo" id="tipo">
                 <option value="Casa">Casa</option>
                 <option value="Departamento">Departamento</option>
                 <option value="Oficina">Oficina</option>
@@ -152,7 +152,7 @@ if($conexion)
           <div id="dir-texto-mostrar" class="formulario-mod texto-20 grid"><span class="centrar-boton texto-20"><?php echo $resultado["dir"]; ?></span><div class="centrar-boton"><a onclick="modificar_dato(this)"  id="dir-texto" class="boton ">Modificar</a></div></div>
           <div id="dir-texto-cambiar" class="formulario-mod texto-20 colapse">
             <input
-              onblur="validar_colapse(this,obligatorio_prop)"
+              onblur="validar_colapse_mod(this)""
               placeholder="Ingrese la direccion"
               type="text"
               id="dir"
@@ -167,7 +167,7 @@ if($conexion)
           <span class="formulario-etiqueta texto-20">Barrio:</span>
           <div id="barrio-mod-mostrar" class="formulario-mod texto-20 grid"><span class="centrar-boton texto-20"><?php echo $resultado["barrio"]; ?></span><div class="centrar-boton"><a onclick="modificar_dato(this)"  id="barrio-mod" class="boton ">Modificar</a></div></div>
           <div id="barrio-mod-cambiar" class="formulario-mod texto-20 colapse">
-            <select onchange="tipo_propiedad(this)" class="mod-select texto-20" name="barrio" id="barrio">
+            <select class="mod-select texto-20" name="barrio" id="barrio">
               <option value="Agronomía">Agronomía</option>
               <option value="Almagro">Almagro</option>
               <option value="Balvanera">Balvanera</option>
@@ -224,8 +224,8 @@ if($conexion)
           <div id="superficie-texto-mostrar" class="formulario-mod texto-20 grid"><span class="centrar-boton texto-20"><?php echo $resultado["superficie"]; ?> m<sup>2</sup></span><div class="centrar-boton"><a onclick="modificar_dato(this)"  id="superficie-texto" class="boton ">Modificar</a></div></div>
           <div id="superficie-texto-cambiar" class="formulario-mod texto-20 colapse">
             <input
-              onblur="validar_colapse(this,obligatorio_prop)"
-              placeholder="Ingrese la superficie total"
+              onblur="validar_colapse_mod(this)"
+              placeholder="Superficie total"
               type="text"
               id="superficie"
               class="mod-select texto-20 valido"
@@ -266,19 +266,21 @@ if($conexion)
           </div>
 
 
-          <label class="formulario-etiqueta texto-20" for="precio">Precio:</label>
-          <input
-            onblur="validar_colapse(this,obligatorio_prop)"
-            placeholder="Ingrese el precio"
-            type="text"
-            id="precio"
-            class="formulario-entrada texto-20 valido"
-            name="precio"
-          />
+
+          <span class="formulario-etiqueta texto-20">Precio:</span>
+          <div id="precio-texto-mostrar" class="formulario-mod texto-20 grid"><span class="centrar-boton texto-20"><?php if($resultado["venta"]!=0){echo $resultado["venta"];}else{echo $resultado["alquiler"]; }?></span><div class="centrar-boton"><a onclick="modificar_dato(this)"  id="precio-texto" class="boton ">Modificar</a></div></div>
+          <div id="precio-texto-cambiar" class="formulario-mod texto-20 colapse">
+            <input
+              onblur="validar_colapse_mod(this)"
+              placeholder="Ingrese el precio"
+              type="text"
+              id="precio"
+              class="mod-select texto-20 valido"
+              name="precio"
+            />
+            <div class="centrar-boton"><a onclick="modificar_dato(this)"  id="precio-texto-cancel" class="boton ">Cancelar</a></div>
+          </div>
           <span class="formulario-error texto-18 colapse" id="precio-error"></span>
-
-
-          
 
 
 
@@ -295,43 +297,63 @@ if($conexion)
 
         <div id="general" class="prop-formulario-sub grid">
           
-          <label class="formulario-etiqueta texto-20" for="supCubierta">Superficie cubierta:</label>
-          <input
-            onblur="validar_supC(this,obligatorio_prop)"
-            placeholder="Ingrese la superficie cubierta"
-            type="text"
-            id="supCubierta"
-            class="formulario-entrada texto-20 valido"
-            name="supCubierta"
-          />
+
+          <span class="formulario-etiqueta texto-20">Superficie cubierta:</span>
+          <div id="supCubierta-texto-mostrar" class="formulario-mod texto-20 grid"><span class="centrar-boton texto-20"><?php if($resultado["superficie_cubierta"]!=0 AND $resultado["superficie_cubierta"]!=null  ){echo $resultado["superficie_cubierta"]." m<sup>2</sup>";}else{echo "-"; }?></span><div class="centrar-boton"><a onclick="modificar_dato(this)"  id="supCubierta-texto" class="boton ">Modificar</a></div></div>
+          <div id="supCubierta-texto-cambiar" class="formulario-mod texto-20 colapse">
+            <input
+              onblur="validar_colapse_mod(this)"
+              placeholder="Superficie cubierta"
+              type="text"
+              id="supCubierta"
+              class="mod-select texto-20 valido"
+              name="supCubierta"
+            />
+            <div class="centrar-boton"><a onclick="modificar_dato(this)"  id="supCubierta-texto-cancel" class="boton ">Cancelar</a></div>
+          </div>
           <span class="formulario-error texto-18 colapse" id="supCubierta-error"></span>
 
-          <label class="formulario-etiqueta texto-20" for="antiguedad">Antiguedad:</label>
-          <input
-            onblur="validar_antiguedad(this,obligatorio_prop)"
-            placeholder="Ingrese la fecha de construcción"
-            type="text"
-            id="antiguedad"
-            class="formulario-entrada texto-20 valido"
-            name="antiguedad"
-          />
+
+          <span class="formulario-etiqueta texto-20">Antiguedad:</span>
+          <div id="antiguedad-texto-mostrar" class="formulario-mod texto-20 grid"><span class="centrar-boton texto-20"><?php if($resultado["antiguedad"]!=0 AND $resultado["antiguedad"]!=null  ){echo $resultado["antiguedad"]." años";}else{echo "-"; }?></span><div class="centrar-boton"><a onclick="modificar_dato(this)"  id="antiguedad-texto" class="boton ">Modificar</a></div></div>
+          <div id="antiguedad-texto-cambiar" class="formulario-mod texto-20 colapse">
+            <input
+              onblur="validar_antiguedad_mod(this)"
+              placeholder="Antiguedad"
+              type="text"
+              id="antiguedad"
+              class="mod-select texto-20 valido"
+              name="antiguedad"
+            />
+            <div class="centrar-boton"><a onclick="modificar_dato(this)"  id="antiguedad-texto-cancel" class="boton ">Cancelar</a></div>
+          </div>
           <span class="formulario-error texto-18 colapse" id="antiguedad-error"></span>
 
 
-          <label class="formulario-etiqueta texto-20" for="ambientes">Ambientes:</label>
-          <select id="ambientes" name="ambientes" class="formulario-entrada texto-20">
-            <option value="1">Uno</option>
-            <option value="2">Dos</option>
-            <option value="3">Tres</option>
-            <option value="4">Cuatro o más</option>
-          </select>
+          <span class="formulario-etiqueta texto-20">Ambientes:</span>
+          <div id="ambientes-mod-mostrar" class="formulario-mod texto-20 grid"><span class="centrar-boton texto-20"><?php echo $resultado["ambientes"]; ?></span><div class="centrar-boton"><a onclick="modificar_dato(this)"  id="ambientes-mod" class="boton ">Modificar</a></div></div>
+          <div id="ambientes-mod-cambiar" class="formulario-mod texto-20 colapse">
+            <select class="mod-select texto-20" name="ambientes" id="ambientes">
+              <option value="1">Uno</option>
+              <option value="2">Dos</option>
+              <option value="3">Tres</option>
+              <option value="4">Cuatro o más</option>
+            </select>
+            <div class="centrar-boton"><a onclick="modificar_dato(this)"  id="ambientes-mod-cancel" class="boton ">Cancelar</a></div>
+          </div>
 
-          <label class="formulario-etiqueta texto-20" for="baños">Baños:</label>
-          <select id="baños" name="baños" class="formulario-entrada texto-20">
-            <option value="1">Uno</option>
-            <option value="2">Dos</option>
-            <option value="3">Tres o más</option>
-          </select>
+
+          <span class="formulario-etiqueta texto-20">Baños:</span>
+          <div id="baños-mod-mostrar" class="formulario-mod texto-20 grid"><span class="centrar-boton texto-20"><?php echo $resultado["baños"]; ?></span><div class="centrar-boton"><a onclick="modificar_dato(this)"  id="baños-mod" class="boton ">Modificar</a></div></div>
+          <div id="baños-mod-cambiar" class="formulario-mod texto-20 colapse">
+            <select class="mod-select texto-20" name="baños" id="baños">
+              <option value="1">Uno</option>
+              <option value="2">Dos</option>
+              <option value="3">Tres</option>
+              <option value="4">Cuatro o más</option>
+            </select>
+            <div class="centrar-boton"><a onclick="modificar_dato(this)"  id="baños-mod-cancel" class="boton ">Cancelar</a></div>
+          </div>
 
           <label class="formulario-etiqueta texto-20"> Comodidades:</label>
           <div class="formulario-radio-contenedor" >

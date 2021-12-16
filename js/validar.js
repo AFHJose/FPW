@@ -174,7 +174,35 @@ function validar_antiguedad(elemento, lista) {
     deshabilitar_boton(lista[0][0]);
   }
 }
+function validar_antiguedad_mod(elemento) {
+  let mensajeError = document.getElementById(elemento.id + "-error");
 
+  if (elemento.value == null || elemento.value == "") {
+    if (mensajeError.classList.contains("colapse")) {
+      mensajeError.classList.replace("colapse", "flex");
+    }
+    mensajeError.innerText = "Campo Obligatorio";
+    elemento.classList.replace("valido", "error");
+
+  } else if (
+    condiciones["antiguedad"].test(elemento.value) &&
+    parseInt(elemento.value) <= 200
+  ) {
+    if (mensajeError.classList.contains("flex")) {
+      mensajeError.classList.replace("flex", "colapse");
+    }
+    mensajeError.innerText = "";
+    elemento.classList.replace("error", "valido");
+
+  } else {
+    if (mensajeError.classList.contains("colapse")) {
+      mensajeError.classList.replace("colapse", "flex");
+    }
+    mensajeError.innerText = errores["antiguedad"];
+    elemento.classList.replace("valido", "error");
+
+  }
+}
 function validar_colapse(elemento, lista) {
   let mensajeError = document.getElementById(elemento.id + "-error");
 
