@@ -82,13 +82,31 @@ function modificar_dato(elemento)
 {
   var ids = elemento.id.split("-");
   var id=ids[0]+"-"+ids[1];
+  if(document.getElementById(ids[0]).type=="text")
+  {
+    var mensajeError= document.getElementById(ids[0]+"-error");
+  }
   mostrar_ocultar(id+"-mostrar", "grid");
   mostrar_ocultar(id+"-cambiar", "grid");
   if(document.getElementById(id+"-cambiar").classList.contains("colapse"))
   {
     document.getElementById(ids[0]).disabled=true;
+    if(document.getElementById(ids[0]).type=="text")
+    {
+      mensajeError.classList.replace("flex","colapse");
+    }
+    
   }else{
     document.getElementById(ids[0]).disabled=false;
+
+    if(document.getElementById(ids[0]).type=="text")
+    {
+      if(mensajeError.innerText!="")
+      {
+        mensajeError.classList.replace("colapse","flex");
+      }
+    }
+
   }
 
 }

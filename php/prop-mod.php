@@ -121,11 +121,20 @@ if($conexion)
         <h2 class="formulario-titulo texto-30">Actualizar Publicacion</h2>
 
         <div class="prop-formulario-nucleo">
-          <label class="formulario-etiqueta texto-20" for="autor">Publica:</label>
-          <select id="autor" name="autor" class="formulario-entrada texto-20">         
-            <option value="propietario">Propietario</option>
-            <option value="inmobiliaria">Inmobiliaria</option>
+
+
+          <span class="formulario-etiqueta texto-20">Publica:</span>
+
+          <div id="autor-mod-mostrar" class="formulario-mod texto-20 grid"><span class="centrar-boton texto-20"><?php echo $resultado["autor"]; ?></span><div class="centrar-boton"><a onclick="modificar_dato(this)"  id="autor-mod" class="boton ">Modificar</a></div></div>
+
+          <div id="autor-mod-cambiar" class="formulario-mod texto-20 colapse">
+          <select onchange="tipo_propiedad(this)" class="mod-select texto-20" name="autor" id="autor">
+              <option value="propietario">Propietario</option>
+              <option value="inmobiliaria">Inmobiliaria</option>
           </select>
+          <div class="centrar-boton"><a onclick="modificar_dato(this)"  id="autor-mod-cancel" class="boton ">Cancelar</a></div>
+          </div>
+
 
           <span class="formulario-etiqueta texto-20">Tipo de propiedad:</span>
 
@@ -140,13 +149,27 @@ if($conexion)
                 <option value="Terreno">Terreno</option>
             </select>
             <div class="centrar-boton"><a onclick="modificar_dato(this)"  id="tipo-mod-cancel" class="boton ">Cancelar</a></div>
-        </div>
+          </div>
           
-          
-
           <span class="formulario-etiqueta texto-20">Direccion:</span>
-          <span class="formulario-entrada texto-20"><?php echo $resultado["dir"]; ?></span>
 
+          <div id="dir-mod-mostrar" class="formulario-mod texto-20 grid"><span class="centrar-boton texto-20"><?php echo $resultado["dir"]; ?></span><div class="centrar-boton"><a onclick="modificar_dato(this)"  id="dir-mod" class="boton ">Modificar</a></div></div>
+
+          <div id="dir-mod-cambiar" class="formulario-mod texto-20 colapse">
+            <input
+              onblur="validar_colapse(this,obligatorio_prop)"
+              placeholder="Ingrese la direccion"
+              type="text"
+              id="dir"
+              class="mod-select texto-20 valido"
+              name="dir"
+            />
+            <div class="centrar-boton"><a onclick="modificar_dato(this)"  id="dir-mod-cancel" class="boton ">Cancelar</a></div>
+          </div>
+          <span class="formulario-error texto-18 colapse" id="dir-error"></span>
+
+
+        
           <span class="formulario-etiqueta texto-20">Barrio:</span>
           <span class="formulario-entrada texto-20"><?php echo $resultado["barrio"]; ?></span>
 
