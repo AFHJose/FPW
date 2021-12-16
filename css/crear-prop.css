@@ -76,6 +76,14 @@
   */
   grid-template-columns: 1fr 1fr;
 }
+.formulario-mod-radio
+{
+  grid-column: 2/3;
+  /*
+  display: grid;
+  */
+  grid-template-columns: 1fr 1fr 1fr;
+}
 
 
 .formulario-error {
@@ -95,6 +103,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+
 .formulario-radio-contenedor-par {
   display: flex;
   flex-flow: row nowrap;

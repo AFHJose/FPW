@@ -82,7 +82,11 @@ function modificar_dato(elemento)
 {
   var ids = elemento.id.split("-");
   var id=ids[0]+"-"+ids[1];
-  if(document.getElementById(ids[0]).type=="text")
+  if(ids[1]=="radioBin")
+  {
+    var opcionUno = document.getElementById(ids[2]);
+    var opcionDos = document.getElementById(ids[3]);
+  }else if(ids[1]=="texto")
   {
     var mensajeError= document.getElementById(ids[0]+"-error");
   }
@@ -90,20 +94,36 @@ function modificar_dato(elemento)
   mostrar_ocultar(id+"-cambiar", "grid");
   if(document.getElementById(id+"-cambiar").classList.contains("colapse"))
   {
-    document.getElementById(ids[0]).disabled=true;
-    if(document.getElementById(ids[0]).type=="text")
+    if(ids[1]=="radioBin")
     {
-      mensajeError.classList.replace("flex","colapse");
+      opcionUno.disabled=true;
+      opcionDos.disabled=true;
+    }else{
+      document.getElementById(ids[0]).disabled=true;
+
+      if(ids[1]=="texto")
+      {
+        mensajeError.classList.replace("flex","colapse");
+      }
+
     }
     
   }else{
-    document.getElementById(ids[0]).disabled=false;
-
-    if(document.getElementById(ids[0]).type=="text")
+    if(ids[1]=="radioBin")
     {
-      if(mensajeError.innerText!="")
+      opcionUno.disabled=false;
+      opcionDos.disabled=false;
+    }
+    else{
+
+      document.getElementById(ids[0]).disabled=false;
+  
+      if(ids[1]=="texto")
       {
-        mensajeError.classList.replace("colapse","flex");
+        if(mensajeError.innerText!="")
+        {
+          mensajeError.classList.replace("colapse","flex");
+        }
       }
     }
 

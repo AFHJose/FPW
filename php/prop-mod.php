@@ -124,9 +124,7 @@ if($conexion)
 
 
           <span class="formulario-etiqueta texto-20">Publica:</span>
-
           <div id="autor-mod-mostrar" class="formulario-mod texto-20 grid"><span class="centrar-boton texto-20"><?php echo $resultado["autor"]; ?></span><div class="centrar-boton"><a onclick="modificar_dato(this)"  id="autor-mod" class="boton ">Modificar</a></div></div>
-
           <div id="autor-mod-cambiar" class="formulario-mod texto-20 colapse">
           <select onchange="tipo_propiedad(this)" class="mod-select texto-20" name="autor" id="autor">
               <option value="propietario">Propietario</option>
@@ -137,9 +135,7 @@ if($conexion)
 
 
           <span class="formulario-etiqueta texto-20">Tipo de propiedad:</span>
-
           <div id="tipo-mod-mostrar" class="formulario-mod texto-20 grid"><span class="centrar-boton texto-20"><?php echo $resultado["tipo"]; ?></span><div class="centrar-boton"><a onclick="modificar_dato(this)"  id="tipo-mod" class="boton ">Modificar</a></div></div>
-
           <div id="tipo-mod-cambiar" class="formulario-mod texto-20 colapse">
             <select onchange="tipo_propiedad(this)" class="mod-select texto-20" name="tipo" id="tipo">
                 <option value="Casa">Casa</option>
@@ -151,11 +147,10 @@ if($conexion)
             <div class="centrar-boton"><a onclick="modificar_dato(this)"  id="tipo-mod-cancel" class="boton ">Cancelar</a></div>
           </div>
           
+          
           <span class="formulario-etiqueta texto-20">Direccion:</span>
-
-          <div id="dir-mod-mostrar" class="formulario-mod texto-20 grid"><span class="centrar-boton texto-20"><?php echo $resultado["dir"]; ?></span><div class="centrar-boton"><a onclick="modificar_dato(this)"  id="dir-mod" class="boton ">Modificar</a></div></div>
-
-          <div id="dir-mod-cambiar" class="formulario-mod texto-20 colapse">
+          <div id="dir-texto-mostrar" class="formulario-mod texto-20 grid"><span class="centrar-boton texto-20"><?php echo $resultado["dir"]; ?></span><div class="centrar-boton"><a onclick="modificar_dato(this)"  id="dir-texto" class="boton ">Modificar</a></div></div>
+          <div id="dir-texto-cambiar" class="formulario-mod texto-20 colapse">
             <input
               onblur="validar_colapse(this,obligatorio_prop)"
               placeholder="Ingrese la direccion"
@@ -164,20 +159,86 @@ if($conexion)
               class="mod-select texto-20 valido"
               name="dir"
             />
-            <div class="centrar-boton"><a onclick="modificar_dato(this)"  id="dir-mod-cancel" class="boton ">Cancelar</a></div>
+            <div class="centrar-boton"><a onclick="modificar_dato(this)"  id="dir-texto-cancel" class="boton ">Cancelar</a></div>
           </div>
           <span class="formulario-error texto-18 colapse" id="dir-error"></span>
 
 
-        
           <span class="formulario-etiqueta texto-20">Barrio:</span>
-          <span class="formulario-entrada texto-20"><?php echo $resultado["barrio"]; ?></span>
-
+          <div id="barrio-mod-mostrar" class="formulario-mod texto-20 grid"><span class="centrar-boton texto-20"><?php echo $resultado["barrio"]; ?></span><div class="centrar-boton"><a onclick="modificar_dato(this)"  id="barrio-mod" class="boton ">Modificar</a></div></div>
+          <div id="barrio-mod-cambiar" class="formulario-mod texto-20 colapse">
+            <select onchange="tipo_propiedad(this)" class="mod-select texto-20" name="barrio" id="barrio">
+              <option value="Agronomía">Agronomía</option>
+              <option value="Almagro">Almagro</option>
+              <option value="Balvanera">Balvanera</option>
+              <option value="Barracas">Barracas</option>
+              <option value="Belgrano">Belgrano</option>
+              <option value="Boedo">Boedo</option>
+              <option value="Caballito">Caballito</option>
+              <option value="Chacarita">Chacarita</option>
+              <option value="Coghlan">Coghlan</option>
+              <option value="Colegiales">Colegiales</option>
+              <option value="Constitución">Constitución</option>
+              <option value="Flores">Flores</option>
+              <option value="Floresta">Floresta</option>
+              <option value="La Boca">La Boca</option>
+              <option value="La Paternal">La Paternal</option>
+              <option value="Liniers">Liniers</option>
+              <option value="Mataderos">Mataderos</option>
+              <option value="Monte Castro">Monte Castro</option>
+              <option value="Montserrat">Montserrat</option>
+              <option value="Nueva Pompeya">Nueva Pompeya</option>
+              <option value="Nuñez">Nuñez</option>
+              <option value="Palermo">Palermo</option>
+              <option value="Parque Avellaneda">Parque Avellaneda</option>
+              <option value="Parque Chacabuco">Parque Chacabuco</option>
+              <option value="Parque Chas">Parque Chas</option>
+              <option value="Parque Patricios">Parque Patricios</option>
+              <option value="Puerto Madero">Puerto Madero</option>
+              <option value="Recoleta">Recoleta</option>
+              <option value="Retiro">Retiro</option>
+              <option value="Saavedra">Saavedra</option>
+              <option value="San Cristóbal">San Cristóbal</option>
+              <option value="San Nicolás">San Nicolás</option>
+              <option value="San Telmo">San Telmo</option>
+              <option value="Versalles">Versalles</option>
+              <option value="Villa Crespo">Villa Crespo</option>
+              <option value="Villa Devoto">Villa Devoto</option>
+              <option value="Villa General Mitre">Villa General Mitre</option>
+              <option value="Villa Lugano">Villa Lugano</option>
+              <option value="Villa Luro">Villa Luro</option>
+              <option value="Villa Ortúzar">Villa Ortúzar</option>
+              <option value="Villa Pueyrredón">Villa Pueyrredón</option>
+              <option value="Villa Real">Villa Real</option>
+              <option value="Villa Riachuelo">Villa Riachuelo</option>
+              <option value="Villa Santa Rita">Villa Santa Rita</option>
+              <option value="Villa Soldati">Villa Soldati</option>
+              <option value="Villa Urquiza">Villa Urquiza</option>
+              <option value="Villa del Parque">Villa del Parque</option>
+              <option value="Vélez Sarsfield">Vélez Sarsfield</option>
+            </select>
+            <div class="centrar-boton"><a onclick="modificar_dato(this)"  id="barrio-mod-cancel" class="boton ">Cancelar</a></div>
+          </div>
+        
           <span class="formulario-etiqueta texto-20">Superficie:</span>
-          <span class="formulario-entrada texto-20"><?php echo $resultado["superficie"]; ?> m<sup>2</sup></span>
+          <div id="superficie-texto-mostrar" class="formulario-mod texto-20 grid"><span class="centrar-boton texto-20"><?php echo $resultado["superficie"]; ?> m<sup>2</sup></span><div class="centrar-boton"><a onclick="modificar_dato(this)"  id="superficie-texto" class="boton ">Modificar</a></div></div>
+          <div id="superficie-texto-cambiar" class="formulario-mod texto-20 colapse">
+            <input
+              onblur="validar_colapse(this,obligatorio_prop)"
+              placeholder="Ingrese la superficie total"
+              type="text"
+              id="superficie"
+              class="mod-select texto-20 valido"
+              name="superficie"
+            />
+            <div class="centrar-boton"><a onclick="modificar_dato(this)"  id="superficie-texto-cancel" class="boton ">Cancelar</a></div>
+          </div>
+          <span class="formulario-error texto-18 colapse" id="superficie-error"></span>
 
-          <label class="formulario-etiqueta texto-20"> Moneda:</label>
-          <div class="formulario-radio-contenedor" >
+
+          <span class="formulario-etiqueta texto-20">Moneda:</span>
+          <div id="moneda-radioBin-mostrar" class="formulario-mod texto-20 grid"><span class="centrar-boton texto-20"><?php if($resultado["dolar"]==1){echo "Dolar";}else{echo "Peso";} ?></span><div class="centrar-boton"><a onclick="modificar_dato(this)"  id="moneda-radioBin-peso-dolar" class="boton ">Modificar</a></div></div>
+          <div id="moneda-radioBin-cambiar" class="formulario-mod-radio texto-20 colapse">
             <div class="formulario-radio-contenedor-par">
               <input class="formulario-radio-boton" name="moneda" value="peso" type="radio" id="peso" checked>
               <label class="texto-20" for="peso">Peso</label>
@@ -186,11 +247,14 @@ if($conexion)
               <input class="formulario-radio-boton" name="moneda" value="dolar" type="radio" id="dolar" checked>
               <label class="texto-20" for="dolar">Dolar</label>
             </div>
+            <div class="centrar-boton"><a onclick="modificar_dato(this)"  id="moneda-radioBin-peso-dolar-cancel" class="boton ">Cancelar</a></div>
           </div>
 
-          <label class="formulario-etiqueta texto-20"> Tipo de publicacion:</label>
-          <div class="formulario-radio-contenedor" >
-            <div class="formulario-radio-contenedor-par">
+
+          <span class="formulario-etiqueta texto-20">Tipo de publicacion:</span>
+          <div id="tipoPublicacion-radioBin-mostrar" class="formulario-mod texto-20 grid"><span class="centrar-boton texto-20"><?php if($resultado["venta"]==0){echo "Alquiler";}else{echo "Venta";} ?></span><div class="centrar-boton"><a onclick="modificar_dato(this)"  id="tipoPublicacion-radioBin-venta-alquiler" class="boton ">Modificar</a></div></div>
+          <div id="tipoPublicacion-radioBin-cambiar" class="formulario-mod-radio texto-20 colapse">
+          <div class="formulario-radio-contenedor-par">
               <input class="formulario-radio-boton" name="tipoPublicacion" value="venta" type="radio" id="venta" checked>
               <label class="texto-20" for="venta">Venta</label>
             </div>
@@ -198,7 +262,9 @@ if($conexion)
               <input class="formulario-radio-boton" name="tipoPublicacion" value="alquiler" type="radio" id="alquiler" checked>
               <label class="texto-20" for="alquiler">Alquiler</label>
             </div>
+            <div class="centrar-boton"><a onclick="modificar_dato(this)"  id="tipoPublicacion-radioBin-venta-alquiler-cancel" class="boton ">Cancelar</a></div>
           </div>
+
 
           <label class="formulario-etiqueta texto-20" for="precio">Precio:</label>
           <input
@@ -210,6 +276,12 @@ if($conexion)
             name="precio"
           />
           <span class="formulario-error texto-18 colapse" id="precio-error"></span>
+
+
+          
+
+
+
 
           <div class="formulario-carga-img" >
               
