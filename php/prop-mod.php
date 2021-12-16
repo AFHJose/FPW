@@ -117,9 +117,9 @@ if($conexion)
       </div>
   </header>
     <main class="main-index">
-      <form class="prop-formulario" action="../php/crear_prop_db.php" method="post" enctype="multipart/form-data">
+      <form class="prop-formulario" action="../php/actualizar_prop.php" method="post" enctype="multipart/form-data">
         <h2 class="formulario-titulo texto-30">Actualizar Publicacion</h2>
-
+        <input class="colapse" name="id_prop" value=<?php echo $_GET["id_prop"];?> type="checkbox" checked>
         <div class="prop-formulario-nucleo">
 
 
@@ -254,7 +254,7 @@ if($conexion)
 
 
           <span class="formulario-etiqueta texto-20">Tipo de publicacion:</span>
-          <div id="tipoPublicacion-radioBin-mostrar" class="formulario-mod texto-20 grid"><span class="centrar-boton texto-20"><?php if($resultado["venta"]==0){echo "Alquiler";}else{echo "Venta";} ?></span><div class="centrar-boton"><a onclick="modificar_dato(this)"  id="tipoPublicacion-radioBin-venta-alquiler" class="boton ">Modificar</a></div></div>
+          <div id="tipoPublicacion-radioBin-mostrar" class="formulario-mod texto-20 grid"><span class="centrar-boton texto-20"><?php if($resultado["venta"]==0){echo "Alquiler";}else{echo "Venta";} ?></span><div class="centrar-boton"><a onclick="modificar_precio()"  id="tipoPublicacion-radioBin-venta-alquiler" class="boton ">Modificar</a></div></div>
           <div id="tipoPublicacion-radioBin-cambiar" class="formulario-mod-radio texto-20 colapse">
           <div class="formulario-radio-contenedor-par">
               <input class="formulario-radio-boton" name="tipoPublicacion" value="venta" type="radio" id="venta" checked disabled>
@@ -264,13 +264,13 @@ if($conexion)
               <input class="formulario-radio-boton" name="tipoPublicacion" value="alquiler" type="radio" id="alquiler" disabled>
               <label class="texto-20" for="alquiler">Alquiler</label>
             </div>
-            <div class="centrar-boton"><a onclick="modificar_dato(this)"  id="tipoPublicacion-radioBin-venta-alquiler-cancel" class="boton ">Cancelar</a></div>
+            <div class="centrar-boton"><a onclick="modificar_precio()"  id="tipoPublicacion-radioBin-venta-alquiler-cancel" class="boton ">Cancelar</a></div>
           </div>
 
 
 
           <span class="formulario-etiqueta texto-20">Precio:</span>
-          <div id="precio-texto-mostrar" class="formulario-mod texto-20 grid"><span class="centrar-boton texto-20"><?php if($resultado["venta"]!=0){echo $resultado["venta"];}else{echo $resultado["alquiler"]; }?></span><div class="centrar-boton"><a onclick="modificar_dato(this)"  id="precio-texto" class="boton ">Modificar</a></div></div>
+          <div id="precio-texto-mostrar" class="formulario-mod texto-20 grid"><span class="centrar-boton texto-20"><?php if($resultado["venta"]!=0){echo $resultado["venta"];}else{echo $resultado["alquiler"]; }?></span><div class="centrar-boton"><a onclick="modificar_precio()"  id="precio-texto" class="boton ">Modificar</a></div></div>
           <div id="precio-texto-cambiar" class="formulario-mod texto-20 colapse">
             <input
               onblur="validar_colapse_mod(this)"
@@ -281,7 +281,7 @@ if($conexion)
               name="precio"
               disabled
             />
-            <div class="centrar-boton"><a onclick="modificar_dato(this)"  id="precio-texto-cancel" class="boton ">Cancelar</a></div>
+            <div class="centrar-boton"><a onclick="modificar_precio()"  id="precio-texto-cancel" class="boton ">Cancelar</a></div>
           </div>
           <span class="formulario-error texto-18 colapse" id="precio-error"></span>
 
@@ -352,10 +352,9 @@ if($conexion)
           <div id="baños-mod-mostrar" class="formulario-mod texto-20 grid"><span class="centrar-boton texto-20"><?php echo $resultado["baños"]; ?></span><div class="centrar-boton"><a onclick="modificar_dato(this)"  id="baños-mod" class="boton ">Modificar</a></div></div>
           <div id="baños-mod-cambiar" class="formulario-mod texto-20 colapse">
             <select class="mod-select texto-20" name="baños" id="baños" disabled>
-              <option value="1">Uno</option>
-              <option value="2">Dos</option>
-              <option value="3">Tres</option>
-              <option value="4">Cuatro o más</option>
+            <option value="1">Uno</option>
+            <option value="2">Dos</option>
+            <option value="3">Tres o más</option>
             </select>
             <div class="centrar-boton"><a onclick="modificar_dato(this)"  id="baños-mod-cancel" class="boton ">Cancelar</a></div>
           </div>
@@ -364,7 +363,7 @@ if($conexion)
           <div class="formulario-entrada texto-20"><a onclick="modificar_checkbox(this)"  id="comodidades-checkbox" class="boton ">Modificar</a></div>
 
             
-
+          <input class="colapse" name="comodidades" value="no" type="checkbox" id="comodidades-modificar" checked>
           <div id="comodidades-1" class="formulario-radio-contenedor-mod colapse" >
             <div class="formulario-radio-contenedor-par">
               <input class="formulario-radio-boton" name="aire" value="tiene" type="checkbox" id="aire" disabled>

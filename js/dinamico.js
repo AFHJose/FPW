@@ -91,6 +91,8 @@ function modificar_checkbox(elemento)
     document.getElementById("jardin").disabled=false;
     document.getElementById("gym").disabled=false;
     document.getElementById("estacionamiento").disabled=false;
+    document.getElementById("comodidades-modificar").value="si";
+    
 
   }else 
   {
@@ -104,6 +106,30 @@ function modificar_checkbox(elemento)
     document.getElementById("jardin").disabled=true;
     document.getElementById("gym").disabled=true;
     document.getElementById("estacionamiento").disabled=true;
+    document.getElementById("comodidades-modificar").value="no";
+  }
+}
+function modificar_precio()
+{
+  mensajeError= document.getElementById("precio-error");
+  mostrar_ocultar("precio-texto-mostrar", "grid");
+  mostrar_ocultar("precio-texto-cambiar", "grid");
+  mostrar_ocultar("tipoPublicacion-radioBin-mostrar", "grid");
+  mostrar_ocultar("tipoPublicacion-radioBin-cambiar", "grid");
+  if(document.getElementById("precio-texto-cambiar").classList.contains("colapse"))
+  {
+    document.getElementById("venta").disabled=true;
+    document.getElementById("alquiler").disabled=true;
+    document.getElementById("precio").disabled=true;
+    mensajeError.classList.replace("flex","colapse");
+  }else{
+    document.getElementById("venta").disabled=false;
+    document.getElementById("alquiler").disabled=false;
+    document.getElementById("precio").disabled=false;
+    if(mensajeError.innerText!="")
+    {
+      mensajeError.classList.replace("colapse","flex");
+    }
   }
 }
 function modificar_dato(elemento)

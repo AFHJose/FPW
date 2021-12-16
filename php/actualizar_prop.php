@@ -5,110 +5,215 @@ include "conexion.php";
 include "validar.php";
 
 echo json_encode($_POST);
-
 $conexion = OpenCon();
 if($conexion)
 {
-    $dir= limpiar_validar($_POST["dir"],"dir");
-
-    $superficie= limpiar_validar($_POST["superficie"], "superficie");
-
-    $tipo=limpiar_validar($_POST["tipo"], "texto");
-
-    $supCubierta= limpiar_validar($_POST["supCubierta"], "supCubierta");
-
-    $antiguedad= limpiar_validar($_POST["antiguedad"], "antiguedad");
-
-    $precio=intval(limpiar_validar($_POST["precio"], "precio"));
-
-    $autor=limpiar_validar($_POST["autor"], "texto");
-
-    $barrio=limpiar_validar($_POST["barrio"], "texto");
-
-    $ambientes=intval(limpiar_validar($_POST["ambientes"], "numero"));
-
-    $baños=intval(limpiar_validar($_POST["baños"], "numero"));
-
-    $moneda=limpiar_validar($_POST["moneda"], "texto");
-
-    if ($moneda=="peso")
+    if(isset($_POST["tipo"]))
     {
-        $dolar=0;
-    }else if($moneda=="dolar")
-    {
-        $dolar=1;
+        $tipo=limpiar_validar($_POST["tipo"], "texto");
+
+        $sql = "UPDATE mibadb.propiedades SET tipo=? WHERE id_prop=?";
+        $stmt= $conexion->prepare($sql);
+        $stmt->bind_param("ss",$tipo, $_POST["id_prop"]);
+        $status = $stmt->execute();
+
     }
 
-    $tipoPublicacion = limpiar_validar($_POST["tipoPublicacion"], "texto");
-
-    if($tipoPublicacion=="venta")
+    if(isset($_POST["dir"]))
     {
-        $venta=$precio;
-        $alquiler=0;
+        $dir= limpiar_validar($_POST["dir"],"dir");
 
-    }else if($tipoPublicacion=="alquiler")
-    {
-        $alquiler=$precio;
-        $venta=0;
+        $sql = "UPDATE mibadb.propiedades SET dir=? WHERE id_prop=?";
+        $stmt= $conexion->prepare($sql);
+        $stmt->bind_param("ss",$dir, $_POST["id_prop"]);
+        $status = $stmt->execute();
+
     }
 
-    if(isset($_POST["aire"]) and $_POST["aire"]=="tiene")
+    if(isset($_POST["superficie"]))
     {
-        $aire=1;
-    }else{
-        $aire=0;
+        $superficie= limpiar_validar($_POST["superficie"], "superficie");
+
+        $sql = "UPDATE mibadb.propiedades SET superficie=? WHERE id_prop=?";
+        $stmt= $conexion->prepare($sql);
+        $stmt->bind_param("ss",$superficie, $_POST["id_prop"]);
+        $status = $stmt->execute();
+
     }
 
-    if(isset($_POST["balcon"]) and $_POST["balcon"]=="tiene")
+    if(isset($_POST["supCubierta"]))
     {
-        $balcon=1;
-    }else{
-        $balcon=0;
+        $supCubierta= limpiar_validar($_POST["supCubierta"], "supCubierta");
+
+        $sql = "UPDATE mibadb.propiedades SET superficie_cubierta=? WHERE id_prop=?";
+        $stmt= $conexion->prepare($sql);
+        $stmt->bind_param("ss",$supCubierta, $_POST["id_prop"]);
+        $status = $stmt->execute();
+
     }
 
-    if(isset($_POST["pileta"]) and $_POST["pileta"]=="tiene")
+    if(isset($_POST["antiguedad"]))
     {
-        $pileta=1;
-    }else{
-        $pileta=0;
+        $antiguedad= limpiar_validar($_POST["antiguedad"], "antiguedad");
+
+        $sql = "UPDATE mibadb.propiedades SET antiguedad=? WHERE id_prop=?";
+        $stmt= $conexion->prepare($sql);
+        $stmt->bind_param("ss",$antiguedad, $_POST["id_prop"]);
+        $status = $stmt->execute();
+
     }
 
-    if(isset($_POST["jardin"]) and $_POST["jardin"]=="tiene")
+    if(isset($_POST["barrio"]))
     {
-        $jardin=1;
-    }else{
-        $jardin=0;
+        $barrio=limpiar_validar($_POST["barrio"], "texto");
+
+        $sql = "UPDATE mibadb.propiedades SET barrio=? WHERE id_prop=?";
+        $stmt= $conexion->prepare($sql);
+        $stmt->bind_param("ss",$barrio, $_POST["id_prop"]);
+        $status = $stmt->execute();
+
     }
 
-    if(isset($_POST["gym"]) and $_POST["gym"]=="tiene")
+    if(isset($_POST["ambientes"]))
     {
-        $gym=1;
-    }else{
-        $gym=0;
+        $ambientes=limpiar_validar($_POST["ambientes"], "numero");
+
+        $sql = "UPDATE mibadb.propiedades SET ambientes=? WHERE id_prop=?";
+        $stmt= $conexion->prepare($sql);
+        $stmt->bind_param("ss",$ambientes, $_POST["id_prop"]);
+        $status = $stmt->execute();
+
+    }
+    if(isset($_POST["baños"]))
+    {
+        $baños=limpiar_validar($_POST["baños"], "numero");
+
+        $sql = "UPDATE mibadb.propiedades SET baños=? WHERE id_prop=?";
+        $stmt= $conexion->prepare($sql);
+        $stmt->bind_param("ss",$baños, $_POST["id_prop"]);
+        $status = $stmt->execute();
+
     }
 
-    if(isset($_POST["estacionamiento"]) and $_POST["estacionamiento"]=="tiene")
+    if(isset($_POST["moneda"]))
     {
-        $estacionamiento=1;
-    }else{
-        $estacionamiento=0;
+        $moneda=limpiar_validar($_POST["moneda"], "texto");
+        if ($moneda=="peso")
+        {
+            $dolar="0";
+        }else if($moneda=="dolar")
+        {
+            $dolar="1";
+        }
+
+        $sql = "UPDATE mibadb.propiedades SET dolar=? WHERE id_prop=?";
+        $stmt= $conexion->prepare($sql);
+        $stmt->bind_param("ss",$dolar, $_POST["id_prop"]);
+        $status = $stmt->execute();
+
+    }
+
+    if(isset($_POST["precio"]))
+    {
+        $precio=limpiar_validar($_POST["precio"], "precio");
+        
+        $tipoPublicacion = limpiar_validar($_POST["tipoPublicacion"], "texto");
+
+        if($tipoPublicacion=="venta")
+        {
+            $venta=$precio;
+            $alquiler="0";
+
+        }else if($tipoPublicacion=="alquiler")
+        {
+            $alquiler=$precio;
+            $venta="0";
+        }
+
+        $sql = "UPDATE mibadb.propiedades SET venta=? , alquiler=? WHERE id_prop=?";
+        $stmt= $conexion->prepare($sql);
+        $stmt->bind_param("sss",$venta,$alquiler, $_POST["id_prop"]);
+        $status = $stmt->execute();
+
     }
 
     $id_usuario= $_SESSION["id_usuario"];
 
-    if($id_usuario=="1")
+    if(isset($_POST["autor"]))
     {
-        $autor="miba";
-        $certificada=1;
-    }else{
-        $certificada=0;
+        $autor=limpiar_validar($_POST["autor"], "texto");
+
+        
+    
+        if($id_usuario=="1")
+        {
+            $autor="miba";
+            $certificada="1";
+        }else{
+            $certificada="0";
+        }
+        $sql = "UPDATE mibadb.propiedades SET autor=? , certificada=? WHERE id_prop=?";
+        $stmt= $conexion->prepare($sql);
+        $stmt->bind_param("sss",$autor,$certificada, $_POST["id_prop"]);
+        $status = $stmt->execute();
+
     }
 
+    if($_POST["comodidades"]=="si")
+    {
+        if(isset($_POST["aire"]) and $_POST["aire"]=="tiene")
+        {
+            $aire=1;
+        }else{
+            $aire=0;
+        }
     
+        if(isset($_POST["balcon"]) and $_POST["balcon"]=="tiene")
+        {
+            $balcon=1;
+        }else{
+            $balcon=0;
+        }
+    
+        if(isset($_POST["pileta"]) and $_POST["pileta"]=="tiene")
+        {
+            $pileta=1;
+        }else{
+            $pileta=0;
+        }
+    
+        if(isset($_POST["jardin"]) and $_POST["jardin"]=="tiene")
+        {
+            $jardin=1;
+        }else{
+            $jardin=0;
+        }
+    
+        if(isset($_POST["gym"]) and $_POST["gym"]=="tiene")
+        {
+            $gym=1;
+        }else{
+            $gym=0;
+        }
+    
+        if(isset($_POST["estacionamiento"]) and $_POST["estacionamiento"]=="tiene")
+        {
+            $estacionamiento=1;
+        }else{
+            $estacionamiento=0;
+        }
+
+        $sql = "UPDATE mibadb.propiedades SET aire=? , balcon=? , pileta=? , jardin=? , gym=? , estacionamiento=? WHERE id_prop=?";
+        $stmt= $conexion->prepare($sql);
+        $stmt->bind_param("iiiiiis",$aire,$balcon,$pileta, $jardin, $gym, $estacionamiento, $_POST["id_prop"]);
+        $status = $stmt->execute();
+    }
 
     // comprobar que se cargo el archivo
     if(isset($_FILES['img']) AND $_FILES['img']['error']== UPLOAD_ERR_OK)
     {
+
+
         $path = pathinfo($_FILES['img']['name']);
         //comprobar si el archivo tiene la extension correcta
         if ( in_array(strtolower($path['extension']),array("jpeg","jpg","png","gif")))
@@ -117,45 +222,25 @@ if($conexion)
             //comprobar que el archivo tiene un tamaño apropiado 0b a 20Mb
             if($_FILES['img']['size']>0 AND $_FILES['img']['size']< 20971520)
             {
-                //obtener el maximo id actual y sumarle uno para saber el id de la propiedad a crear y 
-                //utilizarlo para crear la carpeta donde se guardan las imagenes
-                $sql="SELECT MAX(id_prop) FROM propiedades;";
-                if($id_prop = $conexion->query($sql))
-                {
-                $id_prop= $id_prop->fetch_assoc();
-                $id_prop=strval(intval($id_prop["MAX(id_prop)"])+1);
-            
-                }else{
-                    echo "error query en proximo id_prop";
-                }
-                
-                $img_dir ="../assets/usuarios/".$id_usuario."/".$id_prop;
-                $img_path="../assets/usuarios/".$id_usuario."/".$id_prop."/1.".$path['extension'];
-                
-                // crear las carpetas necesarias con todos los permisos habilidatos de manera recursiva
-                if(mkdir($img_dir,"0777",true))
-                {
-                    //mover y renombrar el archivo
-                    if(move_uploaded_file($_FILES['img']['tmp_name'],$img_path))
-                    {
-                        $id_usuario=intval($id_usuario);
-                        //echo "EXITO ";
-                        // utilizar prepare como manera de filtrar posible codigo sql malicioso
-                        $sql = "INSERT INTO mibadb.propiedades (id_usuario,img_path,dir,barrio,tipo,ambientes,baños,venta,alquiler,dolar,aire,balcon,pileta,jardin,gym,estacionamiento,superficie,superficie_cubierta,certificada,antiguedad,autor) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-                        $stmt= $conexion->prepare($sql);
-                        $stmt->bind_param("issssiiiiiiiiiiiiiiis",$id_usuario,$img_path,$dir,$barrio,$tipo,$ambientes,$baños,$venta,$alquiler,$dolar,$aire,$balcon,$pileta,$jardin,$gym,$estacionamiento,$superficie,$supCubierta,$certificada,$antiguedad,$autor);
-                        $stmt->execute();
+   
+                //ubicar la imagen actual
+                $sql="SELECT * FROM propiedades WHERE id_prop=".$_POST["id_prop"];
+                $resultado=$conexion->query($sql)->fetch_assoc();
+                $img_path=$resultado["img_path"];
+                //borrar la imagen actual
+                unlink($img_path);
 
-                        header("Location: http://localhost/FPW/php/index.php");
-
-                    }else
-                    {
-                        echo "Error mover archivo";
-                    }
-                }else 
+                //mover y renombrar el archivo
+                if(move_uploaded_file($_FILES['img']['tmp_name'],$img_path))
                 {
-                    echo "Error crear directorio";
+
+                    header("Location: http://localhost/FPW/php/index.php");
+
+                }else
+                {
+                    echo "Error mover archivo";
                 }
+
     
             }else
             {
@@ -170,6 +255,18 @@ if($conexion)
     {
         echo "Error carga archivo";
     }
+
+
+
+
+    
+
+    
+
+
+
+    
+
     
 
 }else{
