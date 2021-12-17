@@ -87,8 +87,25 @@ function actualizar_pag_oferta(modo) {
     buscar_oferta(ultima_busqueda[0],ultima_busqueda[1]);
   }
 
-function boton_crear()
+function boton_crear(boton)
 {
+    var formulario = document.getElementById("crear-oferta");
     
+    if(formulario.classList.contains("colapse"))
+    {
+        formulario.classList.replace("colapse","flex");
+        boton.innerText="Cancelar";
+    }else
+    {
+        formulario.classList.replace("flex","colapse");
+        boton.innerText="Crear propuesta";
+    }
+}
+function validar_precio_oferta(elemento)
+{
+    if(! /^\s*(\d{1,})\s*$/.test(elemento.value))
+    {
+        elemento.value="";
+    }
 }
 buscar_oferta("azar",document.getElementById("id_prop").getAttribute("content"));

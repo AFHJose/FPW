@@ -550,20 +550,21 @@ if($conexion)
               if(isset($_SESSION["id_usuario"]) AND $resultado["id_usuario"]!=$_SESSION["id_usuario"])
               {
                 echo <<<HEREDOC
-                <div class="centrar-boton-contacto"><button onclick="contacto(this)" id ="contacto" class="boton">Crear propuesta</button></div>
-                <form class="oferta-formulario fondo-blanco-borde-gris" action="../php/crear_oferta.php" method="post">
+                <div class="centrar-boton-contacto"><button onclick="boton_crear(this)" id ="contacto" class="boton">Crear propuesta</button></div>
+                <form id="crear-oferta" class="oferta-formulario colapse fondo-blanco-borde-gris" action="../php/crear_oferta.php" method="post">
                 <h3>Crear una propuesta</h3>
+                <input type="checkbox" checked class="colapse" name="id_prop" value=$_GET[id_prop]>
                 <div class="oferta-formulario-par">
-                <label for="termina">Fechar finalizacion:</label>
-                <input type="date" id="termina" name="termina">
+                <label class="oferta-formulario-etiqueta" for="termina">Fechar finalizacion:</label>
+                <input required class="oferta-formulario-entrada" type="date" id="termina" name="termina">
                 </div>
                 <div class="oferta-formulario-par">
-                <label for="dolares">En dolares:</label>
-                <input type="checkbox" id="dolares" name="dolares">
+                <label class="oferta-formulario-etiqueta" for="dolares">En dolares:</label>
+                <div class="centrar-boton"><input class="oferta-formulario-entrada-check" type="checkbox" id="dolares" name="dolares" value="1"></div>
                 </div>
                 <div class="oferta-formulario-par">
-                <label for="precio">Monto:</label>
-                <input type="text" id="precio" name="precio">
+                <label class="oferta-formulario-etiqueta" for="precio">Monto:</label>
+                <input required onblur="validar_precio_oferta(this)" class="oferta-formulario-entrada" type="text" id="precio" name="precio" placeholder="Ingrese el monto">
                 </div>
                 
                 <div class="centrar-boton-contacto "><input class="boton" type="submit" value="Enviar"></div>
