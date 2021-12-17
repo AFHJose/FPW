@@ -4,7 +4,6 @@ session_start();
 include "conexion.php";
 include "validar.php";
 
-echo json_encode($_POST);
 $conexion = OpenCon();
 if($conexion)
 {
@@ -251,23 +250,9 @@ if($conexion)
             echo "Error de extension";
         }
 
-    }else
-    {
-        echo "Error carga archivo";
     }
 
-
-
-
-    
-
-    
-
-
-
-    
-
-    
+    header("Location: http://localhost/FPW/php/propiedad-detalle.php?id_prop=".$_POST["id_prop"]);
 
 }else{
     echo "Error conexion DB";
