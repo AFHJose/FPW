@@ -31,12 +31,18 @@ session_start();
             <li>
               <a href="propiedades.php?modo=alquiler" class="enlace-boton"><span class="enlace-texto">Alquilar </span></a>
             </li>
-            <li>
-              <a class="enlace-boton"><span class="enlace-texto">Servicios administrativos </span></a>
-            </li>
-            <li>
-              <a href="crear_prop.php"class="enlace-boton"><span class="enlace-texto">Publicar </span></a>
-            </li>
+            <?php
+              if(isset($_SESSION["id_usuario"]))
+              {
+                echo <<<HEREDOC
+                <li>
+                  <a href="crear_prop.php"class="enlace-boton"><span class="enlace-texto">Publicar </span></a>
+                </li>
+
+                HEREDOC;
+              }
+
+            ?>
           </ul>
         </nav>
 
@@ -124,9 +130,6 @@ session_start();
             vendedores, generando un espacio de discusion y negociacion que
             ayuda a concretar mas tratos.
           </p>
-          <a class="mas-info-contenedor"
-            ><span class="mas-info">Mas informacion</span></a
-          >
         </div>
 
         <img
@@ -152,9 +155,7 @@ session_start();
             que garantiza la buena condicion de la propiedad aportanto
             transparencia a los tratos y tranquilidad a los compradores.
           </p>
-          <a class="mas-info-contenedor"
-            ><span class="mas-info">Mas informacion</span></a
-          >
+
         </div>
         <img
           class="propuestas-img"
@@ -183,9 +184,7 @@ session_start();
             del mercado inmobiliario en Buenos Aires escrito por expertos del
             area y fundamentado en datos estadisticos.
           </p>
-          <a class="mas-info-contenedor"
-            ><span class="mas-info">Mas informacion</span></a
-          >
+
         </div>
         <img
           class="propuestas-img"
@@ -212,9 +211,7 @@ session_start();
             servicio permite que el propietario obtenega y disfrute de su renta
             sin tener que preocuparse por los detalles.
           </p>
-          <a class="mas-info-contenedor"
-            ><span class="mas-info">Mas informacion</span></a
-          >
+
         </div>
         <img
           class="propuestas-img"
@@ -236,9 +233,7 @@ session_start();
             MIBA se ofrece a manejar la venta de sus propiedades buscando el
             mejor trato posible segun sus preferencias.
           </p>
-          <a class="mas-info-contenedor"
-            ><span class="mas-info">Mas informacion</span></a
-          >
+
         </div>
         <img
           class="propuestas-img"

@@ -35,6 +35,15 @@ function asignar_oferta(id, oferta) {
 
     document.getElementById(String(id) + "-rechazar").href= "rechazar_oferta.php?id_prop="+ultima_busqueda[1]+"&id_oferta="+oferta["id_oferta"];
 
+    if(oferta["usuario"]==document.getElementById("id_usuario").getAttribute("content"))
+    {
+
+        document.getElementById(String(id) + "-borrar").hidden=false;
+        document.getElementById(String(id) + "-borrar").href= "borrar_oferta.php?id_prop="+ultima_busqueda[1]+"&id_oferta="+oferta["id_oferta"];
+    }else{
+        document.getElementById(String(id) + "-borrar").hidden=true;
+
+    }
     
 }
 
