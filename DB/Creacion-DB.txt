@@ -42,3 +42,23 @@ ALTER TABLE mibadb.propiedades ADD superficie_cubierta SMALLINT UNSIGNED;
 ALTER TABLE mibadb.propiedades ADD certificada BOOL DEFAULT 0;
 ALTER TABLE mibadb.propiedades ADD antiguedad TINYINT UNSIGNED;
 ALTER TABLE mibadb.propiedades ADD autor varchar(50);
+
+CREATE TABLE mibadb.ofertas
+(
+    id_oferta MEDIUMINT UNSIGNED AUTO_INCREMENT NOT NULL, 
+    id_usuario MEDIUMINT UNSIGNED NOT NULL, 
+    id_prop MEDIUMINT UNSIGNED NOT NULL, 
+    dolar BOOL DEFAULT 0,
+    precio MEDIUMINT UNSIGNED,
+    creacion DATE,
+    termina DATE,
+
+    PRIMARY KEY (id_oferta),
+    FOREIGN KEY (id_usuario) REFERENCES mibadb.usuarios(id_usuario),
+    FOREIGN KEY (id_prop) REFERENCES mibadb.propiedades(id_prop)
+
+
+);
+
+
+ALTER TABLE mibadb.ofertas ADD estado varchar(100);

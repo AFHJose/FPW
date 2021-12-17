@@ -185,3 +185,16 @@ function modificar_dato(elemento)
   }
 
 }
+function contacto(boton)
+{
+  
+
+  if(boton.innerText=="Contactar")
+  {
+    boton.innerText="Ocultar";
+    mostrar_ocultar(boton.id+"-correo", "contacto-mostrar");
+  }else{
+    boton.innerText="Contactar";
+    mostrar_ocultar(boton.id+"-correo", "contacto-mostrar");
+  }
+}

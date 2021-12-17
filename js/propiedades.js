@@ -365,40 +365,7 @@ function prop_consulta(id) {
     }
   };
   var get = constructor_get(id);
-  /*
-  var get = "";
-
-  if (id != "azar") {
-    let k = 0;
-    for (let opcion in categorias) {
-      for (let x = 0; x < categorias[opcion].length; x++) {
-        if (categorias[opcion][x][1]) {
-          if (get == "") {
-            get +=
-              "opcion-" +
-              String(k) +
-              "=" +
-              opcion +
-              "-" +
-              categorias[opcion][x][0];
-          } else {
-            get +=
-              "&opcion-" +
-              String(k) +
-              "=" +
-              opcion +
-              "-" +
-              categorias[opcion][x][0];
-          }
-          k++;
-        }
-      }
-    }
-  }
-  if (get == "") {
-    get = "azar";
-  }
-*/
+  
   //console.log(get);
   req.open("GET", "buscar-prop.php?" + get);
   req.send();

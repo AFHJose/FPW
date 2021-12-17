@@ -236,14 +236,26 @@
   font-size: 16px;
   font-weight: bold;
 }
-.contacto {
-  margin: 10px 0px 10px 0px;
-}
+
 .centrar-boton {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.centrar-boton-contacto
+{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px 0px 20px 0px;
+}
+.contacto-mostrar
+{
+  display: block;
+  font-weight: bold;
+  font-size: 20px;
 }
 .botones-usuario
 {

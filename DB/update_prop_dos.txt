@@ -2,3 +2,6 @@ UPDATE mibadb.propiedades SET ambientes=NULL, baños=NULL, aire=0,balcon=0,pilet
 
 UPDATE mibadb.propiedades SET ambientes=NULL, baños=NULL, aire=0,balcon=0,pileta=0,jardin=0,gym=0,estacionamiento=0, antiguedad=200,superficie_cubierta=NULL WHERE mibadb.propiedades.tipo='Terreno';
 
+UPDATE mibadb.ofertas SET estado="vigente" WHERE mibadb.ofertas.id_oferta BETWEEN 1 AND 100;
+UPDATE mibadb.ofertas SET estado="rechazada" WHERE mibadb.ofertas.id_oferta BETWEEN 100 AND 200;
+UPDATE mibadb.ofertas SET creacion="2019-01-25" , estado="expirada" WHERE mibadb.ofertas.id_oferta BETWEEN 200 AND 300;
