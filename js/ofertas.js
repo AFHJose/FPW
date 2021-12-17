@@ -86,4 +86,9 @@ function actualizar_pag_oferta(modo) {
     show.innerText = "Pagina " + String(pagina);
     buscar_oferta(ultima_busqueda[0],ultima_busqueda[1]);
   }
+
+function boton_crear()
+{
+    
+}
 buscar_oferta("azar",document.getElementById("id_prop").getAttribute("content"));

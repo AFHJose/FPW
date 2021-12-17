@@ -246,6 +246,7 @@ if($conexion)
           </section>
           <section class="ofertas-section fondo-blanco-borde-gris">
             <h3 class="texto-24">Propuestas:</h3>
+
             <div class="ofertas-filtros">
             <button onclick="buscar_oferta('azar','<?php echo $_GET['id_prop']; ?>')" class="boton">Todas</button>
               <button onclick="buscar_oferta('vigente','<?php echo $_GET['id_prop']; ?>')" class="boton">Vigentes</button>
@@ -545,7 +546,33 @@ if($conexion)
                 <button onclick="actualizar_pag_oferta(true)" id="resultados-siguiente" class="boton block">Siguiente ></button>
               </div>
 
-
+              <?php
+              if(isset($_SESSION["id_usuario"]) AND $resultado["id_usuario"]!=$_SESSION["id_usuario"])
+              {
+                echo <<<HEREDOC
+                <div class="centrar-boton-contacto"><button onclick="contacto(this)" id ="contacto" class="boton">Crear propuesta</button></div>
+                <form class="oferta-formulario fondo-blanco-borde-gris" action="../php/crear_oferta.php" method="post">
+                <h3>Crear una propuesta</h3>
+                <div class="oferta-formulario-par">
+                <label for="termina">Fechar finalizacion:</label>
+                <input type="date" id="termina" name="termina">
+                </div>
+                <div class="oferta-formulario-par">
+                <label for="dolares">En dolares:</label>
+                <input type="checkbox" id="dolares" name="dolares">
+                </div>
+                <div class="oferta-formulario-par">
+                <label for="precio">Monto:</label>
+                <input type="text" id="precio" name="precio">
+                </div>
+                
+                <div class="centrar-boton-contacto "><input class="boton" type="submit" value="Enviar"></div>
+                
+                </form>
+                
+                HEREDOC;
+              }
+             ?>
             
           </section>  
             </div>
