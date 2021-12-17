@@ -293,7 +293,7 @@ if($conexion)
                 if(isset($_SESSION["id_usuario"]) AND $resultado["id_usuario"]==$_SESSION["id_usuario"])
                 {
                   echo <<<HEREDOC
-                  <div class="centrar-boton-contacto"><button onclick="contacto(this)" id ="0-contacto" class="boton">Contactar</button><span id ="0-contacto-correo" class="colapse">Correo: COSO</span></div>
+                  <div class="centrar-boton-contacto"><button onclick="contacto(this)" id ="0-contacto" class="boton">Contactar</button><a href="rechazar_oferta.php?id_oferta=" id="0-rechazar" class="boton">Rechazar</a><span id ="0-contacto-correo" class="colapse">Correo: COSO</span></div>
 
                   HEREDOC;
                 }else
@@ -339,7 +339,7 @@ if($conexion)
                 if(isset($_SESSION["id_usuario"]) AND $resultado["id_usuario"]==$_SESSION["id_usuario"])
                 {
                   echo <<<HEREDOC
-                  <div class="centrar-boton-contacto"><button onclick="contacto(this)" id ="1-contacto" class="boton">Contactar</button><span id ="1-contacto-correo" class="colapse">Correo: COSO</span></div>
+                  <div class="centrar-boton-contacto"><button onclick="contacto(this)" id ="1-contacto" class="boton">Contactar</button><a href="rechazar_oferta.php?id_oferta=" id="1-rechazar" class="boton">Rechazar</a><span id ="1-contacto-correo" class="colapse">Correo: COSO</span></div>
 
                   HEREDOC;
                 }else
@@ -385,7 +385,7 @@ if($conexion)
                 if(isset($_SESSION["id_usuario"]) AND $resultado["id_usuario"]==$_SESSION["id_usuario"])
                 {
                   echo <<<HEREDOC
-                  <div class="centrar-boton-contacto"><button onclick="contacto(this)" id ="2-contacto" class="boton">Contactar</button><span id ="2-contacto-correo" class="colapse">Correo: COSO</span></div>
+                  <div class="centrar-boton-contacto"><button onclick="contacto(this)" id ="2-contacto" class="boton">Contactar</button><a href="rechazar_oferta.php?id_oferta=" id="2-rechazar" class="boton">Rechazar</a><span id ="2-contacto-correo" class="colapse">Correo: COSO</span></div>
 
                   HEREDOC;
                 }else
@@ -432,7 +432,7 @@ if($conexion)
                 if(isset($_SESSION["id_usuario"]) AND $resultado["id_usuario"]==$_SESSION["id_usuario"])
                 {
                   echo <<<HEREDOC
-                  <div class="centrar-boton-contacto"><button onclick="contacto(this)" id ="3-contacto" class="boton">Contactar</button><span id ="3-contacto-correo" class="colapse">Correo: COSO</span></div>
+                  <div class="centrar-boton-contacto"><button onclick="contacto(this)" id ="3-contacto" class="boton">Contactar</button><a href="rechazar_oferta.php?id_oferta=" id="3-rechazar" class="boton">Rechazar</a><span id ="3-contacto-correo" class="colapse">Correo: COSO</span></div>
 
                   HEREDOC;
                 }else
@@ -478,7 +478,7 @@ if($conexion)
                 if(isset($_SESSION["id_usuario"]) AND $resultado["id_usuario"]==$_SESSION["id_usuario"])
                 {
                   echo <<<HEREDOC
-                  <div class="centrar-boton-contacto"><button onclick="contacto(this)" id ="4-contacto" class="boton">Contactar</button><span id ="4-contacto-correo" class="colapse">Correo: COSO</span></div>
+                  <div class="centrar-boton-contacto"><button onclick="contacto(this)" id ="4-contacto" class="boton">Contactar</button><a href="rechazar_oferta.php?id_oferta=" id="4-rechazar" class="boton">Rechazar</a><span id ="4-contacto-correo" class="colapse">Correo: COSO</span></div>
 
                   HEREDOC;
                 }else
@@ -525,7 +525,7 @@ if($conexion)
                 if(isset($_SESSION["id_usuario"]) AND $resultado["id_usuario"]==$_SESSION["id_usuario"])
                 {
                   echo <<<HEREDOC
-                  <div class="centrar-boton-contacto"><button onclick="contacto(this)" id ="5-contacto" class="boton">Contactar</button><span id ="5-contacto-correo" class="colapse">Correo: COSO</span></div>
+                  <div class="centrar-boton-contacto"><button onclick="contacto(this)" id ="5-contacto" class="boton">Contactar</button><a href="rechazar_oferta.php?id_oferta=" id="5-rechazar" class="boton">Rechazar</a><span id ="5-contacto-correo" class="colapse">Correo: COSO</span></div>
 
                   HEREDOC;
                 }else

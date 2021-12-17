@@ -33,6 +33,8 @@ function asignar_oferta(id, oferta) {
 
     document.getElementById(String(id) + "-contacto-correo").innerText= oferta["correo"];
 
+    document.getElementById(String(id) + "-rechazar").href= "rechazar_oferta.php?id_prop="+ultima_busqueda[1]+"&id_oferta="+oferta["id_oferta"];
+
     
 }
 
