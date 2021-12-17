@@ -1,3 +1,5 @@
+var pagina=1;
+var ultima_busqueda =["azar",document.getElementById("id_prop").getAttribute("content")];
 function ocultar_oferta(id) {
     let prop = document.getElementById(String(id) + "-o");
     prop.classList.replace("show", "hide");
@@ -34,27 +36,54 @@ function asignar_oferta(id, oferta) {
     
 }
 
-function buscar_azar(modo,id_prop)
+function buscar_oferta(modo,id_prop)
 {
     var req = new XMLHttpRequest();
     req.onload = function () {
-        if (this.responseText != "vacio") {
-          //console.log(this.responseText);
-          respuesta = JSON.parse(this.responseText);
-          vacio(false);
-    
-          for (let x = 0; x < respuesta.length; x++) {
-            mostrar_oferta(x);
-            asignar(x, respuesta[x]);
-          }
-          for (let x = respuesta.length; x < 6; x++) {
-            ocultar_oferta(x);
-          }
-        } else {
-          //vacio(true);
-        }
-      };
+        
+        //console.log(this.responseText);
+        if(this.responseText!="vacio")
+        {
 
-      req.open("GET", "buscar-prop.php?modo=" + modo +"&id_prop="+id_prop);
-      req.send();
+            respuesta = JSON.parse(this.responseText);
+            for (let x = 0; x < respuesta.length; x++) {
+            mostrar_oferta(x);
+            asignar_oferta(x, respuesta[x]);
+            }
+            for (let x = respuesta.length; x < 6; x++) {
+            ocultar_oferta(x);
+            }
+        }else{
+            for (let x = 0; x < 6; x++) {
+            ocultar_oferta(x);
+            }
+
+        }
+        
+    }
+    //console.log(modo);
+    //console.log(id_prop);
+    req.open("GET", "buscar-oferta.php?offset="+String(pagina)+"&modo=" + modo +"&id_prop="+id_prop);
+    req.send();
+    ultima_busqueda[0]=modo;
+
 }
+
+
+function actualizar_pag_oferta(modo) {
+    let show = document.getElementById("resultados-cantidad");
+    if (modo) {
+        pagina++;
+      if (pagina == 2) {
+        mostrar_ocultar("resultados-anterior", "block");
+      }
+    } else {
+        pagina--;
+      if (pagina == 1) {
+        mostrar_ocultar("resultados-anterior", "block");
+      }
+    }
+    show.innerText = "Pagina " + String(pagina);
+    buscar_oferta(ultima_busqueda[0],ultima_busqueda[1]);
+  }
+buscar_oferta("azar",document.getElementById("id_prop").getAttribute("content"));

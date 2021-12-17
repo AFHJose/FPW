@@ -16,7 +16,11 @@ if($conexion)
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+    <?php
+
+      echo '<meta id="id_prop" name="id_prop" content="'.$_GET["id_prop"].'"/>';
+
+    ?>
     <title>INDEX-TEST</title>
     <link rel="stylesheet" type="text/css" href="../css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="../css/index.css" />
@@ -27,7 +31,7 @@ if($conexion)
     <script src="../js/validar.js"></script>
     <script src="../js/dinamico.js"></script>
     <script src="../js/usuario.js"></script>
-    <script src="../js/ofertas.js"></script>
+    <script defer src="../js/ofertas.js"></script>
     
     
   </head>
@@ -243,27 +247,12 @@ if($conexion)
           <section class="ofertas-section fondo-blanco-borde-gris">
             <h3 class="texto-24">Propuestas:</h3>
             <div class="ofertas-filtros">
-              <button class="boton">Vigentes</button>
-              <button class="boton">Vencidas</button>
-              <button class="boton">Rechazadas</button>
+            <button onclick="buscar_oferta('azar','<?php echo $_GET['id_prop']; ?>')" class="boton">Todas</button>
+              <button onclick="buscar_oferta('vigente','<?php echo $_GET['id_prop']; ?>')" class="boton">Vigentes</button>
+              <button onclick="buscar_oferta('vencida','<?php echo $_GET['id_prop']; ?>')" class="boton">Vencidas</button>
+              <button onclick="buscar_oferta('rechazada','<?php echo $_GET['id_prop']; ?>')" class="boton">Rechazadas</button>
             </div>
-              <form class="ofertas-ordenar">
-                <label class="ofertas-ordenar-etiqueta texto-20" for="ordenar">Ordenar por:</label>
-                <select class="ofertas-ordenar-categoria texto-16" id="ordenar-cat" name="ordenar-cat">
-                  <option>Fecha de creacion </option>
-                  <option>Monto en dolares</option>
-                  <option>Monto en pesos</option>
-                  <option>Cantidad de propiedades</option>
-                  <option>Fecha de vencimiento</option>
-                </select>
-                
-                <select class="ofertas-ordenar-categoria texto-16" id="ordenar-modo" name="ordenar-modo">
-                  <option>Ascendiente</option>
-                  <option>Descendiente</option>
-   
-                </select>
-              </form>
-            <secti class="prop-d-ofertas-contenedor">
+            <section class="prop-d-ofertas-contenedor">
               <div class="prop-d-oferta grid">
                 <span class="prop-d-oferta-titulo">Creacion:</span>
                 <span class="prop-d-oferta-titulo">Valor:</span>
@@ -272,7 +261,7 @@ if($conexion)
               </div>
 
 
-              <button id="0-o" onclick="mostrar_ocultar('0-o-d','flex')" class="prop-d-oferta efecto-hover grid show">
+              <button id="0-o" onclick="mostrar_ocultar('0-o-d','flex')" class="prop-d-oferta efecto-hover grid hide">
                 <span id="0-creacion-mini">11/12/2021</span>
                 <span id="0-precio-mini">50K USD </span>
                 <span id="0-termina-mini">30/12/2021</span>
@@ -299,11 +288,26 @@ if($conexion)
                   <span id="0-termina-grande" class="prop-d-valor bot-right border">2021/05/07</span>
                 </div>
 
-                <div class="centrar-boton-contacto"><button onclick="contacto(this)" id ="0-contacto" class="boton">Contactar Oferente</button><span id ="0-contacto-correo" class="colapse">Correo: COSO</span></div>
+                <?php
+                if(isset($_SESSION["id_usuario"]) AND $resultado["id_usuario"]==$_SESSION["id_usuario"])
+                {
+                  echo <<<HEREDOC
+                  <div class="centrar-boton-contacto"><button onclick="contacto(this)" id ="0-contacto" class="boton">Contactar</button><span id ="0-contacto-correo" class="colapse">Correo: COSO</span></div>
+
+                  HEREDOC;
+                }else
+                {
+                  echo <<<HEREDOC
+                  <div class="centrar-boton-contacto" hidden><button hidden onclick="contacto(this)" id ="0-contacto" class="boton">Contactar</button><span id ="0-contacto-correo" class="colapse">Correo: COSO</span></div>
+                  
+                  HEREDOC;
+                }
+
+                ?>
                 
               </div>
 
-              <button id="1-o" onclick="mostrar_ocultar('1-o-d','flex')" class="prop-d-oferta efecto-hover grid show">
+              <button id="1-o" onclick="mostrar_ocultar('1-o-d','flex')" class="prop-d-oferta efecto-hover grid hide">
                 <span id="1-creacion-mini">11/12/2021</span>
                 <span id="1-precio-mini">50K USD </span>
                 <span id="1-termina-mini">30/12/2021</span>
@@ -330,11 +334,26 @@ if($conexion)
                   <span id="1-termina-grande" class="prop-d-valor bot-right border">2021/05/07</span>
                 </div>
 
-                <div class="centrar-boton-contacto"><button onclick="contacto(this)" id ="1-contacto" class="boton">Contactar Oferente</button><span id ="1-contacto-correo" class="colapse">Correo: COSO</span></div>
+                <?php
+                if(isset($_SESSION["id_usuario"]) AND $resultado["id_usuario"]==$_SESSION["id_usuario"])
+                {
+                  echo <<<HEREDOC
+                  <div class="centrar-boton-contacto"><button onclick="contacto(this)" id ="1-contacto" class="boton">Contactar</button><span id ="1-contacto-correo" class="colapse">Correo: COSO</span></div>
+
+                  HEREDOC;
+                }else
+                {
+                  echo <<<HEREDOC
+                  <div class="centrar-boton-contacto" hidden><button hidden onclick="contacto(this)" id ="1-contacto" class="boton">Contactar</button><span id ="1-contacto-correo" class="colapse">Correo: COSO</span></div>
+                  
+                  HEREDOC;
+                }
+
+                ?>
                 
               </div>
               
-              <button id="2-o" onclick="mostrar_ocultar('2-o-d','flex')" class="prop-d-oferta efecto-hover grid show">
+              <button id="2-o" onclick="mostrar_ocultar('2-o-d','flex')" class="prop-d-oferta efecto-hover grid hide">
                 <span id="2-creacion-mini">11/12/2021</span>
                 <span id="2-precio-mini">50K USD </span>
                 <span id="2-termina-mini">30/12/2021</span>
@@ -361,11 +380,27 @@ if($conexion)
                   <span id="2-termina-grande" class="prop-d-valor bot-right border">2021/05/07</span>
                 </div>
 
-                <div class="centrar-boton-contacto"><button onclick="contacto(this)" id ="2-contacto" class="boton">Contactar Oferente</button><span id ="2-contacto-correo" class="colapse">Correo: COSO</span></div>
+                <?php
+                if(isset($_SESSION["id_usuario"]) AND $resultado["id_usuario"]==$_SESSION["id_usuario"])
+                {
+                  echo <<<HEREDOC
+                  <div class="centrar-boton-contacto"><button onclick="contacto(this)" id ="2-contacto" class="boton">Contactar</button><span id ="2-contacto-correo" class="colapse">Correo: COSO</span></div>
+
+                  HEREDOC;
+                }else
+                {
+                  echo <<<HEREDOC
+                  <div class="centrar-boton-contacto" hidden><button hidden onclick="contacto(this)" id ="2-contacto" class="boton">Contactar</button><span id ="2-contacto-correo" class="colapse">Correo: COSO</span></div>
+                  
+                  HEREDOC;
+                }
+
+                ?>
+
                 
               </div>
 
-              <button id="3-o" onclick="mostrar_ocultar('3-o-d','flex')" class="prop-d-oferta efecto-hover grid show">
+              <button id="3-o" onclick="mostrar_ocultar('3-o-d','flex')" class="prop-d-oferta efecto-hover grid hide">
                 <span id="3-creacion-mini">11/12/2021</span>
                 <span id="3-precio-mini">50K USD </span>
                 <span id="3-termina-mini">30/12/2021</span>
@@ -392,11 +427,26 @@ if($conexion)
                   <span id="3-termina-grande" class="prop-d-valor bot-right border">2021/05/07</span>
                 </div>
 
-                <div class="centrar-boton-contacto"><button onclick="contacto(this)" id ="3-contacto" class="boton">Contactar Oferente</button><span id ="3-contacto-correo" class="colapse">Correo: COSO</span></div>
+                <?php
+                if(isset($_SESSION["id_usuario"]) AND $resultado["id_usuario"]==$_SESSION["id_usuario"])
+                {
+                  echo <<<HEREDOC
+                  <div class="centrar-boton-contacto"><button onclick="contacto(this)" id ="3-contacto" class="boton">Contactar</button><span id ="3-contacto-correo" class="colapse">Correo: COSO</span></div>
+
+                  HEREDOC;
+                }else
+                {
+                  echo <<<HEREDOC
+                  <div class="centrar-boton-contacto" hidden><button hidden onclick="contacto(this)" id ="3-contacto" class="boton">Contactar</button><span id ="3-contacto-correo" class="colapse">Correo: COSO</span></div>
+                  
+                  HEREDOC;
+                }
+
+                ?>
                 
               </div>
 
-              <button id="4-o" onclick="mostrar_ocultar('4-o-d','flex')" class="prop-d-oferta efecto-hover grid show">
+              <button id="4-o" onclick="mostrar_ocultar('4-o-d','flex')" class="prop-d-oferta efecto-hover grid hide">
                 <span id="4-creacion-mini">11/12/2021</span>
                 <span id="4-precio-mini">50K USD </span>
                 <span id="4-termina-mini">30/12/2021</span>
@@ -423,11 +473,27 @@ if($conexion)
                   <span id="4-termina-grande" class="prop-d-valor bot-right border">2021/05/07</span>
                 </div>
 
-                <div class="centrar-boton-contacto"><button onclick="contacto(this)" id ="4-contacto" class="boton">Contactar Oferente</button><span id ="4-contacto-correo" class="colapse">Correo: COSO</span></div>
+                <?php
+                if(isset($_SESSION["id_usuario"]) AND $resultado["id_usuario"]==$_SESSION["id_usuario"])
+                {
+                  echo <<<HEREDOC
+                  <div class="centrar-boton-contacto"><button onclick="contacto(this)" id ="4-contacto" class="boton">Contactar</button><span id ="4-contacto-correo" class="colapse">Correo: COSO</span></div>
+
+                  HEREDOC;
+                }else
+                {
+                  echo <<<HEREDOC
+                  <div class="centrar-boton-contacto" hidden><button hidden onclick="contacto(this)" id ="4-contacto" class="boton">Contactar</button><span id ="4-contacto-correo" class="colapse">Correo: COSO</span></div>
+                  
+                  HEREDOC;
+                }
+
+                ?>
+
                 
               </div>
 
-              <button id="5-o" onclick="mostrar_ocultar('5-o-d','flex')" class="prop-d-oferta efecto-hover grid show">
+              <button id="5-o" onclick="mostrar_ocultar('5-o-d','flex')" class="prop-d-oferta efecto-hover grid hide">
                 <span id="5-creacion-mini">11/12/2021</span>
                 <span id="5-precio-mini">50K USD </span>
                 <span id="5-termina-mini">30/12/2021</span>
@@ -454,11 +520,30 @@ if($conexion)
                   <span id="5-termina-grande" class="prop-d-valor bot-right border">2021/05/07</span>
                 </div>
 
-                <div class="centrar-boton-contacto"><button onclick="contacto(this)" id ="5-contacto" class="boton">Contactar Oferente</button><span id ="5-contacto-correo" class="colapse">Correo: COSO</span></div>
+                <?php
+                if(isset($_SESSION["id_usuario"]) AND $resultado["id_usuario"]==$_SESSION["id_usuario"])
+                {
+                  echo <<<HEREDOC
+                  <div class="centrar-boton-contacto"><button onclick="contacto(this)" id ="5-contacto" class="boton">Contactar</button><span id ="5-contacto-correo" class="colapse">Correo: COSO</span></div>
+
+                  HEREDOC;
+                }else
+                {
+                  echo <<<HEREDOC
+                  <div class="centrar-boton-contacto" hidden><button hidden onclick="contacto(this)" id ="5-contacto" class="boton">Contactar</button><span id ="5-contacto-correo" class="colapse">Correo: COSO</span></div>
+                  
+                  HEREDOC;
+                }
+
+                ?>
                 
               </div>
               
-
+              <div class="nav-resultados">
+                <button onclick="actualizar_pag_oferta(false)" id="resultados-anterior" class="boton colapse">< ANTERIOR</button>
+                <span id="resultados-cantidad" class="resultados-cantidad">Pagina 1</span>
+                <button onclick="actualizar_pag_oferta(true)" id="resultados-siguiente" class="boton block">Siguiente ></button>
+              </div>
 
 
             
